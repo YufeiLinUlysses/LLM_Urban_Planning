@@ -1,0 +1,4 @@
+./instructions/*_instructions.json
+python/results/
+python/outputs/
+python/qa_pair_gen.py

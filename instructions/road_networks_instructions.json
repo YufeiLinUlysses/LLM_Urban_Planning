@@ -1,0 +1,142 @@
+[
+    {
+        "Instruction information": {
+            "Categories": "Multiple Selection"
+        },
+        "Definition": "You are given a question on the dataset NGSIM (Next Generation Simulation Open Data). NGSIM is a dataset about detailed vehicle trajectory data and supporting data files along with the raw and processed video files from the NGSIM data collection efforts. You are also given 4 answer options (associated with 'A', 'B', 'C', 'D'), out of which only one is correct. You need to answer the question by selecting the correct option. You should only answer with the choice letter, not the whole answer.",
+        "Positive Example": [
+            {
+                "Input": "What can be done with the data? (A)Taxi fare analysis (B)Food price change (C)Mobile data analysis (D)Graph Visualization on road networks",
+                "Output": "D",
+                "Explanation": "This dataset can be used for graph visualization on road networks"
+            },
+            {
+                "Input": "What year was the data created? (A)2009 (B)2010 (C)2024 (D)2015",
+                "Output": "D",
+                "Explanation": "This dataset was collected on 2015"
+            },
+            {
+                "Input": "What type of data is available on the page? (A) Social media data (B) Financial data (C) Road network data (D) Weather data",
+                "Output": "C",
+                "Explanation": "The webpage focuses on road network data."
+            },
+            {
+                "Input": "What is the main purpose of the data? (A) To analyze social trends (B) To visualize road networks (C) To predict stock prices (D) To monitor weather changes",
+                "Output": "B",
+                "Explanation": "The primary purpose of the data is to visualize road networks."
+            },
+            {
+                "Input": "What format is the road network data available in? (A) CSV (B) JSON (C) XML (D) Various graph formats",
+                "Output": "D",
+                "Explanation": "The data is available in various graph formats suitable for network analysis."
+            },
+            {
+                "Input": "What does the 'Network Data Repository' provide? (A) Music files (B) Road network datasets (C) Climate data (D) Medical records",
+                "Output": "B",
+                "Explanation": "The repository provides datasets related to road networks."
+            },
+            {
+                "Input": "Who can benefit from the road network data? (A) Meteorologists (B) Financial analysts (C) Network scientists (D) Fashion designers",
+                "Output": "C",
+                "Explanation": "Network scientists can benefit from the road network data for their research."
+            },
+            {
+                "Input": "What can the road network data be used for? (A) Predicting elections (B) Visualizing transportation networks (C) Analyzing food trends (D) Monitoring wildlife",
+                "Output": "B",
+                "Explanation": "The data can be used for visualizing transportation networks."
+            },
+            {
+                "Input": "What is a characteristic of the road network datasets? (A) Unstructured text (B) Graph structures (C) Audio recordings (D) Video files",
+                "Output": "B",
+                "Explanation": "The datasets are structured as graphs."
+            },
+            {
+                "Input": "What field of study is the road network data most relevant to? (A) Chemistry (B) Network science (C) Literature (D) Marine biology",
+                "Output": "B",
+                "Explanation": "The data is most relevant to network science."
+            },
+            {
+                "Input": "Which of the following is a use case for the road network data? (A) Movie recommendation systems (B) Transportation planning (C) Fashion trend analysis (D) Space exploration",
+                "Output": "B",
+                "Explanation": "Transportation planning is a key use case for the data."
+            },
+            {
+                "Input": "What is the primary content of the webpage? (A) Sports statistics (B) Road network graphs (C) Recipes (D) Historical events",
+                "Output": "B",
+                "Explanation": "The primary content of the webpage is road network graphs."
+            }
+        ],
+        "Negative Example": [
+
+        ]
+    },
+    {
+        "Instruction information": {
+            "Categories": "Question answering"
+        },
+        "Definition": "Write a correct answer to the given question based on its associated fact. Make sure that your answer is contained in the associated fact. Don't be creative and introduce any new word that is not mentioned in the associated fact! Remember that the associated fact has been rearranged to form the question. So, the correct answer words must lie within the associated fact. The correct answer can be a word, phrase, or even a sentence.",
+        "Positive Example": [
+            {
+                "Input": "Fact: Ryan A. Rossi and Nesreen K. Ahmed are the authors of the dataset. Question:  Who are the authors of the dataset?",
+                "Output": "Ryan A. Rossi and Nesreen K. Ahmed",
+                "Explanation": "The authors of the dataset are Ryan A. Rossi and Nesreen K. Ahmed"
+            },
+            {
+                "Input": "Fact: The data contains road network data on 15 different regions. Question:  How many regions are included in the road network?",
+                "Output": "15",
+                "Explanation": "There are 15 regions included in the road network."
+            },
+            {
+                "Input": "Fact: The dataset includes road network data. Question: What type of data does the dataset include?",
+                "Output": "Road network data",
+                "Explanation": "The dataset specifically includes data related to road networks."
+            },
+            {
+                "Input": "Fact: The dataset provides data for road networks in various regions. Question: What regions does the dataset provide data for?",
+                "Output": "Various regions",
+                "Explanation": "The dataset encompasses data from multiple regions, indicating its broad scope."
+            },
+            {
+                "Input": "Fact: The dataset is published by Network Repository. Question: Who published the dataset?",
+                "Output": "Network Repository",
+                "Explanation": "Network Repository is mentioned as the publisher of the dataset."
+            },
+            {
+                "Input": "Fact: The dataset can be used for research in transportation. Question: What type of research can the dataset be used for?",
+                "Output": "Transportation",
+                "Explanation": "The dataset is applicable for research focused on transportation due to its content on road networks."
+            },
+            {
+                "Input": "Fact: The road network data can help in analyzing traffic patterns. Question: What can the road network data help analyze?",
+                "Output": "Traffic patterns",
+                "Explanation": "The data can be utilized to analyze traffic patterns, making it valuable for traffic studies."
+            },
+            {
+                "Input": "Fact: The dataset includes metadata about road networks. Question: What additional information does the dataset include about road networks?",
+                "Output": "Metadata",
+                "Explanation": "The dataset not only contains data but also metadata about the road networks."
+            },
+            {
+                "Input": "Fact: The dataset is useful for modeling and simulation. Question: For what purposes is the dataset useful?",
+                "Output": "Modeling and simulation",
+                "Explanation": "The dataset can be used for creating models and running simulations related to road networks."
+            },
+            {
+                "Input": "Fact: The dataset can aid in urban planning. Question: How can the dataset be useful for city development?",
+                "Output": "Urban planning",
+                "Explanation": "The dataset can provide valuable insights for urban planning and city development due to its detailed road network data."
+            },
+            {
+                "Input": "Fact: The dataset is accessible through Network Repository's website. Question: Where can the dataset be accessed?",
+                "Output": "Network Repository's website",
+                "Explanation": "The dataset is available on the Network Repository website."
+            },
+            {
+                "Input": "Fact: The dataset covers road networks from both urban and rural areas. Question: What types of areas do the road networks in the dataset cover?",
+                "Output": "Urban and rural areas",
+                "Explanation": "The dataset includes data from both urban and rural regions, indicating its comprehensive nature."
+            }
+        ],
+        "Negative Example": []
+    }
+]

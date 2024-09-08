@@ -1,0 +1,23 @@
+### Context ###
+All the generations should be based on the idea of summarizing basic information about the following web page:
+https://networkrepository.com/road.php
+### Example ###
+[
+            {
+                "Input": "Fact: Ryan A. Rossi and Nesreen K. Ahmed are the authors of the dataset. Question:  Who are the authors of the dataset?",
+                "Output": "Ryan A. Rossi and Nesreen K. Ahmed",
+                "Explanation": "undefined"
+            },
+            {
+                "Input": "Fact: The data contains road network data on 15 different regions. Question:  How many regions are included in the road network?",
+                "Output": "15",
+                "Explanation": "undefined"
+            },
+ ]
+### Objective ###
+Generate 10 question and answering pair as the previous example question and answer pair to summarize and answer question regarding previous webpage.
+### Output ###
+Output should be a json with the following fields:
+Input: Question generated
+Output: Answer generated
+Explanation: Reason why this answer is generated for the question

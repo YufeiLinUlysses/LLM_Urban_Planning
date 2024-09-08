@@ -1,0 +1,142 @@
+[
+    {
+        "Instruction information": {
+            "Categories": "Multiple Selection"
+        },
+        "Definition": "You are given a question on the dataset NGSIM (Next Generation Simulation Open Data). NGSIM is a dataset about detailed vehicle trajectory data and supporting data files along with the raw and processed video files from the NGSIM data collection efforts. You are also given 4 answer options (associated with 'A', 'B', 'C', 'D'), out of which only one is correct. You need to answer the question by selecting the correct option. You should only answer with the choice letter, not the whole answer.",
+        "Positive Example": [
+            {
+                "Input": "What is true for the data in the dataset? (A)The data is about food. (B)The data is about traffic in China (C)The data is about traffic in the U.S. (D)The data is about cities",
+                "Output": "C",
+                "Explanation": "This dataset contains data of traffic in the U.S."
+            },
+            {
+                "Input": "What is true for the data type of the column Location in the dataset? (A)It is boolean (B)It is integer (C)It is datetime (D)It is string",
+                "Output": "D",
+                "Explanation": "This column contains string as location information."
+            },
+            {
+                "Input": "What is the purpose of the NGSIM program? (A)To study food consumption (B)To analyze traffic in Europe (C)To improve traffic simulation models (D)To collect weather data",
+                "Output": "C",
+                "Explanation": "The purpose of the NGSIM program is to improve traffic simulation models."
+            },
+            {
+                "Input": "What kind of data is included in the NGSIM dataset? (A)Weather data (B)Financial data (C)Traffic and transportation data (D)Healthcare data",
+                "Output": "C",
+                "Explanation": "The NGSIM dataset includes traffic and transportation data."
+            },
+            {
+                "Input": "Which country's traffic data is included in the NGSIM dataset? (A)India (B)United Kingdom (C)Australia (D)United States",
+                "Output": "D",
+                "Explanation": "The dataset includes traffic data from the United States."
+            },
+            {
+                "Input": "What is the primary focus of the NGSIM dataset? (A)Traffic patterns (B)Weather conditions (C)Stock market trends (D)Healthcare statistics",
+                "Output": "A",
+                "Explanation": "The primary focus of the NGSIM dataset is traffic patterns."
+            },
+            {
+                "Input": "What type of data format is used for the NGSIM dataset? (A)Audio files (B)Images (C)Text documents (D)CSV files",
+                "Output": "D",
+                "Explanation": "The NGSIM dataset is typically provided in CSV files."
+            },
+            {
+                "Input": "What is one application of the NGSIM data? (A)Creating food recipes (B)Developing traffic simulation tools (C)Monitoring health epidemics (D)Tracking financial transactions",
+                "Output": "B",
+                "Explanation": "One application of the NGSIM data is developing traffic simulation tools."
+            },
+            {
+                "Input": "Which agency is responsible for the NGSIM program? (A)NASA (B)FDA (C)USDOT (D)WHO",
+                "Output": "C",
+                "Explanation": "The USDOT (United States Department of Transportation) is responsible for the NGSIM program."
+            },
+            {
+                "Input": "What kind of environments are covered in the NGSIM data? (A)Marine environments (B)Urban and highway environments (C)Desert environments (D)Mountainous environments",
+                "Output": "B",
+                "Explanation": "The NGSIM data covers urban and highway environments."
+            },
+            {
+                "Input": "How is the NGSIM data intended to be used by researchers? (A)To develop climate models (B)To study ancient history (C)To enhance transportation safety and efficiency (D)To create new agricultural methods",
+                "Output": "C",
+                "Explanation": "The NGSIM data is intended to be used to enhance transportation safety and efficiency."
+            },
+            {
+                "Input": "What is a key feature of the NGSIM dataset? (A)It contains genetic information (B)It includes detailed traffic flow information (C)It tracks animal migration patterns (D)It monitors space weather",
+                "Output": "B",
+                "Explanation": "A key feature of the NGSIM dataset is that it includes detailed traffic flow information."
+            }
+        ],
+        "Negative Example": [
+
+        ]
+    },
+    {
+        "Instruction information": {
+            "Categories": "Question answering"
+        },
+        "Definition": "Write a correct answer to the given question based on its associated fact. Make sure that your answer is contained in the associated fact. Don't be creative and introduce any new word that is not mentioned in the associated fact! Remember that the associated fact has been rearranged to form the question. So, the correct answer words must lie within the associated fact. The correct answer can be a word, phrase, or even a sentence.",
+        "Positive Example": [
+            {
+                "Input": "Fact: NGSIM dataset is about two US routes US 101 and I80. Question: What routes is NGSIM dataset about?",
+                "Output": "US 101 and I80",
+                "Explanation": "The dataset is collected on vehicles on US 101 and I80"
+            },
+            {
+                "Input": "Fact: NGSIM dataset is collected to help building microscopic behavioral algorithms. Question: What is the purpose for collecting NGSIM data?",
+                "Output": "Building microscopic behavioral algorithms",
+                "Explanation": "NGSIM dataset was created to build microscopic behavioral algorithms"
+            },
+            {
+                "Input": "Fact: NGSIM dataset was developed by the Federal Highway Administration (FHWA). Question: Who developed the NGSIM dataset?",
+                "Output": "Federal Highway Administration (FHWA)",
+                "Explanation": "The NGSIM dataset was developed by the Federal Highway Administration (FHWA)."
+            },
+            {
+                "Input": "Fact: The NGSIM program aims to improve the understanding of traffic flow and operations. Question: What is the aim of the NGSIM program?",
+                "Output": "Improve the understanding of traffic flow and operations",
+                "Explanation": "The aim of the NGSIM program is to enhance the understanding of traffic flow and operations."
+            },
+            {
+                "Input": "Fact: NGSIM data includes vehicle trajectory data collected on freeways and arterials. Question: What type of data does the NGSIM dataset include?",
+                "Output": "Vehicle trajectory data collected on freeways and arterials",
+                "Explanation": "The NGSIM dataset includes vehicle trajectory data collected on both freeways and arterials."
+            },
+            {
+                "Input": "Fact: The NGSIM dataset helps researchers develop and validate new models for traffic analysis. Question: How does the NGSIM dataset benefit researchers?",
+                "Output": "Develop and validate new models for traffic analysis",
+                "Explanation": "The NGSIM dataset benefits researchers by aiding in the development and validation of new traffic analysis models."
+            },
+            {
+                "Input": "Fact: Data was collected at different times of day to capture various traffic conditions. Question: When was data collected to capture various traffic conditions?",
+                "Output": "At different times of day",
+                "Explanation": "Data was collected at different times of day to ensure a variety of traffic conditions were recorded."
+            },
+            {
+                "Input": "Fact: Data collection sites include Los Angeles, Emeryville, and Lankershim Boulevard in Hollywood. Question: Where are the data collection sites for the NGSIM dataset?",
+                "Output": "Los Angeles, Emeryville, and Lankershim Boulevard in Hollywood",
+                "Explanation": "The data collection sites for the NGSIM dataset are Los Angeles, Emeryville, and Lankershim Boulevard in Hollywood."
+            },
+            {
+                "Input": "Fact: NGSIM data is freely available to the public. Question: Is NGSIM data publicly accessible?",
+                "Output": "Yes, it is freely available to the public",
+                "Explanation": "The NGSIM data is publicly accessible and freely available."
+            },
+            {
+                "Input": "Fact: The NGSIM program was initiated in 2003. Question: When was the NGSIM program initiated?",
+                "Output": "In 2003",
+                "Explanation": "The NGSIM program was initiated in 2003."
+            },
+            {
+                "Input": "Fact: NGSIM data has been used in numerous research and operational projects. Question: In what types of projects has NGSIM data been used?",
+                "Output": "Numerous research and operational projects",
+                "Explanation": "NGSIM data has been utilized in various research and operational projects."
+            },
+            {
+                "Input": "Fact: Data collection included video imaging techniques and vehicle re-identification. Question: What techniques were used for data collection in the NGSIM program?",
+                "Output": "Video imaging techniques and vehicle re-identification",
+                "Explanation": "The NGSIM program used video imaging techniques and vehicle re-identification for data collection."
+            }
+        ],
+        "Negative Example": []
+    }
+]

@@ -1,0 +1,142 @@
+[
+    {
+        "Instruction information": {
+            "Categories": "Multiple Selection"
+        },
+        "Definition": "You are given a question on the dataset tlc trip. Tlc trip is a dataset about detailed taxi trajectory data. You are also given 4 answer options (associated with 'A', 'B', 'C', 'D'), out of which only one is correct. You need to answer the question by selecting the correct option. You should only answer with the choice letter, not the whole answer.",
+        "Positive Example": [
+            {
+                "Input": "What vechiles are included in the dataset? (A)Drone (B)Taxi (C)Trucks (D)Trains",
+                "Output": "B",
+                "Explanation": "This is a dataset about taxi trajectories"
+            },
+            {
+                "Input": "Which city is the data about? (A)NYC (B)Tokyo (C)Seattle (D)Beijing",
+                "Output": "A",
+                "Explanation": "This data is collected in NYC"
+            },
+            {
+                "Input": "What type of trips does the TLC Trip Record Data include? (A)Bus trips (B)Taxi trips (C)Train trips (D)Bicycle trips",
+                "Output": "B",
+                "Explanation": "The TLC Trip Record Data specifically includes taxi trips."
+            },
+            {
+                "Input": "Which organization provides the trip record data? (A)NYC Department of Transportation (B)NYC Metropolitan Transportation Authority (C)NYC Taxi and Limousine Commission (D)NYC Department of Environmental Protection",
+                "Output": "C",
+                "Explanation": "The NYC Taxi and Limousine Commission (TLC) provides the trip record data."
+            },
+            {
+                "Input": "How often is the TLC Trip Record Data updated? (A)Daily (B)Weekly (C)Monthly (D)Annually",
+                "Output": "C",
+                "Explanation": "The TLC Trip Record Data is updated monthly."
+            },
+            {
+                "Input": "What information is included in the trip record data? (A)Driver's personal information (B)Passenger's payment method (C)Trip distance (D)Weather conditions",
+                "Output": "C",
+                "Explanation": "The trip record data includes information about the trip distance."
+            },
+            {
+                "Input": "Since which year has the TLC been collecting trip record data? (A)2005 (B)2010 (C)2015 (D)2020",
+                "Output": "B",
+                "Explanation": "The TLC has been collecting trip record data since 2010."
+            },
+            {
+                "Input": "What is the primary use of the TLC Trip Record Data? (A)Public safety (B)Urban planning (C)Tourism analysis (D)Education",
+                "Output": "B",
+                "Explanation": "The primary use of the TLC Trip Record Data is for urban planning."
+            },
+            {
+                "Input": "Which data format is used for the trip record data? (A)PDF (B)CSV (C)HTML (D)DOCX",
+                "Output": "B",
+                "Explanation": "The trip record data is provided in CSV format."
+            },
+            {
+                "Input": "Which type of vehicles does the TLC Trip Record Data primarily focus on? (A)Private cars (B)Commercial buses (C)Taxis (D)Delivery trucks",
+                "Output": "C",
+                "Explanation": "The TLC Trip Record Data primarily focuses on taxis."
+            },
+            {
+                "Input": "What is one of the data fields included in the trip record data? (A)Vehicle make and model (B)Passenger feedback (C)Pickup and drop-off locations (D)Fuel consumption",
+                "Output": "C",
+                "Explanation": "One of the data fields included in the trip record data is the pickup and drop-off locations."
+            },
+            {
+                "Input": "Who can access the TLC Trip Record Data? (A)Only government agencies (B)Registered taxi drivers (C)The general public (D)Private companies",
+                "Output": "C",
+                "Explanation": "The TLC Trip Record Data is accessible to the general public."
+            }
+        ],
+        "Negative Example": [
+
+        ]
+    },
+    {
+        "Instruction information": {
+            "Categories": "Question answering"
+        },
+        "Definition": "Write a correct answer to the given question based on its associated fact. Make sure that your answer is contained in the associated fact. Don't be creative and introduce any new word that is not mentioned in the associated fact! Remember that the associated fact has been rearranged to form the question. So, the correct answer words must lie within the associated fact. The correct answer can be a word, phrase, or even a sentence.",
+        "Positive Example": [
+            {
+                "Input": "Fact: This data captures taxi trip records with the following perspectives: pick-up and drop-off dates/times, pick-up and drop-off locations, trip distances, itemized fares, rate types, payment types, and driver-reported passenger counts. Question:  What does this dataset include?",
+                "Output": "Taxi trips records with the following perspectives: pick-up and drop-off dates/times, pick-up and drop-off locations, trip distances, itemized fares, rate types, payment types, and driver-reported passenger counts",
+                "Explanation": "This dataset contains taxi trip records regarding pick-up and drop-off dates/times, pick-up and drop-off locations, trip distances, itemized fares, rate types, payment types, and driver-reported passenger counts."
+            },
+            {
+                "Input": "Fact: This dataset is collected since 2009. Question:  When did we start collecting data for the dataset?",
+                "Output": "2009",
+                "Explanation": "This dataset is collected starting from 2009"
+            },
+            {
+                "Input": "Fact: The dataset includes trip records from both Yellow and Green taxis. Question: Which types of taxis are included in the dataset?",
+                "Output": "Yellow and Green taxis",
+                "Explanation": "The dataset captures trip records from both Yellow and Green taxis as stated in the fact."
+            },
+            {
+                "Input": "Fact: The trip records include information about trips from January 2009 onwards. Question: Since when does the dataset include trip records?",
+                "Output": "January 2009 onwards",
+                "Explanation": "The dataset includes information from January 2009 onwards."
+            },
+            {
+                "Input": "Fact: The data provides insights into payment types used for taxi trips. Question: What kind of payment information does the dataset offer?",
+                "Output": "Payment types used for taxi trips",
+                "Explanation": "The fact highlights that the dataset includes information on payment types."
+            },
+            {
+                "Input": "Fact: Pick-up and drop-off locations in the dataset are recorded using latitude and longitude coordinates. Question: How are pick-up and drop-off locations recorded in the dataset?",
+                "Output": "Using latitude and longitude coordinates",
+                "Explanation": "The fact specifies that pick-up and drop-off locations are recorded with latitude and longitude coordinates."
+            },
+            {
+                "Input": "Fact: The dataset includes itemized fare amounts for each trip. Question: What fare information is provided in the dataset?",
+                "Output": "Itemized fare amounts for each trip",
+                "Explanation": "The dataset provides detailed fare amounts for each trip, as stated in the fact."
+            },
+            {
+                "Input": "Fact: Trip distances are included in the dataset for each recorded trip. Question: What distance information is available in the dataset?",
+                "Output": "Trip distances for each recorded trip",
+                "Explanation": "The fact mentions that trip distances are included in the dataset."
+            },
+            {
+                "Input": "Fact: The dataset covers driver-reported passenger counts for each trip. Question: What passenger information does the dataset include?",
+                "Output": "Driver-reported passenger counts for each trip",
+                "Explanation": "The fact indicates that the dataset includes driver-reported passenger counts."
+            },
+            {
+                "Input": "Fact: The data includes rate types used during the trips. Question: What rate information does the dataset contain?",
+                "Output": "Rate types used during the trips",
+                "Explanation": "The fact specifies that rate types are included in the dataset."
+            },
+            {
+                "Input": "Fact: The dataset is available for download in CSV format. Question: In what format is the dataset available for download?",
+                "Output": "CSV format",
+                "Explanation": "The fact clearly states that the dataset can be downloaded in CSV format."
+            },
+            {
+                "Input": "Fact: The trip record data can be used for various analysis and research purposes. Question: What can the trip record data be used for?",
+                "Output": "Various analysis and research purposes",
+                "Explanation": "The fact mentions that the data is suitable for various analysis and research."
+            }
+        ],
+        "Negative Example": []
+    }
+]

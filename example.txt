@@ -1,0 +1,23 @@
+{
+    "Input": "What can be done with the data? (A)Taxi fare analysis (B)Food price change (C)Mobile data analysis (D)Graph Visualization on road networks",
+    "Output": "D",
+    "Explanation": "undefined"
+},
+{
+    "Input": "What year was the data created? (A)2009 (B)2010 (C)2024 (D)2015",
+    "Output": "D",
+    "Explanation": "undefined"
+},
+
+
+
+{
+    "Input": "Fact: Ryan A. Rossi and Nesreen K. Ahmed are the authors of the dataset. Question:  Who are the authors of the dataset?",
+    "Output": "Ryan A. Rossi and Nesreen K. Ahmed",
+    "Explanation": "undefined"
+},
+{
+    "Input": "Fact: The data contains road network data on 15 different regions. Question:  How many regions are included in the road network?",
+    "Output": "15",
+    "Explanation": "undefined"
+},

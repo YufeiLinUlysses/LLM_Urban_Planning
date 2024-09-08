@@ -1,0 +1,144 @@
+[
+    {
+        "Instruction information": {
+            "Categories": "Multiple Selection"
+        },
+        "Definition": "You are given a question on the dataset highD. highD is a dataset about detailed vehicle trajectory data collected through drones. You are also given 4 answer options (associated with 'A', 'B', 'C', 'D'), out of which only one is correct. You need to answer the question by selecting the correct option. You should only answer with the choice letter, not the whole answer.",
+        "Positive Example": [
+            {
+                "Input": "How was this data created? (A)Using a drone. (B)Manually collected (C)Via traffic cameras (D)By police department",
+                "Output": "A",
+                "Explanation": "This data was generated using a drone"
+            },
+            {
+                "Input": "Where is the data collected? (A)Japan (B)U.S. (C)Germany (D)Italy",
+                "Output": "C",
+                "Explanation": "This is a dataset about German highway information"
+            },
+            {
+                "Input": "What is the primary focus of the HighD dataset? (A)Pedestrian traffic (B)Highway vehicle traffic (C)Urban traffic (D)Bicycle traffic",
+                "Output": "B",
+                "Explanation": "The HighD dataset focuses on highway vehicle traffic."
+            },
+            {
+                "Input": "How many kilometers of highway were covered in the data collection? (A)16.5 km (B)25.5 km (C)42.3 km (D)8.2 km",
+                "Output": "A",
+                "Explanation": "The data collection covered 16.5 kilometers of highway."
+            },
+            {
+                "Input": "What is the primary method used for data collection in the HighD dataset? (A)Using drones (B)Manually collected (C)Via traffic cameras (D)By police department",
+                "Output": "A",
+                "Explanation": "The data was collected using drones."
+            },
+            {
+                "Input": "In which country was the data for the HighD dataset collected? (A)Japan (B)U.S. (C)Germany (D)Italy",
+                "Output": "C",
+                "Explanation": "The data was collected in Germany."
+            },
+            {
+                "Input": "How many vehicle trajectories are contained in the HighD dataset? (A)80,000 (B)60,000 (C)110,000 (D)100,000",
+                "Output": "D",
+                "Explanation": "The dataset contains 110,000 vehicle trajectories."
+            },
+            {
+                "Input": "How many vehicle classes are included in the HighD dataset? (A)2 (B)5 (C)4 (D)3",
+                "Output": "B",
+                "Explanation": "There are 5 vehicle classes included in the dataset."
+            },
+            {
+                "Input": "What additional information does the HighD dataset provide apart from vehicle trajectories? (A)Weather conditions (B)Road signs (C)Vehicle dimensions (D)Traffic light timings",
+                "Output": "C",
+                "Explanation": "The dataset includes information on vehicle dimensions."
+            },
+            {
+                "Input": "Which organization published the HighD dataset? (A)OpenAI (B)Google (C)LevelX (D)MIT",
+                "Output": "C",
+                "Explanation": "The HighD dataset was published by LevelX."
+            },
+            {
+                "Input": "What type of traffic scenarios does the HighD dataset capture? (A)Urban intersections (B)Highway merge areas (C)Roundabouts (D)Pedestrian crossings",
+                "Output": "B",
+                "Explanation": "The dataset captures highway merge areas."
+            },
+            {
+                "Input": "How is the HighD dataset useful for traffic analysis? (A)Predicting pedestrian movement (B)Analyzing vehicle emissions (C)Improving highway safety (D)Designing bike lanes",
+                "Output": "C",
+                "Explanation": "The dataset is useful for improving highway safety."
+            }
+        ],
+        "Negative Example": [
+            
+        ]
+    },
+    {
+        "Instruction information": {
+            "Categories": "Question answering"
+        },
+        "Definition": "Write a correct answer to the given question based on its associated fact. Make sure that your answer is contained in the associated fact. Don't be creative and introduce any new word that is not mentioned in the associated fact! Remember that the associated fact has been rearranged to form the question. So, the correct answer words must lie within the associated fact. The correct answer can be a word, phrase, or even a sentence.",
+        "Positive Example": [
+            {
+                "Input": "Fact: highD dataset includes information about over 110500 vehicles. Question:  How many vechiles does highD dataset include?",
+                "Output": "Over 110500",
+                "Explanation": "There are 110500 vechiles' information included in the dataset"
+            },
+            {
+                "Input": "Fact: The position error is 10 centimeters in highD dataset. Question:  How large is the position error?",
+                "Output": "10 centimeters",
+                "Explanation": "The position error is 10 centimeter."
+            },
+            {
+                "Input": "Fact: highD dataset is a new dataset of naturalistic vehicle trajectories recorded on German highways. Question: What is the highD dataset?",
+                "Output": "A dataset of naturalistic vehicle trajectories recorded on German highways",
+                "Explanation": "The dataset is described as being focused on naturalistic vehicle trajectories on German highways."
+            },
+            {
+                "Input": "Fact: The highD dataset contains 60 different video recordings of German highway traffic. Question: How many video recordings are in the highD dataset?",
+                "Output": "60",
+                "Explanation": "The dataset includes a specific number of video recordings, which is 60."
+            },
+            {
+                "Input": "Fact: Each recording in the highD dataset covers a time span of 17 minutes. Question: How long is each recording in the highD dataset?",
+                "Output": "17 minutes",
+                "Explanation": "The time span of each recording is explicitly mentioned as 17 minutes."
+            },
+            {
+                "Input": "Fact: The dataset provides a complete vehicle trajectory dataset covering 16.5 hours of driving. Question: How many hours of driving does the highD dataset cover?",
+                "Output": "16.5 hours",
+                "Explanation": "The total coverage of driving time in the dataset is stated to be 16.5 hours."
+            },
+            {
+                "Input": "Fact: The highD dataset includes various traffic parameters like position, velocity, and acceleration. Question: What traffic parameters does the highD dataset include?",
+                "Output": "Position, velocity, and acceleration",
+                "Explanation": "The dataset includes specific traffic parameters such as position, velocity, and acceleration."
+            },
+            {
+                "Input": "Fact: The dataset was recorded in six different locations on German highways. Question: How many different locations on German highways were used for recording the highD dataset?",
+                "Output": "Six",
+                "Explanation": "The recordings were done at six distinct locations."
+            },
+            {
+                "Input": "Fact: The dataset provides annotations for over 110500 vehicles. Question: How many vehicles are annotated in the highD dataset?",
+                "Output": "Over 110500",
+                "Explanation": "The dataset includes annotations for over 110500 vehicles."
+            },
+            {
+                "Input": "Fact: The highD dataset was captured using a drone flying at a height of 100 meters. Question: At what height was the drone flying to capture the highD dataset?",
+                "Output": "100 meters",
+                "Explanation": "The drone's flying height for capturing the data is mentioned as 100 meters."
+            },
+            {
+                "Input": "Fact: The drone recordings were manually annotated to ensure high accuracy. Question: How were the drone recordings annotated to ensure high accuracy?",
+                "Output": "Manually",
+                "Explanation": "The recordings were annotated manually to achieve high accuracy."
+            },
+            {
+                "Input": "Fact: The highD dataset includes vehicle trajectories with a sampling rate of 25 Hz. Question: What is the sampling rate of the vehicle trajectories in the highD dataset?",
+                "Output": "25 Hz",
+                "Explanation": "The sampling rate for the vehicle trajectories is specified as 25 Hz."
+            }
+        ],
+        "Negative Example": [
+
+        ]
+    }
+]

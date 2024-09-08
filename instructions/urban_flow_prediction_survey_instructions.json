@@ -1,0 +1,142 @@
+[
+    {
+        "Instruction information": {
+            "Categories": "Multiple Selection"
+        },
+        "Definition": "You are given a question on the survey paper. The survey paper is about predicting urban flow from spatiotemporal data. You are also given 4 answer options (associated with 'A', 'B', 'C', 'D'), out of which only one is correct. You need to answer the question by selecting the correct option. You should only answer with the choice letter, not the whole answer.",
+        "Positive Example": [
+            {
+                "Input": "Urban spationtemporal flow prediction can be influenced by which of the following? (A)Drone (B)Trains (C)mobile phone data (D)Shop data",
+                "Output": "C",
+                "Explanation": "Urban spationtemporal flow prediction can be influenced by mobile phone data."
+            },
+            {
+                "Input": "What prediction methods are used to predict urban spationtemporal flow? (A)Marchov chain (B)Tokyo (C)statistics-based methods (D)Driving",
+                "Output": "C",
+                "Explanation": "Stistics-based methods are used to predict urban spationtemporal flow"
+            },
+            {
+                "Input": "What is the main focus of the paper titled 'A survey of data-driven urban flow prediction methods'? (A) Urban planning (B) Traffic management (C) Data-driven prediction methods (D) Environmental impact",
+                "Output": "C",
+                "Explanation": "The paper focuses on data-driven prediction methods for urban flow."
+            },
+            {
+                "Input": "Which type of data is essential for urban flow prediction according to the survey? (A) Environmental data (B) Social media data (C) Traffic data (D) Historical weather data",
+                "Output": "C",
+                "Explanation": "Traffic data is crucial for predicting urban flow."
+            },
+            {
+                "Input": "What kind of urban flow is primarily discussed in the survey? (A) Pedestrian flow (B) Water flow (C) Traffic flow (D) Energy flow",
+                "Output": "C",
+                "Explanation": "The survey primarily discusses traffic flow prediction."
+            },
+            {
+                "Input": "Which machine learning technique is commonly used for urban flow prediction as mentioned in the survey? (A) Decision trees (B) Support vector machines (C) Neural networks (D) K-means clustering",
+                "Output": "C",
+                "Explanation": "Neural networks are commonly used for urban flow prediction."
+            },
+            {
+                "Input": "The survey addresses challenges in urban flow prediction related to which aspect? (A) Data quality (B) Algorithm speed (C) Hardware requirements (D) User interface design",
+                "Output": "A",
+                "Explanation": "Data quality is a significant challenge in urban flow prediction."
+            },
+            {
+                "Input": "Which of the following is NOT a method discussed for urban flow prediction in the survey? (A) Regression analysis (B) Deep learning (C) Classical physics models (D) Graph-based models",
+                "Output": "C",
+                "Explanation": "Classical physics models are not discussed for urban flow prediction."
+            },
+            {
+                "Input": "What is the significance of spatiotemporal data in urban flow prediction? (A) It provides real-time updates (B) It offers spatial and temporal context (C) It reduces computational cost (D) It simplifies data collection",
+                "Output": "B",
+                "Explanation": "Spatiotemporal data provides crucial spatial and temporal context for accurate prediction."
+            },
+            {
+                "Input": "Which sector can benefit the most from accurate urban flow prediction according to the survey? (A) Agriculture (B) Education (C) Transportation (D) Healthcare",
+                "Output": "C",
+                "Explanation": "The transportation sector can significantly benefit from accurate urban flow prediction."
+            },
+            {
+                "Input": "What is one of the future directions for urban flow prediction research mentioned in the survey? (A) Integrating quantum computing (B) Developing user-friendly interfaces (C) Enhancing data privacy (D) Combining multiple data sources",
+                "Output": "D",
+                "Explanation": "Combining multiple data sources is mentioned as a future research direction."
+            },
+            {
+                "Input": "The survey discusses the use of which data source for enhancing urban flow prediction models? (A) Satellite imagery (B) Mobile phone data (C) Social network analysis (D) Weather forecasts",
+                "Output": "B",
+                "Explanation": "Mobile phone data is discussed as a valuable data source for enhancing prediction models."
+            }
+        ],
+        "Negative Example": [
+
+        ]
+    },
+    {
+        "Instruction information": {
+            "Categories": "Question answering"
+        },
+        "Definition": "Write a correct answer to the given question based on its associated fact. Make sure that your answer is contained in the associated fact. Don't be creative and introduce any new word that is not mentioned in the associated fact! Remember that the associated fact has been rearranged to form the question. So, the correct answer words must lie within the associated fact. The correct answer can be a word, phrase, or even a sentence.",
+        "Positive Example": [
+            {
+                "Input": "Fact: Forecasting urban flow is important for traffic management, land use and public safety. Question:  What can predicting urban flow help with?",
+                "Output": "Traffic management, land use and public safety",
+                "Explanation": "Predicting urban flow can help with traffic management, land use and public safety."
+            },
+            {
+                "Input": "Fact: There are four main factors affecting urban flow. Question:  How many factors affect urban flow?",
+                "Output": "4",
+                "Explanation": "There are four factors influencing urban flow."
+            },
+            {
+                "Input": "Fact: The paper discusses the impact of spatiotemporal data on transportation research. Question: What type of data is discussed in relation to transportation research?",
+                "Output": "Spatiotemporal data",
+                "Explanation": "The paper specifically mentions spatiotemporal data and its relevance to transportation research."
+            },
+            {
+                "Input": "Fact: Understanding travel patterns can improve urban infrastructure planning. Question: What can understanding travel patterns improve?",
+                "Output": "Urban infrastructure planning",
+                "Explanation": "The paper highlights that understanding travel patterns contributes to better urban infrastructure planning."
+            },
+            {
+                "Input": "Fact: The study utilizes a dataset from taxi services to analyze urban flow. Question: What type of dataset is used in the study to analyze urban flow?",
+                "Output": "Dataset from taxi services",
+                "Explanation": "The study is based on data collected from taxi services to understand urban flow dynamics."
+            },
+            {
+                "Input": "Fact: The research introduces a new methodology for predicting traffic congestion. Question: What does the research introduce for predicting traffic congestion?",
+                "Output": "A new methodology",
+                "Explanation": "The paper mentions the introduction of a new methodology specifically for predicting traffic congestion."
+            },
+            {
+                "Input": "Fact: Machine learning techniques are applied to enhance prediction accuracy in the study. Question: What techniques are applied to enhance prediction accuracy?",
+                "Output": "Machine learning techniques",
+                "Explanation": "The study employs machine learning techniques to improve the accuracy of its predictions."
+            },
+            {
+                "Input": "Fact: The authors emphasize the importance of data granularity in transportation analysis. Question: What aspect of data do the authors emphasize in transportation analysis?",
+                "Output": "Data granularity",
+                "Explanation": "The authors focus on the importance of the level of detail in data (granularity) for transportation analysis."
+            },
+            {
+                "Input": "Fact: The findings suggest that peak traffic times are highly predictable. Question: What do the findings suggest about peak traffic times?",
+                "Output": "They are highly predictable.",
+                "Explanation": "The paper's findings indicate that peak traffic times can be predicted with a high degree of accuracy."
+            },
+            {
+                "Input": "Fact: Urban flow analysis can help optimize public transportation routes. Question: What can urban flow analysis help optimize?",
+                "Output": "Public transportation routes",
+                "Explanation": "The analysis of urban flow is useful for optimizing the routes of public transportation."
+            },
+            {
+                "Input": "Fact: The study incorporates temporal patterns to improve prediction models. Question: What patterns are incorporated to improve prediction models?",
+                "Output": "Temporal patterns",
+                "Explanation": "The study uses temporal (time-based) patterns to enhance the effectiveness of its prediction models."
+            },
+            {
+                "Input": "Fact: Researchers collected data over a period of one year. Question: Over what period was data collected for the study?",
+                "Output": "One year",
+                "Explanation": "The data for the study was gathered over the course of one year, as mentioned in the paper."
+            }
+        ],
+        "Negative Example": []
+    }
+]
