@@ -1,0 +1,195 @@
+{
+    "dataset_name": "urban_flow_prediction_survey",
+    "dataset_link": "https://doi.org/10.1016/j.inffus.2020.01.002",
+    "dataset_description": "The Urban Flow Prediction Survey provides a comprehensive overview of spatiotemporal data, preprocessing pipelines, and machine learning methods—ranging from statistical, traditional ML, deep learning, reinforcement learning, to transfer learning—for predicting urban crowd, traffic, and transit flows.",
+    "instructions": [
+        {
+            "Instruction information": {
+                "Categories": "Multiple Selection"
+            },
+            "Task_Definition": "You are given 4 answer options (associated with 'A', 'B', 'C', 'D'), out of which only one is correct. You need to answer the question by selecting the correct option. You should only answer with the choice letter, not the whole answer.",
+            "Positive Example": [
+                {
+                    "Question": "What is the main focus of the Urban Flow Prediction Survey?",
+                    "Selections": {
+                        "A": "Urban architecture design",
+                        "B": "Machine learning methods for urban flow prediction",
+                        "C": "Drone operation",
+                        "D": "Autonomous vehicle hardware"
+                    },
+                    "Output": "B",
+                    "Explanation": "The survey analyzes ML approaches for forecasting spatiotemporal urban flow."
+                },
+                {
+                    "Question": "Which of the following is NOT one of the urban flow types discussed?",
+                    "Selections": {
+                        "A": "Crowd flow",
+                        "B": "Traffic flow",
+                        "C": "Public transit flow",
+                        "D": "Power grid flow"
+                    },
+                    "Output": "D",
+                    "Explanation": "Only crowd, traffic, and transit flows are covered in the survey."
+                },
+                {
+                    "Question": "Which of the following is an influential factor for urban flow?",
+                    "Selections": {
+                        "A": "Smartphone brand of users",
+                        "B": "Daily activity patterns",
+                        "C": "Street food sales",
+                        "D": "Building color"
+                    },
+                    "Output": "B",
+                    "Explanation": "Daily activity patterns are one of the four key flow determinants."
+                },
+                {
+                    "Question": "Which dataset category contains both spatial and temporal dynamics?",
+                    "Selections": {
+                        "A": "Spatiotemporal static",
+                        "B": "Spatial static temporal dynamic",
+                        "C": "Spatiotemporal dynamic",
+                        "D": "Static-only data"
+                    },
+                    "Output": "C",
+                    "Explanation": "Spatiotemporal dynamic datasets include time-varying location or flow data."
+                },
+                {
+                    "Question": "Which method partitions a city into uniform grids?",
+                    "Selections": {
+                        "A": "Network-based segmentation",
+                        "B": "Random polygon splitting",
+                        "C": "Grid-based decomposition",
+                        "D": "Voronoi tessellation only"
+                    },
+                    "Output": "C",
+                    "Explanation": "Grid-based decomposition divides space into fixed M×N grids."
+                },
+                {
+                    "Question": "Which of the following is a data problem discussed in the survey?",
+                    "Selections": {
+                        "A": "Too many colors in heatmaps",
+                        "B": "Data missing",
+                        "C": "Long PDF file names",
+                        "D": "Lack of 3D building models"
+                    },
+                    "Output": "B",
+                    "Explanation": "The survey describes missing data as a common challenge in urban datasets."
+                },
+                {
+                    "Question": "Which of the following is one of the five method categories?",
+                    "Selections": {
+                        "A": "Blockchain-based optimization",
+                        "B": "Deep learning-based methods",
+                        "C": "Origami-based modeling",
+                        "D": "Market basket analysis"
+                    },
+                    "Output": "B",
+                    "Explanation": "Deep learning is one of the five major method families identified."
+                },
+                {
+                    "Question": "Which operation is part of trajectory preprocessing?",
+                    "Selections": {
+                        "A": "3D printing trajectories",
+                        "B": "Trajectory segmentation",
+                        "C": "Sound wave filtering",
+                        "D": "Combining emojis with GPS"
+                    },
+                    "Output": "B",
+                    "Explanation": "Trajectory segmentation is a core step described in Section 3."
+                },
+                {
+                    "Question": "Which challenge is discussed in the paper?",
+                    "Selections": {
+                        "A": "Lack of coloring tools",
+                        "B": "Data sparsity in spatiotemporal datasets",
+                        "C": "Too many map projections",
+                        "D": "Road sign typography"
+                    },
+                    "Output": "B",
+                    "Explanation": "Data sparsity is one of the key challenges limiting prediction accuracy."
+                },
+                {
+                    "Question": "Which of the following datasets is listed as publicly available in the survey?",
+                    "Selections": {
+                        "A": "Mars rover speed logs",
+                        "B": "NYC taxi data",
+                        "C": "Private corporate fleet GPS",
+                        "D": "Instagram story timestamps"
+                    },
+                    "Output": "B",
+                    "Explanation": "NYC taxi data is one of the main public datasets referenced in Section 7."
+                }
+            ],
+            "Negative Example": []
+        },
+        {
+            "Instruction information": {
+                "Categories": "Question answering"
+            },
+            "Task_Definition": "Write a correct answer to the given question based on its associated fact. Make sure that your answer is contained in the associated fact. Don't be creative and introduce any new word that is not mentioned in the associated fact! Remember that the associated fact has been rearranged to form the question. So, the correct answer words must lie within the associated fact. The correct answer can be a word, phrase, or even a sentence.",
+            "Positive Example": [
+                {
+                    "Fact": "The survey lists public datasets such as NYC taxi data, Citi Bike data, UK traffic flow data, San Francisco taxi data, and Chicago bike sharing data.",
+                    "Question": "Name one public dataset mentioned in the survey.",
+                    "Output": "Examples include NYC taxi data, Citi Bike data, Chicago bike data, or UK traffic flow datasets.",
+                    "Explanation": "Section 7 presents a list of publicly available urban spatiotemporal datasets."
+                },
+                {
+                    "Fact": "The survey identifies three major challenges: handling multiple influence factors, cross-domain data fusion, and data sparsity.",
+                    "Question": "What is one open challenge for urban flow prediction mentioned in the survey?",
+                    "Output": "Examples include handling multiple influence factors, data fusion, or data sparsity.",
+                    "Explanation": "Section 5 explicitly lists these three challenges."
+                },
+                {
+                    "Fact": "The survey provides a full preprocessing pipeline for trajectory data including stay-point extraction, filtering, compression, segmentation, and map matching.",
+                    "Question": "Name one trajectory preprocessing step mentioned in the survey.",
+                    "Output": "Examples include stay-point extraction, filtering, compression, segmentation, or map matching.",
+                    "Explanation": "Section 3 walks through these preprocessing stages."
+                },
+                {
+                    "Fact": "Urban flow prediction methods are classified into five categories: statistics-based, traditional ML, deep learning, reinforcement learning, and transfer learning.",
+                    "Question": "How many categories of prediction methods does the survey define?",
+                    "Output": "Five categories.",
+                    "Explanation": "Section 4 defines these five methodological groups."
+                },
+                {
+                    "Fact": "The survey highlights common spatiotemporal issues such as missing data, imbalance, and uncertainty.",
+                    "Question": "Name one spatiotemporal data issue discussed in the survey.",
+                    "Output": "Examples include missing data, imbalance, or uncertainty.",
+                    "Explanation": "Section 2.3 covers these three categories of data challenges."
+                },
+                {
+                    "Fact": "The survey describes two map decomposition methods: grid-based and road-network-based.",
+                    "Question": "What are the two map decomposition approaches introduced in the survey?",
+                    "Output": "Grid-based decomposition and road-network-based decomposition.",
+                    "Explanation": "Section 2.2 explicitly contrasts grid and road-network segmentation."
+                },
+                {
+                    "Fact": "The survey divides spatiotemporal datasets into spatiotemporal static, spatial static temporal dynamic, and spatiotemporal dynamic categories.",
+                    "Question": "What are the three categories of spatiotemporal datasets mentioned in the survey?",
+                    "Output": "Spatiotemporal static, spatial static temporal dynamic, and spatiotemporal dynamic.",
+                    "Explanation": "Table 1 on page 2 outlines these dataset categories."
+                },
+                {
+                    "Fact": "The survey identifies four major urban flow factors: daily activity patterns, anomalies, weather, and holidays.",
+                    "Question": "Name one major factor affecting urban flow according to the survey.",
+                    "Output": "Examples include daily activity patterns, anomalies, weather, or holidays.",
+                    "Explanation": "Page 1 lists these four factor groups explicitly."
+                },
+                {
+                    "Fact": "The survey identifies three flow types: crowd flow, traffic flow, and public transit flow.",
+                    "Question": "What are the three types of urban flow described in the survey?",
+                    "Output": "Crowd flow, traffic flow, and public transit flow.",
+                    "Explanation": "These categories appear explicitly in the introduction of the paper."
+                },
+                {
+                    "Fact": "The survey reviews methods for predicting urban flow from spatiotemporal data across traffic, crowd, and public transit domains.",
+                    "Question": "What does the survey primarily review?",
+                    "Output": "Methods for predicting urban flow from spatiotemporal data.",
+                    "Explanation": "The paper summarizes prediction approaches for crowd flow, traffic flow, and public transit flow."
+                }
+            ],
+            "Negative Example": []
+        }
+    ]
+}
