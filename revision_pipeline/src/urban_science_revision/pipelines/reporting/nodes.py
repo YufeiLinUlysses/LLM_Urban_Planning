@@ -3,11 +3,16 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 from typing import Any
 
 
 def _pyplot() -> Any:
+    # Colab exports its notebook-only inline backend to child processes. The
+    # isolated uv environment does not include that backend, and Matplotlib
+    # validates MPLBACKEND during import, before matplotlib.use() can replace it.
+    os.environ["MPLBACKEND"] = "Agg"
     import matplotlib
 
     matplotlib.use("Agg")

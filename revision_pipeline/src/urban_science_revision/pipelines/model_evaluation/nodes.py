@@ -161,7 +161,9 @@ def _load_model(model_spec: dict[str, Any], parameters: dict[str, Any]) -> tuple
         try:
             peft_config = PeftConfig.from_pretrained(model_source, subfolder=subfolder)
         except (OSError, ValueError):
-            model = model_class.from_pretrained(model_source, **load_kwargs)
+            model = model_class.from_pretrained(
+                model_source, subfolder=subfolder, **load_kwargs
+            )
         else:
             base = model_class.from_pretrained(peft_config.base_model_name_or_path, **load_kwargs)
             model = PeftModel.from_pretrained(base, model_source, subfolder=subfolder)
