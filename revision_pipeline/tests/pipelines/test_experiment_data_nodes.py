@@ -57,6 +57,19 @@ def test_seed_split_and_combined_cross_regional_holdout() -> None:
     assert set(gen) == set(ver)
 
 
+def test_huggingface_flat_list_partitions_are_supported() -> None:
+    generation = {"highd": _dataset("highd")["records"]}
+    verification = {"highd": _dataset("highd")["records"]}
+
+    gen, ver, manifest, audit = prepare_experiment_partitions(
+        generation, verification, _parameters()
+    )
+
+    assert manifest["seed_counts"] == {"train": 8, "validation": 1, "test": 1}
+    assert audit["passed"] is True
+    assert set(gen) == set(ver)
+
+
 class _FakeEncoder:
     def encode(self, prompts, **kwargs):
         del kwargs

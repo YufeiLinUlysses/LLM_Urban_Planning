@@ -19,10 +19,14 @@ def _materialize(partitions: Mapping[str, PartitionValue]) -> dict[str, dict[str
     }
 
 
-def _records(dataset: dict[str, Any]) -> list[dict[str, Any]]:
-    records = dataset.get("records")
+def _records(dataset: dict[str, Any] | list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Read local wrapped datasets and flat Hugging Face release partitions."""
+
+    records = dataset if isinstance(dataset, list) else dataset.get("records")
     if not isinstance(records, list):
-        raise ValueError("Every task-view dataset must contain a records list")
+        raise ValueError(
+            "Every task-view dataset must be a record list or contain a records list"
+        )
     return records
 
 
