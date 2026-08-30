@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import inspect
 import json
 import os
 from collections.abc import Callable, Mapping
@@ -230,6 +231,17 @@ def train_and_publish_model(
     validation_dataset = Dataset.from_list(validation_rows).map(
         tokenize, batched=True, remove_columns=["prompt", "target"]
     )
+    training_argument_names = inspect.signature(TrainingArguments.__init__).parameters
+    warmup_arguments: dict[str, float] = {}
+    warmup_ratio = float(parameters.get("warmup_ratio", 0.03))
+    if "warmup_ratio" in training_argument_names:
+        warmup_arguments["warmup_ratio"] = warmup_ratio
+    elif "warmup_steps" in training_argument_names:
+        # Transformers 5 combines integer steps and fractional ratios in warmup_steps.
+        warmup_arguments["warmup_steps"] = warmup_ratio
+    else:  # pragma: no cover - defensive guard for future Transformers releases
+        raise RuntimeError("Installed Transformers exposes no supported warmup argument")
+
     args = TrainingArguments(
         output_dir=str(local_dir / "trainer"),
         per_device_train_batch_size=int(parameters["per_device_train_batch_size"]),
@@ -237,7 +249,7 @@ def train_and_publish_model(
         gradient_accumulation_steps=int(parameters["gradient_accumulation_steps"]),
         num_train_epochs=float(parameters["num_train_epochs"]),
         learning_rate=float(parameters["learning_rate"]),
-        warmup_ratio=float(parameters.get("warmup_ratio", 0.03)),
+        **warmup_arguments,
         weight_decay=float(parameters.get("weight_decay", 0.0)),
         logging_steps=int(parameters.get("logging_steps", 10)),
         eval_strategy="steps",
