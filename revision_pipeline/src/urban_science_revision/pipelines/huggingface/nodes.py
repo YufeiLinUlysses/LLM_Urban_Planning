@@ -69,7 +69,8 @@ answer-verification task views, structural validation, and duplicate auditing.
 - `legacy_v1`: the previously published final JSON files, when present.
 
 The `train` name is only the Hub's container for this unsplit release. Before model training,
-split records by `seed_id`; all descendants of one seed must remain in the same partition.
+split records by `concept_group_id`; all task formats and descendants of one source fact must
+remain in the same partition.
 Never perform a row-level random split over augmented variants.
 
 Negative candidates are not used as incorrect generation targets. They are used only in the
@@ -131,7 +132,7 @@ def prepare_release_bundle(
             "generation": statistics["generation_record_count"],
             "verification": statistics["verification_record_count"],
         },
-        "split_policy": "Group all downstream partitions by seed_id",
+        "split_policy": "Group all downstream partitions by concept_group_id",
     }
     return (
         canonical_data,

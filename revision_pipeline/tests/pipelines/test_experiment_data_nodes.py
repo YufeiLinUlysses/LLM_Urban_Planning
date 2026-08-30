@@ -13,6 +13,7 @@ def _dataset(source: str, seeds: int = 10) -> dict:
             {
                 "example_id": f"{source}-{index}-variant",
                 "seed_id": f"{source}-{index}",
+                "concept_group_id": f"{source}-concept-{index}",
                 "source_name": source,
                 "task_type": "short_answer",
                 "Level": 1,
@@ -47,7 +48,7 @@ def test_seed_split_and_combined_cross_regional_holdout() -> None:
         generation, verification, _parameters()
     )
 
-    assert manifest["seed_counts"] == {"train": 8, "validation": 1, "test": 1}
+    assert manifest["concept_group_counts"] == {"train": 8, "validation": 1, "test": 1}
     assert audit["passed"] is True
     holdouts = [value for value in gen.values() if value["split"] == "cross_regional"]
     assert {value["region"] for value in holdouts} == {"france", "japan"}
@@ -65,9 +66,31 @@ def test_huggingface_flat_list_partitions_are_supported() -> None:
         generation, verification, _parameters()
     )
 
-    assert manifest["seed_counts"] == {"train": 8, "validation": 1, "test": 1}
+    assert manifest["concept_group_counts"] == {"train": 8, "validation": 1, "test": 1}
     assert audit["passed"] is True
     assert set(gen) == set(ver)
+
+
+def test_cross_task_seeds_in_one_concept_never_cross_splits() -> None:
+    dataset = _dataset("highd")
+    dataset["records"][0]["concept_group_id"] = "shared-concept"
+    dataset["records"][0]["task_type"] = "multiple_choice"
+    dataset["records"][1]["concept_group_id"] = "shared-concept"
+    dataset["records"][1]["task_type"] = "short_answer"
+
+    generation, _, manifest, audit = prepare_experiment_partitions(
+        {"highd": dataset}, {"highd": dataset}, _parameters()
+    )
+
+    shared_splits = {
+        record["split"]
+        for partition in generation.values()
+        for record in partition["records"]
+        if record["concept_group_id"] == "shared-concept"
+    }
+    assert len(shared_splits) == 1
+    assert manifest["split_unit"] == "concept_group_id"
+    assert audit["passed"] is True
 
 
 class _FakeEncoder:
@@ -89,6 +112,7 @@ def test_semantic_audit_compares_only_different_splits() -> None:
                 {
                     "example_id": "train-1",
                     "seed_id": "seed-1",
+                    "concept_group_id": "concept-1",
                     "source_name": "source",
                     "prompt": "same meaning alpha",
                 }
@@ -100,12 +124,14 @@ def test_semantic_audit_compares_only_different_splits() -> None:
                 {
                     "example_id": "test-1",
                     "seed_id": "seed-2",
+                    "concept_group_id": "concept-2",
                     "source_name": "source",
                     "prompt": "same meaning beta",
                 },
                 {
                     "example_id": "test-2",
                     "seed_id": "seed-3",
+                    "concept_group_id": "concept-3",
                     "source_name": "source",
                     "prompt": "unrelated",
                 },

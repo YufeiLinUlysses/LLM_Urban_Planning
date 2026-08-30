@@ -12,8 +12,9 @@ the paper and existing data directories untouched.
 - `data/07_model_output/huggingface_release`: a Hub-ready release bundle.
 - `data/08_reporting`: validation, duplicate, rejection, and count reports.
 
-Every augmented descendant retains a deterministic `seed_id`. Downstream train/validation/test
-splits must group on that field; row-level random splitting is unsafe.
+Every augmented descendant retains deterministic `seed_id` and `concept_group_id` lineage.
+Downstream train/validation/test splits group on `concept_group_id`, keeping MCQ,
+short-answer, verification, and augmented variants of the same normalized source fact together.
 
 ## Setup
 
@@ -50,12 +51,13 @@ The revision workflow provides three experiment pipelines in addition to augment
 prepare_experiment_data -> train_model -> evaluate_model
 ```
 
-`prepare_experiment_data` performs a deterministic 80/10/10 split by `seed_id` for the
+`prepare_experiment_data` performs a deterministic 80/10/10 split by `concept_group_id` for the
 training-source datasets. France and Japan bypass this split and are combined under the
 `cross_regional` evaluation scope while retaining a `region` field.
 
-The same pipeline audits cross-split leakage in three layers: seed overlap, exact normalized
-prompt overlap, and sentence-embedding similarity. Semantic candidates above the configured
+The same pipeline audits cross-split leakage in four layers: concept-group overlap, seed
+overlap, exact normalized prompt overlap, and sentence-embedding similarity. Semantic
+candidates above the configured
 threshold are ranked into a human-review queue in `data/08_reporting/experiment/leakage_audit.json`;
 they are not automatically deleted because similar urban terminology does not necessarily imply
 leakage.

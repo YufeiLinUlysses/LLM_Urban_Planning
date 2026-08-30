@@ -1,4 +1,4 @@
-"""Nodes for deterministic seed-level experimental partitioning."""
+"""Nodes for deterministic concept-level experimental partitioning."""
 
 from __future__ import annotations
 
@@ -47,36 +47,47 @@ def _stable_order(seed_id: str, random_seed: int) -> str:
     return hashlib.sha256(f"{random_seed}:{seed_id}".encode()).hexdigest()
 
 
-def _assign_seed_splits(
+def _concept_group(record: Mapping[str, Any]) -> str:
+    group_id = record.get("concept_group_id")
+    if not group_id:
+        raise ValueError(
+            "Task-view record is missing concept_group_id. Re-run data_augmentation and "
+            "publish/download the updated dataset before preparing experiment splits."
+        )
+    return str(group_id)
+
+
+def _assign_concept_splits(
     datasets: Mapping[str, dict[str, Any]], parameters: dict[str, Any]
 ) -> dict[str, str]:
     ratios = parameters["split_ratios"]
     if abs(sum(float(value) for value in ratios.values()) - 1.0) > 1e-9:
         raise ValueError("experiment_data.split_ratios must sum to 1")
 
-    strata: dict[tuple[str, str, int], set[str]] = defaultdict(set)
+    # A concept may have MCQ and short-answer variants at different levels. Stratifying
+    # by task type would put the same concept into competing strata, so source is the
+    # only safe deterministic stratum for the indivisible concept-level split unit.
+    strata: dict[str, set[str]] = defaultdict(set)
     for source, dataset in datasets.items():
         if _is_holdout(source, parameters["holdout_source_patterns"]):
             continue
         for record in _records(dataset):
-            strata[(source, str(record["task_type"]), int(record["Level"]))].add(
-                str(record["seed_id"])
-            )
+            strata[source].add(_concept_group(record))
 
     assignment: dict[str, str] = {}
     residual: list[str] = []
     random_seed = int(parameters["random_seed"])
     split_names = ("train", "validation", "test")
-    for stratum, seed_ids in sorted(strata.items()):
-        ordered = sorted(seed_ids, key=lambda item: _stable_order(item, random_seed))
+    for stratum, group_ids in sorted(strata.items()):
+        ordered = sorted(group_ids, key=lambda item: _stable_order(item, random_seed))
         count = len(ordered)
         cursor = 0
         for split in split_names:
             allocation = int(count * float(ratios[split]))
-            for seed_id in ordered[cursor : cursor + allocation]:
-                previous = assignment.setdefault(seed_id, split)
+            for group_id in ordered[cursor : cursor + allocation]:
+                previous = assignment.setdefault(group_id, split)
                 if previous != split:
-                    raise ValueError(f"Seed {seed_id!r} was assigned inconsistently")
+                    raise ValueError(f"Concept group {group_id!r} was assigned inconsistently")
             cursor += allocation
         residual.extend(
             sorted(
@@ -85,19 +96,19 @@ def _assign_seed_splits(
             )
         )
 
-    total = sum(len(seed_ids) for seed_ids in strata.values())
+    total = sum(len(group_ids) for group_ids in strata.values())
     targets = {
         "train": round(total * float(ratios["train"])),
         "validation": round(total * float(ratios["validation"])),
     }
     targets["test"] = total - targets["train"] - targets["validation"]
     counts = Counter(assignment.values())
-    for seed_id in residual:
+    for group_id in residual:
         deficits = {split: targets[split] - counts[split] for split in split_names}
         split = max(split_names, key=lambda name: (deficits[name], -split_names.index(name)))
         if deficits[split] <= 0:
             raise ValueError("Unable to satisfy requested global split ratios")
-        assignment[seed_id] = split
+        assignment[group_id] = split
         counts[split] += 1
     return assignment
 
@@ -114,7 +125,7 @@ def _partition_view(
         grouped: dict[str, list[dict[str, Any]]] = defaultdict(list)
         for original in _records(dataset):
             record = dict(original)
-            split = "cross_regional" if holdout else assignment[str(record["seed_id"])]
+            split = "cross_regional" if holdout else assignment[_concept_group(record)]
             record["split"] = split
             record["evaluation_scope"] = "cross_regional" if holdout else "in_domain"
             if region is not None:
@@ -163,6 +174,7 @@ def _semantic_cross_split_audit(
                 {
                     "example_id": str(record["example_id"]),
                     "seed_id": str(record["seed_id"]),
+                    "concept_group_id": _concept_group(record),
                     "source_name": str(record["source_name"]),
                     "prompt": str(record["prompt"]),
                 }
@@ -212,6 +224,8 @@ def _semantic_cross_split_audit(
                         "right_example_id": right_row["example_id"],
                         "left_seed_id": left_row["seed_id"],
                         "right_seed_id": right_row["seed_id"],
+                        "left_concept_group_id": left_row["concept_group_id"],
+                        "right_concept_group_id": right_row["concept_group_id"],
                         "left_source_name": left_row["source_name"],
                         "right_source_name": right_row["source_name"],
                         "left_prompt": left_row["prompt"],
@@ -261,6 +275,7 @@ def _leakage_audit(
     partitions: Mapping[str, dict[str, Any]], parameters: dict[str, Any]
 ) -> dict[str, Any]:
     seeds_by_split: dict[str, set[str]] = defaultdict(set)
+    concepts_by_split: dict[str, set[str]] = defaultdict(set)
     prompts: dict[str, set[str]] = defaultdict(set)
     for dataset in partitions.values():
         split = str(dataset["split"])
@@ -268,9 +283,11 @@ def _leakage_audit(
             continue
         for record in _records(dataset):
             seeds_by_split[split].add(str(record["seed_id"]))
+            concepts_by_split[split].add(_concept_group(record))
             prompts[split].add(_normalize_prompt(str(record["prompt"])))
 
     seed_overlaps: dict[str, list[str]] = {}
+    concept_overlaps: dict[str, list[str]] = {}
     prompt_overlaps: dict[str, int] = {}
     names = sorted(seeds_by_split)
     for index, left in enumerate(names):
@@ -278,16 +295,23 @@ def _leakage_audit(
             key = f"{left}__{right}"
             overlap = sorted(seeds_by_split[left] & seeds_by_split[right])
             seed_overlaps[key] = overlap
+            concept_overlaps[key] = sorted(concepts_by_split[left] & concepts_by_split[right])
             prompt_overlaps[key] = len(prompts[left] & prompts[right])
-    passed = not any(seed_overlaps.values()) and not any(prompt_overlaps.values())
+    passed = (
+        not any(concept_overlaps.values())
+        and not any(seed_overlaps.values())
+        and not any(prompt_overlaps.values())
+    )
     return {
         "passed": passed,
         "seed_overlap": seed_overlaps,
+        "concept_group_overlap": concept_overlaps,
         "exact_prompt_overlap_count": prompt_overlaps,
         "semantic_cross_split_audit": _semantic_cross_split_audit(partitions, parameters),
         "note": (
-            "passed covers deterministic seed and exact-prompt leakage. Semantic candidates "
-            "require human adjudication and do not automatically fail the pipeline."
+            "passed covers deterministic concept-group, seed, and exact-prompt leakage. "
+            "Semantic candidates require human adjudication and do not automatically fail "
+            "the pipeline."
         ),
     }
 
@@ -304,7 +328,7 @@ def prepare_experiment_partitions(
     if set(generation) != set(verification):
         raise ValueError("Generation and verification sources do not match")
 
-    assignment = _assign_seed_splits(generation, parameters)
+    assignment = _assign_concept_splits(generation, parameters)
     generation_output = _partition_view(generation, assignment, parameters)
     verification_output = _partition_view(verification, assignment, parameters)
     audit = _leakage_audit(generation_output, parameters)
@@ -319,11 +343,11 @@ def prepare_experiment_partitions(
         "dataset_version": parameters["dataset_version"],
         "random_seed": parameters["random_seed"],
         "split_ratios": parameters["split_ratios"],
-        "split_unit": "seed_id",
+        "split_unit": "concept_group_id",
         "holdout_policy": "France and Japan are combined as cross_regional and never trained",
-        "seed_counts": dict(split_counts),
+        "concept_group_counts": dict(split_counts),
         "generation_record_counts": dict(record_counts),
-        "seed_assignments": assignment,
+        "concept_group_assignments": assignment,
         "sources": sorted(generation),
     }
     return generation_output, verification_output, manifest, audit

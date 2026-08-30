@@ -49,7 +49,7 @@ def test_prepare_release_builds_named_configs_and_manifest() -> None:
     assert isinstance(outputs[1]["sample"], list)
     assert isinstance(outputs[2]["sample"], list)
     assert "revision_v2_generation" in readme
-    assert "split records by `seed_id`" in readme
+    assert "split records by `concept_group_id`" in readme
     assert manifest["dataset_version"] == "2.0.0"
     assert manifest["record_counts"]["verification"] == 2
     assert manifest["augmentation_configuration_hash"] == "abc123"

@@ -59,6 +59,14 @@ def _stable_seed(random_seed: int, value: str) -> int:
     return int.from_bytes(digest[:8], "big")
 
 
+def _concept_group_id(source_name: str, fact: Any) -> str:
+    """Identify all task-format variants derived from the same source fact."""
+
+    normalized_fact = _normalise_text(fact)
+    digest = hashlib.sha256(normalized_fact.encode("utf-8")).hexdigest()[:16]
+    return f"{_slug(source_name)}__concept__{digest}"
+
+
 def _level_config(parameters: dict[str, Any], level: int, task_type: str) -> dict[str, int]:
     levels = parameters["levels"]
     level_entry = levels.get(level, levels.get(str(level)))
@@ -141,6 +149,7 @@ def normalize_seed_datasets(
                 seed.update(
                     {
                         "seed_id": seed_id,
+                        "concept_group_id": _concept_group_id(source_name, example["Fact"]),
                         "source_name": source_name,
                         "task_type": task_type,
                         "Level": level,
@@ -278,8 +287,12 @@ def _canonical_record(
     origin: str,
     lineage: dict[str, Any],
 ) -> dict[str, Any]:
+    concept_group_id = seed.get("concept_group_id") or _concept_group_id(
+        seed["source_name"], seed["Fact"]
+    )
     record = {
         "seed_id": seed["seed_id"],
+        "concept_group_id": concept_group_id,
         "variant_id": variant_id,
         "source_name": seed["source_name"],
         "task_type": seed["task_type"],
@@ -645,6 +658,7 @@ def materialize_task_views(
             generation_view = {
                 "example_id": f"{record['variant_id']}__generation",
                 "seed_id": record["seed_id"],
+                "concept_group_id": record["concept_group_id"],
                 "variant_id": record["variant_id"],
                 "source_name": record["source_name"],
                 "task_type": record["task_type"],
@@ -655,6 +669,7 @@ def materialize_task_views(
             positive_verification = {
                 "example_id": f"{record['variant_id']}__verify_correct",
                 "seed_id": record["seed_id"],
+                "concept_group_id": record["concept_group_id"],
                 "variant_id": record["variant_id"],
                 "source_name": record["source_name"],
                 "task_type": "answer_verification",
@@ -667,6 +682,7 @@ def materialize_task_views(
             negative_verification = {
                 "example_id": f"{record['variant_id']}__verify_incorrect",
                 "seed_id": record["seed_id"],
+                "concept_group_id": record["concept_group_id"],
                 "variant_id": record["variant_id"],
                 "source_name": record["source_name"],
                 "task_type": "answer_verification",
@@ -692,9 +708,9 @@ def materialize_task_views(
             counts[f"{record['task_type']}:L{record['Level']}"] += 1
 
         metadata = {
-            "schema_version": "2.0",
+            "schema_version": "2.1",
             "source_name": dataset["source_name"],
-            "split_policy": "Downstream splits must group by seed_id",
+            "split_policy": "Downstream splits must group by concept_group_id",
         }
         final[partition_id] = {**metadata, "records": final_records}
         generation[partition_id] = {**metadata, "records": generation_records}
@@ -748,5 +764,7 @@ def build_augmentation_manifest(
             "exact_duplicate_count": duplicate_report["exact_duplicate_count"],
             "near_duplicate_count": duplicate_report["near_duplicates"]["pair_count"],
         },
-        "downstream_split_requirement": "Group all records by seed_id before assigning splits",
+        "downstream_split_requirement": (
+            "Group all records by concept_group_id before assigning splits"
+        ),
     }

@@ -184,6 +184,16 @@ def test_seed_ids_are_stable() -> None:
     ]
 
 
+def test_same_fact_across_task_formats_shares_concept_group() -> None:
+    source = _source_dataset()
+    source["instructions"][1]["Positive Example"][0]["Fact"] = "The correct mode is rail."
+    normalized, _ = normalize_seed_datasets({"sample": source}, _parameters())
+
+    seeds = normalized["sample"]["seeds"]
+    assert seeds[0]["seed_id"] != seeds[1]["seed_id"]
+    assert seeds[0]["concept_group_id"] == seeds[1]["concept_group_id"]
+
+
 def test_distinct_numeric_negative_candidates_are_not_rejected_as_paraphrases() -> None:
     base_record = {
         "seed_id": "sample__short_answer__l1__0001",
