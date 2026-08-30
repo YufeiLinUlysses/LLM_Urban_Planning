@@ -2,7 +2,7 @@ training:
   model_key: t5_base
   run_id: null
   artifact_root: data/07_model_output
-  model_repo_id: UlyssesLynne/urban-planning-llm-model-zoo
+  model_repo_id: UlyssesLynne/urban-planning-llm-model-zoo-v3
   publish_to_hf: true
   tasks:
     - generation

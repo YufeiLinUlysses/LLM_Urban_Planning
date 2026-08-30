@@ -15,6 +15,7 @@ from urban_science_revision.pipelines.experiment_data.pipeline import (
     create_pipeline as create_experiment_data_pipeline,
 )
 from urban_science_revision.pipelines.huggingface.pipeline import (
+    create_initialize_experiment_repositories_pipeline,
     create_prepare_pipeline,
     create_publish_pipeline,
 )
@@ -47,6 +48,9 @@ def register_pipelines() -> dict[str, Pipeline]:
         "prepare_huggingface_release": prepare,
         "augmentation_and_prepare_release": augmentation + prepare,
         "publish_huggingface": publish,
+        "initialize_huggingface_experiments": (
+            create_initialize_experiment_repositories_pipeline()
+        ),
         "prepare_experiment_data": experiment_data,
         "train_model": training,
         "evaluate_model": evaluation,

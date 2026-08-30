@@ -1,0 +1,2571 @@
+split_pair,left_split,right_split,left_example_id,right_example_id,left_seed_id,right_seed_id,left_concept_group_id,right_concept_group_id,left_source_name,right_source_name,left_prompt,right_prompt,similarity,human_decision,human_notes
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00037__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00022__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Cyclists and pedestrians across the U.S.
+B. People who ride taxis and FHVs in New York City
+C. Private car drivers in suburban New York State
+D. International airline passengers at JFK Airport
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Riders of NYC taxicabs and for-hire vehicle services
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.946805,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00037__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00032__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Cyclists and pedestrians across the U.S.
+B. People who ride taxis and FHVs in New York City
+C. Private car drivers in suburban New York State
+D. International airline passengers at JFK Airport
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Riders of NYC taxicabs and for-hire vehicle services
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.946805,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00043__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00022__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Cyclists and pedestrians across the U.S.
+B. People who ride taxis and FHVs in New York City
+C. Private car drivers in suburban New York State
+D. International airline passengers at JFK Airport
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Riders of NYC taxicabs and for-hire vehicle services
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.946805,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00043__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00032__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Cyclists and pedestrians across the U.S.
+B. People who ride taxis and FHVs in New York City
+C. Private car drivers in suburban New York State
+D. International airline passengers at JFK Airport
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Riders of NYC taxicabs and for-hire vehicle services
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.946805,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00041__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00032__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. International airline passengers at JFK Airport
+B. Cyclists and pedestrians across the U.S.
+C. People who ride taxis and FHVs in New York City
+D. Private car drivers in suburban New York State
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Riders of NYC taxicabs and for-hire vehicle services
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.946802,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00041__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00022__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. International airline passengers at JFK Airport
+B. Cyclists and pedestrians across the U.S.
+C. People who ride taxis and FHVs in New York City
+D. Private car drivers in suburban New York State
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Riders of NYC taxicabs and for-hire vehicle services
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.946802,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00047__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00032__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. International airline passengers at JFK Airport
+B. Cyclists and pedestrians across the U.S.
+C. People who ride taxis and FHVs in New York City
+D. Private car drivers in suburban New York State
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Riders of NYC taxicabs and for-hire vehicle services
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.946802,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00047__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00022__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. International airline passengers at JFK Airport
+B. Cyclists and pedestrians across the U.S.
+C. People who ride taxis and FHVs in New York City
+D. Private car drivers in suburban New York State
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Riders of NYC taxicabs and for-hire vehicle services
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.946802,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00038__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00032__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Cyclists and pedestrians across the U.S.
+B. New York City travelers using taxis and FHVs
+C. Private car drivers in suburban New York State
+D. International airline passengers at JFK Airport
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Riders of NYC taxicabs and for-hire vehicle services
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.946574,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00038__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00022__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Cyclists and pedestrians across the U.S.
+B. New York City travelers using taxis and FHVs
+C. Private car drivers in suburban New York State
+D. International airline passengers at JFK Airport
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Riders of NYC taxicabs and for-hire vehicle services
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.946574,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00044__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00032__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Cyclists and pedestrians across the U.S.
+B. New York City travelers using taxis and FHVs
+C. Private car drivers in suburban New York State
+D. International airline passengers at JFK Airport
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Riders of NYC taxicabs and for-hire vehicle services
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.946574,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00044__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00022__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Cyclists and pedestrians across the U.S.
+B. New York City travelers using taxis and FHVs
+C. Private car drivers in suburban New York State
+D. International airline passengers at JFK Airport
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Riders of NYC taxicabs and for-hire vehicle services
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.946574,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00039__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00032__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Private car drivers in suburban New York State
+B. People who ride taxis and FHVs in New York City
+C. International airline passengers at JFK Airport
+D. Cyclists and pedestrians across the U.S.
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Riders of NYC taxicabs and for-hire vehicle services
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.946475,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00039__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00022__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Private car drivers in suburban New York State
+B. People who ride taxis and FHVs in New York City
+C. International airline passengers at JFK Airport
+D. Cyclists and pedestrians across the U.S.
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Riders of NYC taxicabs and for-hire vehicle services
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.946475,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00045__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00032__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Private car drivers in suburban New York State
+B. People who ride taxis and FHVs in New York City
+C. International airline passengers at JFK Airport
+D. Cyclists and pedestrians across the U.S.
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Riders of NYC taxicabs and for-hire vehicle services
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.946475,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00045__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00022__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Private car drivers in suburban New York State
+B. People who ride taxis and FHVs in New York City
+C. International airline passengers at JFK Airport
+D. Cyclists and pedestrians across the U.S.
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Riders of NYC taxicabs and for-hire vehicle services
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.946475,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00040__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00032__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Private car drivers in suburban New York State
+B. New York City travelers using taxis and FHVs
+C. International airline passengers at JFK Airport
+D. Cyclists and pedestrians across the U.S.
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Riders of NYC taxicabs and for-hire vehicle services
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.946228,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00040__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00022__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Private car drivers in suburban New York State
+B. New York City travelers using taxis and FHVs
+C. International airline passengers at JFK Airport
+D. Cyclists and pedestrians across the U.S.
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Riders of NYC taxicabs and for-hire vehicle services
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.946228,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00046__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00032__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Private car drivers in suburban New York State
+B. New York City travelers using taxis and FHVs
+C. International airline passengers at JFK Airport
+D. Cyclists and pedestrians across the U.S.
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Riders of NYC taxicabs and for-hire vehicle services
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.946228,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00046__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00022__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Private car drivers in suburban New York State
+B. New York City travelers using taxis and FHVs
+C. International airline passengers at JFK Airport
+D. Cyclists and pedestrians across the U.S.
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Riders of NYC taxicabs and for-hire vehicle services
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.946228,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00038__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00021__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Cyclists and pedestrians across the U.S.
+B. New York City travelers using taxis and FHVs
+C. Private car drivers in suburban New York State
+D. International airline passengers at JFK Airport
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Passengers using New York City taxis and for-hire vehicles
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.945935,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00038__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00031__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Cyclists and pedestrians across the U.S.
+B. New York City travelers using taxis and FHVs
+C. Private car drivers in suburban New York State
+D. International airline passengers at JFK Airport
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Passengers using New York City taxis and for-hire vehicles
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.945935,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00044__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00021__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Cyclists and pedestrians across the U.S.
+B. New York City travelers using taxis and FHVs
+C. Private car drivers in suburban New York State
+D. International airline passengers at JFK Airport
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Passengers using New York City taxis and for-hire vehicles
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.945935,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00044__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00031__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Cyclists and pedestrians across the U.S.
+B. New York City travelers using taxis and FHVs
+C. Private car drivers in suburban New York State
+D. International airline passengers at JFK Airport
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Passengers using New York City taxis and for-hire vehicles
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.945935,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00041__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00021__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. International airline passengers at JFK Airport
+B. Cyclists and pedestrians across the U.S.
+C. People who ride taxis and FHVs in New York City
+D. Private car drivers in suburban New York State
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Passengers using New York City taxis and for-hire vehicles
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.945734,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00041__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00031__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. International airline passengers at JFK Airport
+B. Cyclists and pedestrians across the U.S.
+C. People who ride taxis and FHVs in New York City
+D. Private car drivers in suburban New York State
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Passengers using New York City taxis and for-hire vehicles
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.945734,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00047__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00021__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. International airline passengers at JFK Airport
+B. Cyclists and pedestrians across the U.S.
+C. People who ride taxis and FHVs in New York City
+D. Private car drivers in suburban New York State
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Passengers using New York City taxis and for-hire vehicles
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.945734,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00047__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00031__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. International airline passengers at JFK Airport
+B. Cyclists and pedestrians across the U.S.
+C. People who ride taxis and FHVs in New York City
+D. Private car drivers in suburban New York State
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Passengers using New York City taxis and for-hire vehicles
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.945734,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00037__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00031__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Cyclists and pedestrians across the U.S.
+B. People who ride taxis and FHVs in New York City
+C. Private car drivers in suburban New York State
+D. International airline passengers at JFK Airport
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Passengers using New York City taxis and for-hire vehicles
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.945692,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00037__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00021__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Cyclists and pedestrians across the U.S.
+B. People who ride taxis and FHVs in New York City
+C. Private car drivers in suburban New York State
+D. International airline passengers at JFK Airport
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Passengers using New York City taxis and for-hire vehicles
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.945692,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00043__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00031__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Cyclists and pedestrians across the U.S.
+B. People who ride taxis and FHVs in New York City
+C. Private car drivers in suburban New York State
+D. International airline passengers at JFK Airport
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Passengers using New York City taxis and for-hire vehicles
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.945692,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00043__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00021__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Cyclists and pedestrians across the U.S.
+B. People who ride taxis and FHVs in New York City
+C. Private car drivers in suburban New York State
+D. International airline passengers at JFK Airport
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Passengers using New York City taxis and for-hire vehicles
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.945692,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00040__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00021__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Private car drivers in suburban New York State
+B. New York City travelers using taxis and FHVs
+C. International airline passengers at JFK Airport
+D. Cyclists and pedestrians across the U.S.
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Passengers using New York City taxis and for-hire vehicles
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.945566,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00040__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00031__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Private car drivers in suburban New York State
+B. New York City travelers using taxis and FHVs
+C. International airline passengers at JFK Airport
+D. Cyclists and pedestrians across the U.S.
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Passengers using New York City taxis and for-hire vehicles
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.945566,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00046__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00021__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Private car drivers in suburban New York State
+B. New York City travelers using taxis and FHVs
+C. International airline passengers at JFK Airport
+D. Cyclists and pedestrians across the U.S.
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Passengers using New York City taxis and for-hire vehicles
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.945566,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00046__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00031__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Private car drivers in suburban New York State
+B. New York City travelers using taxis and FHVs
+C. International airline passengers at JFK Airport
+D. Cyclists and pedestrians across the U.S.
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Subway riders
+C. Passengers using New York City taxis and for-hire vehicles
+D. Private car drivers
+
+Please provide the correct option and a concise explanation.",0.945566,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00038__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00033__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Cyclists and pedestrians across the U.S.
+B. New York City travelers using taxis and FHVs
+C. Private car drivers in suburban New York State
+D. International airline passengers at JFK Airport
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Private car drivers
+B. Subway riders
+C. Passengers using New York City taxis and for-hire vehicles
+D. Cyclists in Central Park
+
+Please provide the correct option and a concise explanation.",0.945471,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00038__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00023__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Cyclists and pedestrians across the U.S.
+B. New York City travelers using taxis and FHVs
+C. Private car drivers in suburban New York State
+D. International airline passengers at JFK Airport
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Private car drivers
+B. Subway riders
+C. Passengers using New York City taxis and for-hire vehicles
+D. Cyclists in Central Park
+
+Please provide the correct option and a concise explanation.",0.945471,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00044__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00033__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Cyclists and pedestrians across the U.S.
+B. New York City travelers using taxis and FHVs
+C. Private car drivers in suburban New York State
+D. International airline passengers at JFK Airport
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Private car drivers
+B. Subway riders
+C. Passengers using New York City taxis and for-hire vehicles
+D. Cyclists in Central Park
+
+Please provide the correct option and a concise explanation.",0.945471,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00044__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00023__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Cyclists and pedestrians across the U.S.
+B. New York City travelers using taxis and FHVs
+C. Private car drivers in suburban New York State
+D. International airline passengers at JFK Airport
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Private car drivers
+B. Subway riders
+C. Passengers using New York City taxis and for-hire vehicles
+D. Cyclists in Central Park
+
+Please provide the correct option and a concise explanation.",0.945471,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00040__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00033__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Private car drivers in suburban New York State
+B. New York City travelers using taxis and FHVs
+C. International airline passengers at JFK Airport
+D. Cyclists and pedestrians across the U.S.
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Private car drivers
+B. Subway riders
+C. Passengers using New York City taxis and for-hire vehicles
+D. Cyclists in Central Park
+
+Please provide the correct option and a concise explanation.",0.945431,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00040__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00023__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Private car drivers in suburban New York State
+B. New York City travelers using taxis and FHVs
+C. International airline passengers at JFK Airport
+D. Cyclists and pedestrians across the U.S.
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Private car drivers
+B. Subway riders
+C. Passengers using New York City taxis and for-hire vehicles
+D. Cyclists in Central Park
+
+Please provide the correct option and a concise explanation.",0.945431,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00046__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00033__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Private car drivers in suburban New York State
+B. New York City travelers using taxis and FHVs
+C. International airline passengers at JFK Airport
+D. Cyclists and pedestrians across the U.S.
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Private car drivers
+B. Subway riders
+C. Passengers using New York City taxis and for-hire vehicles
+D. Cyclists in Central Park
+
+Please provide the correct option and a concise explanation.",0.945431,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00046__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00023__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Private car drivers in suburban New York State
+B. New York City travelers using taxis and FHVs
+C. International airline passengers at JFK Airport
+D. Cyclists and pedestrians across the U.S.
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Private car drivers
+B. Subway riders
+C. Passengers using New York City taxis and for-hire vehicles
+D. Cyclists in Central Park
+
+Please provide the correct option and a concise explanation.",0.945431,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00037__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00026__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Cyclists and pedestrians across the U.S.
+B. People who ride taxis and FHVs in New York City
+C. Private car drivers in suburban New York State
+D. International airline passengers at JFK Airport
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Private car drivers
+C. Subway riders
+D. Riders of NYC taxicabs and for-hire vehicle services
+
+Please provide the correct option and a concise explanation.",0.945421,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00037__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00036__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Cyclists and pedestrians across the U.S.
+B. People who ride taxis and FHVs in New York City
+C. Private car drivers in suburban New York State
+D. International airline passengers at JFK Airport
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Private car drivers
+C. Subway riders
+D. Riders of NYC taxicabs and for-hire vehicle services
+
+Please provide the correct option and a concise explanation.",0.945421,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00043__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00026__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Cyclists and pedestrians across the U.S.
+B. People who ride taxis and FHVs in New York City
+C. Private car drivers in suburban New York State
+D. International airline passengers at JFK Airport
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Private car drivers
+C. Subway riders
+D. Riders of NYC taxicabs and for-hire vehicle services
+
+Please provide the correct option and a concise explanation.",0.945421,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00043__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00036__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Cyclists and pedestrians across the U.S.
+B. People who ride taxis and FHVs in New York City
+C. Private car drivers in suburban New York State
+D. International airline passengers at JFK Airport
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Private car drivers
+C. Subway riders
+D. Riders of NYC taxicabs and for-hire vehicle services
+
+Please provide the correct option and a concise explanation.",0.945421,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00038__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00026__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Cyclists and pedestrians across the U.S.
+B. New York City travelers using taxis and FHVs
+C. Private car drivers in suburban New York State
+D. International airline passengers at JFK Airport
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Private car drivers
+C. Subway riders
+D. Riders of NYC taxicabs and for-hire vehicle services
+
+Please provide the correct option and a concise explanation.",0.945406,pending,
+test__validation,test,validation,tlc_trip_instructions__multiple_choice__l2__0001__aug_00038__generation,tlc_trip_instructions__multiple_choice__l1__0010__aug_00036__generation,tlc_trip_instructions__multiple_choice__l2__0001,tlc_trip_instructions__multiple_choice__l1__0010,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+When considering the area it covers and the ride services included, TLC trip data captures the travel behavior of which group?
+
+Options:
+A. Cyclists and pedestrians across the U.S.
+B. New York City travelers using taxis and FHVs
+C. Private car drivers in suburban New York State
+D. International airline passengers at JFK Airport
+
+Please provide the correct option and a concise explanation.","Dataset context:
+TLC trip data reflects real-world travel patterns of passengers using taxis and FHVs in NYC.
+
+Question:
+The TLC dataset provides information about the travel behavior of which group of travelers?
+
+Options:
+A. Cyclists in Central Park
+B. Private car drivers
+C. Subway riders
+D. Riders of NYC taxicabs and for-hire vehicle services
+
+Please provide the correct option and a concise explanation.",0.945406,pending,
+test__validation,test,validation,ngsim_instructions__multiple_choice__l1__0003__aug_00099__generation,ngsim_instructions__multiple_choice__l2__0003__aug_00029__generation,ngsim_instructions__multiple_choice__l1__0003,ngsim_instructions__multiple_choice__l2__0003,ngsim_instructions__concept__f1bf94c536fcdc15,ngsim_instructions__concept__4b373bf32aa0fd6e,ngsim_instructions,ngsim_instructions,"Dataset context:
+The NGSIM dataset captures vehicle trajectories at a sampling frequency of 10 Hz.
+
+Question:
+Regarding NGSIM trajectories, what is implied by using a 10 Hz sampling frequency?
+
+Options:
+A. 10 cameras were used
+B. 10 measurements each second
+C. 10 GB of data
+D. 10 vehicles per hour
+
+Please provide the correct option and a concise explanation.","Dataset context:
+NGSIM vehicle trajectories are sampled at 10 Hz and include position-based variables such as speed, acceleration, and lane IDs.
+
+Question:
+What does the 10 Hz sampling frequency imply about the kind of vehicle trajectory information provided in NGSIM? 
+
+Options:
+{""A"": ""It confines the dataset to aggregate vehicle counts"", ""B"": ""It allows fine-grained estimation of motion quantities like speed and acceleration from positions"", ""C"": ""It means data points are collected every 10 minutes"", ""D"": ""It means the dataset includes only non-quantitative observations""}
+
+Correct option:
+B
+
+Options:
+A. It restricts the dataset to static vehicle counts
+B. It indicates data were recorded once every 10 minutes
+C. It limits the dataset to qualitative observations
+D. It allows precise calculation of motion variables like speed and acceleration
+
+Please provide the correct option and a concise explanation.",0.900115,pending,
+test__validation,test,validation,ngsim_instructions__multiple_choice__l1__0003__aug_00099__generation,ngsim_instructions__multiple_choice__l2__0003__aug_00035__generation,ngsim_instructions__multiple_choice__l1__0003,ngsim_instructions__multiple_choice__l2__0003,ngsim_instructions__concept__f1bf94c536fcdc15,ngsim_instructions__concept__4b373bf32aa0fd6e,ngsim_instructions,ngsim_instructions,"Dataset context:
+The NGSIM dataset captures vehicle trajectories at a sampling frequency of 10 Hz.
+
+Question:
+Regarding NGSIM trajectories, what is implied by using a 10 Hz sampling frequency?
+
+Options:
+A. 10 cameras were used
+B. 10 measurements each second
+C. 10 GB of data
+D. 10 vehicles per hour
+
+Please provide the correct option and a concise explanation.","Dataset context:
+NGSIM vehicle trajectories are sampled at 10 Hz and include position-based variables such as speed, acceleration, and lane IDs.
+
+Question:
+What does the 10 Hz sampling frequency imply about the kind of vehicle trajectory information provided in NGSIM? 
+
+Options:
+{""A"": ""It confines the dataset to aggregate vehicle counts"", ""B"": ""It allows fine-grained estimation of motion quantities like speed and acceleration from positions"", ""C"": ""It means data points are collected every 10 minutes"", ""D"": ""It means the dataset includes only non-quantitative observations""}
+
+Correct option:
+B
+
+Options:
+A. It restricts the dataset to static vehicle counts
+B. It indicates data were recorded once every 10 minutes
+C. It limits the dataset to qualitative observations
+D. It allows precise calculation of motion variables like speed and acceleration
+
+Please provide the correct option and a concise explanation.",0.900115,pending,
+test__validation,test,validation,ngsim_instructions__multiple_choice__l1__0003__aug_00089__generation,ngsim_instructions__multiple_choice__l2__0003__aug_00029__generation,ngsim_instructions__multiple_choice__l1__0003,ngsim_instructions__multiple_choice__l2__0003,ngsim_instructions__concept__f1bf94c536fcdc15,ngsim_instructions__concept__4b373bf32aa0fd6e,ngsim_instructions,ngsim_instructions,"Dataset context:
+The NGSIM dataset captures vehicle trajectories at a sampling frequency of 10 Hz.
+
+Question:
+Regarding NGSIM trajectories, what is implied by using a 10 Hz sampling frequency?
+
+Options:
+A. 10 cameras were used
+B. 10 measurements each second
+C. 10 GB of data
+D. 10 vehicles per hour
+
+Please provide the correct option and a concise explanation.","Dataset context:
+NGSIM vehicle trajectories are sampled at 10 Hz and include position-based variables such as speed, acceleration, and lane IDs.
+
+Question:
+What does the 10 Hz sampling frequency imply about the kind of vehicle trajectory information provided in NGSIM? 
+
+Options:
+{""A"": ""It confines the dataset to aggregate vehicle counts"", ""B"": ""It allows fine-grained estimation of motion quantities like speed and acceleration from positions"", ""C"": ""It means data points are collected every 10 minutes"", ""D"": ""It means the dataset includes only non-quantitative observations""}
+
+Correct option:
+B
+
+Options:
+A. It restricts the dataset to static vehicle counts
+B. It indicates data were recorded once every 10 minutes
+C. It limits the dataset to qualitative observations
+D. It allows precise calculation of motion variables like speed and acceleration
+
+Please provide the correct option and a concise explanation.",0.900115,pending,
+test__validation,test,validation,ngsim_instructions__multiple_choice__l1__0003__aug_00089__generation,ngsim_instructions__multiple_choice__l2__0003__aug_00035__generation,ngsim_instructions__multiple_choice__l1__0003,ngsim_instructions__multiple_choice__l2__0003,ngsim_instructions__concept__f1bf94c536fcdc15,ngsim_instructions__concept__4b373bf32aa0fd6e,ngsim_instructions,ngsim_instructions,"Dataset context:
+The NGSIM dataset captures vehicle trajectories at a sampling frequency of 10 Hz.
+
+Question:
+Regarding NGSIM trajectories, what is implied by using a 10 Hz sampling frequency?
+
+Options:
+A. 10 cameras were used
+B. 10 measurements each second
+C. 10 GB of data
+D. 10 vehicles per hour
+
+Please provide the correct option and a concise explanation.","Dataset context:
+NGSIM vehicle trajectories are sampled at 10 Hz and include position-based variables such as speed, acceleration, and lane IDs.
+
+Question:
+What does the 10 Hz sampling frequency imply about the kind of vehicle trajectory information provided in NGSIM? 
+
+Options:
+{""A"": ""It confines the dataset to aggregate vehicle counts"", ""B"": ""It allows fine-grained estimation of motion quantities like speed and acceleration from positions"", ""C"": ""It means data points are collected every 10 minutes"", ""D"": ""It means the dataset includes only non-quantitative observations""}
+
+Correct option:
+B
+
+Options:
+A. It restricts the dataset to static vehicle counts
+B. It indicates data were recorded once every 10 minutes
+C. It limits the dataset to qualitative observations
+D. It allows precise calculation of motion variables like speed and acceleration
+
+Please provide the correct option and a concise explanation.",0.900115,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00014__generation,highd_instructions__multiple_choice__l2__0003__aug_00058__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+In the context of the highD dataset, what does a sampling rate of 25 Hz indicate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 cameras were used
+C. 25 trajectory samples each second
+D. 25 minutes of footage
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It supports precise determination of kinematic variables, including speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.900924,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00014__generation,highd_instructions__multiple_choice__l2__0003__aug_00052__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+In the context of the highD dataset, what does a sampling rate of 25 Hz indicate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 cameras were used
+C. 25 trajectory samples each second
+D. 25 minutes of footage
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It supports precise determination of kinematic variables, including speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.900924,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00004__generation,highd_instructions__multiple_choice__l2__0003__aug_00058__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+In the context of the highD dataset, what does a sampling rate of 25 Hz indicate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 cameras were used
+C. 25 trajectory samples each second
+D. 25 minutes of footage
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It supports precise determination of kinematic variables, including speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.900924,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00004__generation,highd_instructions__multiple_choice__l2__0003__aug_00052__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+In the context of the highD dataset, what does a sampling rate of 25 Hz indicate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 cameras were used
+C. 25 trajectory samples each second
+D. 25 minutes of footage
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It supports precise determination of kinematic variables, including speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.900924,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00092__generation,highd_instructions__multiple_choice__l2__0003__aug_00056__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+Regarding the highD dataset, what is meant by having a 25 Hz sampling rate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 cameras were used
+C. 25 minutes of footage
+D. 25 trajectory samples each second
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It limits the dataset to static vehicle counts only
+B. It supports precise determination of kinematic variables, including speed and acceleration
+C. It restricts the dataset to qualitative observations
+D. It indicates that data were collected once every 25 seconds
+
+Please provide the correct option and a concise explanation.",0.900952,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00092__generation,highd_instructions__multiple_choice__l2__0003__aug_00050__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+Regarding the highD dataset, what is meant by having a 25 Hz sampling rate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 cameras were used
+C. 25 minutes of footage
+D. 25 trajectory samples each second
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It limits the dataset to static vehicle counts only
+B. It supports precise determination of kinematic variables, including speed and acceleration
+C. It restricts the dataset to qualitative observations
+D. It indicates that data were collected once every 25 seconds
+
+Please provide the correct option and a concise explanation.",0.900952,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00082__generation,highd_instructions__multiple_choice__l2__0003__aug_00056__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+Regarding the highD dataset, what is meant by having a 25 Hz sampling rate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 cameras were used
+C. 25 minutes of footage
+D. 25 trajectory samples each second
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It limits the dataset to static vehicle counts only
+B. It supports precise determination of kinematic variables, including speed and acceleration
+C. It restricts the dataset to qualitative observations
+D. It indicates that data were collected once every 25 seconds
+
+Please provide the correct option and a concise explanation.",0.900952,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00082__generation,highd_instructions__multiple_choice__l2__0003__aug_00050__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+Regarding the highD dataset, what is meant by having a 25 Hz sampling rate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 cameras were used
+C. 25 minutes of footage
+D. 25 trajectory samples each second
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It limits the dataset to static vehicle counts only
+B. It supports precise determination of kinematic variables, including speed and acceleration
+C. It restricts the dataset to qualitative observations
+D. It indicates that data were collected once every 25 seconds
+
+Please provide the correct option and a concise explanation.",0.900952,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00016__generation,highd_instructions__multiple_choice__l2__0003__aug_00058__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+In the context of the highD dataset, what does a sampling rate of 25 Hz indicate?
+
+Options:
+A. 25 minutes of footage
+B. 25 trajectory samples each second
+C. 25 cameras were used
+D. 25 vehicles recorded per hour
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It supports precise determination of kinematic variables, including speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.901134,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00016__generation,highd_instructions__multiple_choice__l2__0003__aug_00052__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+In the context of the highD dataset, what does a sampling rate of 25 Hz indicate?
+
+Options:
+A. 25 minutes of footage
+B. 25 trajectory samples each second
+C. 25 cameras were used
+D. 25 vehicles recorded per hour
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It supports precise determination of kinematic variables, including speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.901134,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00006__generation,highd_instructions__multiple_choice__l2__0003__aug_00058__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+In the context of the highD dataset, what does a sampling rate of 25 Hz indicate?
+
+Options:
+A. 25 minutes of footage
+B. 25 trajectory samples each second
+C. 25 cameras were used
+D. 25 vehicles recorded per hour
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It supports precise determination of kinematic variables, including speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.901134,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00006__generation,highd_instructions__multiple_choice__l2__0003__aug_00052__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+In the context of the highD dataset, what does a sampling rate of 25 Hz indicate?
+
+Options:
+A. 25 minutes of footage
+B. 25 trajectory samples each second
+C. 25 cameras were used
+D. 25 vehicles recorded per hour
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It supports precise determination of kinematic variables, including speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.901134,pending,
+test__validation,test,validation,tlc_trip_instructions__short_answer__l2__0001__original__generation,tlc_trip_instructions__short_answer__l1__0001__aug_00037__generation,tlc_trip_instructions__short_answer__l2__0001,tlc_trip_instructions__short_answer__l1__0001,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+By combining the covered city and the types of services included, whose travel behavior does the TLC trip data primarily represent?
+
+Please provide a concise answer grounded in the dataset information.","Dataset context:
+TLC trip data is based on observed rides from passengers using licensed taxis and FHVs throughout New York City.
+
+Question:
+What aspect of NYC taxi and FHV usage patterns is reflected in TLC trip data?
+
+Please provide a concise answer grounded in the dataset information.",0.901139,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00096__generation,highd_instructions__multiple_choice__l2__0003__aug_00052__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+Regarding the highD dataset, what is meant by having a 25 Hz sampling rate?
+
+Options:
+A. 25 minutes of footage
+B. 25 trajectory samples each second
+C. 25 cameras were used
+D. 25 vehicles recorded per hour
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It supports precise determination of kinematic variables, including speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.901161,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00096__generation,highd_instructions__multiple_choice__l2__0003__aug_00058__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+Regarding the highD dataset, what is meant by having a 25 Hz sampling rate?
+
+Options:
+A. 25 minutes of footage
+B. 25 trajectory samples each second
+C. 25 cameras were used
+D. 25 vehicles recorded per hour
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It supports precise determination of kinematic variables, including speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.901161,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00086__generation,highd_instructions__multiple_choice__l2__0003__aug_00052__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+Regarding the highD dataset, what is meant by having a 25 Hz sampling rate?
+
+Options:
+A. 25 minutes of footage
+B. 25 trajectory samples each second
+C. 25 cameras were used
+D. 25 vehicles recorded per hour
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It supports precise determination of kinematic variables, including speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.901161,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00086__generation,highd_instructions__multiple_choice__l2__0003__aug_00058__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+Regarding the highD dataset, what is meant by having a 25 Hz sampling rate?
+
+Options:
+A. 25 minutes of footage
+B. 25 trajectory samples each second
+C. 25 cameras were used
+D. 25 vehicles recorded per hour
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It supports precise determination of kinematic variables, including speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.901161,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00013__generation,highd_instructions__multiple_choice__l2__0003__aug_00057__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+In the context of the highD dataset, what does a sampling rate of 25 Hz indicate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 cameras were used
+C. 25 samples every second
+D. 25 minutes of footage
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It enables accurate calculation of motion-related variables such as speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.901188,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00013__generation,highd_instructions__multiple_choice__l2__0003__aug_00051__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+In the context of the highD dataset, what does a sampling rate of 25 Hz indicate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 cameras were used
+C. 25 samples every second
+D. 25 minutes of footage
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It enables accurate calculation of motion-related variables such as speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.901188,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00003__generation,highd_instructions__multiple_choice__l2__0003__aug_00057__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+In the context of the highD dataset, what does a sampling rate of 25 Hz indicate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 cameras were used
+C. 25 samples every second
+D. 25 minutes of footage
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It enables accurate calculation of motion-related variables such as speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.901188,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00003__generation,highd_instructions__multiple_choice__l2__0003__aug_00051__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+In the context of the highD dataset, what does a sampling rate of 25 Hz indicate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 cameras were used
+C. 25 samples every second
+D. 25 minutes of footage
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It enables accurate calculation of motion-related variables such as speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.901188,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00020__generation,highd_instructions__multiple_choice__l2__0003__aug_00058__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+In the context of the highD dataset, what does a sampling rate of 25 Hz indicate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 minutes of footage
+C. 25 trajectory samples each second
+D. 25 cameras were used
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It supports precise determination of kinematic variables, including speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.901415,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00020__generation,highd_instructions__multiple_choice__l2__0003__aug_00052__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+In the context of the highD dataset, what does a sampling rate of 25 Hz indicate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 minutes of footage
+C. 25 trajectory samples each second
+D. 25 cameras were used
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It supports precise determination of kinematic variables, including speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.901415,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00010__generation,highd_instructions__multiple_choice__l2__0003__aug_00058__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+In the context of the highD dataset, what does a sampling rate of 25 Hz indicate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 minutes of footage
+C. 25 trajectory samples each second
+D. 25 cameras were used
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It supports precise determination of kinematic variables, including speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.901415,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00010__generation,highd_instructions__multiple_choice__l2__0003__aug_00052__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+In the context of the highD dataset, what does a sampling rate of 25 Hz indicate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 minutes of footage
+C. 25 trajectory samples each second
+D. 25 cameras were used
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It supports precise determination of kinematic variables, including speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.901415,pending,
+test__validation,test,validation,tlc_trip_instructions__short_answer__l2__0001__original__generation,tlc_trip_instructions__short_answer__l1__0001__aug_00022__generation,tlc_trip_instructions__short_answer__l2__0001,tlc_trip_instructions__short_answer__l1__0001,tlc_trip_instructions__concept__7a91891160410e07,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+TLC trip data describes real passenger movements across New York City made by yellow taxis, green taxis, and for-hire vehicles (FHVs).
+
+Question:
+By combining the covered city and the types of services included, whose travel behavior does the TLC trip data primarily represent?
+
+Please provide a concise answer grounded in the dataset information.","Dataset context:
+Each record in the TLC trip data corresponds to a real-world ride taken by a passenger in a New York City taxi or FHV.
+
+Question:
+TLC trip data provides insight into which aspect of how people travel in NYC?
+
+Please provide a concise answer grounded in the dataset information.",0.901456,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00018__generation,highd_instructions__multiple_choice__l2__0003__aug_00052__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+In the context of the highD dataset, what does a sampling rate of 25 Hz indicate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 trajectory samples each second
+C. 25 minutes of footage
+D. 25 cameras were used
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It supports precise determination of kinematic variables, including speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.901577,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00018__generation,highd_instructions__multiple_choice__l2__0003__aug_00058__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+In the context of the highD dataset, what does a sampling rate of 25 Hz indicate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 trajectory samples each second
+C. 25 minutes of footage
+D. 25 cameras were used
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It supports precise determination of kinematic variables, including speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.901577,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00008__generation,highd_instructions__multiple_choice__l2__0003__aug_00052__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+In the context of the highD dataset, what does a sampling rate of 25 Hz indicate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 trajectory samples each second
+C. 25 minutes of footage
+D. 25 cameras were used
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It supports precise determination of kinematic variables, including speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.901577,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00008__generation,highd_instructions__multiple_choice__l2__0003__aug_00058__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+In the context of the highD dataset, what does a sampling rate of 25 Hz indicate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 trajectory samples each second
+C. 25 minutes of footage
+D. 25 cameras were used
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It supports precise determination of kinematic variables, including speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.901577,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00093__generation,highd_instructions__multiple_choice__l2__0003__aug_00051__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+Regarding the highD dataset, what is meant by having a 25 Hz sampling rate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 cameras were used
+C. 25 samples every second
+D. 25 minutes of footage
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It enables accurate calculation of motion-related variables such as speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.901688,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00093__generation,highd_instructions__multiple_choice__l2__0003__aug_00057__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+Regarding the highD dataset, what is meant by having a 25 Hz sampling rate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 cameras were used
+C. 25 samples every second
+D. 25 minutes of footage
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It enables accurate calculation of motion-related variables such as speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.901688,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00083__generation,highd_instructions__multiple_choice__l2__0003__aug_00051__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+Regarding the highD dataset, what is meant by having a 25 Hz sampling rate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 cameras were used
+C. 25 samples every second
+D. 25 minutes of footage
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It enables accurate calculation of motion-related variables such as speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.901688,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00083__generation,highd_instructions__multiple_choice__l2__0003__aug_00057__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+Regarding the highD dataset, what is meant by having a 25 Hz sampling rate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 cameras were used
+C. 25 samples every second
+D. 25 minutes of footage
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It enables accurate calculation of motion-related variables such as speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.901688,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00100__generation,highd_instructions__multiple_choice__l2__0003__aug_00058__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+Regarding the highD dataset, what is meant by having a 25 Hz sampling rate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 minutes of footage
+C. 25 trajectory samples each second
+D. 25 cameras were used
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It supports precise determination of kinematic variables, including speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.902256,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00100__generation,highd_instructions__multiple_choice__l2__0003__aug_00052__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+Regarding the highD dataset, what is meant by having a 25 Hz sampling rate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 minutes of footage
+C. 25 trajectory samples each second
+D. 25 cameras were used
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It supports precise determination of kinematic variables, including speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.902256,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00090__generation,highd_instructions__multiple_choice__l2__0003__aug_00058__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+Regarding the highD dataset, what is meant by having a 25 Hz sampling rate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 minutes of footage
+C. 25 trajectory samples each second
+D. 25 cameras were used
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It supports precise determination of kinematic variables, including speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.902256,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00090__generation,highd_instructions__multiple_choice__l2__0003__aug_00052__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+Regarding the highD dataset, what is meant by having a 25 Hz sampling rate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 minutes of footage
+C. 25 trajectory samples each second
+D. 25 cameras were used
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It supports precise determination of kinematic variables, including speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.902256,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00099__generation,highd_instructions__multiple_choice__l2__0003__aug_00057__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+Regarding the highD dataset, what is meant by having a 25 Hz sampling rate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 minutes of footage
+C. 25 samples every second
+D. 25 cameras were used
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It enables accurate calculation of motion-related variables such as speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.902289,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00099__generation,highd_instructions__multiple_choice__l2__0003__aug_00051__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+Regarding the highD dataset, what is meant by having a 25 Hz sampling rate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 minutes of footage
+C. 25 samples every second
+D. 25 cameras were used
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It enables accurate calculation of motion-related variables such as speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.902289,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00089__generation,highd_instructions__multiple_choice__l2__0003__aug_00057__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+Regarding the highD dataset, what is meant by having a 25 Hz sampling rate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 minutes of footage
+C. 25 samples every second
+D. 25 cameras were used
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It enables accurate calculation of motion-related variables such as speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.902289,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00089__generation,highd_instructions__multiple_choice__l2__0003__aug_00051__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+Regarding the highD dataset, what is meant by having a 25 Hz sampling rate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 minutes of footage
+C. 25 samples every second
+D. 25 cameras were used
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It enables accurate calculation of motion-related variables such as speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.902289,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00019__generation,highd_instructions__multiple_choice__l2__0003__aug_00057__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+In the context of the highD dataset, what does a sampling rate of 25 Hz indicate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 minutes of footage
+C. 25 samples every second
+D. 25 cameras were used
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It enables accurate calculation of motion-related variables such as speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.902332,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00019__generation,highd_instructions__multiple_choice__l2__0003__aug_00051__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+In the context of the highD dataset, what does a sampling rate of 25 Hz indicate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 minutes of footage
+C. 25 samples every second
+D. 25 cameras were used
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It enables accurate calculation of motion-related variables such as speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.902332,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00009__generation,highd_instructions__multiple_choice__l2__0003__aug_00057__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+In the context of the highD dataset, what does a sampling rate of 25 Hz indicate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 minutes of footage
+C. 25 samples every second
+D. 25 cameras were used
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It enables accurate calculation of motion-related variables such as speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.902332,pending,
+test__validation,test,validation,highd_instructions__multiple_choice__l1__0004__aug_00009__generation,highd_instructions__multiple_choice__l2__0003__aug_00051__generation,highd_instructions__multiple_choice__l1__0004,highd_instructions__multiple_choice__l2__0003,highd_instructions__concept__a8aab85457e1cbec,highd_instructions__concept__b1408799c58f4d91,highD_instructions,highD_instructions,"Dataset context:
+Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.
+
+Question:
+In the context of the highD dataset, what does a sampling rate of 25 Hz indicate?
+
+Options:
+A. 25 vehicles recorded per hour
+B. 25 minutes of footage
+C. 25 samples every second
+D. 25 cameras were used
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.
+
+Question:
+In the context of the highD dataset, what does a 25 Hz sampling rate tell us about how well motion variables like speed and acceleration can be determined?
+
+Options:
+A. It indicates that data were collected once every 25 seconds
+B. It enables accurate calculation of motion-related variables such as speed and acceleration
+C. It limits the dataset to static vehicle counts only
+D. It restricts the dataset to qualitative observations
+
+Please provide the correct option and a concise explanation.",0.902332,pending,
+train__validation,train,validation,road_networks_instructions__multiple_choice__l1__0001__original__generation,road_networks_instructions__short_answer__l1__0009__aug_00029__generation,road_networks_instructions__multiple_choice__l1__0001,road_networks_instructions__short_answer__l1__0009,road_networks_instructions__concept__156fd0ad22023b98,road_networks_instructions__concept__2a288367fb48e043,road_networks_instructions,road_networks_instructions,"Dataset context:
+Network Repository road network datasets represent real-world cities and regions such as California, Pennsylvania, and Texas.
+
+Question:
+Which type of geographic areas are included in the Network Repository's road network datasets?
+
+Options:
+A. Outer space satellite paths
+B. Real cities and regions such as California and Pennsylvania
+C. Deep ocean submarine routes
+D. Indoor building floor plans
+
+Please provide the correct option and a concise explanation.","Dataset context:
+The Network Repository’s road network collections often depict real cities and regions, with common examples being California, Pennsylvania, and Texas.
+
+Question:
+Road network datasets found in the Network Repository generally correspond to which categories of geographic areas?
+
+Please provide a concise answer grounded in the dataset information.",0.919905,pending,
+train__validation,train,validation,road_networks_instructions__multiple_choice__l1__0001__original__generation,road_networks_instructions__short_answer__l1__0009__aug_00009__generation,road_networks_instructions__multiple_choice__l1__0001,road_networks_instructions__short_answer__l1__0009,road_networks_instructions__concept__156fd0ad22023b98,road_networks_instructions__concept__2a288367fb48e043,road_networks_instructions,road_networks_instructions,"Dataset context:
+Network Repository road network datasets represent real-world cities and regions such as California, Pennsylvania, and Texas.
+
+Question:
+Which type of geographic areas are included in the Network Repository's road network datasets?
+
+Options:
+A. Outer space satellite paths
+B. Real cities and regions such as California and Pennsylvania
+C. Deep ocean submarine routes
+D. Indoor building floor plans
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Network Repository road network datasets typically model real-world locations, including cities and regions like California, Pennsylvania, and Texas.
+
+Question:
+Road network datasets found in the Network Repository generally correspond to which categories of geographic areas?
+
+Please provide a concise answer grounded in the dataset information.",0.919417,pending,
+train__validation,train,validation,road_networks_instructions__multiple_choice__l1__0001__original__generation,road_networks_instructions__short_answer__l1__0009__aug_00019__generation,road_networks_instructions__multiple_choice__l1__0001,road_networks_instructions__short_answer__l1__0009,road_networks_instructions__concept__156fd0ad22023b98,road_networks_instructions__concept__2a288367fb48e043,road_networks_instructions,road_networks_instructions,"Dataset context:
+Network Repository road network datasets represent real-world cities and regions such as California, Pennsylvania, and Texas.
+
+Question:
+Which type of geographic areas are included in the Network Repository's road network datasets?
+
+Options:
+A. Outer space satellite paths
+B. Real cities and regions such as California and Pennsylvania
+C. Deep ocean submarine routes
+D. Indoor building floor plans
+
+Please provide the correct option and a concise explanation.","Dataset context:
+Many road network datasets in the Network Repository correspond to real geographic areas, for example the states of California, Pennsylvania, and Texas.
+
+Question:
+Road network datasets found in the Network Repository generally correspond to which categories of geographic areas?
+
+Please provide a concise answer grounded in the dataset information.",0.915269,pending,
+train__validation,train,validation,tlc_trip_instructions__short_answer__l1__0010__aug_00014__generation,tlc_trip_instructions__short_answer__l1__0001__aug_00048__generation,tlc_trip_instructions__short_answer__l1__0010,tlc_trip_instructions__short_answer__l1__0001,tlc_trip_instructions__concept__8b7dfcb4e2bfbaba,tlc_trip_instructions__concept__33b139cb4069c24a,tlc_trip_instructions,tlc_trip_instructions,"Dataset context:
+Trips in the TLC data are logged with their origins and destinations located in New York City.
+
+Question:
+The TLC trip data covers taxi trip locations exclusively inside which city?
+
+Please provide a concise answer grounded in the dataset information.","Dataset context:
+The TLC trip dataset captures the movements of passengers who actually used NYC taxis and for-hire vehicles.
+
+Question:
+TLC trip data primarily represents what about passenger movements in New York City?
+
+Please provide a concise answer grounded in the dataset information.",0.904498,pending,

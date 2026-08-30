@@ -6,7 +6,7 @@ evaluation:
   dataset_scope: in_domain
   run_id: null
   artifact_root: data/07_model_output
-  prediction_repo_id: UlyssesLynne/urban-planning-llm-predictions
+  prediction_repo_id: UlyssesLynne/urban-planning-llm-predictions-v3
   publish_to_hf: true
   batch_size: 8
   max_input_tokens: 2048

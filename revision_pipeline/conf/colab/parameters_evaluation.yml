@@ -1,4 +1,21 @@
 evaluation:
+  model_key: t5_base
+  checkpoint_stage: base
+  checkpoint_uri: null
+  checkpoint_subfolder: null
+  dataset_scope: in_domain
+  run_id: null
   artifact_root: /content/drive/MyDrive/urban_science_artifacts
+  prediction_repo_id: UlyssesLynne/urban-planning-llm-predictions-v3
   publish_to_hf: true
+  batch_size: 8
+  max_input_tokens: 2048
+  max_new_tokens: 256
+  evaluate_paraphrase: true
+  compute_bertscore: true
+  bertscore_language: en
+  bertscore_model_type: null
+  compute_nli_accuracy: true
+  nli_model_id: roberta-large-mnli
+  nli_entailment_threshold: 0.5
   metric_device: cuda

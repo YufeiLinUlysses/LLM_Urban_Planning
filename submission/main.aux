@@ -83,9 +83,10 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3}Step3: Source Datasets and Information Grounding}{8}{subsubsection.3.3.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.4}Step 4: Contrastive Positive–Negative Pairing}{8}{subsubsection.3.3.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.5}Step 5: Data Augmentation}{8}{subsubsection.3.3.5}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces We intentionally allocate the majority of samples to Level 1 \& 2 for ground- -ing and compositional reasoning, while reserving a focused Level 3 subset to train  and evaluate cross-dimensional reasoning. The \textit  {Total} column further reports the  within-source task-type distribution between Short Answer (SA) and Multiple  Choice (MC).}}{9}{table.caption.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Validated answer-generation records from the five primary sources, reported by difficulty level and task type. France and Japan are excluded because they are reserved as cross-regional holdouts.}}{9}{table.caption.2}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{tab:dataset_by_level}{{1}{9}{We intentionally allocate the majority of samples to Level 1 \& 2 for ground-\\-ing and compositional reasoning, while reserving a focused Level 3 subset to train\\ and evaluate cross-dimensional reasoning. The \textit {Total} column further reports the \\within-source task-type distribution between Short Answer (SA) and Multiple\\ Choice (MC)}{table.caption.2}{}}
+\newlabel{tab:dataset_by_level}{{1}{9}{Validated answer-generation records from the five primary sources, reported by difficulty level and task type. France and Japan are excluded because they are reserved as cross-regional holdouts}{table.caption.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.6}Step 6: Lineage-Aware Validation and Leakage Auditing}{9}{subsubsection.3.3.6}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Nested pie chart summarizing the augmented instruction dataset composition. The inner pie shows the overall task-type split between short-answer (SA) and multiple-choice (MC) instructions, while the outer ring breaks down reasoning difficulty within each task type: SA contains Level~1/Level~2/Level~3 instructions, whereas MC contains Level~1/Level~2 only (no Level~3 MC instances). \textit  {Note:} across the full dataset, positive and negative instances are generated in a balanced 1:1 ratio (50\% positive, 50\% negative).}}{10}{figure.caption.3}\protected@file@percent }
 \newlabel{fig:sa_mc_level_distribution}{{1}{10}{Nested pie chart summarizing the augmented instruction dataset composition. The inner pie shows the overall task-type split between short-answer (SA) and multiple-choice (MC) instructions, while the outer ring breaks down reasoning difficulty within each task type: SA contains Level~1/Level~2/Level~3 instructions, whereas MC contains Level~1/Level~2 only (no Level~3 MC instances). \textit {Note:} across the full dataset, positive and negative instances are generated in a balanced 1:1 ratio (50\% positive, 50\% negative)}{figure.caption.3}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces End-to-end dataset construction pipeline for the proposed urban-planning instruction corpus. The workflow begins with five heterogeneous urban datasets and proceeds through seed instruction creation across three difficulty levels, contrastive positive/negative pairing, and large-scale GPT-5.1 augmentation. The final output is a comprehensive multi-level instruction dataset designed to train language models in structured, dataset-grounded urban reasoning.}}{11}{figure.caption.4}\protected@file@percent }
@@ -113,25 +114,25 @@
 \@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Zero-shot performance across difficulty levels (LLaMA3-70B)}}{16}{table.caption.10}\protected@file@percent }
 \newlabel{tab:zeroshot_levels}{{4}{16}{Zero-shot performance across difficulty levels (LLaMA3-70B)}{table.caption.10}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Training Dynamics}{16}{subsection.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Evaluation Performance}{16}{subsection.5.3}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Comparison of zero-shot and post-training performance across models.  BERTScore F1 is reported for short-answer (SA) paraphrasing.}}{17}{table.caption.12}\protected@file@percent }
 \newlabel{tab:eval_comparison}{{5}{17}{Comparison of zero-shot and post-training performance across models. \\BERTScore F1 is reported for short-answer (SA) paraphrasing}{table.caption.12}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Performance by Model Family and Scale}{17}{subsection.5.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Per-Model Comparison}{17}{section*.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Evaluation Performance}{17}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Performance by Model Family and Scale}{18}{subsection.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Per-Model Comparison}{18}{section*.14}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Zero-Shot vs Fine-Tuned Performance}{18}{section*.15}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Cross-Model Comparison}{18}{section*.16}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Key Findings}{18}{section*.17}\protected@file@percent }
-\citation{idfm2024}
-\citation{mlit2024}
+\@writefile{toc}{\contentsline {paragraph}{Key Findings}{19}{section*.17}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Performance by Task Type and Difficulty Level}{19}{subsection.5.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Performance by Task Type}{19}{section*.18}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Performance by Difficulty Level}{19}{section*.19}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Interaction Between Task Type and Difficulty}{19}{section*.20}\protected@file@percent }
+\citation{idfm2024}
+\citation{mlit2024}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Cross-Regional Generalization Results}{20}{subsection.5.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.6.1}Overall Performance Trends}{20}{subsubsection.5.6.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.6.2}Model Family Behavior}{20}{subsubsection.5.6.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.6.3}Paraphrase Performance}{20}{subsubsection.5.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.7}Dataset-Centric Findings and Analysis}{20}{subsection.5.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7}Dataset-Centric Findings and Analysis}{21}{subsection.5.7}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Semantic Transfer and Task Adaptation}{21}{section*.21}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Instruction Alignment as a Key Factor}{21}{section*.22}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Scaling and Adaptability}{21}{section*.23}\protected@file@percent }

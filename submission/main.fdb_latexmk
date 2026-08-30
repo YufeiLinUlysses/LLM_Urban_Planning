@@ -1,6 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1787619001.02963 "./main.tex" "main.pdf" "main" 1787619004.33489 0
-  "./main.tex" 1787618945 148056 1ebfafcab0489f1109e34e4048c62375 ""
+["pdflatex"] 1788112600.39467 "main.tex" "main.pdf" "main" 1788112602.90749 0
   "c:/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1787607598 2971 def0b6c1f0b107b3b936def894055589 ""
   "c:/texlive/2026/texmf-dist/fonts/enc/dvips/stix/stix-t1.enc" 1787611477 7013 c55cc8669071ac14036c4a0c96c16202 ""
   "c:/texlive/2026/texmf-dist/fonts/enc/dvips/stix/stix-ts1.enc" 1787611477 2836 154e6b0061f9b8cb549144b55b268339 ""
@@ -42,6 +41,7 @@
   "c:/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfsx0900.pfb" 1787607598 154664 6c6e5d31bf2dde94fef94044a9997285 ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb" 1787607598 175641 e37e2df5b70b76a1b78bfb3b804197c7 ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb" 1787607598 170827 b1cb46f82d978af2aeb6bf26777fa82d ""
+  "c:/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb" 1787607598 169201 651a6333c3213b38091f54d2ab2d2cd6 ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/stix/STIXGeneral-Bold.pfb" 1787611477 250376 bf3a400e1273354c5c26332493ec1650 ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/stix/STIXGeneral-BoldItalic.pfb" 1787611477 216153 2b0506dffa76b1f1641e55650131767e ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/stix/STIXGeneral-Italic.pfb" 1787611477 221139 9f909fb310c9861a9dcd561488bde33b ""
@@ -157,10 +157,10 @@
   "graphs/training_loss_llama8b.png" 1787618945 84160 ebcc707bd367e55cad2c348d552c0c22 ""
   "graphs/training_loss_qwen7b.png" 1787618945 73482 1764c3ea744ea9ebf8385eeabecc4616 ""
   "graphs/training_loss_t5base.png" 1787618945 64792 5ba34de4a1bc62a3bc6d9d965f644622 ""
-  "main.abs" 1787619002 1887 41f38d46bb53da6b3876e5701e75554d "pdflatex"
-  "main.aux" 1787619004 21621 baf011bb0c850486a179566b182ba98f "pdflatex"
-  "main.out" 1787619004 7172 cb08c006324b2218d0199d4be9b16611 "pdflatex"
-  "main.tex" 1787618945 148056 1ebfafcab0489f1109e34e4048c62375 ""
+  "main.abs" 1788112601 1955 6cd4aede79af21370bb9dc62a4a41b56 "pdflatex"
+  "main.aux" 1788112602 21490 4af7e825cc7a32b9b931b1c6ea27e0fc "pdflatex"
+  "main.out" 1788112602 7523 8f7171dbe16b3707a36d522fb50b15fc "pdflatex"
+  "main.tex" 1788112592 151222 2f31635b4b72640a694a53b69609ed27 ""
   "thumbnails/cas-email.jpeg" 1787618945 8764 ae276cc9956197082d008c18ae4cbb28 ""
   (generated)
   "main.abs"

@@ -2,7 +2,10 @@ from __future__ import annotations
 
 import pytest
 
-from urban_science_revision.pipelines.huggingface.nodes import prepare_release_bundle
+from urban_science_revision.pipelines.huggingface.nodes import (
+    initialize_experiment_repositories,
+    prepare_release_bundle,
+)
 
 
 def _partition() -> dict:
@@ -72,3 +75,31 @@ def test_prepare_release_refuses_failed_quality_gate() -> None:
             {"augmentation_configuration_hash": "abc123"},
             _parameters(),
         )
+
+
+def test_initialize_experiment_repositories(monkeypatch: pytest.MonkeyPatch) -> None:
+    calls = []
+
+    class FakeApi:
+        def __init__(self, token: str) -> None:
+            assert token == "test-token"
+
+        def create_repo(self, **kwargs: object) -> str:
+            calls.append(kwargs)
+            return f"https://huggingface.co/{kwargs['repo_id']}"
+
+    monkeypatch.setenv("HF_TOKEN", "test-token")
+    monkeypatch.setattr(
+        "urban_science_revision.pipelines.huggingface.nodes.HfApi", FakeApi
+    )
+    receipt = initialize_experiment_repositories(
+        {
+            "private": True,
+            "model_repo_id": "owner/models-v3",
+            "prediction_repo_id": "owner/predictions-v3",
+        }
+    )
+
+    assert receipt["private"] is True
+    assert [call["repo_type"] for call in calls] == ["model", "dataset"]
+    assert all(call["exist_ok"] is True for call in calls)

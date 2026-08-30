@@ -43,7 +43,7 @@
 \cortext[cor1]{Corresponding author.}
 
 \begin{abstract}
-Large language models (LLMs) have demonstrated strong reasoning and instruction-following capabilities, yet their application to urban science remains limited by the lack of domain-specific instruction datasets grounded in real-world urban data. This paper introduces a dataset-centric instruction-tuning framework that transforms heterogeneous urban mobility and infrastructure datasets into structured question-answering tasks for urban reasoning. The proposed corpus integrates five representative urban datasets and organizes instructions into three difficulty levels ranging from direct dataset comprehension to cross-dimensional reasoning. To improve robustness and diversity, the dataset incorporates contrastive positive--negative supervision and large-scale GPT-5.1-based augmentation, resulting in 22,000 instruction instances spanning both multiple-choice and short-answer formats. We evaluate the effectiveness of the dataset through supervised fine-tuning of representative models from the BERT, T5, LLaMA3, and Qwen families and further assess cross-regional generalization using transportation datasets from France and Japan. Experimental results reveal substantial architectural differences in adaptation behavior. Qwen models maintain near-perfect classification accuracy before and after fine-tuning, LLaMA3 models achieve the largest gains in dataset-grounded reasoning accuracy, and T5-base exhibits strong improvements in semantic generation despite persistent difficulties with structured answer selection. Cross-regional experiments demonstrate that dataset-centric reasoning transfers effectively across geographic contexts, although output-format compliance remains a significant challenge. These findings highlight the importance of dataset design in developing reliable, interpretable, and transferable LLMs for urban planning and transportation applications.
+Large language models (LLMs) have demonstrated strong reasoning and instruction-following capabilities, yet their application to urban science remains limited by the lack of domain-specific instruction datasets grounded in real-world urban data. This paper introduces a dataset-centric instruction-tuning framework that transforms heterogeneous urban mobility and infrastructure datasets into structured question-answering tasks for urban reasoning. The proposed corpus integrates five representative urban datasets and organizes instructions into three difficulty levels ranging from direct dataset comprehension to cross-dimensional reasoning. To improve robustness and diversity, the dataset incorporates contrastive positive--negative supervision and large-scale GPT-5.1-based augmentation, yielding 14,726 validated answer-generation records and 29,452 positive--negative answer-verification records across the five primary and two cross-regional sources. We evaluate the effectiveness of the dataset through supervised fine-tuning of representative models from the BERT, T5, LLaMA3, and Qwen families and further assess cross-regional generalization using transportation datasets from France and Japan. Experimental results reveal substantial architectural differences in adaptation behavior. Qwen models maintain near-perfect classification accuracy before and after fine-tuning, LLaMA3 models achieve the largest gains in dataset-grounded reasoning accuracy, and T5-base exhibits strong improvements in semantic generation despite persistent difficulties with structured answer selection. Cross-regional experiments demonstrate that dataset-centric reasoning transfers effectively across geographic contexts, although output-format compliance remains a significant challenge. These findings highlight the importance of dataset design in developing reliable, interpretable, and transferable LLMs for urban planning and transportation applications.
 \end{abstract}
 
 \begin{keywords}
@@ -196,11 +196,11 @@ This contrastive setup teaches models not only how to produce correct interpreta
 
 \subsubsection{Step 5: Data Augmentation}
 
-After constructing the seed instruction set, we employ GPT\mbox{-}5.1 to generate large-scale augmented variants for each instruction. For Level~1, we create 1,500 positive and 1,500 negative examples (500 short-answer and 1,000 multiple-choice each). For Level~2, we synthesize 500 positive and 500 negative examples (200 short-answer and 300 multiple-choice). For Level~3, we similarly produce 500 positive and 500 negative examples, as illustrated in Table \ref{tab:dataset_by_level} and Fig \ref{fig:sa_mc_level_distribution}. This augmentation process expands each seed into a diverse collection of semantically consistent variants while preserving the factual grounding of the original datasets.
+After constructing the seed instruction set, we employ GPT\mbox{-}5.1 to generate multiple grounded variants of the factual context, question, correct answer, explanation, and---for multiple-choice tasks---option ordering. The exact expansion factors depend on task type and difficulty level. After validation, the five primary sources contain 10,560 answer-generation records; the independently held-out France and Japan sources contribute another 4,166 records. Table~\ref{tab:dataset_by_level} reports the validated primary-source composition. Each canonical record additionally produces one positive and one negative answer-verification view.
 
 \begin{table}[H]
 \centering
-\caption{We intentionally allocate the majority of samples to Level 1 \& 2 for ground-\\-ing and compositional reasoning, while reserving a focused Level 3 subset to train\\ and evaluate cross-dimensional reasoning. The \textit{Total} column further reports the \\within-source task-type distribution between Short Answer (SA) and Multiple\\ Choice (MC).}
+\caption{Validated answer-generation records from the five primary sources, reported by difficulty level and task type. France and Japan are excluded because they are reserved as cross-regional holdouts.}
 \label{tab:dataset_by_level}
 \resizebox{\columnwidth}{!}{%
 \renewcommand{\arraystretch}{1.15}
@@ -215,53 +215,53 @@ After constructing the seed instruction set, we employ GPT\mbox{-}5.1 to generat
 \textbf{Total} \\
 \midrule
 highD &
-3,000 &
-1,000 &
+1,520 &
+510 &
 0 &
-1,400 &
-2,600 &
-4,000 \\
+715 &
+1,315 &
+2,030 \\
 
 NGSIM &
-3,000 &
-1,000 &
+1,520 &
+510 &
 0 &
-1,400 &
-2,600 &
-4,000 \\
+715 &
+1,315 &
+2,030 \\
 
 Road Networks &
-3,000 &
-1,000 &
+1,520 &
+510 &
 0 &
-1,400 &
-2,600 &
-4,000 \\
+715 &
+1,315 &
+2,030 \\
 
 TLC Trip Records &
-3,000 &
-1,000 &
-1,000 &
-2,400 &
-2,600 &
-5,000 \\
+1,520 &
+510 &
+205 &
+920 &
+1,315 &
+2,235 \\
 
 Urban Flow Prediction Survey &
-3,000 &
-1,000 &
-1,000 &
-2,400 &
-2,600 &
-5,000 \\
+1,520 &
+510 &
+205 &
+920 &
+1,315 &
+2,235 \\
 \midrule
 
 \textbf{Total} &
-\textbf{15,000 (68.2\%)} &
-\textbf{5,000 (22.7\%)} &
-\textbf{2,000 (9.1\%)} &
-\textbf{9,000 (40.9\%)} &
-\textbf{13,000 (59.1\%)} &
-\textbf{22,000} \\
+\textbf{7,600 (72.0\%)} &
+\textbf{2,550 (24.1\%)} &
+\textbf{410 (3.9\%)} &
+\textbf{3,985 (37.7\%)} &
+\textbf{6,575 (62.3\%)} &
+\textbf{10,560} \\
 \bottomrule
 \end{tabular}
 }
@@ -303,6 +303,14 @@ Urban Flow Prediction Survey &
 During augmentation, GPT\mbox{-}5.1 rephrases factual descriptions, rewrites questions, varies explanation styles, and reorders multiple-choice options. For negative examples, it produces incorrect yet plausible outputs that remain compatible with the contextual constraints of each instruction. This strategy increases lexical and structural diversity, reduces template memorization, and strengthens the contrastive supervision signal.
 
 Through systematic augmentation grounded in a small, curated set of seed instructions, the final dataset becomes a rich and varied training resource that enables models to generalize beyond fixed phrasings and develop robust dataset-grounded reasoning across all levels.
+
+\subsubsection{Step 6: Lineage-Aware Validation and Leakage Auditing}
+
+Synthetic expansion can create highly similar descendants of the same underlying question; consequently, a row-level random split would overestimate generalization by allowing paraphrases of a training example to enter validation or test data. We therefore retain explicit lineage for every record. Each manually authored item receives a deterministic \texttt{seed\_id}, and every original and augmented descendant inherits this identifier. In addition, items derived from the same normalized source fact---including multiple-choice, short-answer, positive-verification, and negative-verification forms---share a deterministic \texttt{concept\_group\_id}. Two pairs of semantically equivalent concepts identified during manual review were consolidated through a documented alias map before partitioning. Split assignment is performed on these resolved concept groups rather than on individual records, ensuring that all task-format and paraphrase variants of a concept remain in a single partition.
+
+The pipeline next applies structural and task-specific quality controls. It validates required fields, answer--option consistency for multiple-choice records, answer grounding for short-answer records, and the separation of prompts from supervised targets. Exact duplicate records are removed, while plausible incorrect answers are used only to construct an answer-verification task; they are not treated as generation targets. This procedure yielded 14,726 accepted canonical records and an equal number of answer-generation views, together with 29,452 verification views containing balanced positive and negative candidates. No record was rejected by the final structural gate, and no exact duplicate remained.
+
+We audit leakage at four levels: resolved concept-group overlap, seed overlap, normalized exact-prompt overlap, and semantic similarity across splits. The first three deterministic checks reported zero overlap for every train--validation--test pair. For the semantic audit, prompts were encoded with \texttt{all-mpnet-base-v2}, and cross-split pairs with cosine similarity of at least 0.90 were retained. Comparisons were deduplicated by concept pair before review so that many augmented variants did not produce repeated judgments. After the reviewed concept aliases were applied, three unique concept pairs remained. Manual adjudication classified all three as related but distinct because they required different answers or reasoning operations; none was confirmed as leakage. The final audit therefore contained zero pending and zero confirmed-leakage cases.
 
 The process is demonstrated as the following Figure ~\ref{fig:urban_llm_flowchart}.
 
@@ -413,25 +421,24 @@ Short-answer instructions consist of a Fact providing contextual grounding, a Qu
 Multiple-choice instructions consist of a Question, a set of discrete Selections labeled A–D, an Output indicating the correct option, and an Explanation grounding the correct choice in dataset properties. For both instruction types, positive and negative instances are paired.  Negative instances preserve the same structure and linguistic form as positive ones but replace the correct output with a plausible yet incorrect alternative, providing contrastive supervision that encourages models to distinguish valid dataset interpretations from realistic misinterpretations.
 
 \paragraph{Dataset Splits}
-The full dataset is randomly divided into training and testing subsets using an 80:20 split. The training subset is used exclusively for supervised fine-tuning, while the test subset is held out for evaluation on unseen instructions across all difficulty levels and task types.
+France and Japan are reserved in their entirety as a cross-regional holdout and are never used for model fitting or checkpoint selection. The remaining five sources are partitioned deterministically into training, validation, and in-domain test sets using an 80:10:10 target ratio and random seed 2025. The indivisible split unit is the resolved \texttt{concept\_group\_id}, rather than an individual augmented row. The final allocation contains 106 in-domain concept groups: 85 for training, 11 for validation, and 10 for testing. These groups produce 8,326 generation records for training, 1,036 for validation, and 1,198 for in-domain testing; the combined France--Japan holdout contains 4,166 additional generation records. The training partition is used for supervised fine-tuning, validation is used only for checkpoint selection, and both test partitions remain unseen until evaluation.
 
 \paragraph{Model Input Serialization}
-To support instruction-tuned language models, each structured instruction record is serialized into a single linear text block prior to training.
-This serialization preserves task-specific fields through explicit textual markers.
-For short-answer instances, the serialized input includes Fact, Question, Output, and Explanation. For multiple-choice instances, Selections are flattened into a single string listing options A–D before being combined with the Question, Output, and Explanation. This unified representation ensures compatibility with standard fine-tuning pipelines while maintaining clear structural cues for different instruction types.
+To support instruction-tuned language models, every structured record is serialized into separate prompt and target fields. The prompt contains only the dataset context, question, and---for multiple-choice instances---the options labeled A--D. The supervised target contains the correct answer and its grounded explanation. Thus, neither the answer nor explanation is visible in the input tokens used to predict that target. The same separation is maintained for answer verification: the prompt contains a candidate answer, whereas the target states whether the candidate is correct and provides the supported answer and explanation. This representation provides consistent textual markers across model families while preventing target leakage.
 \newpage
 \begin{lstlisting}[style=Matlab-editor]
-[Short-answer only] Fact: [contextual fact]
+PROMPT
+Dataset context: [contextual fact]
 Question: [question text]
 [Multiple-choice only] Selections:
 A: ...
 B: ...
 C: ...
 D: ...
-The answer to the question is:
-[output]
-The reason for the answer is:
-[explanation]
+
+TARGET
+ANSWER: [output]
+EXPLANATION: [grounded explanation]
 \end{lstlisting}
 
 \textbf{Rationale.}

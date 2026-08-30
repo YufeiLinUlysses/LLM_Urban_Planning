@@ -15,6 +15,43 @@ from huggingface_hub import HfApi, create_branch
 PartitionValue = dict[str, Any] | Callable[[], dict[str, Any]]
 
 
+def _load_hf_token() -> str:
+    for candidate in (Path.cwd() / ".env", Path.cwd().parent / ".env"):
+        if candidate.is_file():
+            load_dotenv(candidate, override=False)
+            break
+    token = os.getenv("HF_TOKEN")
+    if not token:
+        raise RuntimeError("HF_TOKEN is required for Hugging Face repository operations")
+    return token
+
+
+def initialize_experiment_repositories(parameters: dict[str, Any]) -> dict[str, Any]:
+    """Create the model-zoo and prediction repositories before GPU work begins."""
+
+    token = _load_hf_token()
+    api = HfApi(token=token)
+    private = bool(parameters.get("private", True))
+    repositories = [
+        (parameters["model_repo_id"], "model"),
+        (parameters["prediction_repo_id"], "dataset"),
+    ]
+    created = []
+    for repo_id, repo_type in repositories:
+        repo = api.create_repo(
+            repo_id=repo_id,
+            repo_type=repo_type,
+            private=private,
+            exist_ok=True,
+        )
+        created.append({"repo_id": repo_id, "repo_type": repo_type, "url": str(repo)})
+    return {
+        "created_at": datetime.now(UTC).isoformat(),
+        "private": private,
+        "repositories": created,
+    }
+
+
 def _materialize(partitions: Mapping[str, PartitionValue]) -> dict[str, dict[str, Any]]:
     return {
         partition_id: value() if callable(value) else value
@@ -147,13 +184,7 @@ def prepare_release_bundle(
 def publish_release(manifest: dict[str, Any], parameters: dict[str, Any]) -> dict[str, Any]:
     """Upload a prepared release. This is the only externally mutating node."""
 
-    for candidate in (Path.cwd() / ".env", Path.cwd().parent / ".env"):
-        if candidate.is_file():
-            load_dotenv(candidate, override=False)
-            break
-    token = os.getenv("HF_TOKEN")
-    if not token:
-        raise RuntimeError("HF_TOKEN is required for the publish_huggingface pipeline")
+    token = _load_hf_token()
     release_dir = Path(parameters["release_dir"]).resolve()
     if not release_dir.is_dir():
         raise FileNotFoundError(f"Prepared Hugging Face release is missing: {release_dir}")

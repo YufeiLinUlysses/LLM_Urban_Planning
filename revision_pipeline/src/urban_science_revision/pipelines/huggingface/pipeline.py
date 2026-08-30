@@ -2,7 +2,21 @@
 
 from kedro.pipeline import Pipeline, node, pipeline
 
-from .nodes import prepare_release_bundle, publish_release
+from .nodes import initialize_experiment_repositories, prepare_release_bundle, publish_release
+
+
+def create_initialize_experiment_repositories_pipeline(**kwargs: object) -> Pipeline:
+    del kwargs
+    return pipeline(
+        [
+            node(
+                initialize_experiment_repositories,
+                inputs="params:huggingface_experiments",
+                outputs="hf_experiment_repositories_receipt",
+                name="initialize_huggingface_experiment_repositories",
+            )
+        ]
+    )
 
 
 def create_prepare_pipeline(**kwargs: object) -> Pipeline:

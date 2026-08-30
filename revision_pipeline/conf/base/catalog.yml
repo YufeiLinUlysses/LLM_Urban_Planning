@@ -122,6 +122,10 @@ hf_publish_receipt:
   type: json.JSONDataset
   filepath: "${globals:reporting_path}/huggingface_publish_receipt.json"
 
+hf_experiment_repositories_receipt:
+  type: json.JSONDataset
+  filepath: "${globals:experiment_reporting_path}/huggingface_repositories_receipt.json"
+
 experiment_generation_partitions:
   type: partitions.PartitionedDataset
   path: "${globals:experiment_generation_path}"

@@ -1,0 +1,4 @@
+huggingface_experiments:
+  private: true
+  model_repo_id: UlyssesLynne/urban-planning-llm-model-zoo-v3
+  prediction_repo_id: UlyssesLynne/urban-planning-llm-predictions-v3
