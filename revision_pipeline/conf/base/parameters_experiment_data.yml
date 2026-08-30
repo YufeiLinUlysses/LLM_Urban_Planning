@@ -12,3 +12,12 @@ experiment_data:
     france: france
     japan: japan
   fail_on_leakage: true
+  semantic_audit:
+    enabled: true
+    model_id: sentence-transformers/all-mpnet-base-v2
+    similarity_threshold: 0.90
+    nearest_neighbors_per_record: 10
+    batch_size: 64
+    max_candidates_per_split_pair: 1000
+    human_review_top_n: 50
+    human_review_boundary_n: 50

@@ -1,0 +1,23 @@
+training_reporting:
+  # Null uses model_training_receipt.local_checkpoint/training_history.json.
+  training_history_path: null
+  output_dir: null
+
+paper_figures:
+  artifact_root: data/07_model_output
+  output_dir: data/08_reporting/evaluations/paper_figures
+  dataset_scope: in_domain
+  model_order:
+    - t5_base
+    - qwen25_7b
+    - qwen25_14b
+    - llama31_8b
+    - llama31_70b
+  model_labels:
+    t5_base: T5-base
+    qwen25_7b: Qwen2.5-7B
+    qwen25_14b: Qwen2.5-14B
+    llama31_8b: LLaMA3.1-8B
+    llama31_70b: LLaMA3.1-70B
+  # Optional exact selection: model -> stage -> scope -> run_id.
+  run_ids: {}

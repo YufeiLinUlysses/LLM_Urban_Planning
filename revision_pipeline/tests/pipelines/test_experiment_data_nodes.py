@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from urban_science_revision.pipelines.experiment_data.nodes import (
+    _semantic_cross_split_audit,
     prepare_experiment_partitions,
 )
 
@@ -31,6 +32,7 @@ def _parameters() -> dict:
         "holdout_source_patterns": ["france", "japan"],
         "region_patterns": {"france": "france", "japan": "japan"},
         "fail_on_leakage": True,
+        "semantic_audit": {"enabled": False},
     }
 
 
@@ -53,3 +55,65 @@ def test_seed_split_and_combined_cross_regional_holdout() -> None:
         row["evaluation_scope"] == "cross_regional" for item in holdouts for row in item["records"]
     )
     assert set(gen) == set(ver)
+
+
+class _FakeEncoder:
+    def encode(self, prompts, **kwargs):
+        del kwargs
+        vectors = {
+            "same meaning alpha": [1.0, 0.0],
+            "same meaning beta": [0.99, 0.01],
+            "unrelated": [0.0, 1.0],
+        }
+        return [vectors[prompt] for prompt in prompts]
+
+
+def test_semantic_audit_compares_only_different_splits() -> None:
+    partitions = {
+        "train__source": {
+            "split": "train",
+            "records": [
+                {
+                    "example_id": "train-1",
+                    "seed_id": "seed-1",
+                    "source_name": "source",
+                    "prompt": "same meaning alpha",
+                }
+            ],
+        },
+        "test__source": {
+            "split": "test",
+            "records": [
+                {
+                    "example_id": "test-1",
+                    "seed_id": "seed-2",
+                    "source_name": "source",
+                    "prompt": "same meaning beta",
+                },
+                {
+                    "example_id": "test-2",
+                    "seed_id": "seed-3",
+                    "source_name": "source",
+                    "prompt": "unrelated",
+                },
+            ],
+        },
+    }
+    parameters = {
+        "semantic_audit": {
+            "enabled": True,
+            "model_id": "fake",
+            "similarity_threshold": 0.9,
+            "nearest_neighbors_per_record": 2,
+            "human_review_top_n": 10,
+            "human_review_boundary_n": 10,
+            "max_candidates_per_split_pair": 100,
+        }
+    }
+
+    audit = _semantic_cross_split_audit(partitions, parameters, _FakeEncoder())
+
+    assert audit["review_required"] is True
+    assert audit["split_pairs"]["test__train"]["flagged_candidate_count"] == 1
+    candidate = audit["human_review_queue"][0]
+    assert {candidate["left_seed_id"], candidate["right_seed_id"]} == {"seed-1", "seed-2"}

@@ -155,3 +155,11 @@ model_evaluation_receipt:
 evaluation_comparison_report:
   type: json.JSONDataset
   filepath: "${globals:evaluation_reporting_path}/latest_comparison.json"
+
+training_figure_receipt:
+  type: json.JSONDataset
+  filepath: "${globals:model_reporting_path}/latest_training_figures.json"
+
+paper_figure_manifest:
+  type: json.JSONDataset
+  filepath: "${globals:evaluation_reporting_path}/paper_figures/figure_manifest.json"

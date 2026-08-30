@@ -54,6 +54,12 @@ prepare_experiment_data -> train_model -> evaluate_model
 training-source datasets. France and Japan bypass this split and are combined under the
 `cross_regional` evaluation scope while retaining a `region` field.
 
+The same pipeline audits cross-split leakage in three layers: seed overlap, exact normalized
+prompt overlap, and sentence-embedding similarity. Semantic candidates above the configured
+threshold are ranked into a human-review queue in `data/08_reporting/experiment/leakage_audit.json`;
+they are not automatically deleted because similar urban terminology does not necessarily imply
+leakage.
+
 `train_model` trains on generation and verification train records, uses only validation records
 for checkpoint selection, saves the selected checkpoint locally, and publishes it to
 `UlyssesLynne/urban-planning-llm-model-zoo` when `training.publish_to_hf=true`.
@@ -76,3 +82,27 @@ Set `HF_TOKEN` through a Colab secret or environment variable. Override
 `training.artifact_root` and `evaluation.artifact_root` with a mounted Google Drive path to
 make GPU runs resumable across sessions. Set either `publish_to_hf` flag to `false` for local
 smoke tests.
+
+## Reproducible figures
+
+`train_model` writes `training_history.json`, a CSV export, and 300-dpi training/validation-loss
+and learning-rate figures inside the final adapter's `checkpoint/figures` directory. Because the
+figures are created before model publication, they are included in the Hugging Face model upload.
+To regenerate the plots for an existing run without retraining:
+
+```bash
+kedro run --pipeline=render_training_figures
+```
+
+After running both `base` and `fine_tuned` evaluation for each desired model, build manuscript
+figures directly from the persisted prediction Parquets:
+
+```bash
+kedro run --pipeline=build_paper_figures
+```
+
+Outputs are stored under `data/08_reporting/evaluations/paper_figures`: multiple-choice accuracy,
+short-answer BERTScore F1, the strict-versus-normalized MC formatting diagnostic, a CSV containing
+the exact plotted values, and a manifest recording every source prediction file. Configure model
+order, exact run IDs, artifact roots, and output paths under `paper_figures` in
+`conf/base/parameters_reporting.yml` or a Colab environment override.

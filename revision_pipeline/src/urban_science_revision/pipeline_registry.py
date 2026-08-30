@@ -24,6 +24,10 @@ from urban_science_revision.pipelines.model_evaluation.pipeline import (
 from urban_science_revision.pipelines.model_training.pipeline import (
     create_pipeline as create_training_pipeline,
 )
+from urban_science_revision.pipelines.reporting.pipeline import (
+    create_evaluation_figures_pipeline,
+    create_training_figures_pipeline,
+)
 
 
 def register_pipelines() -> dict[str, Pipeline]:
@@ -34,6 +38,8 @@ def register_pipelines() -> dict[str, Pipeline]:
     training = create_training_pipeline()
     evaluation = create_evaluation_pipeline()
     comparison = create_comparison_pipeline()
+    training_figures = create_training_figures_pipeline()
+    evaluation_figures = create_evaluation_figures_pipeline()
     return {
         "__default__": augmentation,
         "validate_inputs": create_validation_pipeline(),
@@ -45,4 +51,6 @@ def register_pipelines() -> dict[str, Pipeline]:
         "train_model": training,
         "evaluate_model": evaluation,
         "compare_evaluations": comparison,
+        "render_training_figures": training_figures,
+        "build_paper_figures": evaluation_figures,
     }

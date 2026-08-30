@@ -297,6 +297,11 @@ def train_and_publish_model(
     (checkpoint_dir / "training_history.json").write_text(
         json.dumps(trainer.state.log_history, indent=2, default=str), encoding="utf-8"
     )
+    from urban_science_revision.pipelines.reporting.nodes import render_training_history
+
+    receipt["training_figures"] = render_training_history(
+        trainer.state.log_history, checkpoint_dir / "figures"
+    )
     if parameters.get("publish_to_hf", True):
         receipt["published"] = True
         (checkpoint_dir / "training_manifest.json").write_text(

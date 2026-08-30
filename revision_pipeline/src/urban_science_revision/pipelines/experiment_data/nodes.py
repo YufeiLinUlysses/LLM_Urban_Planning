@@ -6,6 +6,7 @@ import hashlib
 import re
 from collections import Counter, defaultdict
 from collections.abc import Callable, Mapping
+from itertools import combinations
 from typing import Any
 
 PartitionValue = dict[str, Any] | Callable[[], dict[str, Any]]
@@ -130,7 +131,131 @@ def _normalize_prompt(text: str) -> str:
     return re.sub(r"\s+", " ", text.casefold()).strip()
 
 
-def _leakage_audit(partitions: Mapping[str, dict[str, Any]]) -> dict[str, Any]:
+def _semantic_cross_split_audit(
+    partitions: Mapping[str, dict[str, Any]],
+    parameters: dict[str, Any],
+    encoder: Any | None = None,
+) -> dict[str, Any]:
+    """Rank semantically similar prompts that occur in different data splits."""
+
+    config = parameters.get("semantic_audit", {})
+    if not config.get("enabled", False):
+        return {"enabled": False, "review_required": False, "split_pairs": {}}
+
+    from sklearn.neighbors import NearestNeighbors
+
+    if encoder is None:
+        from sentence_transformers import SentenceTransformer
+
+        encoder = SentenceTransformer(config["model_id"])
+
+    rows_by_split: dict[str, list[dict[str, str]]] = defaultdict(list)
+    for dataset in partitions.values():
+        split = str(dataset["split"])
+        if split == "cross_regional":
+            continue
+        for record in _records(dataset):
+            rows_by_split[split].append(
+                {
+                    "example_id": str(record["example_id"]),
+                    "seed_id": str(record["seed_id"]),
+                    "source_name": str(record["source_name"]),
+                    "prompt": str(record["prompt"]),
+                }
+            )
+
+    embeddings = {
+        split: encoder.encode(
+            [row["prompt"] for row in rows],
+            batch_size=int(config.get("batch_size", 64)),
+            normalize_embeddings=True,
+            show_progress_bar=False,
+        )
+        for split, rows in rows_by_split.items()
+    }
+    threshold = float(config.get("similarity_threshold", 0.90))
+    neighbor_limit = int(config.get("nearest_neighbors_per_record", 10))
+    candidate_limit = int(config.get("max_candidates_per_split_pair", 1000))
+    top_n = int(config.get("human_review_top_n", 50))
+    boundary_n = int(config.get("human_review_boundary_n", 50))
+    split_results: dict[str, Any] = {}
+    review_queue: list[dict[str, Any]] = []
+
+    for left, right in combinations(sorted(rows_by_split), 2):
+        right_rows = rows_by_split[right]
+        neighbors = min(neighbor_limit, len(right_rows))
+        if not rows_by_split[left] or not right_rows or neighbors == 0:
+            continue
+        model = NearestNeighbors(metric="cosine", n_neighbors=neighbors, n_jobs=-1)
+        model.fit(embeddings[right])
+        distances, indices = model.kneighbors(embeddings[left])
+        candidates: list[dict[str, Any]] = []
+        for left_index, (row_distances, row_indices) in enumerate(
+            zip(distances, indices, strict=True)
+        ):
+            for distance, right_index in zip(row_distances, row_indices, strict=True):
+                similarity = 1.0 - float(distance)
+                if similarity < threshold:
+                    continue
+                left_row = rows_by_split[left][left_index]
+                right_row = right_rows[int(right_index)]
+                candidates.append(
+                    {
+                        "split_pair": f"{left}__{right}",
+                        "left_split": left,
+                        "right_split": right,
+                        "left_example_id": left_row["example_id"],
+                        "right_example_id": right_row["example_id"],
+                        "left_seed_id": left_row["seed_id"],
+                        "right_seed_id": right_row["seed_id"],
+                        "left_source_name": left_row["source_name"],
+                        "right_source_name": right_row["source_name"],
+                        "left_prompt": left_row["prompt"],
+                        "right_prompt": right_row["prompt"],
+                        "similarity": round(similarity, 6),
+                        "human_decision": "pending",
+                    }
+                )
+        candidates.sort(key=lambda row: row["similarity"], reverse=True)
+        total = len(candidates)
+        retained = candidates[:candidate_limit]
+        high_similarity = retained[:top_n]
+        # The lowest-scoring flagged items test whether the chosen threshold is sensible.
+        boundary = list(reversed(retained[-boundary_n:])) if boundary_n else []
+        selected_keys: set[tuple[str, str]] = set()
+        selected = []
+        for candidate in high_similarity + boundary:
+            key = (candidate["left_example_id"], candidate["right_example_id"])
+            if key not in selected_keys:
+                selected_keys.add(key)
+                selected.append(candidate)
+        review_queue.extend(selected)
+        split_results[f"{left}__{right}"] = {
+            "flagged_candidate_count": total,
+            "retained_candidate_count": len(retained),
+            "human_review_count": len(selected),
+            "maximum_similarity": retained[0]["similarity"] if retained else None,
+            "candidates": retained,
+        }
+
+    return {
+        "enabled": True,
+        "model_id": config["model_id"],
+        "similarity_threshold": threshold,
+        "comparison_scope": "cross-split prompts only; cross-regional holdout excluded",
+        "review_required": bool(review_queue),
+        "human_review_policy": (
+            "Review the highest-similarity candidates and deterministic boundary cases "
+            "closest to the threshold; review all when the flagged set is small."
+        ),
+        "human_review_queue": review_queue,
+        "split_pairs": split_results,
+    }
+
+
+def _leakage_audit(
+    partitions: Mapping[str, dict[str, Any]], parameters: dict[str, Any]
+) -> dict[str, Any]:
     seeds_by_split: dict[str, set[str]] = defaultdict(set)
     prompts: dict[str, set[str]] = defaultdict(set)
     for dataset in partitions.values():
@@ -155,7 +280,11 @@ def _leakage_audit(partitions: Mapping[str, dict[str, Any]]) -> dict[str, Any]:
         "passed": passed,
         "seed_overlap": seed_overlaps,
         "exact_prompt_overlap_count": prompt_overlaps,
-        "note": "Near-duplicate audit is performed by the upstream augmentation pipeline.",
+        "semantic_cross_split_audit": _semantic_cross_split_audit(partitions, parameters),
+        "note": (
+            "passed covers deterministic seed and exact-prompt leakage. Semantic candidates "
+            "require human adjudication and do not automatically fail the pipeline."
+        ),
     }
 
 
@@ -174,7 +303,7 @@ def prepare_experiment_partitions(
     assignment = _assign_seed_splits(generation, parameters)
     generation_output = _partition_view(generation, assignment, parameters)
     verification_output = _partition_view(verification, assignment, parameters)
-    audit = _leakage_audit(generation_output)
+    audit = _leakage_audit(generation_output, parameters)
     if parameters.get("fail_on_leakage", True) and not audit["passed"]:
         raise ValueError(f"Cross-split leakage audit failed: {audit}")
 
