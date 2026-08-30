@@ -57,10 +57,12 @@ training-source datasets. France and Japan bypass this split and are combined un
 
 The same pipeline audits cross-split leakage in four layers: concept-group overlap, seed
 overlap, exact normalized prompt overlap, and sentence-embedding similarity. Semantic
-candidates above the configured
-threshold are ranked into a human-review queue in `data/08_reporting/experiment/leakage_audit.json`;
-they are not automatically deleted because similar urban terminology does not necessarily imply
-leakage.
+candidates above the configured threshold are ranked into a human-review queue in
+`data/08_reporting/experiment/leakage_audit.json`; they are not automatically deleted because
+similar urban terminology does not necessarily imply leakage. Human-confirmed duplicates can be
+recorded in `experiment_data.concept_group_aliases` and are resolved before splitting. Review
+candidates are deduplicated by concept pair so augmented variants do not require repeating the
+same adjudication.
 
 `train_model` trains on generation and verification train records, uses only validation records
 for checkpoint selection, saves the selected checkpoint locally, and publishes it to

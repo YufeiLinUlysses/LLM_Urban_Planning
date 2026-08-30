@@ -1,5 +1,5 @@
 experiment_data:
-  dataset_version: revision_v2
+  dataset_version: revision_v3
   random_seed: 2025
   split_ratios:
     train: 0.8
@@ -12,6 +12,13 @@ experiment_data:
     france: france
     japan: japan
   fail_on_leakage: true
+  # Human-adjudicated semantic duplicates. The mapping key is the canonical concept;
+  # every listed concept is resolved to that key before the 80/10/10 split.
+  concept_group_aliases:
+    tlc_trip_instructions__concept__33b139cb4069c24a:
+      - tlc_trip_instructions__concept__7a91891160410e07
+    road_networks_instructions__concept__2a288367fb48e043:
+      - road_networks_instructions__concept__156fd0ad22023b98
   semantic_audit:
     enabled: true
     model_id: sentence-transformers/all-mpnet-base-v2

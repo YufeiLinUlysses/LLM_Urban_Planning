@@ -57,6 +57,37 @@ def _concept_group(record: Mapping[str, Any]) -> str:
     return str(group_id)
 
 
+def _concept_alias_lookup(parameters: Mapping[str, Any]) -> dict[str, str]:
+    """Build a validated reviewed-alias-to-canonical-concept lookup."""
+
+    configured = parameters.get("concept_group_aliases", {})
+    if not isinstance(configured, Mapping):
+        raise ValueError("experiment_data.concept_group_aliases must be a mapping")
+
+    lookup: dict[str, str] = {}
+    for canonical, aliases in configured.items():
+        canonical_id = str(canonical)
+        if not isinstance(aliases, list):
+            raise ValueError(
+                f"Aliases for canonical concept {canonical_id!r} must be a list"
+            )
+        for member in [canonical_id, *(str(alias) for alias in aliases)]:
+            previous = lookup.setdefault(member, canonical_id)
+            if previous != canonical_id:
+                raise ValueError(
+                    f"Concept {member!r} is assigned to both {previous!r} and "
+                    f"{canonical_id!r}"
+                )
+    return lookup
+
+
+def _resolved_concept_group(
+    record: Mapping[str, Any], alias_lookup: Mapping[str, str]
+) -> str:
+    original = _concept_group(record)
+    return alias_lookup.get(original, original)
+
+
 def _assign_concept_splits(
     datasets: Mapping[str, dict[str, Any]], parameters: dict[str, Any]
 ) -> dict[str, str]:
@@ -68,11 +99,12 @@ def _assign_concept_splits(
     # by task type would put the same concept into competing strata, so source is the
     # only safe deterministic stratum for the indivisible concept-level split unit.
     strata: dict[str, set[str]] = defaultdict(set)
+    alias_lookup = _concept_alias_lookup(parameters)
     for source, dataset in datasets.items():
         if _is_holdout(source, parameters["holdout_source_patterns"]):
             continue
         for record in _records(dataset):
-            strata[source].add(_concept_group(record))
+            strata[source].add(_resolved_concept_group(record, alias_lookup))
 
     assignment: dict[str, str] = {}
     residual: list[str] = []
@@ -119,13 +151,19 @@ def _partition_view(
     parameters: dict[str, Any],
 ) -> dict[str, dict[str, Any]]:
     output: dict[str, dict[str, Any]] = {}
+    alias_lookup = _concept_alias_lookup(parameters)
     for source, dataset in datasets.items():
         holdout = _is_holdout(source, parameters["holdout_source_patterns"])
         region = _region(source, parameters["region_patterns"]) if holdout else None
         grouped: dict[str, list[dict[str, Any]]] = defaultdict(list)
         for original in _records(dataset):
             record = dict(original)
-            split = "cross_regional" if holdout else assignment[_concept_group(record)]
+            source_concept = _concept_group(record)
+            resolved_concept = _resolved_concept_group(record, alias_lookup)
+            split = "cross_regional" if holdout else assignment[resolved_concept]
+            if resolved_concept != source_concept:
+                record["source_concept_group_id"] = source_concept
+            record["concept_group_id"] = resolved_concept
             record["split"] = split
             record["evaluation_scope"] = "cross_regional" if holdout else "in_domain"
             if region is not None:
@@ -205,7 +243,8 @@ def _semantic_cross_split_audit(
         model = NearestNeighbors(metric="cosine", n_neighbors=neighbors, n_jobs=-1)
         model.fit(embeddings[right])
         distances, indices = model.kneighbors(embeddings[left])
-        candidates: list[dict[str, Any]] = []
+        candidates_by_concept_pair: dict[tuple[str, str], dict[str, Any]] = {}
+        raw_candidate_count = 0
         for left_index, (row_distances, row_indices) in enumerate(
             zip(distances, indices, strict=True)
         ):
@@ -213,10 +252,14 @@ def _semantic_cross_split_audit(
                 similarity = 1.0 - float(distance)
                 if similarity < threshold:
                     continue
+                raw_candidate_count += 1
                 left_row = rows_by_split[left][left_index]
                 right_row = right_rows[int(right_index)]
-                candidates.append(
-                    {
+                concept_key = (
+                    left_row["concept_group_id"],
+                    right_row["concept_group_id"],
+                )
+                candidate = {
                         "split_pair": f"{left}__{right}",
                         "left_split": left,
                         "right_split": right,
@@ -231,9 +274,21 @@ def _semantic_cross_split_audit(
                         "left_prompt": left_row["prompt"],
                         "right_prompt": right_row["prompt"],
                         "similarity": round(similarity, 6),
+                        "supporting_record_pair_count": 1,
                         "human_decision": "pending",
                     }
-                )
+                existing = candidates_by_concept_pair.get(concept_key)
+                if existing is None:
+                    candidates_by_concept_pair[concept_key] = candidate
+                else:
+                    existing["supporting_record_pair_count"] += 1
+                    if candidate["similarity"] > existing["similarity"]:
+                        support = existing["supporting_record_pair_count"]
+                        candidates_by_concept_pair[concept_key] = candidate
+                        candidates_by_concept_pair[concept_key][
+                            "supporting_record_pair_count"
+                        ] = support
+        candidates = list(candidates_by_concept_pair.values())
         candidates.sort(key=lambda row: row["similarity"], reverse=True)
         total = len(candidates)
         retained = candidates[:candidate_limit]
@@ -249,6 +304,7 @@ def _semantic_cross_split_audit(
                 selected.append(candidate)
         review_queue.extend(selected)
         split_results[f"{left}__{right}"] = {
+            "flagged_record_pair_count": raw_candidate_count,
             "flagged_candidate_count": total,
             "retained_candidate_count": len(retained),
             "human_review_count": len(selected),
@@ -263,8 +319,9 @@ def _semantic_cross_split_audit(
         "comparison_scope": "cross-split prompts only; cross-regional holdout excluded",
         "review_required": bool(review_queue),
         "human_review_policy": (
-            "Review the highest-similarity candidates and deterministic boundary cases "
-            "closest to the threshold; review all when the flagged set is small."
+            "Candidates are deduplicated by concept pair. Review the highest-similarity "
+            "concept pairs and deterministic boundary cases closest to the threshold; "
+            "review all when the flagged set is small."
         ),
         "human_review_queue": review_queue,
         "split_pairs": split_results,
@@ -348,6 +405,7 @@ def prepare_experiment_partitions(
         "concept_group_counts": dict(split_counts),
         "generation_record_counts": dict(record_counts),
         "concept_group_assignments": assignment,
+        "concept_group_aliases": parameters.get("concept_group_aliases", {}),
         "sources": sorted(generation),
     }
     return generation_output, verification_output, manifest, audit

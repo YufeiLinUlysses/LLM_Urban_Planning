@@ -33,6 +33,7 @@ def _parameters() -> dict:
         "holdout_source_patterns": ["france", "japan"],
         "region_patterns": {"france": "france", "japan": "japan"},
         "fail_on_leakage": True,
+        "concept_group_aliases": {},
         "semantic_audit": {"enabled": False},
     }
 
@@ -90,6 +91,30 @@ def test_cross_task_seeds_in_one_concept_never_cross_splits() -> None:
     }
     assert len(shared_splits) == 1
     assert manifest["split_unit"] == "concept_group_id"
+    assert audit["passed"] is True
+
+
+def test_reviewed_concept_aliases_are_resolved_before_splitting() -> None:
+    dataset = _dataset("highd")
+    parameters = _parameters()
+    parameters["concept_group_aliases"] = {
+        "highd-concept-0": ["highd-concept-1"]
+    }
+
+    generation, _, manifest, audit = prepare_experiment_partitions(
+        {"highd": dataset}, {"highd": dataset}, parameters
+    )
+
+    merged = [
+        record
+        for partition in generation.values()
+        for record in partition["records"]
+        if record["seed_id"] in {"highd-0", "highd-1"}
+    ]
+    assert {record["split"] for record in merged} == {merged[0]["split"]}
+    assert {record["concept_group_id"] for record in merged} == {"highd-concept-0"}
+    assert merged[1]["source_concept_group_id"] == "highd-concept-1"
+    assert manifest["concept_group_aliases"] == parameters["concept_group_aliases"]
     assert audit["passed"] is True
 
 
@@ -156,3 +181,53 @@ def test_semantic_audit_compares_only_different_splits() -> None:
     assert audit["split_pairs"]["test__train"]["flagged_candidate_count"] == 1
     candidate = audit["human_review_queue"][0]
     assert {candidate["left_seed_id"], candidate["right_seed_id"]} == {"seed-1", "seed-2"}
+
+
+def test_semantic_audit_deduplicates_augmented_records_by_concept_pair() -> None:
+    partitions = {
+        "train__source": {
+            "split": "train",
+            "records": [
+                {
+                    "example_id": f"train-{index}",
+                    "seed_id": "seed-1",
+                    "concept_group_id": "concept-1",
+                    "source_name": "source",
+                    "prompt": "same meaning alpha",
+                }
+                for index in range(2)
+            ],
+        },
+        "test__source": {
+            "split": "test",
+            "records": [
+                {
+                    "example_id": f"test-{index}",
+                    "seed_id": "seed-2",
+                    "concept_group_id": "concept-2",
+                    "source_name": "source",
+                    "prompt": "same meaning beta",
+                }
+                for index in range(2)
+            ],
+        },
+    }
+    parameters = {
+        "semantic_audit": {
+            "enabled": True,
+            "model_id": "fake",
+            "similarity_threshold": 0.9,
+            "nearest_neighbors_per_record": 2,
+            "human_review_top_n": 10,
+            "human_review_boundary_n": 10,
+            "max_candidates_per_split_pair": 100,
+        }
+    }
+
+    audit = _semantic_cross_split_audit(partitions, parameters, _FakeEncoder())
+    result = audit["split_pairs"]["test__train"]
+
+    assert result["flagged_record_pair_count"] == 4
+    assert result["flagged_candidate_count"] == 1
+    assert result["human_review_count"] == 1
+    assert result["candidates"][0]["supporting_record_pair_count"] == 4
