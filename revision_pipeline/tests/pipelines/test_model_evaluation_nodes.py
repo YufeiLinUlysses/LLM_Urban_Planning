@@ -1,11 +1,43 @@
 from __future__ import annotations
 
+import sys
+from types import SimpleNamespace
+
 from urban_science_revision.pipelines.model_evaluation.nodes import (
+    _attach_bertscore,
     _classification_metrics,
     _token_f1,
     extract_reference,
     parse_mc_prediction,
 )
+
+
+def test_bertscore_skips_empty_predictions(monkeypatch) -> None:
+    def fake_score(candidates, references, **kwargs):
+        assert candidates == ["generated answer"]
+        assert references == ["reference explanation"]
+        return [0.7], [0.8], [0.75]
+
+    monkeypatch.setitem(sys.modules, "bert_score", SimpleNamespace(score=fake_score))
+    rows = [
+        {
+            "raw_prediction": "",
+            "reference_answer": "reference",
+            "reference_explanation": "explanation",
+        },
+        {
+            "raw_prediction": "generated answer",
+            "reference_answer": "reference",
+            "reference_explanation": "explanation",
+        },
+    ]
+
+    _attach_bertscore(rows, {"compute_bertscore": True})
+
+    assert rows[0]["bertscore_f1"] == 0.0
+    assert rows[1]["bertscore_precision"] == 0.7
+    assert rows[1]["bertscore_recall"] == 0.8
+    assert rows[1]["bertscore_f1"] == 0.75
 
 
 def test_reference_and_mc_parsing_are_deterministic() -> None:

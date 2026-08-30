@@ -396,15 +396,29 @@ def _attach_bertscore(rows: list[dict[str, Any]], parameters: dict[str, Any]) ->
         str(row.get("reference_answer", "")) + " " + str(row.get("reference_explanation", ""))
         for row in rows
     ]
+    eligible = [
+        index
+        for index, (candidate, reference) in enumerate(zip(candidates, references, strict=True))
+        if candidate.strip() and reference.strip()
+    ]
+    for row in rows:
+        row["bertscore_precision"] = 0.0
+        row["bertscore_recall"] = 0.0
+        row["bertscore_f1"] = 0.0
+    if not eligible:
+        return
     precision, recall, f1 = score(
-        candidates,
-        references,
+        [candidates[index] for index in eligible],
+        [references[index] for index in eligible],
         model_type=parameters.get("bertscore_model_type"),
         lang=parameters.get("bertscore_language", "en"),
         device=parameters.get("metric_device"),
         verbose=False,
     )
-    for row, p_value, r_value, f_value in zip(rows, precision, recall, f1, strict=True):
+    for index, p_value, r_value, f_value in zip(
+        eligible, precision, recall, f1, strict=True
+    ):
+        row = rows[index]
         row["bertscore_precision"] = float(p_value)
         row["bertscore_recall"] = float(r_value)
         row["bertscore_f1"] = float(f_value)
