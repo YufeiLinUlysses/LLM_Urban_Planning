@@ -10,6 +10,7 @@
             "Task_Definition": "You are given 4 answer options (associated with 'A', 'B', 'C', 'D'), out of which only one is correct. You need to answer the question by selecting the correct option. You should only answer with the choice letter, not the whole answer.",
             "Positive Example": [
                 {
+                    "Fact": "The NGSIM dataset was collected on U.S. Highway 101 and I-80 in California.",
                     "Question": "Which roadways were used for collecting the NGSIM dataset?",
                     "Selections": {
                         "A": "I-95 in Florida",
@@ -18,9 +19,11 @@
                         "D": "I-5 in Washington"
                     },
                     "Output": "B",
-                    "Explanation": "NGSIM trajectory data was captured on U.S. Highway 101 and I-80 in California."
+                    "Explanation": "NGSIM trajectory data was captured on U.S. Highway 101 and I-80 in California.",
+                    "Level": 1
                 },
                 {
+                    "Fact": "The NGSIM dataset includes three 15-minute periods recorded during peak traffic hours.",
                     "Question": "When were the NGSIM recordings made?",
                     "Selections": {
                         "A": "Random times throughout the night",
@@ -29,9 +32,11 @@
                         "D": "Continuously over a full week"
                     },
                     "Output": "B",
-                    "Explanation": "NGSIM collected trajectory data in three short peak-hour periods."
+                    "Explanation": "NGSIM collected trajectory data in three short peak-hour periods.",
+                    "Level": 1
                 },
                 {
+                    "Fact": "The NGSIM dataset captures vehicle trajectories at a sampling frequency of 10 Hz.",
                     "Question": "What does a 10 Hz sampling frequency mean for NGSIM?",
                     "Selections": {
                         "A": "10 vehicles per hour",
@@ -40,9 +45,11 @@
                         "D": "10 cameras were used"
                     },
                     "Output": "B",
-                    "Explanation": "“10 Hz” indicates 10 position samples recorded per second."
+                    "Explanation": "“10 Hz” indicates 10 position samples recorded per second.",
+                    "Level": 1
                 },
                 {
+                    "Fact": "The NGSIM dataset includes vehicle positions, speeds, accelerations, lane IDs, and vehicle classifications.",
                     "Question": "Which of the following is part of the NGSIM data fields?",
                     "Selections": {
                         "A": "Smartphone usage logs",
@@ -51,9 +58,11 @@
                         "D": "Weather radar outputs"
                     },
                     "Output": "B",
-                    "Explanation": "NGSIM focuses on detailed vehicle trajectory information including lane assignment."
+                    "Explanation": "NGSIM focuses on detailed vehicle trajectory information including lane assignment.",
+                    "Level": 1
                 },
                 {
+                    "Fact": "NGSIM trajectories were extracted from video recordings and include known sources of noise.",
                     "Question": "Why must users examine NGSIM data quality?",
                     "Selections": {
                         "A": "It may contain extraction noise",
@@ -62,9 +71,11 @@
                         "D": "It is only available on weekends"
                     },
                     "Output": "A",
-                    "Explanation": "Video-based extraction introduces small trajectory inaccuracies."
+                    "Explanation": "Video-based extraction introduces small trajectory inaccuracies.",
+                    "Level": 1
                 },
                 {
+                    "Fact": "The NGSIM dataset focuses on freeway traffic rather than urban arterials.",
                     "Question": "For which type of roadway is NGSIM most applicable?",
                     "Selections": {
                         "A": "Rural dirt roads",
@@ -73,9 +84,11 @@
                         "D": "Suburban cul-de-sacs"
                     },
                     "Output": "C",
-                    "Explanation": "NGSIM describes behavior on major freeways like U.S. 101 and I-80."
+                    "Explanation": "NGSIM describes behavior on major freeways like U.S. 101 and I-80.",
+                    "Level": 1
                 },
                 {
+                    "Fact": "The NGSIM dataset is publicly available as open data.",
                     "Question": "What is the licensing status of NGSIM?",
                     "Selections": {
                         "A": "Private, paid subscription",
@@ -84,9 +97,11 @@
                         "D": "Only usable after signing an NDA"
                     },
                     "Output": "C",
-                    "Explanation": "NGSIM is part of the U.S. DOT open data program."
+                    "Explanation": "NGSIM is part of the U.S. DOT open data program.",
+                    "Level": 1
                 },
                 {
+                    "Fact": "NGSIM provides full documentation including data dictionaries and methodology reports.",
                     "Question": "Why is the NGSIM documentation helpful?",
                     "Selections": {
                         "A": "It contains user interface photos",
@@ -95,9 +110,11 @@
                         "D": "It shows highway construction plans"
                     },
                     "Output": "B",
-                    "Explanation": "Proper metadata supports correct interpretation of dataset fields."
+                    "Explanation": "Proper metadata supports correct interpretation of dataset fields.",
+                    "Level": 1
                 },
                 {
+                    "Fact": "NGSIM data can be imported into simulation tools like SUMO, VISSIM, and Aimsun after preprocessing.",
                     "Question": "Why is tool compatibility important for NGSIM users?",
                     "Selections": {
                         "A": "It prevents file corruption",
@@ -106,9 +123,11 @@
                         "D": "It improves dataset aesthetics"
                     },
                     "Output": "B",
-                    "Explanation": "Planners often require datasets compatible with standard modeling software."
+                    "Explanation": "Planners often require datasets compatible with standard modeling software.",
+                    "Level": 1
                 },
                 {
+                    "Fact": "The NGSIM dataset reflects freeway driver behavior in California during weekday peak hours.",
                     "Question": "Which issue does 'generalizability' address when using NGSIM?",
                     "Selections": {
                         "A": "Whether the data loads fast",
@@ -117,7 +136,73 @@
                         "D": "Whether the files are small"
                     },
                     "Output": "B",
-                    "Explanation": "Planners must consider whether California freeway behavior reflects their own region."
+                    "Explanation": "Planners must consider whether California freeway behavior reflects their own region.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The NGSIM dataset was collected on U.S. Highway 101 and I-80, both of which are major freeways in California.",
+                    "Question": "Combining its collection location and roadway type, which environment is the NGSIM dataset best suited to model?",
+                    "Selections": {
+                        "A": "Urban pedestrian streets in Europe",
+                        "B": "Rural highways in the Midwest",
+                        "C": "California freeway traffic",
+                        "D": "Residential neighborhood roads"
+                    },
+                    "Output": "C",
+                    "Explanation": "NGSIM was collected on U.S. Highway 101 and I-80 in California, both of which are freeways.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "NGSIM recordings consist of three 15-minute periods captured during weekday peak traffic hours.",
+                    "Question": "What can be inferred by combining the short recording periods with their peak-hour timing in NGSIM?",
+                    "Selections": {
+                        "A": "The dataset represents overnight low-traffic conditions",
+                        "B": "The dataset captures peak-hour congestion on freeways",
+                        "C": "The dataset provides year-long traffic trends",
+                        "D": "The dataset focuses on weekend recreational traffic"
+                    },
+                    "Output": "B",
+                    "Explanation": "NGSIM was recorded during peak hours, emphasizing congested freeway traffic.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "NGSIM vehicle trajectories are sampled at 10 Hz and include position-based variables such as speed, acceleration, and lane IDs.",
+                    "Question": "How does the 10 Hz sampling rate relate to the types of data available in NGSIM?",
+                    "Selections": {
+                        "A": "It restricts the dataset to static vehicle counts",
+                        "B": "It enables accurate derivation of motion variables such as speed and acceleration",
+                        "C": "It indicates data were recorded once every 10 minutes",
+                        "D": "It limits the dataset to qualitative observations"
+                    },
+                    "Output": "B",
+                    "Explanation": "A 10 Hz sampling frequency supports detailed motion analysis.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "NGSIM trajectories were extracted from video recordings, a process known to introduce noise and small inaccuracies.",
+                    "Question": "Why must users examine data quality when working with NGSIM, given its extraction method?",
+                    "Selections": {
+                        "A": "Because the dataset has too few variables",
+                        "B": "Because video-based extraction introduces trajectory noise",
+                        "C": "Because the dataset cannot be downloaded",
+                        "D": "Because the files are encrypted"
+                    },
+                    "Output": "B",
+                    "Explanation": "Trajectory noise is a known limitation of video-based extraction methods.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "NGSIM is distributed as open government data and reflects freeway driving behavior in California.",
+                    "Question": "What should researchers consider when reusing NGSIM, given its licensing status and regional focus?",
+                    "Selections": {
+                        "A": "It is restricted to private companies only",
+                        "B": "It is open data, but regional driving behavior may not generalize",
+                        "C": "It requires a paid license for all uses",
+                        "D": "It is only suitable for pedestrian studies"
+                    },
+                    "Output": "B",
+                    "Explanation": "NGSIM is openly available but represents California freeway traffic patterns.",
+                    "Level": 2
                 }
             ],
             "Negative Example": []
@@ -132,61 +217,106 @@
                     "Fact": "NGSIM reflects freeway driver behavior in California during weekday peak hours.",
                     "Question": "What traffic conditions does the NGSIM dataset represent?",
                     "Output": "California freeway peak-hour traffic.",
-                    "Explanation": "Recordings were taken during congested peak periods on California freeways."
+                    "Explanation": "Recordings were taken during congested peak periods on California freeways.",
+                    "Level": 1
                 },
                 {
                     "Fact": "NGSIM data can be imported into simulation tools like SUMO, VISSIM, and Aimsun after preprocessing.",
                     "Question": "Name one simulation tool that can use NGSIM data.",
                     "Output": "SUMO, VISSIM, or Aimsun.",
-                    "Explanation": "Many traffic simulation tools can load NGSIM after format conversion."
+                    "Explanation": "Many traffic simulation tools can load NGSIM after format conversion.",
+                    "Level": 1
                 },
                 {
                     "Fact": "NGSIM provides full documentation including data dictionaries and methodology reports.",
                     "Question": "What type of supporting materials does the NGSIM dataset provide?",
                     "Output": "Documentation such as data dictionaries and methodology reports.",
-                    "Explanation": "NGSIM includes extensive metadata describing variables and collection processes."
+                    "Explanation": "NGSIM includes extensive metadata describing variables and collection processes.",
+                    "Level": 1
                 },
                 {
                     "Fact": "The NGSIM dataset is publicly available as open data.",
                     "Question": "Is the NGSIM dataset publicly accessible?",
                     "Output": "Yes, it is open data.",
-                    "Explanation": "NGSIM is distributed as a public open-access dataset."
+                    "Explanation": "NGSIM is distributed as a public open-access dataset.",
+                    "Level": 1
                 },
                 {
                     "Fact": "The NGSIM dataset was collected on U.S. Highway 101 and I-80 in California.",
                     "Question": "Where was the NGSIM dataset collected?",
                     "Output": "U.S. Highway 101 and I-80 in California.",
-                    "Explanation": "The dataset was collected on U.S. Highway 101 and I-80 in California."
+                    "Explanation": "The dataset was collected on U.S. Highway 101 and I-80 in California.",
+                    "Level": 1
                 },
                 {
                     "Fact": "The NGSIM dataset includes three 15-minute periods recorded during peak traffic hours.",
                     "Question": "How many 15-minute data collection periods are included in the NGSIM dataset?",
                     "Output": "Three periods.",
-                    "Explanation": "The dataset contains three distinct 15-minute recordings collected during peak hours."
+                    "Explanation": "The dataset contains three distinct 15-minute recordings collected during peak hours.",
+                    "Level": 1
                 },
                 {
                     "Fact": "The NGSIM dataset captures vehicle trajectories at a sampling frequency of 10 Hz.",
                     "Question": "At what sampling frequency were NGSIM vehicle trajectories recorded?",
                     "Output": "10 Hz.",
-                    "Explanation": "Each vehicle’s trajectory was collected at a rate of 10 samples per second."
+                    "Explanation": "Each vehicle’s trajectory was collected at a rate of 10 samples per second.",
+                    "Level": 1
                 },
                 {
                     "Fact": "The NGSIM dataset includes vehicle positions, speeds, accelerations, lane IDs, and vehicle classifications.",
                     "Question": "Name one type of data included in the NGSIM dataset.",
                     "Output": "Examples include vehicle positions, speeds, accelerations, lane IDs, or classifications.",
-                    "Explanation": "NGSIM contains multiple modalities such as positions, speeds, and lane identifiers."
+                    "Explanation": "NGSIM contains multiple modalities such as positions, speeds, and lane identifiers.",
+                    "Level": 1
                 },
                 {
                     "Fact": "NGSIM trajectories were extracted from video recordings and include known sources of noise.",
                     "Question": "What is one reason NGSIM data requires quality consideration?",
                     "Output": "Because video extraction introduces noise into vehicle trajectories.",
-                    "Explanation": "The dataset contains extraction errors due to reliance on video-based tracking."
+                    "Explanation": "The dataset contains extraction errors due to reliance on video-based tracking.",
+                    "Level": 1
                 },
                 {
                     "Fact": "The NGSIM dataset focuses on freeway traffic rather than urban arterials.",
                     "Question": "What roadway type does the NGSIM dataset primarily represent?",
                     "Output": "Freeway traffic.",
-                    "Explanation": "NGSIM was collected on high-speed freeways, not urban city streets."
+                    "Explanation": "NGSIM was collected on high-speed freeways, not urban city streets.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The NGSIM dataset was collected on U.S. Highway 101 and I-80, both of which are major freeways in California.",
+                    "Question": "By considering both the collection location and roadway type, what traffic environment does the NGSIM dataset primarily represent?",
+                    "Output": "Freeway traffic in California.",
+                    "Explanation": "Because NGSIM data were collected on major California freeways, it reflects freeway driving behavior specific to that regional context.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "NGSIM recordings consist of three 15-minute periods captured during weekday peak traffic hours.",
+                    "Question": "How do the timing and duration of NGSIM recordings together characterize the traffic conditions represented in the dataset?",
+                    "Output": "They represent short-duration, peak-hour freeway traffic conditions.",
+                    "Explanation": "Short recordings taken during peak hours indicate that the dataset focuses on congested traffic rather than continuous or off-peak conditions.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "NGSIM vehicle trajectories are sampled at 10 Hz and include position-based variables such as speed, acceleration, and lane IDs.",
+                    "Question": "Why does a 10 Hz sampling frequency support the motion variables provided in the NGSIM dataset?",
+                    "Output": "Because frequent position measurements allow reliable computation of speeds, accelerations, and lane changes.",
+                    "Explanation": "Sampling trajectories 10 times per second provides sufficient temporal resolution to derive detailed vehicle motion characteristics.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "NGSIM trajectories were extracted from video recordings, a process known to introduce noise and small inaccuracies.",
+                    "Question": "How does the video-based extraction method affect the quality considerations of the NGSIM dataset?",
+                    "Output": "It introduces noise that requires users to assess and clean the data before analysis.",
+                    "Explanation": "Video-based tracking can produce small trajectory errors, making data quality checks an important preprocessing step.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "NGSIM is distributed as open government data and reflects freeway driving behavior in California.",
+                    "Question": "How do NGSIM’s open-data licensing and regional focus together influence its reuse?",
+                    "Output": "The open license allows broad access, but users must consider whether California freeway behavior generalizes to other regions.",
+                    "Explanation": "While NGSIM is freely accessible, its regional specificity may limit direct applicability elsewhere.",
+                    "Level": 2
                 }
             ],
             "Negative Example": []

@@ -1,0 +1,37 @@
+models:
+  t5_base:
+    model_id: t5-base
+    family: seq2seq
+    use_lora: false
+  qwen25_7b:
+    model_id: Qwen/Qwen2.5-7B-Instruct
+    family: causal_lm
+    load_in_4bit: true
+    use_lora: true
+    lora_r: 16
+    lora_alpha: 32
+    lora_dropout: 0.05
+  qwen25_14b:
+    model_id: Qwen/Qwen2.5-14B-Instruct
+    family: causal_lm
+    load_in_4bit: true
+    use_lora: true
+    lora_r: 16
+    lora_alpha: 32
+    lora_dropout: 0.05
+  llama31_8b:
+    model_id: meta-llama/Meta-Llama-3.1-8B-Instruct
+    family: causal_lm
+    load_in_4bit: true
+    use_lora: true
+    lora_r: 16
+    lora_alpha: 32
+    lora_dropout: 0.05
+  llama31_70b:
+    model_id: meta-llama/Meta-Llama-3.1-70B-Instruct
+    family: causal_lm
+    load_in_4bit: true
+    use_lora: true
+    lora_r: 16
+    lora_alpha: 32
+    lora_dropout: 0.05

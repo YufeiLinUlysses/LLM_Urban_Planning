@@ -1,0 +1,15 @@
+.venv/
+.uv-cache/
+.env
+conf/local/*.yml
+!conf/local/.gitkeep
+data/02_intermediate/**
+data/03_primary/**
+data/05_model_input/**
+data/07_model_output/**
+data/08_reporting/**
+!data/**/.gitkeep
+.pytest_cache/
+.ruff_cache/
+__pycache__/
+*.py[cod]

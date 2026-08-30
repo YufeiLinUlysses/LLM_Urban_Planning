@@ -1,5 +1,62 @@
-./instructions/*_instructions.json
+# Secrets and local credentials
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Python environments and package caches
+.venv/
+**/.venv/
+.uv-cache/
+**/.uv-cache/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+**/.pytest_cache/
+.ruff_cache/
+**/.ruff_cache/
+.mypy_cache/
+**/.mypy_cache/
+
+# Notebook and editor state
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Kedro and local telemetry state
+.telemetry
+**/.telemetry
+conf/local/*.yml
+**/conf/local/*.yml
+!conf/local/.gitkeep
+!**/conf/local/.gitkeep
+
+# Model weights, adapters, and training checkpoints
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+checkpoint-*/
+**/checkpoint-*/
 python/results/
 python/outputs/
+
+# Generated and repeated instruction-dataset products
+instruction_dataset_augmented/
+instruction_dataset_augmented_*/
+instruction_dataset_final/
+instruction_dataset_final_*/
+
+# Local/intermediate exports
+highD_instructions.txt
+
+# Legacy generated files and scripts intentionally kept local
+instructions/*_instructions.json
 python/qa_pair_gen.py
-__pycache__/

@@ -1,0 +1,4 @@
+evaluation:
+  artifact_root: /content/drive/MyDrive/urban_science_artifacts
+  publish_to_hf: true
+  metric_device: cuda

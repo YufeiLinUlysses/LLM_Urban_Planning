@@ -10,6 +10,7 @@
             "Task_Definition": "You are given 4 answer options (associated with 'A', 'B', 'C', 'D'), out of which only one is correct. You need to answer the question by selecting the correct option. You should only answer with the choice letter, not the whole answer.",
             "Positive Example": [
                 {
+                    "Fact": "Network Repository road network datasets represent real-world cities and regions such as California, Pennsylvania, and Texas.",
                     "Question": "Which type of geographic areas are included in the Network Repository's road network datasets?",
                     "Selections": {
                         "A": "Outer space satellite paths",
@@ -18,9 +19,11 @@
                         "D": "Indoor building floor plans"
                     },
                     "Output": "B",
-                    "Explanation": "The repository contains real-world road networks from cities and states such as California."
+                    "Explanation": "The repository contains real-world road networks from cities and states such as California.",
+                    "Level": 1
                 },
                 {
+                    "Fact": "Some road network datasets contain millions of nodes and edges representing intersections and road segments.",
                     "Question": "What is the approximate scale of many road networks in the repository?",
                     "Selections": {
                         "A": "Less than 100 nodes",
@@ -29,9 +32,11 @@
                         "D": "Exactly 42 nodes"
                     },
                     "Output": "C",
-                    "Explanation": "Road network graphs frequently contain tens of thousands to millions of intersections."
+                    "Explanation": "Road network graphs frequently contain tens of thousands to millions of intersections.",
+                    "Level": 1
                 },
                 {
+                    "Fact": "Road network datasets are stored as graphs where nodes represent intersections and edges represent road segments.",
                     "Question": "In the Network Repository, what do graph nodes and edges represent in road networks?",
                     "Selections": {
                         "A": "Nodes are trees and edges are rivers",
@@ -40,9 +45,11 @@
                         "D": "Nodes are people and edges are friendships"
                     },
                     "Output": "B",
-                    "Explanation": "The repository uses graph-based representations of intersections and roads."
+                    "Explanation": "The repository uses graph-based representations of intersections and roads.",
+                    "Level": 1
                 },
                 {
+                    "Fact": "Road network datasets primarily include graph topology and sometimes provide additional attributes such as coordinates or weights.",
                     "Question": "Which type of data is commonly included in the road network datasets?",
                     "Selections": {
                         "A": "Audio recordings of traffic noise",
@@ -51,9 +58,11 @@
                         "D": "Video footage"
                     },
                     "Output": "B",
-                    "Explanation": "The datasets focus on graph topology representing road connectivity."
+                    "Explanation": "The datasets focus on graph topology representing road connectivity.",
+                    "Level": 1
                 },
                 {
+                    "Fact": "The datasets originate from real-world sources and may occasionally have missing edges or disconnected subgraphs.",
                     "Question": "Why is quality checking important for road network datasets?",
                     "Selections": {
                         "A": "They contain audio glitches",
@@ -62,9 +71,11 @@
                         "D": "They require no preprocessing"
                     },
                     "Output": "B",
-                    "Explanation": "Some road networks may contain incomplete or disconnected regions."
+                    "Explanation": "Some road networks may contain incomplete or disconnected regions.",
+                    "Level": 1
                 },
                 {
+                    "Fact": "Road network datasets describe structural connectivity rather than traffic flow or behavior.",
                     "Question": "Road network datasets are best used for analyzing:",
                     "Selections": {
                         "A": "Driver eye movements",
@@ -73,9 +84,11 @@
                         "D": "Pedestrian facial expressions"
                     },
                     "Output": "B",
-                    "Explanation": "These datasets model the structural layout of transportation networks."
+                    "Explanation": "These datasets model the structural layout of transportation networks.",
+                    "Level": 1
                 },
                 {
+                    "Fact": "Road network datasets on the Network Repository are openly available for research use.",
                     "Question": "How accessible are road network datasets on the Network Repository?",
                     "Selections": {
                         "A": "Paid only",
@@ -84,9 +97,11 @@
                         "D": "Available only by request"
                     },
                     "Output": "C",
-                    "Explanation": "They are made available as open-access research datasets."
+                    "Explanation": "They are made available as open-access research datasets.",
+                    "Level": 1
                 },
                 {
+                    "Fact": "Network Repository provides metadata such as dataset size, format, and graph statistics.",
                     "Question": "Which type of information is included in road network metadata?",
                     "Selections": {
                         "A": "Full-length driving videos",
@@ -95,9 +110,11 @@
                         "D": "Driver demographics"
                     },
                     "Output": "B",
-                    "Explanation": "Each dataset includes key structural graph properties."
+                    "Explanation": "Each dataset includes key structural graph properties.",
+                    "Level": 1
                 },
                 {
+                    "Fact": "Road network datasets are stored in standard graph formats.",
                     "Question": "What makes the datasets easy to use with graph analysis tools?",
                     "Selections": {
                         "A": "They include precomputed animations",
@@ -106,9 +123,11 @@
                         "D": "They include only PDF files"
                     },
                     "Output": "B",
-                    "Explanation": "Standard edge list formats can be loaded by many graph libraries."
+                    "Explanation": "Standard edge list formats can be loaded by many graph libraries.",
+                    "Level": 1
                 },
                 {
+                    "Fact": "Road network datasets reflect the structural layout of real cities but do not include traffic operations or demand.",
                     "Question": "Which limitation affects the generalizability of road network datasets?",
                     "Selections": {
                         "A": "They only include weather data",
@@ -117,7 +136,73 @@
                         "D": "They only show drone footage"
                     },
                     "Output": "B",
-                    "Explanation": "Road networks show structure but do not contain traffic movement data."
+                    "Explanation": "Road networks show structure but do not contain traffic movement data.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "Network Repository road network datasets represent real cities and regions and are mainly used to analyze roadway connectivity and topology.",
+                    "Question": "Considering both the included geographic areas and the typical use case, what are Network Repository road network datasets best suited for?",
+                    "Selections": {
+                        "A": "Analyzing driver eye movements in simulated environments",
+                        "B": "Studying connectivity and topology of real city/region road networks",
+                        "C": "Forecasting traffic demand using travel surveys",
+                        "D": "Detecting vehicles from overhead video footage"
+                    },
+                    "Output": "B",
+                    "Explanation": "They represent real cities/regions and primarily support structural network analysis rather than behavioral or demand modeling.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "Road networks are represented as graphs where nodes are intersections and edges are road segments, and they are often provided in simple edge list formats compatible with common graph tools.",
+                    "Question": "Which statement best explains why Network Repository road networks integrate well with graph analysis software?",
+                    "Selections": {
+                        "A": "They are distributed as full-length driving videos with annotations",
+                        "B": "They store intersections/roads as nodes/edges and provide standard edge-list formats",
+                        "C": "They require proprietary GIS software and custom binary formats",
+                        "D": "They include only PDF documentation and screenshots"
+                    },
+                    "Output": "B",
+                    "Explanation": "Graph-structured data plus standard edge-list files are directly compatible with many graph analytics tools.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "Many Network Repository road networks scale from tens of thousands to millions of nodes/edges, and the metadata commonly reports graph statistics such as node and edge counts.",
+                    "Question": "Why is it useful that Network Repository provides node/edge statistics for road networks that may reach millions of elements?",
+                    "Selections": {
+                        "A": "It helps users estimate computation and memory needs before running graph algorithms",
+                        "B": "It replaces the need to download the dataset",
+                        "C": "It ensures the dataset contains traffic demand and speeds",
+                        "D": "It guarantees there are no missing edges"
+                    },
+                    "Output": "A",
+                    "Explanation": "Graph statistics are especially important when networks are very large, because they affect feasibility and tool choice.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "Road network datasets may contain missing edges or fragmented/disconnected subgraphs, yet they are primarily used to study connectivity and topology.",
+                    "Question": "When the goal is to analyze connectivity and topology, why must users check road network data quality in the Network Repository?",
+                    "Selections": {
+                        "A": "Because audio glitches may change road names",
+                        "B": "Because missing edges or disconnected subgraphs can mislead connectivity measures",
+                        "C": "Because the datasets always include traffic flow and demand",
+                        "D": "Because they cannot be processed by graph tools"
+                    },
+                    "Output": "B",
+                    "Explanation": "Topology errors such as missing edges or fragmentation directly affect connectivity-based conclusions.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "Network Repository road network datasets are openly available for research use, but they primarily encode structural layout and typically exclude traffic operations and travel demand.",
+                    "Question": "What is the best takeaway when combining the datasets’ open availability with their missing traffic flow/demand information?",
+                    "Selections": {
+                        "A": "They are open and therefore include complete traffic operations by default",
+                        "B": "They are open and ideal for structural graph analysis, but not enough for flow/demand modeling without extra data",
+                        "C": "They are restricted and require payment for access",
+                        "D": "They focus on driver behavior extracted from video"
+                    },
+                    "Output": "B",
+                    "Explanation": "Accessibility is high, but the datasets mainly represent structure rather than dynamic traffic processes.",
+                    "Level": 2
                 }
             ],
             "Negative Example": []
@@ -132,61 +217,106 @@
                     "Fact": "Road network datasets reflect the structural layout of real cities but do not include traffic operations or demand.",
                     "Question": "What do road network datasets NOT include?",
                     "Output": "Traffic operations or demand data.",
-                    "Explanation": "They only model roadway structure, not dynamic traffic behavior."
+                    "Explanation": "They only model roadway structure, not dynamic traffic behavior.",
+                    "Level": 1
                 },
                 {
                     "Fact": "Road network datasets are stored in standard graph formats such as edge lists, which are compatible with tools like NetworkX and Graph-tool.",
                     "Question": "Which common graph tools can load road network datasets?",
                     "Output": "Tools such as NetworkX or Graph-tool.",
-                    "Explanation": "The datasets use simple graph formats that graph libraries can easily process."
+                    "Explanation": "The datasets use simple graph formats that graph libraries can easily process.",
+                    "Level": 1
                 },
                 {
                     "Fact": "Network Repository provides metadata such as dataset size, format, and graph statistics.",
                     "Question": "What metadata does the Network Repository provide for road networks?",
                     "Output": "Information such as size, format, and graph statistics.",
-                    "Explanation": "Each dataset page includes metadata describing its structural properties."
+                    "Explanation": "Each dataset page includes metadata describing its structural properties.",
+                    "Level": 1
                 },
                 {
                     "Fact": "Road network datasets on the Network Repository are openly available for research use.",
                     "Question": "Are Network Repository road network datasets open for research?",
                     "Output": "Yes, they are publicly available.",
-                    "Explanation": "The repository provides open access to its road network datasets."
+                    "Explanation": "The repository provides open access to its road network datasets.",
+                    "Level": 1
                 },
                 {
                     "Fact": "Road network datasets describe structural connectivity rather than traffic flow or behavior.",
                     "Question": "What aspect of transportation do road network datasets primarily represent?",
                     "Output": "Roadway structure and connectivity.",
-                    "Explanation": "The datasets capture the topology of the road system, not traffic operations."
+                    "Explanation": "The datasets capture the topology of the road system, not traffic operations.",
+                    "Level": 1
                 },
                 {
                     "Fact": "The datasets originate from real-world sources and may occasionally have missing edges or disconnected subgraphs.",
                     "Question": "Why should users check road network data quality?",
                     "Output": "Because missing edges or disconnected components may occur.",
-                    "Explanation": "Real-world road networks can contain gaps or disconnected sections."
+                    "Explanation": "Real-world road networks can contain gaps or disconnected sections.",
+                    "Level": 1
                 },
                 {
                     "Fact": "Road network datasets primarily include graph topology and sometimes provide additional attributes such as coordinates or weights.",
                     "Question": "What types of information do these road network datasets typically include?",
                     "Output": "Graph topology and sometimes coordinates or edge weights.",
-                    "Explanation": "The datasets often provide structural graph data with optional geometric or weighted attributes."
+                    "Explanation": "The datasets often provide structural graph data with optional geometric or weighted attributes.",
+                    "Level": 1
                 },
                 {
                     "Fact": "Road network datasets are stored as graphs where nodes represent intersections and edges represent road segments.",
                     "Question": "How are road networks represented in Network Repository datasets?",
                     "Output": "As graphs of nodes (intersections) and edges (road segments).",
-                    "Explanation": "The datasets use graph structures to capture intersections and road links."
+                    "Explanation": "The datasets use graph structures to capture intersections and road links.",
+                    "Level": 1
                 },
                 {
                     "Fact": "Road network datasets in the Network Repository represent real-world cities and regions such as California, Pennsylvania, and Texas.",
                     "Question": "Which geographic areas do Network Repository road network datasets commonly represent?",
                     "Output": "Cities and regions such as California, Pennsylvania, and Texas.",
-                    "Explanation": "The datasets include real-world road networks from locations like California and Pennsylvania."
+                    "Explanation": "The datasets include real-world road networks from locations like California and Pennsylvania.",
+                    "Level": 1
                 },
                 {
                     "Fact": "Some road network datasets contain millions of nodes and edges representing intersections and road segments.",
                     "Question": "What scale do many Network Repository road network datasets reach?",
                     "Output": "Millions of nodes and edges.",
-                    "Explanation": "The datasets often include extremely large graphs with millions of intersections and roads."
+                    "Explanation": "The datasets often include extremely large graphs with millions of intersections and roads.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "Network Repository road network datasets represent real cities and regions (e.g., California and Pennsylvania) and are mainly used to analyze roadway connectivity and topology.",
+                    "Question": "By combining the geographic coverage and the primary analytical purpose, what kind of studies are these road network datasets most appropriate for?",
+                    "Output": "Connectivity and topology studies of real-world city/region road systems.",
+                    "Explanation": "Because the datasets cover real geographic regions and encode road structure, they are best suited for analyzing how roads connect and how the network is organized.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "Road networks are represented as graphs where nodes are intersections and edges are road segments, and they are often provided in simple edge list formats compatible with common graph tools.",
+                    "Question": "How do the node/edge representation and edge-list style formats together make these road network datasets easy to use?",
+                    "Output": "They can be directly loaded into graph libraries to analyze intersection-to-road connectivity.",
+                    "Explanation": "Because intersections and road segments map naturally to nodes and edges, and edge lists are widely supported, tools like NetworkX or Graph-tool can ingest the data with minimal conversion.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "Many Network Repository road networks scale from tens of thousands to millions of nodes/edges, and the metadata commonly reports graph statistics such as node and edge counts.",
+                    "Question": "How do dataset scale and metadata together help users plan computational analysis of these road networks?",
+                    "Output": "Metadata like node/edge counts lets users gauge whether large-scale graphs (up to millions of elements) fit their compute and methods.",
+                    "Explanation": "Because the graphs can be extremely large, reported statistics provide an early estimate of memory/runtime needs and whether specialized algorithms or hardware may be required.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "Road network datasets may contain missing edges or fragmented/disconnected subgraphs, yet they are primarily used to study connectivity and topology.",
+                    "Question": "Why is quality checking particularly important when using these datasets for connectivity and topology analysis?",
+                    "Output": "Because missing edges or disconnected components can distort connectivity results and network structure metrics.",
+                    "Explanation": "Connectivity analyses assume correct links between intersections; incomplete topology can create artificial disconnections and bias path, centrality, and component measurements.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "Network Repository road network datasets are openly available for research use, but they primarily encode structural layout and typically exclude traffic operations and travel demand.",
+                    "Question": "How do open accessibility and the lack of traffic operation/demand fields together shape how these datasets should be used?",
+                    "Output": "They are easy to obtain for structural network studies, but insufficient on their own for modeling traffic flow or demand-driven behavior.",
+                    "Explanation": "Open access enables broad reuse, yet the datasets’ content is largely static structure, so dynamic traffic analyses require additional operational or demand data sources.",
+                    "Level": 2
                 }
             ],
             "Negative Example": []

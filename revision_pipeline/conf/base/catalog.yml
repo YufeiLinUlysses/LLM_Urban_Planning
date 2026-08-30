@@ -1,0 +1,157 @@
+seed_instruction_datasets:
+  type: partitions.PartitionedDataset
+  path: "${globals:seed_instruction_dataset_path}"
+  dataset:
+    type: json.JSONDataset
+  filename_suffix: .json
+
+normalized_seed_datasets:
+  type: partitions.PartitionedDataset
+  path: "${globals:normalized_seed_dataset_path}"
+  dataset:
+    type: json.JSONDataset
+  filename_suffix: .json
+
+source_validation_report:
+  type: json.JSONDataset
+  filepath: "${globals:reporting_path}/source_validation_report.json"
+
+augmented_instruction_components:
+  type: partitions.PartitionedDataset
+  path: "${globals:augmented_component_path}"
+  dataset:
+    type: json.JSONDataset
+  filename_suffix: .json
+
+canonical_instruction_datasets:
+  type: partitions.PartitionedDataset
+  path: "${globals:canonical_dataset_path}"
+  dataset:
+    type: json.JSONDataset
+  filename_suffix: .json
+
+assembly_report:
+  type: json.JSONDataset
+  filepath: "${globals:reporting_path}/assembly_report.json"
+
+validated_instruction_datasets:
+  type: partitions.PartitionedDataset
+  path: "${globals:validated_dataset_path}"
+  dataset:
+    type: json.JSONDataset
+  filename_suffix: .json
+
+quality_control_report:
+  type: json.JSONDataset
+  filepath: "${globals:reporting_path}/quality_control_report.json"
+
+duplicate_audit:
+  type: json.JSONDataset
+  filepath: "${globals:reporting_path}/duplicate_audit.json"
+
+rejected_samples:
+  type: json.JSONDataset
+  filepath: "${globals:reporting_path}/rejected_samples.json"
+
+final_instruction_datasets:
+  type: partitions.PartitionedDataset
+  path: "${globals:final_dataset_path}"
+  dataset:
+    type: json.JSONDataset
+  filename_suffix: .json
+
+generation_instruction_datasets:
+  type: partitions.PartitionedDataset
+  path: "${globals:generation_dataset_path}"
+  dataset:
+    type: json.JSONDataset
+  filename_suffix: .json
+
+verification_instruction_datasets:
+  type: partitions.PartitionedDataset
+  path: "${globals:verification_dataset_path}"
+  dataset:
+    type: json.JSONDataset
+  filename_suffix: .json
+
+augmentation_statistics:
+  type: json.JSONDataset
+  filepath: "${globals:reporting_path}/augmentation_statistics.json"
+
+augmentation_manifest:
+  type: json.JSONDataset
+  filepath: "${globals:reporting_path}/augmentation_manifest.json"
+
+hf_release_canonical:
+  type: partitions.PartitionedDataset
+  path: "${globals:huggingface_release_path}/data/revision_v2/canonical"
+  dataset:
+    type: json.JSONDataset
+  filename_suffix: .json
+
+hf_release_generation:
+  type: partitions.PartitionedDataset
+  path: "${globals:huggingface_release_path}/data/revision_v2/generation"
+  dataset:
+    type: json.JSONDataset
+  filename_suffix: .json
+
+hf_release_verification:
+  type: partitions.PartitionedDataset
+  path: "${globals:huggingface_release_path}/data/revision_v2/verification"
+  dataset:
+    type: json.JSONDataset
+  filename_suffix: .json
+
+hf_release_quality:
+  type: partitions.PartitionedDataset
+  path: "${globals:huggingface_release_path}/data/revision_v2/quality"
+  dataset:
+    type: json.JSONDataset
+  filename_suffix: .json
+
+hf_release_readme:
+  type: text.TextDataset
+  filepath: "${globals:huggingface_release_path}/README.md"
+
+hf_release_manifest:
+  type: json.JSONDataset
+  filepath: "${globals:huggingface_release_path}/data/revision_v2/manifest.json"
+
+hf_publish_receipt:
+  type: json.JSONDataset
+  filepath: "${globals:reporting_path}/huggingface_publish_receipt.json"
+
+experiment_generation_partitions:
+  type: partitions.PartitionedDataset
+  path: "${globals:experiment_generation_path}"
+  dataset:
+    type: json.JSONDataset
+  filename_suffix: .json
+
+experiment_verification_partitions:
+  type: partitions.PartitionedDataset
+  path: "${globals:experiment_verification_path}"
+  dataset:
+    type: json.JSONDataset
+  filename_suffix: .json
+
+experiment_split_manifest:
+  type: json.JSONDataset
+  filepath: "${globals:experiment_reporting_path}/split_manifest.json"
+
+experiment_leakage_audit:
+  type: json.JSONDataset
+  filepath: "${globals:experiment_reporting_path}/leakage_audit.json"
+
+model_training_receipt:
+  type: json.JSONDataset
+  filepath: "${globals:model_reporting_path}/latest_training_receipt.json"
+
+model_evaluation_receipt:
+  type: json.JSONDataset
+  filepath: "${globals:evaluation_reporting_path}/latest_evaluation_receipt.json"
+
+evaluation_comparison_report:
+  type: json.JSONDataset
+  filepath: "${globals:evaluation_reporting_path}/latest_comparison.json"

@@ -1,0 +1,8 @@
+huggingface:
+  repo_id: UlyssesLynne/urban_planning_llm
+  repo_type: dataset
+  revision: revision-v2
+  path_in_repo: ""
+  dataset_version: 2.0.0
+  release_dir: data/07_model_output/huggingface_release
+  commit_message: Publish leakage-audited instruction dataset v2

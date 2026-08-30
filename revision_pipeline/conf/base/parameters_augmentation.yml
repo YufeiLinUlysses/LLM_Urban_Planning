@@ -1,0 +1,26 @@
+augmentation:
+  random_seed: 2025
+  levels:
+    1:
+      short_answer:
+        fact_explanation_paraphrases: 5
+        question_paraphrases: 10
+      multiple_choice:
+        question_paraphrases: 5
+        correct_answer_paraphrases: 2
+        explanation_paraphrases: 2
+        choice_permutations: 5
+    2:
+      short_answer:
+        fact_explanation_paraphrases: 4
+        question_paraphrases: 10
+      multiple_choice:
+        question_paraphrases: 5
+        correct_answer_paraphrases: 2
+        explanation_paraphrases: 2
+        choice_permutations: 3
+    3:
+      short_answer:
+        fact_explanation_paraphrases: 4
+        question_paraphrases: 10
+

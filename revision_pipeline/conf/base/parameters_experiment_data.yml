@@ -1,0 +1,14 @@
+experiment_data:
+  dataset_version: revision_v2
+  random_seed: 2025
+  split_ratios:
+    train: 0.8
+    validation: 0.1
+    test: 0.1
+  holdout_source_patterns:
+    - france
+    - japan
+  region_patterns:
+    france: france
+    japan: japan
+  fail_on_leakage: true

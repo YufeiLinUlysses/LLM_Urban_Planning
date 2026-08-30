@@ -1,0 +1,6 @@
+# Keep the repository on mounted Google Drive, then override this root if desired.
+experiment_generation_path: data/05_model_input/experiment/generation
+experiment_verification_path: data/05_model_input/experiment/verification
+experiment_reporting_path: data/08_reporting/experiment
+model_reporting_path: data/08_reporting/models
+evaluation_reporting_path: data/08_reporting/evaluations

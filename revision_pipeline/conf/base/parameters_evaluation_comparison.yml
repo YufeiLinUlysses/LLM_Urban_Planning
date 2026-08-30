@@ -1,0 +1,18 @@
+evaluation_comparison:
+  base_predictions_path: data/07_model_output/evaluations/BASE_RUN/predictions.parquet
+  fine_tuned_predictions_path: data/07_model_output/evaluations/FINE_TUNED_RUN/predictions.parquet
+  metrics:
+    - strict_correct
+    - normalized_correct
+    - format_compliant
+    - exact_match
+    - token_f1
+    - rouge1
+    - rouge2
+    - rougeL
+    - bertscore_f1
+    - nli_entailment_correct
+    - correct
+    - correction_exact_match
+    - answer_preserved
+    - field_preservation

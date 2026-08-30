@@ -10,6 +10,7 @@
             "Task_Definition": "You are given 4 answer options (associated with 'A', 'B', 'C', 'D'), out of which only one is correct. You need to answer the question by selecting the correct option. You should only answer with the choice letter, not the whole answer.",
             "Positive Example": [
                 {
+                    "Fact":"The highD dataset is collected from six drone-monitored German highways.",
                     "Question": "Where was the highD dataset collected?",
                     "Selections": {
                         "A": "Urban streets in New York City",
@@ -18,9 +19,11 @@
                         "D": "Freeways in California"
                     },
                     "Output": "B",
-                    "Explanation": "The highD dataset was collected from six drone-monitored German highways."
+                    "Explanation": "The highD dataset was collected from six drone-monitored German highways.",
+                    "Level": 1
                 },
                 {
+                    "Fact": "The highD dataset provides 16.5 hours of drone footage.",
                     "Question": "How long is the total video footage in the highD dataset?",
                     "Selections": {
                         "A": "3 hours",
@@ -29,9 +32,11 @@
                         "D": "48 hours"
                     },
                     "Output": "C",
-                    "Explanation": "The dataset provides 16.5 hours of drone footage."
+                    "Explanation": "The dataset provides 16.5 hours of drone footage.",
+                    "Level": 1
                 },
                 {
+                    "Fact": "The highD dataset contains over 110,000 vehicle trajectories.",
                     "Question": "How many vehicle trajectories does the highD dataset contain?",
                     "Selections": {
                         "A": "2,000",
@@ -40,9 +45,11 @@
                         "D": "Over 110,000"
                     },
                     "Output": "D",
-                    "Explanation": "The highD dataset provides more than 110,000 detailed trajectories."
+                    "Explanation": "The highD dataset provides more than 110,000 detailed trajectories.",
+                    "Level": 1
                 },
                 {
+                    "Fact": "Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.",
                     "Question": "What does a 25 Hz sampling rate mean for the highD dataset?",
                     "Selections": {
                         "A": "25 vehicles recorded per hour",
@@ -51,9 +58,11 @@
                         "D": "25 minutes of footage"
                     },
                     "Output": "B",
-                    "Explanation": "A 25 Hz rate corresponds to 25 trajectory samples per second."
+                    "Explanation": "A 25 Hz rate corresponds to 25 trajectory samples per second.",
+                    "Level": 1
                 },
                 {
+                    "Fact": "The highD dataset includes positions, speeds, accelerations, lane assignments, and vehicle classifications.",
                     "Question": "Which of the following is included in the highD dataset?",
                     "Selections": {
                         "A": "Smartphone usage logs",
@@ -62,9 +71,11 @@
                         "D": "Air traffic data"
                     },
                     "Output": "B",
-                    "Explanation": "highD contains detailed vehicle motion data including speeds and positions."
+                    "Explanation": "highD contains detailed vehicle motion data including speeds and positions.",
+                    "Level": 1
                 },
                 {
+                    "Fact": "The highD dataset was captured using drones to ensure high-accuracy, unobstructed top-down views.",
                     "Question": "How was the highD dataset recorded?",
                     "Selections": {
                         "A": "Ground-mounted radar units",
@@ -73,9 +84,11 @@
                         "D": "Smartphone sensors"
                     },
                     "Output": "C",
-                    "Explanation": "highD relies on aerial drone recordings for high-accuracy trajectory extraction."
+                    "Explanation": "highD relies on aerial drone recordings for high-accuracy trajectory extraction.",
+                    "Level": 1
                 },
                 {
+                    "Fact": "The highD dataset reflects typical traffic patterns on German freeways under good weather and daylight conditions.",
                     "Question": "For what type of road is the highD dataset most suitable?",
                     "Selections": {
                         "A": "Urban bicycle lanes",
@@ -84,9 +97,11 @@
                         "D": "Residential neighborhoods"
                     },
                     "Output": "C",
-                    "Explanation": "highD is collected exclusively on major freeways in Germany."
+                    "Explanation": "highD is collected exclusively on major freeways in Germany.",
+                    "Level": 1
                 },
                 {
+                    "Fact": "The highD dataset is available publicly for research and commercial use under a paid license.",
                     "Question": "What is the licensing model for the highD dataset?",
                     "Selections": {
                         "A": "Completely free and open data",
@@ -95,9 +110,11 @@
                         "D": "Restricted to German government agencies"
                     },
                     "Output": "B",
-                    "Explanation": "Access to the highD dataset requires purchasing a license."
+                    "Explanation": "Access to the highD dataset requires purchasing a license.",
+                    "Level": 1
                 },
                 {
+                    "Fact": "The highD dataset provides detailed documentation including extraction methods, variable definitions, and data formats.",
                     "Question": "Why is highD’s documentation valuable?",
                     "Selections": {
                         "A": "It lists drone flight prices",
@@ -106,9 +123,11 @@
                         "D": "It includes advertisements"
                     },
                     "Output": "B",
-                    "Explanation": "The documentation ensures users understand how each variable was computed."
+                    "Explanation": "The documentation ensures users understand how each variable was computed.",
+                    "Level": 1
                 },
                 {
+                    "Fact": "The highD dataset represents real-world traffic behavior on German freeways.",
                     "Question": "Which factor affects the generalizability of highD to other regions?",
                     "Selections": {
                         "A": "Drone battery size",
@@ -117,7 +136,73 @@
                         "D": "The height of road signs"
                     },
                     "Output": "B",
-                    "Explanation": "HighD captures German traffic patterns, which may differ from other countries’ driving behavior."
+                    "Explanation": "HighD captures German traffic patterns, which may differ from other countries’ driving behavior.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The highD dataset was collected at six locations on German highways, all of which are high-speed freeways.",
+                    "Question": "Based on the location and the type of road this dataset is collected, which environment is the highD dataset best suited to model?",
+                    "Selections": {
+                        "A": "Urban intersections in the United States",
+                        "B": "Rural roads in Europe",
+                        "C": "German freeway traffic",
+                        "D": "Mixed pedestrian and bicycle corridors"
+                    },
+                    "Output": "C",
+                    "Explanation": "highD was recorded on German highways and therefore reflects freeway traffic conditions in Germany.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "The highD dataset contains over 110,000 vehicle trajectories recorded across a total of 16.5 hours of drone footage.",
+                    "Question": "What can be inferred by jointly considering the 16.5 hours of footage and more than 110,000 trajectories in highD?",
+                    "Selections": {
+                        "A": "The dataset focuses on low-traffic rural roads",
+                        "B": "The dataset captures dense, high-volume freeway traffic",
+                        "C": "The dataset contains long-term yearly observations",
+                        "D": "The dataset records only a small number of vehicles per hour"
+                    },
+                    "Output": "B",
+                    "Explanation": "A large number of trajectories within a relatively short recording window implies dense traffic conditions.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.",
+                    "Question": "How does the 25 Hz sampling rate relate to the types of variables available in the highD dataset?",
+                    "Selections": {
+                        "A": "It limits the dataset to static vehicle counts only",
+                        "B": "It allows precise estimation of motion variables like speed and acceleration",
+                        "C": "It indicates that data were collected once every 25 seconds",
+                        "D": "It restricts the dataset to qualitative observations"
+                    },
+                    "Output": "B",
+                    "Explanation": "High-frequency sampling supports accurate motion analysis, including speed and acceleration.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "The highD dataset was captured using overhead drones during daylight and good weather conditions.",
+                    "Question": "Why does the combination of drone recordings and daytime, good-weather conditions matter for highD data quality?",
+                    "Selections": {
+                        "A": "It reduces the need for any data processing",
+                        "B": "It ensures high-accuracy trajectory extraction with minimal occlusion",
+                        "C": "It allows data collection during nighttime congestion",
+                        "D": "It replaces the need for documentation"
+                    },
+                    "Output": "B",
+                    "Explanation": "Clear environmental conditions and aerial views support accurate extraction of vehicle trajectories.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "The highD dataset requires a paid license and represents real-world driving behavior on German freeways.",
+                    "Question": "What should researchers consider when reusing highD, given its licensing model and regional focus?",
+                    "Selections": {
+                        "A": "It is freely usable and universally applicable",
+                        "B": "It requires a paid license and may not directly generalize beyond German freeways",
+                        "C": "It can only be used by government agencies",
+                        "D": "It is limited to pedestrian studies"
+                    },
+                    "Output": "B",
+                    "Explanation": "highD requires a paid license and reflects German driving behavior, which may differ from other regions.",
+                    "Level": 2
                 }
             ],
             "Negative Example": []
@@ -132,61 +217,106 @@
                     "Fact": "The highD dataset reflects typical traffic patterns on German freeways under good weather and daylight conditions.",
                     "Question": "Under what general conditions was the highD dataset collected?",
                     "Output": "Good weather and daylight on German freeways.",
-                    "Explanation": "The recordings were made during clear daytime conditions to ensure visibility."
+                    "Explanation": "The recordings were made during clear daytime conditions to ensure visibility.",
+                    "Level": 1
                 },
                 {
                     "Fact": "The highD dataset provides detailed documentation including extraction methods, variable definitions, and data formats.",
                     "Question": "What type of documentation does the highD dataset provide?",
                     "Output": "Documentation covering extraction methods, variable descriptions, and data formats.",
-                    "Explanation": "highD includes comprehensive metadata to support correct data usage."
+                    "Explanation": "highD includes comprehensive metadata to support correct data usage.",
+                    "Level": 1
                 },
                 {
                     "Fact": "The highD dataset is available publicly for research and commercial use under a paid license.",
                     "Question": "Is the highD dataset freely accessible?",
                     "Output": "No, it requires a paid license.",
-                    "Explanation": "Unlike open datasets, highD requires a licensing fee for access."
+                    "Explanation": "Unlike open datasets, highD requires a licensing fee for access.",
+                    "Level": 1
                 },
                 {
                     "Fact": "The highD dataset represents real-world traffic behavior on German freeways.",
                     "Question": "What type of roadway environment does the highD dataset represent?",
                     "Output": "German freeway traffic.",
-                    "Explanation": "The dataset captures traffic flow specifically on high-speed German highways."
+                    "Explanation": "The dataset captures traffic flow specifically on high-speed German highways.",
+                    "Level": 1
                 },
                 {
                     "Fact": "The highD dataset was captured using drones to ensure high-accuracy, unobstructed top-down views.",
                     "Question": "What technology was used to capture the highD dataset?",
                     "Output": "Drones.",
-                    "Explanation": "Top-down drone footage allows precise extraction of vehicle trajectories."
+                    "Explanation": "Top-down drone footage allows precise extraction of vehicle trajectories.",
+                    "Level": 1
                 },
                 {
                     "Fact": "The highD dataset includes positions, speeds, accelerations, lane assignments, and vehicle classifications.",
                     "Question": "Name one data type included in the highD dataset.",
                     "Output": "Examples include positions, speeds, accelerations, lane assignments, or vehicle types.",
-                    "Explanation": "highD provides multiple traffic modalities such as speed and position data."
+                    "Explanation": "highD provides multiple traffic modalities such as speed and position data.",
+                    "Level": 1
                 },
                 {
                     "Fact": "Vehicle trajectories in the highD dataset were recorded at a sampling rate of 25 Hz.",
                     "Question": "At what sampling frequency were highD vehicle trajectories captured?",
                     "Output": "25 Hz.",
-                    "Explanation": "The dataset records each vehicle’s position 25 times per second."
+                    "Explanation": "The dataset records each vehicle’s position 25 times per second.",
+                    "Level": 1
                 },
                 {
                     "Fact": "The highD dataset includes over 110,000 vehicle trajectories.",
                     "Question": "Approximately how many vehicle trajectories are included in the highD dataset?",
                     "Output": "Over 110,000 trajectories.",
-                    "Explanation": "The dataset contains more than 110,000 tracked vehicle paths."
+                    "Explanation": "The dataset contains more than 110,000 tracked vehicle paths.",
+                    "Level": 1
                 },
                 {
                     "Fact": "The highD dataset contains a total of 16.5 hours of drone-recorded traffic footage.",
                     "Question": "How many hours of traffic recordings are included in the highD dataset?",
                     "Output": "16.5 hours.",
-                    "Explanation": "The highD dataset includes 16.5 hours of continuous highway recordings."
+                    "Explanation": "The highD dataset includes 16.5 hours of continuous highway recordings.",
+                    "Level": 1
                 },
                 {
                     "Fact": "The highD dataset was recorded at six different locations on German highways.",
                     "Question": "Where was the highD dataset recorded?",
                     "Output": "At six different locations on German highways.",
-                    "Explanation": "highD was collected using drones positioned above six highway sections in Germany."
+                    "Explanation": "highD was collected using drones positioned above six highway sections in Germany.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The highD dataset was collected at six locations on German highways, all of which are high-speed freeways.",
+                    "Question": "What traffic environment does the highD dataset primarily represent?",
+                    "Output": "Traffic on German freeways.",
+                    "Explanation": "Because the data were recorded exclusively on highways in Germany, the dataset reflects freeway traffic conditions specific to that national context.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "The highD dataset contains over 110,000 vehicle trajectories recorded across a total of 16.5 hours of drone footage.",
+                    "Question": "How do the total recording duration and number of trajectories together indicate the scale of the highD dataset?",
+                    "Output": "It captures dense freeway traffic with a large number of trajectories within a relatively short time span.",
+                    "Explanation": "Recording more than 110,000 trajectories in only 16.5 hours implies high traffic density and a large-scale dataset suitable for statistical analysis.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "Vehicle trajectories in the highD dataset are sampled at 25 Hz and include position-based motion variables such as speed and acceleration.",
+                    "Question": "Why does a 25 Hz sampling rate enable highD to provide detailed motion variables such as speed and acceleration?",
+                    "Output": "Because frequent position measurements allow accurate computation of speeds and accelerations.",
+                    "Explanation": "Sampling vehicle positions 25 times per second provides sufficient temporal resolution to reliably derive motion-related variables.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "The highD dataset was captured using overhead drones during daylight and good weather conditions.",
+                    "Question": "How do the drone-based recording method and favorable environmental conditions together affect the quality of the highD dataset?",
+                    "Output": "They enable clear, unobstructed views that support highly accurate trajectory extraction.",
+                    "Explanation": "Aerial recordings combined with good visibility reduce occlusion and measurement noise, improving data accuracy.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "The highD dataset requires a paid license and represents real-world driving behavior on German freeways.",
+                    "Question": "How do the paid licensing model and the regional focus of highD together influence its reuse?",
+                    "Output": "They restrict access to licensed users and require caution when applying results beyond German freeway contexts.",
+                    "Explanation": "Both the access limitations and the region-specific driving behavior affect how broadly the dataset can be reused.",
+                    "Level": 2
                 }
             ],
             "Negative Example": []

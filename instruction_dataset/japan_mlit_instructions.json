@@ -1,0 +1,340 @@
+{
+    "dataset_name": "mlit_traffic",
+    "dataset_link": "https://www.mlit.go.jp/road/road_e/statistics.html",
+    "dataset_description": "The mlit_traffic dataset is a large-scale dataset containing traffic data from Japan.",
+    "instructions": [
+        {
+            "Instruction information": {
+                "Categories": "Multiple Selection"
+            },
+            "Task_Definition": "You are given 4 answer options (associated with 'A', 'B', 'C', 'D'), out of which only one is correct. You need to answer the question by selecting the correct option. You should only answer with the choice letter, not the whole answer.",
+            "Positive Example": [
+                {
+                    "Fact": "The MLIT dataset is provided by Japan’s Ministry of Land, Infrastructure, Transport and Tourism.",
+                    "Question": "Who provides the dataset?",
+                    "Selections": {
+                        "A": "Private company",
+                        "B": "MLIT Japan",
+                        "C": "EU agency",
+                        "D": "University"
+                    },
+                    "Output": "B",
+                    "Explanation": "MLIT provides the dataset.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The dataset covers road networks across Japan.",
+                    "Question": "What is the spatial coverage?",
+                    "Selections": {
+                        "A": "Tokyo only",
+                        "B": "Japan nationwide",
+                        "C": "Europe",
+                        "D": "US"
+                    },
+                    "Output": "B",
+                    "Explanation": "It covers Japan.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The dataset is collected periodically through national surveys.",
+                    "Question": "What is the temporal coverage?",
+                    "Selections": {
+                        "A": "Real-time only",
+                        "B": "Periodic surveys",
+                        "C": "One-time",
+                        "D": "No time data"
+                    },
+                    "Output": "B",
+                    "Explanation": "Collected periodically.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "Traffic volume is measured per road segment.",
+                    "Question": "What is the measurement resolution?",
+                    "Selections": {
+                        "A": "Country",
+                        "B": "Segment-level",
+                        "C": "Global",
+                        "D": "None"
+                    },
+                    "Output": "B",
+                    "Explanation": "Measured per segment.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "Variables include traffic volume and vehicle count.",
+                    "Question": "Which variable is included?",
+                    "Selections": {
+                        "A": "DNA",
+                        "B": "Vehicle count",
+                        "C": "Ocean temp",
+                        "D": "Wind speed"
+                    },
+                    "Output": "B",
+                    "Explanation": "Vehicle count is included.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The dataset is stored in structured tables.",
+                    "Question": "What is the file structure?",
+                    "Selections": {
+                        "A": "Audio",
+                        "B": "Tabular",
+                        "C": "Video",
+                        "D": "Binary only"
+                    },
+                    "Output": "B",
+                    "Explanation": "Structured tables.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The dataset is collected using sensors and surveys.",
+                    "Question": "How is it collected?",
+                    "Selections": {
+                        "A": "Drone",
+                        "B": "Sensors and surveys",
+                        "C": "Manual only",
+                        "D": "Satellite"
+                    },
+                    "Output": "B",
+                    "Explanation": "Sensors + surveys.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The dataset is used for traffic planning and infrastructure design.",
+                    "Question": "What is the usage context?",
+                    "Selections": {
+                        "A": "Gaming",
+                        "B": "Traffic planning",
+                        "C": "Medical",
+                        "D": "Finance"
+                    },
+                    "Output": "B",
+                    "Explanation": "Used in planning.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The dataset reflects Japan-specific road conditions.",
+                    "Question": "What is a limitation?",
+                    "Selections": {
+                        "A": "No data",
+                        "B": "Japan-specific patterns",
+                        "C": "Too small",
+                        "D": "No time data"
+                    },
+                    "Output": "B",
+                    "Explanation": "Region-specific.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The dataset measures traffic per segment with periodic surveys.",
+                    "Question": "What is the implication of combining segment-level data with periodic collection?",
+                    "Selections": {
+                        "A": "Continuous real-time tracking",
+                        "B": "Detailed spatial but limited temporal analysis",
+                        "C": "No spatial detail",
+                        "D": "No temporal data"
+                    },
+                    "Output": "B",
+                    "Explanation": "Temporal resolution is limited.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "Vehicle counts are collected via sensors and surveys.",
+                    "Question": "What does combining these methods achieve?",
+                    "Selections": {
+                        "A": "Reduces accuracy",
+                        "B": "Balances precision and coverage",
+                        "C": "Removes spatial info",
+                        "D": "Only manual data"
+                    },
+                    "Output": "B",
+                    "Explanation": "Different methods complement each other.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "The dataset is tabular and nationwide.",
+                    "Question": "What does this combination enable?",
+                    "Selections": {
+                        "A": "Limited analysis",
+                        "B": "Scalable national analysis",
+                        "C": "No structure",
+                        "D": "Only local data"
+                    },
+                    "Output": "B",
+                    "Explanation": "Supports large-scale computation.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "The dataset includes traffic volume and regional segmentation.",
+                    "Question": "What does combining these attributes enable?",
+                    "Selections": {
+                        "A": "Static averages",
+                        "B": "Traffic distribution modeling",
+                        "C": "No analysis",
+                        "D": "Only temporal data"
+                    },
+                    "Output": "B",
+                    "Explanation": "Supports modeling.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "The dataset is Japan-specific and periodically collected.",
+                    "Question": "What is the implication?",
+                    "Selections": {
+                        "A": "Universal use",
+                        "B": "Context-dependent applicability",
+                        "C": "No limitation",
+                        "D": "Only affects file size"
+                    },
+                    "Output": "B",
+                    "Explanation": "Limits generalization.",
+                    "Level": 2
+                }
+            ],
+            "Negative Example": []
+        },
+        {
+            "Instruction information": {
+                "Categories": "Question answering"
+            },
+            "Task_Definition": "Write a correct answer to the given question based on its associated fact. Make sure that your answer is contained in the associated fact. Don't be creative and introduce any new word that is not mentioned in the associated fact! Remember that the associated fact has been rearranged to form the question. So, the correct answer words must lie within the associated fact. The correct answer can be a word, phrase, or even a sentence.",
+            "Positive Example": [
+                {
+                    "Fact": "The MLIT dataset is provided by Japan’s Ministry of Land, Infrastructure, Transport and Tourism.",
+                    "Question": "Who provides the dataset?",
+                    "Output": "Japan’s Ministry of Land, Infrastructure, Transport and Tourism.",
+                    "Explanation": "MLIT is the provider.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The dataset covers road networks across Japan.",
+                    "Question": "What is the spatial coverage of the dataset?",
+                    "Output": "Road networks across Japan.",
+                    "Explanation": "It spans nationwide.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The dataset is collected periodically through national surveys.",
+                    "Question": "What is the temporal coverage of the dataset?",
+                    "Output": "Collected periodically through national surveys.",
+                    "Explanation": "It is not continuous real-time data.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "Traffic volume is measured per road segment.",
+                    "Question": "What is the measurement resolution?",
+                    "Output": "Per road segment.",
+                    "Explanation": "Segment-level measurement.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "Variables include traffic volume and vehicle count.",
+                    "Question": "Name one variable in the dataset.",
+                    "Output": "Traffic volume or vehicle count.",
+                    "Explanation": "Both are core variables.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The dataset is stored in structured tables.",
+                    "Question": "What is the file structure of the dataset?",
+                    "Output": "Structured tables.",
+                    "Explanation": "It uses tabular format.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The dataset is collected using sensors and surveys.",
+                    "Question": "How is the dataset collected?",
+                    "Output": "Using sensors and surveys.",
+                    "Explanation": "Both methods are used.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The dataset is used for traffic planning and infrastructure design.",
+                    "Question": "What is the usage context of the dataset?",
+                    "Output": "Traffic planning and infrastructure design.",
+                    "Explanation": "It supports planning decisions.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The dataset reflects Japan-specific road conditions.",
+                    "Question": "What is a limitation of the dataset?",
+                    "Output": "Japan-specific road conditions.",
+                    "Explanation": "It may not generalize globally.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The dataset measures traffic volume per road segment using periodic surveys.",
+                    "Question": "How do segment-level spatial resolution and periodic temporal collection affect traffic trend analysis?",
+                    "Output": "They allow analysis of traffic distribution but limit continuous temporal dynamics.",
+                    "Explanation": "Spatial detail exists but temporal granularity is limited.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "The dataset includes vehicle counts collected through sensors and surveys.",
+                    "Question": "How do variable definitions and collection methods together ensure data coverage?",
+                    "Output": "They provide both precise measurements and broad coverage.",
+                    "Explanation": "Sensors provide accuracy, surveys provide scope.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "The dataset is structured in tabular format and covers nationwide road networks.",
+                    "Question": "How do file structure and spatial coverage support large-scale analysis?",
+                    "Output": "They enable efficient nationwide traffic analysis.",
+                    "Explanation": "Structured data supports scalability.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "The dataset includes traffic volume and regional segmentation.",
+                    "Question": "How do these attributes together support traffic modeling?",
+                    "Output": "They enable modeling of traffic distribution across regions.",
+                    "Explanation": "Spatial segmentation supports distribution analysis.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "The dataset reflects Japan-specific road infrastructure and uses periodic surveys.",
+                    "Question": "How do these attributes affect generalizability?",
+                    "Output": "They limit applicability to regions with similar infrastructure and data collection frequency.",
+                    "Explanation": "Both attributes constrain transfer.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "The dataset captures traffic volume across Japan using periodic surveys.",
+                    "Question": "How can temporal variation in traffic volume reflect real-world dynamics?",
+                    "Output": "It may reflect changes in demand, infrastructure use, or policy effects.",
+                    "Explanation": "Variation reflects real-world changes.",
+                    "Level": 3
+                },
+                {
+                    "Fact": "The dataset includes spatial segmentation and traffic volume.",
+                    "Question": "How can this data inform infrastructure planning decisions?",
+                    "Output": "It can identify high-demand regions for capacity expansion.",
+                    "Explanation": "Spatial demand informs planning.",
+                    "Level": 3
+                },
+                {
+                    "Fact": "The dataset reflects Japan road systems.",
+                    "Question": "How might infrastructure differences affect interpretation compared to other countries?",
+                    "Output": "Different road designs may lead to different traffic patterns.",
+                    "Explanation": "Infrastructure shapes behavior.",
+                    "Level": 3
+                },
+                {
+                    "Fact": "The dataset uses surveys and sensors.",
+                    "Question": "How might measurement methods affect observed traffic patterns?",
+                    "Output": "They may introduce sampling bias or measurement inconsistencies.",
+                    "Explanation": "Method impacts data quality.",
+                    "Level": 3
+                },
+                {
+                    "Fact": "The dataset includes traffic volume and temporal collection.",
+                    "Question": "How could this dataset be combined with urban transit data?",
+                    "Output": "To analyze interactions between road traffic and public transport systems.",
+                    "Explanation": "Cross-system reasoning.",
+                    "Level": 3
+                }
+            ],
+            "Negative Example": []
+        }
+    ]
+}

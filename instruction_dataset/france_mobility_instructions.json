@@ -1,0 +1,340 @@
+{
+    "dataset_name": "Île-de-France Mobility",
+    "dataset_link": "https://data.iledefrance-mobilites.fr/pages/home/",
+    "dataset_description": "The Île-de-France Mobility dataset is a large-scale dataset containing mobility data from the Île-de-France region.",
+    "instructions": [
+        {
+            "Instruction information": {
+                "Categories": "Multiple Selection"
+            },
+            "Task_Definition": "You are given 4 answer options (associated with 'A', 'B', 'C', 'D'), out of which only one is correct. You need to answer the question by selecting the correct option. You should only answer with the choice letter, not the whole answer.",
+            "Positive Example": [
+                {
+                    "Fact": "The Île-de-France Mobilités dataset is provided by the regional transportation authority in Paris.",
+                    "Question": "Who provides the dataset?",
+                    "Selections": {
+                        "A": "Private company",
+                        "B": "Regional transportation authority in Paris",
+                        "C": "US government",
+                        "D": "University lab"
+                    },
+                    "Output": "B",
+                    "Explanation": "The dataset is released by the regional transport authority.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The dataset covers the Paris metropolitan region.",
+                    "Question": "What is the spatial coverage of the dataset?",
+                    "Selections": {
+                        "A": "Entire Europe",
+                        "B": "Paris metropolitan region",
+                        "C": "Tokyo only",
+                        "D": "Rural France"
+                    },
+                    "Output": "B",
+                    "Explanation": "It focuses on the Paris region.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The dataset includes daily and hourly passenger flow records.",
+                    "Question": "What is the temporal coverage of the dataset?",
+                    "Selections": {
+                        "A": "Yearly only",
+                        "B": "Hourly and daily records",
+                        "C": "One-time snapshot",
+                        "D": "No time data"
+                    },
+                    "Output": "B",
+                    "Explanation": "It includes temporal records at multiple granularities.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "Passenger counts are recorded per station and per time interval.",
+                    "Question": "What is the measurement resolution?",
+                    "Selections": {
+                        "A": "Country level",
+                        "B": "Station-level counts",
+                        "C": "Global averages",
+                        "D": "Annual totals only"
+                    },
+                    "Output": "B",
+                    "Explanation": "Data is measured at station-level resolution.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The dataset defines variables such as passenger count, station ID, and timestamp.",
+                    "Question": "Which variable is included?",
+                    "Selections": {
+                        "A": "Air pressure",
+                        "B": "Passenger count",
+                        "C": "DNA sequence",
+                        "D": "Ocean depth"
+                    },
+                    "Output": "B",
+                    "Explanation": "Passenger count is a core variable.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The dataset is stored in tabular format with rows representing observations and columns representing variables.",
+                    "Question": "What is the file structure?",
+                    "Selections": {
+                        "A": "Image files",
+                        "B": "Tabular format",
+                        "C": "Audio recordings",
+                        "D": "Binary only"
+                    },
+                    "Output": "B",
+                    "Explanation": "The dataset uses structured tables.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The dataset is collected using automated ticketing systems and sensors.",
+                    "Question": "How is the dataset collected?",
+                    "Selections": {
+                        "A": "Manual surveys only",
+                        "B": "Ticketing systems and sensors",
+                        "C": "Satellite only",
+                        "D": "Drone footage"
+                    },
+                    "Output": "B",
+                    "Explanation": "Collection relies on operational systems.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The dataset is used to analyze urban mobility and optimize transit planning.",
+                    "Question": "What is the usage context?",
+                    "Selections": {
+                        "A": "Gaming",
+                        "B": "Urban mobility analysis",
+                        "C": "Weather prediction",
+                        "D": "Medical diagnosis"
+                    },
+                    "Output": "B",
+                    "Explanation": "It supports transportation planning.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The dataset reflects dense urban transit patterns specific to Paris.",
+                    "Question": "What is a limitation of the dataset?",
+                    "Selections": {
+                        "A": "No variables",
+                        "B": "Paris-specific patterns",
+                        "C": "Too large",
+                        "D": "No time data"
+                    },
+                    "Output": "B",
+                    "Explanation": "It may not generalize to other regions.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The dataset records hourly passenger counts at station level.",
+                    "Question": "What does combining station-level spatial resolution with hourly temporal resolution enable?",
+                    "Selections": {
+                        "A": "Only yearly trends",
+                        "B": "Localized congestion analysis over time",
+                        "C": "Global averages only",
+                        "D": "No temporal insights"
+                    },
+                    "Output": "B",
+                    "Explanation": "Spatial + temporal granularity enables localized dynamic analysis.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "The dataset includes structured variables collected via automated ticketing systems.",
+                    "Question": "Why does combining structured variables with automated collection improve data quality?",
+                    "Selections": {
+                        "A": "Reduces dataset size",
+                        "B": "Ensures consistent and accurate measurements",
+                        "C": "Removes spatial information",
+                        "D": "Limits temporal resolution"
+                    },
+                    "Output": "B",
+                    "Explanation": "Automation ensures consistency.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "The dataset uses tabular structure and covers the Paris region.",
+                    "Question": "How do file structure and spatial coverage together support analysis?",
+                    "Selections": {
+                        "A": "Limit scalability",
+                        "B": "Enable scalable regional analysis",
+                        "C": "Remove spatial context",
+                        "D": "Reduce variables"
+                    },
+                    "Output": "B",
+                    "Explanation": "Structured data supports large-scale computation.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "The dataset captures high-frequency data in a dense urban environment.",
+                    "Question": "What does combining these attributes enable?",
+                    "Selections": {
+                        "A": "Static analysis only",
+                        "B": "Detailed peak congestion modeling",
+                        "C": "No temporal insights",
+                        "D": "Only yearly trends"
+                    },
+                    "Output": "B",
+                    "Explanation": "High frequency + density reveals dynamic patterns.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "The dataset is Paris-specific and collected via automated systems.",
+                    "Question": "What is the combined implication of these attributes?",
+                    "Selections": {
+                        "A": "Universal applicability",
+                        "B": "Context-dependent generalizability",
+                        "C": "No limitations",
+                        "D": "Only affects file size"
+                    },
+                    "Output": "B",
+                    "Explanation": "Both factors constrain transferability.",
+                    "Level": 2
+                }
+            ],
+            "Negative Example": []
+        },
+        {
+            "Instruction information": {
+                "Categories": "Question answering"
+            },
+            "Task_Definition": "Write a correct answer to the given question based on its associated fact. Make sure that your answer is contained in the associated fact. Don't be creative and introduce any new word that is not mentioned in the associated fact! Remember that the associated fact has been rearranged to form the question. So, the correct answer words must lie within the associated fact. The correct answer can be a word, phrase, or even a sentence.",
+            "Positive Example": [
+                {
+                    "Fact": "The Île-de-France Mobilités dataset is provided by the regional transportation authority in Paris.",
+                    "Question": "Who provides the dataset?",
+                    "Output": "The regional transportation authority in Paris.",
+                    "Explanation": "The dataset originates from the regional authority.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The dataset covers the Paris metropolitan region.",
+                    "Question": "What is the spatial coverage of the dataset?",
+                    "Output": "The Paris metropolitan region.",
+                    "Explanation": "It focuses on Paris.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The dataset includes daily and hourly passenger flow records.",
+                    "Question": "What is the temporal coverage of the dataset?",
+                    "Output": "Daily and hourly passenger flow records.",
+                    "Explanation": "It includes multiple time resolutions.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "Passenger counts are recorded per station and per time interval.",
+                    "Question": "What is the measurement resolution?",
+                    "Output": "Per station and per time interval.",
+                    "Explanation": "Data is recorded at station and time levels.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The dataset defines variables such as passenger count, station ID, and timestamp.",
+                    "Question": "Name one variable in the dataset.",
+                    "Output": "Passenger count, station ID, or timestamp.",
+                    "Explanation": "These are explicitly listed variables.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The dataset is stored in tabular format with rows representing observations and columns representing variables.",
+                    "Question": "What is the file structure of the dataset?",
+                    "Output": "Tabular format with rows representing observations and columns representing variables.",
+                    "Explanation": "The dataset uses structured tables.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The dataset is collected using automated ticketing systems and sensors.",
+                    "Question": "How is the dataset collected?",
+                    "Output": "Using automated ticketing systems and sensors.",
+                    "Explanation": "Collection relies on operational systems.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The dataset is used to analyze urban mobility and optimize transit planning.",
+                    "Question": "What is the usage context of the dataset?",
+                    "Output": "To analyze urban mobility and optimize transit planning.",
+                    "Explanation": "It supports transportation planning.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The dataset reflects dense urban transit patterns specific to Paris.",
+                    "Question": "What is a limitation of the dataset?",
+                    "Output": "Dense urban transit patterns specific to Paris.",
+                    "Explanation": "It reflects Paris-specific conditions.",
+                    "Level": 1
+                },
+                {
+                    "Fact": "The dataset records hourly passenger counts at station level using automated ticketing systems.",
+                    "Question": "How do the station-level spatial resolution and hourly temporal resolution together support identifying localized congestion patterns?",
+                    "Output": "They enable distinguishing congestion at specific stations over time.",
+                    "Explanation": "Combining spatial granularity with time resolution allows localized temporal analysis.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "The dataset includes passenger counts, station IDs, and timestamps collected through automated systems.",
+                    "Question": "How do variable definitions and collection methodology together ensure data reliability?",
+                    "Output": "They ensure consistent and accurate recording of passenger flow.",
+                    "Explanation": "Defined variables combined with automated collection reduce measurement errors.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "The dataset is stored in tabular format with structured variables and covers the Paris metropolitan region.",
+                    "Question": "How do file structure and spatial coverage together affect scalability of analysis?",
+                    "Output": "They enable efficient large-scale analysis across the metropolitan region.",
+                    "Explanation": "Structured data allows scalable computation over large spatial coverage.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "The dataset captures dense urban transit usage with high-frequency temporal records.",
+                    "Question": "How do temporal coverage and urban density jointly influence the dataset’s analytical capabilities?",
+                    "Output": "They allow detailed analysis of peak-hour congestion dynamics.",
+                    "Explanation": "High temporal resolution in dense areas reveals dynamic demand patterns.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "The dataset reflects Paris-specific transit behavior and uses automated ticketing data.",
+                    "Question": "How do regional specificity and data collection method together constrain generalizability?",
+                    "Output": "They limit applicability to systems with similar urban transit structures and data collection methods.",
+                    "Explanation": "Both factors introduce contextual bias.",
+                    "Level": 2
+                },
+                {
+                    "Fact": "The dataset captures hourly passenger flows in a dense urban transit system.",
+                    "Question": "How can temporal variations in passenger flow be interpreted beyond data measurement?",
+                    "Output": "They may reflect congestion dynamics or behavioral travel patterns.",
+                    "Explanation": "Temporal variation reflects real-world dynamics, not just data.",
+                    "Level": 3
+                },
+                {
+                    "Fact": "The dataset includes spatial station data and temporal passenger counts.",
+                    "Question": "How can these data dimensions together inform policy decisions?",
+                    "Output": "They can identify congestion hotspots and guide transit planning interventions.",
+                    "Explanation": "Integration supports planning decisions.",
+                    "Level": 3
+                },
+                {
+                    "Fact": "The dataset reflects dense urban mobility patterns in Paris.",
+                    "Question": "How might these patterns differ under policy changes such as fare adjustments?",
+                    "Output": "Passenger flow patterns may shift due to behavioral responses to policy.",
+                    "Explanation": "Behavioral adaptation affects data patterns.",
+                    "Level": 3
+                },
+                {
+                    "Fact": "The dataset uses automated ticketing data to measure passenger flow.",
+                    "Question": "How might measurement method influence observed mobility patterns?",
+                    "Output": "It captures actual usage but may miss informal or unrecorded travel.",
+                    "Explanation": "Measurement method introduces bias.",
+                    "Level": 3
+                },
+                {
+                    "Fact": "The dataset combines temporal flow data with spatial station coverage.",
+                    "Question": "How can this dataset be integrated with road traffic data for broader analysis?",
+                    "Output": "It enables multimodal analysis of urban mobility systems.",
+                    "Explanation": "Cross-system integration expands insights.",
+                    "Level": 3
+                }
+            ],
+            "Negative Example": []
+        }
+    ]
+}
