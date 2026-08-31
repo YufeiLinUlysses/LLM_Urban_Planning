@@ -54,6 +54,26 @@ def test_reference_and_mc_parsing_are_deterministic() -> None:
     assert parse_mc_prediction("Rail", prompt) == ("B", "normalized_option_text", False)
 
 
+def test_structured_sections_allow_inline_or_multiline_labels() -> None:
+    inline = "ANSWER: B EXPLANATION: Because rail is correct."
+    multiline = "ANSWER:\nB\n\nEXPLANATION:\nBecause rail is correct."
+    prompt = "Options:\nA. Bus\nB. Rail\nC. Car\nD. Walk"
+
+    assert extract_reference(inline) == ("B", "Because rail is correct.")
+    assert extract_reference(multiline) == ("B", "Because rail is correct.")
+    assert parse_mc_prediction(inline, prompt) == ("B", "strict_structured", True)
+    assert parse_mc_prediction(multiline, prompt) == ("B", "strict_structured", True)
+    assert extract_reference("unstructured output") == ("", "")
+    verification = (
+        "VERDICT: incorrect EXPLANATION: The candidate is wrong. "
+        "CORRECT ANSWER: B"
+    )
+    assert extract_reference(verification) == (
+        "incorrect",
+        "The candidate is wrong.",
+    )
+
+
 def test_transparent_text_and_verification_metrics() -> None:
     assert _token_f1("regional transport authority", "transport authority") == 0.8
     metrics = _classification_metrics(

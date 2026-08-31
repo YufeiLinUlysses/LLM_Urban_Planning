@@ -32,9 +32,18 @@ def _materialize_records(
 
 
 def _extract_section(text: str, name: str) -> str:
-    pattern = rf"(?:^|\n){re.escape(name)}:\s*\n?(.+?)(?=\n[A-Z][A-Z _-]*:\s*\n?|\Z)"
-    match = re.search(pattern, text.strip(), flags=re.IGNORECASE | re.DOTALL)
-    return match.group(1).strip() if match else ""
+    label_pattern = re.compile(
+        r"(?:^|\s)(CORRECT ANSWER|ANSWER|VERDICT|EXPLANATION):\s*",
+        flags=re.IGNORECASE,
+    )
+    matches = list(label_pattern.finditer(text.strip()))
+    wanted = name.casefold()
+    for index, match in enumerate(matches):
+        if match.group(1).casefold() != wanted:
+            continue
+        end = matches[index + 1].start() if index + 1 < len(matches) else len(text.strip())
+        return text.strip()[match.end() : end].strip()
+    return ""
 
 
 def extract_reference(target: str) -> tuple[str, str]:
@@ -42,13 +51,21 @@ def extract_reference(target: str) -> tuple[str, str]:
 
     answer = _extract_section(target, "ANSWER") or _extract_section(target, "VERDICT")
     explanation = _extract_section(target, "EXPLANATION")
-    return answer.splitlines()[0].strip(), explanation
+    first_line = answer.splitlines()[0].strip() if answer else ""
+    return first_line, explanation
 
 
 def parse_mc_prediction(text: str, prompt: str) -> tuple[str, str, bool]:
     """Return parsed option, parser status, and strict-format compliance."""
 
     stripped = text.strip()
+    structured = re.fullmatch(
+        r"ANSWER:\s*([A-D])\s+EXPLANATION:\s*\S(?:.|\n)*",
+        stripped,
+        flags=re.IGNORECASE,
+    )
+    if structured:
+        return structured.group(1).upper(), "strict_structured", True
     strict = bool(re.fullmatch(r"[A-D]", stripped, flags=re.IGNORECASE))
     if strict:
         return stripped.upper(), "strict", True
