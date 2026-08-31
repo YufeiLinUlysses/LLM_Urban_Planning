@@ -87,6 +87,20 @@ Set `HF_TOKEN` through a Colab secret or environment variable. Override
 make GPU runs resumable across sessions. Set either `publish_to_hf` flag to `false` for local
 smoke tests.
 
+### Reusable Colab runner
+
+Use `notebooks/urban_science_colab_runner.ipynb` for GPU runs. Its workflow is split into
+independent environment, data, audit, smoke-test, training, graph, evaluation, and Hugging Face
+verification sections. Change only the `RunConfig` cell when switching dataset revisions, models,
+or run IDs. The default workflow uses Colab-local storage and verifies all required artifacts on
+Hugging Face before the runtime is discarded; Google Drive is not required.
+
+Regenerate the notebook after changing its template with:
+
+```powershell
+uv run python scripts/build_colab_notebook.py
+```
+
 ## Reproducible figures
 
 `train_model` writes `training_history.json`, a CSV export, and 300-dpi training/validation-loss
