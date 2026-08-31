@@ -157,18 +157,28 @@ revision does not exist, preventing accidental v3 training with a v4 run ID.
         """from pathlib import Path
 import shutil
 from huggingface_hub import snapshot_download
+from huggingface_hub.errors import RevisionNotFoundError
 
-snapshot = Path(snapshot_download(
-    repo_id=CFG.dataset_repo,
-    repo_type="dataset",
-    revision=CFG.dataset_revision,
-    token=os.environ["HF_TOKEN"],
-    allow_patterns=[
-        f"{CFG.dataset_folder}/generation/*.json",
-        f"{CFG.dataset_folder}/verification/*.json",
-        f"{CFG.dataset_folder}/manifest.json",
-    ],
-))
+try:
+    snapshot = Path(snapshot_download(
+        repo_id=CFG.dataset_repo,
+        repo_type="dataset",
+        revision=CFG.dataset_revision,
+        token=os.environ["HF_TOKEN"],
+        allow_patterns=[
+            f"{CFG.dataset_folder}/generation/*.json",
+            f"{CFG.dataset_folder}/verification/*.json",
+            f"{CFG.dataset_folder}/manifest.json",
+        ],
+    ))
+except RevisionNotFoundError as error:
+    raise RuntimeError(
+        f"Dataset branch {CFG.dataset_revision!r} does not exist in {CFG.dataset_repo}. "
+        "Publish the prepared v4 dataset once from the local project before running Colab: "
+        "uv run kedro run --pipelines=prepare_huggingface_release, followed by "
+        "uv run kedro run --pipelines=publish_huggingface. Do not change this to revision-v3 "
+        "for a v4 training run."
+    ) from error
 
 project = Path(CFG.project_dir)
 for task in ("generation", "verification"):
@@ -306,9 +316,11 @@ display(Image(filename=str(loss_graph)))
 api = HfApi(token=os.environ["HF_TOKEN"])
 model_files = set(api.list_repo_files(CFG.model_repo, repo_type="model"))
 model_prefix = f"{CFG.model_key}/{CFG.run_id}/checkpoint"
-model_required = {"config.json", "training_manifest.json", "training_history.json"}
+model_required = {"training_manifest.json", "training_history.json"}
 if CFG.model_key == "t5_base":
-    model_required |= {"model.safetensors", "tokenizer.json"}
+    model_required |= {"config.json", "model.safetensors", "tokenizer.json"}
+else:
+    model_required |= {"adapter_config.json", "adapter_model.safetensors"}
 
 missing_model = [f"{model_prefix}/{name}" for name in model_required
                  if f"{model_prefix}/{name}" not in model_files]
