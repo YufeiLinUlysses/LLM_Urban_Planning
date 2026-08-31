@@ -6,7 +6,9 @@ from types import SimpleNamespace
 from urban_science_revision.pipelines.model_evaluation.nodes import (
     _attach_bertscore,
     _classification_metrics,
+    _paired_verification_metrics,
     _token_f1,
+    _verification_rows,
     extract_reference,
     parse_mc_prediction,
 )
@@ -65,12 +67,11 @@ def test_structured_sections_allow_inline_or_multiline_labels() -> None:
     assert parse_mc_prediction(multiline, prompt) == ("B", "strict_structured", True)
     assert extract_reference("unstructured output") == ("", "")
     verification = (
-        "VERDICT: incorrect EXPLANATION: The candidate is wrong. "
-        "CORRECT ANSWER: B"
+        "VERDICT: incorrect CANDIDATE MATCHES CONTEXT: No"
     )
     assert extract_reference(verification) == (
         "incorrect",
-        "The candidate is wrong.",
+        "",
     )
 
 
@@ -82,3 +83,46 @@ def test_transparent_text_and_verification_metrics() -> None:
     )
     assert metrics["accuracy"] == 2 / 3
     assert metrics["confusion_matrix"]["incorrect"]["correct"] == 1
+
+
+def test_verification_scores_verdict_match_and_pairs() -> None:
+    records = [
+        {
+            "example_id": "item__verify_correct",
+            "variant_id": "item",
+            "seed_id": "seed",
+            "source_name": "source",
+            "Level": 1,
+            "candidate_polarity": "positive",
+            "prompt": "Candidate answer: Rail",
+            "target": "VERDICT: Correct CANDIDATE MATCHES CONTEXT: Yes",
+        },
+        {
+            "example_id": "item__verify_incorrect",
+            "variant_id": "item",
+            "seed_id": "seed",
+            "source_name": "source",
+            "Level": 1,
+            "candidate_polarity": "negative",
+            "prompt": "Candidate answer: Bus",
+            "target": "VERDICT: Incorrect CANDIDATE MATCHES CONTEXT: No",
+        },
+    ]
+    rows = _verification_rows(
+        records,
+        [
+            "VERDICT: Correct CANDIDATE MATCHES CONTEXT: Yes",
+            "VERDICT: Incorrect CANDIDATE MATCHES CONTEXT: No",
+        ],
+        [0.1, 0.1],
+    )
+
+    assert all(row["correct"] for row in rows)
+    assert all(row["candidate_match_correct"] for row in rows)
+    assert all(row["verdict_match_consistent"] for row in rows)
+    assert all(row["format_compliant"] for row in rows)
+    assert _paired_verification_metrics(rows) == {
+        "paired_count": 1,
+        "paired_consistent_count": 1,
+        "paired_consistency": 1.0,
+    }

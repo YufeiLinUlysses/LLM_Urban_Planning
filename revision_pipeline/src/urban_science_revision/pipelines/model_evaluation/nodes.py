@@ -33,7 +33,10 @@ def _materialize_records(
 
 def _extract_section(text: str, name: str) -> str:
     label_pattern = re.compile(
-        r"(?:^|\s)(CORRECT ANSWER|ANSWER|VERDICT|EXPLANATION):\s*",
+        (
+            r"(?:^|\s)(CANDIDATE MATCHES CONTEXT|CORRECT ANSWER|"
+            r"ANSWER|VERDICT|EXPLANATION):\s*"
+        ),
         flags=re.IGNORECASE,
     )
     matches = list(label_pattern.finditer(text.strip()))
@@ -320,8 +323,16 @@ def _verification_rows(
         match = re.search(r"\b(correct|incorrect)\b", prediction, re.I)
         parsed = match.group(1).casefold() if match else "unparseable"
         actual = reference.casefold()
-        correction = _extract_section(prediction, "CORRECT ANSWER")
-        expected_correction = _extract_section(str(record["target"]), "CORRECT ANSWER")
+        candidate_match = _extract_section(prediction, "CANDIDATE MATCHES CONTEXT")
+        candidate_match = candidate_match.splitlines()[0].strip().casefold() if candidate_match else ""
+        expected_match = _extract_section(str(record["target"]), "CANDIDATE MATCHES CONTEXT")
+        expected_match = expected_match.splitlines()[0].strip().casefold() if expected_match else ""
+        valid_match = candidate_match in {"yes", "no"}
+        verdict_match_consistent = bool(
+            parsed in {"correct", "incorrect"}
+            and valid_match
+            and ((parsed == "correct") == (candidate_match == "yes"))
+        )
         output.append(
             {
                 **{
@@ -334,6 +345,7 @@ def _verification_rows(
                         "region",
                         "evaluation_scope",
                         "candidate_polarity",
+                        "variant_id",
                     ]
                 },
                 "evaluation_task": "answer_verification",
@@ -343,11 +355,14 @@ def _verification_rows(
                 "raw_prediction": prediction,
                 "parsed_answer": parsed,
                 "correct": parsed == actual,
-                "correction": correction,
-                "correction_exact_match": (
-                    _normalize(correction) == _normalize(expected_correction)
-                    if actual == "incorrect"
-                    else None
+                "candidate_match": candidate_match or "unparseable",
+                "reference_candidate_match": expected_match,
+                "candidate_match_correct": bool(
+                    valid_match and candidate_match == expected_match
+                ),
+                "verdict_match_consistent": verdict_match_consistent,
+                "format_compliant": bool(
+                    parsed in {"correct", "incorrect"} and valid_match
                 ),
                 "latency_seconds": latency,
                 "empty_response": not bool(prediction.strip()),
@@ -355,6 +370,33 @@ def _verification_rows(
             }
         )
     return output
+
+
+def _paired_verification_metrics(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    pairs: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for row in rows:
+        pair_id = str(row.get("variant_id") or row.get("seed_id") or "")
+        pairs[pair_id].append(row)
+    complete = [
+        members
+        for members in pairs.values()
+        if {str(row.get("candidate_polarity")) for row in members} == {"positive", "negative"}
+    ]
+    passed = [
+        members
+        for members in complete
+        if all(
+            bool(row.get("correct"))
+            and bool(row.get("candidate_match_correct"))
+            and bool(row.get("verdict_match_consistent"))
+            for row in members
+        )
+    ]
+    return {
+        "paired_count": len(complete),
+        "paired_consistent_count": len(passed),
+        "paired_consistency": len(passed) / len(complete) if complete else 0.0,
+    }
 
 
 def _paraphrase_prompt(record: dict[str, Any]) -> str:
@@ -586,6 +628,7 @@ def evaluate_and_publish_model(
     labels = [str(row["reference_answer"]) for row in verification_rows]
     predictions = [str(row["parsed_answer"]) for row in verification_rows]
     verification_metrics = _classification_metrics(labels, predictions)
+    verification_metrics.update(_paired_verification_metrics(verification_rows))
     metrics = {"overall": overall, "verification": verification_metrics}
     manifest = {
         "evaluation_run_id": run_id,

@@ -124,19 +124,22 @@ def verification_prompt(record: dict[str, Any], candidate: str) -> str:
     parts.extend(
         [
             f"Candidate answer:\n{candidate}",
-            "Is this answer consistent with the dataset information?",
+            (
+                "Compare the candidate answer directly with the dataset context.\n\n"
+                "Return exactly:\n"
+                "VERDICT: Correct or Incorrect\n"
+                "CANDIDATE MATCHES CONTEXT: Yes or No"
+            ),
         ]
     )
     return "\n\n".join(parts)
 
 
 def positive_verification_target(record: dict[str, Any]) -> str:
-    return f"VERDICT:\nCorrect\n\nEXPLANATION:\n{record['Explanation']}"
+    del record
+    return "VERDICT:\nCorrect\n\nCANDIDATE MATCHES CONTEXT:\nYes"
 
 
 def negative_verification_target(record: dict[str, Any]) -> str:
-    return (
-        "VERDICT:\nIncorrect\n\n"
-        f"CORRECT ANSWER:\n{record['correct_answer']}\n\n"
-        f"EXPLANATION:\n{record['Explanation']}"
-    )
+    del record
+    return "VERDICT:\nIncorrect\n\nCANDIDATE MATCHES CONTEXT:\nNo"

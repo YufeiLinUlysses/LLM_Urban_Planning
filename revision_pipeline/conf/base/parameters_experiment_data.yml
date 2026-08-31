@@ -1,5 +1,5 @@
 experiment_data:
-  dataset_version: revision_v3
+  dataset_version: revision_v4
   random_seed: 2025
   split_ratios:
     train: 0.8

@@ -3,6 +3,6 @@ huggingface:
   repo_type: dataset
   revision: revision-v3
   path_in_repo: ""
-  dataset_version: 3.0.0
+  dataset_version: 4.0.0
   release_dir: data/07_model_output/huggingface_release
   commit_message: Publish leakage-audited instruction dataset v3

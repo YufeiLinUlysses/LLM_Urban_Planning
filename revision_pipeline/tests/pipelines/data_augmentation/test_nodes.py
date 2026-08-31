@@ -174,6 +174,11 @@ def test_task_views_keep_targets_out_of_prompts_and_wrong_answers_out_of_sft() -
     ]
     assert negative_views
     assert all(record["target"].startswith("VERDICT:\nIncorrect") for record in negative_views)
+    assert all(
+        "CANDIDATE MATCHES CONTEXT:\nNo" in record["target"]
+        for record in negative_views
+    )
+    assert all("EXPLANATION:" not in record["target"] for record in negative_views)
 
 
 def test_seed_ids_are_stable() -> None:

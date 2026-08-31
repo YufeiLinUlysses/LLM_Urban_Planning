@@ -111,8 +111,9 @@ remain in the same partition.
 Never perform a row-level random split over augmented variants.
 
 Negative candidates are not used as incorrect generation targets. They are used only in the
-verification view, where the target explicitly identifies them as incorrect and supplies the
-correct answer and explanation.
+verification view. Verification targets use equal-length `VERDICT` and
+`CANDIDATE MATCHES CONTEXT` fields so that candidate/context classification is evaluated
+separately from answer-explanation generation.
 """
 
 
