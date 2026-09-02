@@ -43,6 +43,7 @@ subprocess.run(["nvidia-smi"], check=True)
     code(
         """from dataclasses import dataclass
 
+
 @dataclass(frozen=True)
 class RunConfig:
     git_url: str = "https://github.com/YufeiLinUlysses/LLM_Urban_Planning.git"
@@ -50,12 +51,12 @@ class RunConfig:
     project_dir: str = "/content/LLM_Urban_Planning/revision_pipeline"
 
     dataset_repo: str = "UlyssesLynne/urban_planning_llm"
-    dataset_revision: str = "revision-v4"
+    dataset_revision: str = "revision-v5"
     dataset_folder: str = "data/revision_v2"  # Folder retained for repository compatibility.
-    dataset_version: str = "revision_v4"
+    dataset_version: str = "revision_v5"
 
     model_key: str = "t5_base"  # t5_base, qwen25_7b, qwen25_14b, llama31_8b, llama31_70b
-    run_id: str = "revision-v4-t5-verification-v2"
+    run_id: str = "revision-v5-t5-three-task-v1"
     model_repo: str = "UlyssesLynne/urban-planning-llm-model-zoo-v3"
     prediction_repo: str = "UlyssesLynne/urban-planning-llm-predictions-v3"
     artifact_root: str = "/content/urban_science_artifacts"
@@ -68,6 +69,7 @@ class RunConfig:
     warmup_ratio: float = 0.1
     weight_decay: float = 0.01
     smoke_test: bool = False
+    run_semantic_audit: bool = False  # Slow on CPU; deterministic leakage checks always run.
 
 CFG = RunConfig()
 CFG
@@ -92,10 +94,11 @@ print("HF_TOKEN is available; its value was not printed.")
     ),
     markdown("## 3. Clone/update the project and install the locked environment"),
     code(
-        """from pathlib import Path
-import re
+        """import re
 import shutil
 import subprocess
+from pathlib import Path
+
 
 def raw_url(value: str) -> str:
     # Undo Markdown-link formatting introduced by rich-text copy/paste.
@@ -124,7 +127,24 @@ print("Environment ready:", CFG.project_dir)
     markdown("## 4. Shared command helper"),
     code(
         """import os
+import shutil
 import subprocess
+from pathlib import Path
+
+
+def show_resources() -> None:
+    memory = Path("/proc/meminfo").read_text(encoding="utf-8").splitlines()[:2]
+    disk = shutil.disk_usage("/content")
+    print("System memory:", " | ".join(memory), flush=True)
+    print(
+        f"/content disk: {disk.used / 2**30:.1f} GiB used, "
+        f"{disk.free / 2**30:.1f} GiB free",
+        flush=True,
+    )
+    subprocess.run(
+        ["nvidia-smi", "--query-gpu=name,memory.used,memory.free,utilization.gpu", "--format=csv"],
+        check=False,
+    )
 
 def run_project(*args: str) -> None:
     env = os.environ.copy()
@@ -133,10 +153,27 @@ def run_project(*args: str) -> None:
         "KEDRO_DISABLE_TELEMETRY": "1",
         "PYTHONUNBUFFERED": "1",
         "HF_HUB_DISABLE_PROGRESS_BARS": "0",
+        "TOKENIZERS_PARALLELISM": "false",
+        "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True",
     })
     command = ["uv", "run", *args]
+    show_resources()
     print("Running:", " ".join(command), flush=True)
-    subprocess.run(command, cwd=CFG.project_dir, env=env, check=True)
+    process = subprocess.Popen(
+        command,
+        cwd=CFG.project_dir,
+        env=env,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        text=True,
+        bufsize=1,
+    )
+    assert process.stdout is not None
+    for line in process.stdout:
+        print(line, end="", flush=True)
+    return_code = process.wait()
+    if return_code:
+        raise subprocess.CalledProcessError(return_code, command)
 
 def kedro_params(values: dict) -> str:
     def encode(value):
@@ -149,13 +186,14 @@ def kedro_params(values: dict) -> str:
     markdown(
         """## 5. Download the versioned task-view data from Hugging Face
 
-This fetches only generation and verification JSON files. It deliberately fails if the configured
-revision does not exist, preventing accidental v3 training with a v4 run ID.
+This fetches generation, verification, and structure-preserving paraphrase JSON files. It
+deliberately fails if the configured revision does not exist, preventing mixed-version training.
 """
     ),
     code(
-        """from pathlib import Path
-import shutil
+        """import shutil
+from pathlib import Path
+
 from huggingface_hub import snapshot_download
 from huggingface_hub.errors import RevisionNotFoundError
 
@@ -168,20 +206,21 @@ try:
         allow_patterns=[
             f"{CFG.dataset_folder}/generation/*.json",
             f"{CFG.dataset_folder}/verification/*.json",
+            f"{CFG.dataset_folder}/paraphrase/*.json",
             f"{CFG.dataset_folder}/manifest.json",
         ],
     ))
 except RevisionNotFoundError as error:
     raise RuntimeError(
         f"Dataset branch {CFG.dataset_revision!r} does not exist in {CFG.dataset_repo}. "
-        "Publish the prepared v4 dataset once from the local project before running Colab: "
+        "Publish the prepared v5 dataset once from the local project before running Colab: "
         "uv run kedro run --pipelines=prepare_huggingface_release, followed by "
-        "uv run kedro run --pipelines=publish_huggingface. Do not change this to revision-v3 "
-        "for a v4 training run."
+        "uv run kedro run --pipelines=publish_huggingface. Do not use an older revision "
+        "for a v5 training run."
     ) from error
 
 project = Path(CFG.project_dir)
-for task in ("generation", "verification"):
+for task in ("generation", "verification", "paraphrase"):
     source = snapshot / CFG.dataset_folder / task
     destination = project / "data/05_model_input" / task
     if not source.is_dir() or not list(source.glob("*.json")):
@@ -192,11 +231,20 @@ for task in ("generation", "verification"):
     print(task, "files:", len(list(destination.glob("*.json"))))
 """
     ),
-    markdown("## 6. Recreate and audit the deterministic experiment split"),
+    markdown(
+        "## 6. Recreate and audit the deterministic experiment split\n\n"
+        "The seed, concept-group, and exact-prompt leakage checks always run. Set "
+        "`CFG.run_semantic_audit=True` only when you intentionally want the slower "
+        "sentence-embedding review. Paraphrase descendants inherit the already-audited "
+        "concept split."
+    ),
     code(
         """run_project(
     "kedro", "run", "--pipelines=prepare_experiment_data",
-    "--params=" + kedro_params({"experiment_data.dataset_version": CFG.dataset_version}),
+    "--params=" + kedro_params({
+        "experiment_data.dataset_version": CFG.dataset_version,
+        "experiment_data.semantic_audit.enabled": CFG.run_semantic_audit,
+    }),
 )
 """
     ),
@@ -267,8 +315,9 @@ run_project("kedro", "run", "--env=colab", "--pipelines=train_model",
     ),
     markdown("## 10. Display the saved loss graph"),
     code(
-        """from IPython.display import Image, display
-from pathlib import Path
+        """from pathlib import Path
+
+from IPython.display import Image, display
 
 loss_graph = (Path(CFG.artifact_root) / "models" / CFG.model_key / CFG.run_id /
               "checkpoint/figures/training_vs_validation_loss.png")

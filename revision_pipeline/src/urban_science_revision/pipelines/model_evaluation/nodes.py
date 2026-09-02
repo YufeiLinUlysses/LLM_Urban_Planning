@@ -14,6 +14,10 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
+from urban_science_revision.pipelines.data_augmentation.prompts import (
+    structure_preserving_paraphrase_prompt,
+)
+
 PartitionValue = dict[str, Any] | Callable[[], dict[str, Any]]
 
 
@@ -324,7 +328,9 @@ def _verification_rows(
         parsed = match.group(1).casefold() if match else "unparseable"
         actual = reference.casefold()
         candidate_match = _extract_section(prediction, "CANDIDATE MATCHES CONTEXT")
-        candidate_match = candidate_match.splitlines()[0].strip().casefold() if candidate_match else ""
+        candidate_match = (
+            candidate_match.splitlines()[0].strip().casefold() if candidate_match else ""
+        )
         expected_match = _extract_section(str(record["target"]), "CANDIDATE MATCHES CONTEXT")
         expected_match = expected_match.splitlines()[0].strip().casefold() if expected_match else ""
         valid_match = candidate_match in {"yes", "no"}
@@ -400,11 +406,10 @@ def _paired_verification_metrics(rows: list[dict[str, Any]]) -> dict[str, Any]:
 
 
 def _paraphrase_prompt(record: dict[str, Any]) -> str:
-    return (
-        "Paraphrase the completed instruction below while preserving every fact, answer, "
-        "option-answer relationship, and explanation. Preserve the field labels.\n\n"
-        f"{record['prompt']}\n\n{record['target']}"
-    )
+    prompt = str(record["prompt"])
+    if prompt.startswith("Paraphrase the completed instruction below"):
+        return prompt
+    return structure_preserving_paraphrase_prompt(prompt)
 
 
 def _paraphrase_rows(
@@ -412,9 +417,12 @@ def _paraphrase_rows(
 ) -> list[dict[str, Any]]:
     output = []
     for record, prediction, latency in zip(records, predictions, latencies, strict=True):
-        reference = f"{record['prompt']}\n\n{record['target']}"
-        answer, explanation = extract_reference(str(record["target"]))
+        reference = str(record["target"])
+        answer, explanation = extract_reference(reference)
         parsed_answer = _extract_section(prediction, "ANSWER")
+        required_labels = ["DATASET CONTEXT:", "QUESTION:", "ANSWER:", "EXPLANATION:"]
+        if str(record.get("base_task_type")) == "multiple_choice":
+            required_labels.append("OPTIONS:")
         output.append(
             {
                 **{
@@ -432,11 +440,12 @@ def _paraphrase_rows(
                 "prompt": _paraphrase_prompt(record),
                 "reference_answer": answer,
                 "reference_explanation": explanation,
+                "reference_text": reference,
                 "raw_prediction": prediction,
                 "parsed_answer": parsed_answer,
                 "answer_preserved": _normalize(parsed_answer) == _normalize(answer),
                 "field_preservation": all(
-                    label in prediction.upper() for label in ["ANSWER:", "EXPLANATION:"]
+                    label in prediction.upper() for label in required_labels
                 ),
                 "latency_seconds": latency,
                 **_rouge_scores(prediction, reference),
@@ -445,16 +454,23 @@ def _paraphrase_rows(
     return output
 
 
+def _metric_reference(row: dict[str, Any]) -> str:
+    """Return the complete rewrite target when available, otherwise answer plus explanation."""
+
+    if row.get("reference_text"):
+        return str(row["reference_text"])
+    return (
+        f"{row.get('reference_answer', '')} {row.get('reference_explanation', '')}".strip()
+    )
+
+
 def _attach_bertscore(rows: list[dict[str, Any]], parameters: dict[str, Any]) -> None:
     if not parameters.get("compute_bertscore", True) or not rows:
         return
     from bert_score import score
 
     candidates = [str(row["raw_prediction"]) for row in rows]
-    references = [
-        str(row.get("reference_answer", "")) + " " + str(row.get("reference_explanation", ""))
-        for row in rows
-    ]
+    references = [_metric_reference(row) for row in rows]
     eligible = [
         index
         for index, (candidate, reference) in enumerate(zip(candidates, references, strict=True))
@@ -502,10 +518,7 @@ def _attach_nli_scores(rows: list[dict[str, Any]], parameters: dict[str, Any]) -
     threshold = float(parameters.get("nli_entailment_threshold", 0.5))
     for start in range(0, len(rows), batch_size):
         batch = rows[start : start + batch_size]
-        references = [
-            f"{row.get('reference_answer', '')} {row.get('reference_explanation', '')}".strip()
-            for row in batch
-        ]
+        references = [_metric_reference(row) for row in batch]
         candidates = [str(row.get("raw_prediction", "")) for row in batch]
         encoded = tokenizer(
             references,
@@ -573,6 +586,7 @@ def _review_reason(row: dict[str, Any]) -> list[str]:
 def evaluate_and_publish_model(
     generation_partitions: Mapping[str, PartitionValue],
     verification_partitions: Mapping[str, PartitionValue],
+    paraphrase_partitions: Mapping[str, PartitionValue],
     split_manifest: dict[str, Any],
     model_registry: dict[str, Any],
     parameters: dict[str, Any],
@@ -587,6 +601,7 @@ def evaluate_and_publish_model(
     scope = parameters["dataset_scope"]
     generation = _materialize_records(generation_partitions, scope)
     verification = _materialize_records(verification_partitions, scope)
+    paraphrase = _materialize_records(paraphrase_partitions, scope)
     model, tokenizer = _load_model(model_registry[model_key], parameters)
 
     answer_predictions, answer_latency = _generate(
@@ -603,10 +618,19 @@ def evaluate_and_publish_model(
     rows.extend(verification_rows)
 
     if parameters.get("evaluate_paraphrase", True):
+        paraphrase_parameters = {
+            **parameters,
+            "max_new_tokens": parameters.get(
+                "paraphrase_max_new_tokens", parameters["max_new_tokens"]
+            ),
+        }
         paraphrase_predictions, paraphrase_latency = _generate(
-            model, tokenizer, [_paraphrase_prompt(row) for row in generation], parameters
+            model,
+            tokenizer,
+            [_paraphrase_prompt(row) for row in paraphrase],
+            paraphrase_parameters,
         )
-        rows.extend(_paraphrase_rows(generation, paraphrase_predictions, paraphrase_latency))
+        rows.extend(_paraphrase_rows(paraphrase, paraphrase_predictions, paraphrase_latency))
 
     _attach_bertscore(rows, parameters)
     _attach_nli_scores(rows, parameters)

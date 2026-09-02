@@ -11,6 +11,7 @@ evaluation:
   batch_size: 8
   max_input_tokens: 2048
   max_new_tokens: 256
+  paraphrase_max_new_tokens: 384
   evaluate_paraphrase: true
   compute_bertscore: true
   bertscore_language: en

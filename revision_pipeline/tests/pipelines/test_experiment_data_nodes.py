@@ -45,8 +45,8 @@ def test_seed_split_and_combined_cross_regional_holdout() -> None:
         "japan": _dataset("japan", 2),
     }
     verification = {key: value for key, value in generation.items()}
-    gen, ver, manifest, audit = prepare_experiment_partitions(
-        generation, verification, _parameters()
+    gen, ver, para, manifest, audit = prepare_experiment_partitions(
+        generation, verification, generation, _parameters()
     )
 
     assert manifest["concept_group_counts"] == {"train": 8, "validation": 1, "test": 1}
@@ -57,19 +57,21 @@ def test_seed_split_and_combined_cross_regional_holdout() -> None:
         row["evaluation_scope"] == "cross_regional" for item in holdouts for row in item["records"]
     )
     assert set(gen) == set(ver)
+    assert set(gen) == set(para)
 
 
 def test_huggingface_flat_list_partitions_are_supported() -> None:
     generation = {"highd": _dataset("highd")["records"]}
     verification = {"highd": _dataset("highd")["records"]}
 
-    gen, ver, manifest, audit = prepare_experiment_partitions(
-        generation, verification, _parameters()
+    gen, ver, para, manifest, audit = prepare_experiment_partitions(
+        generation, verification, generation, _parameters()
     )
 
     assert manifest["concept_group_counts"] == {"train": 8, "validation": 1, "test": 1}
     assert audit["passed"] is True
     assert set(gen) == set(ver)
+    assert set(gen) == set(para)
 
 
 def test_cross_task_seeds_in_one_concept_never_cross_splits() -> None:
@@ -79,8 +81,8 @@ def test_cross_task_seeds_in_one_concept_never_cross_splits() -> None:
     dataset["records"][1]["concept_group_id"] = "shared-concept"
     dataset["records"][1]["task_type"] = "short_answer"
 
-    generation, _, manifest, audit = prepare_experiment_partitions(
-        {"highd": dataset}, {"highd": dataset}, _parameters()
+    generation, _, _, manifest, audit = prepare_experiment_partitions(
+        {"highd": dataset}, {"highd": dataset}, {"highd": dataset}, _parameters()
     )
 
     shared_splits = {
@@ -101,8 +103,8 @@ def test_reviewed_concept_aliases_are_resolved_before_splitting() -> None:
         "highd-concept-0": ["highd-concept-1"]
     }
 
-    generation, _, manifest, audit = prepare_experiment_partitions(
-        {"highd": dataset}, {"highd": dataset}, parameters
+    generation, _, _, manifest, audit = prepare_experiment_partitions(
+        {"highd": dataset}, {"highd": dataset}, {"highd": dataset}, parameters
     )
 
     merged = [

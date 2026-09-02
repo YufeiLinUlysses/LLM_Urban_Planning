@@ -1,14 +1,15 @@
 training:
   model_key: t5_base
-  run_id: revision-v3-final
-  artifact_root: /content/drive/MyDrive/urban_science_artifacts
+  run_id: revision-v5-t5-three-task-v1
+  artifact_root: /content/urban_science_artifacts
   model_repo_id: UlyssesLynne/urban-planning-llm-model-zoo-v3
   publish_to_hf: true
   tasks:
     - generation
     - verification
+    - paraphrase
   max_source_length: 512
-  max_target_length: 256
+  max_target_length: 384
   per_device_train_batch_size: 1
   per_device_eval_batch_size: 1
   gradient_accumulation_steps: 8

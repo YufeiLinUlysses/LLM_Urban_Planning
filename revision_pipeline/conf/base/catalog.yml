@@ -74,6 +74,13 @@ verification_instruction_datasets:
     type: json.JSONDataset
   filename_suffix: .json
 
+paraphrase_instruction_datasets:
+  type: partitions.PartitionedDataset
+  path: "${globals:paraphrase_dataset_path}"
+  dataset:
+    type: json.JSONDataset
+  filename_suffix: .json
+
 augmentation_statistics:
   type: json.JSONDataset
   filepath: "${globals:reporting_path}/augmentation_statistics.json"
@@ -99,6 +106,13 @@ hf_release_generation:
 hf_release_verification:
   type: partitions.PartitionedDataset
   path: "${globals:huggingface_release_path}/data/revision_v2/verification"
+  dataset:
+    type: json.JSONDataset
+  filename_suffix: .json
+
+hf_release_paraphrase:
+  type: partitions.PartitionedDataset
+  path: "${globals:huggingface_release_path}/data/revision_v2/paraphrase"
   dataset:
     type: json.JSONDataset
   filename_suffix: .json
@@ -136,6 +150,13 @@ experiment_generation_partitions:
 experiment_verification_partitions:
   type: partitions.PartitionedDataset
   path: "${globals:experiment_verification_path}"
+  dataset:
+    type: json.JSONDataset
+  filename_suffix: .json
+
+experiment_paraphrase_partitions:
+  type: partitions.PartitionedDataset
+  path: "${globals:experiment_paraphrase_path}"
   dataset:
     type: json.JSONDataset
   filename_suffix: .json

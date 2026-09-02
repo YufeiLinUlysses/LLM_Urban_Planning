@@ -376,18 +376,27 @@ def _leakage_audit(
 def prepare_experiment_partitions(
     generation_partitions: Mapping[str, PartitionValue],
     verification_partitions: Mapping[str, PartitionValue],
+    paraphrase_partitions: Mapping[str, PartitionValue],
     parameters: dict[str, Any],
-) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any], dict[str, Any]]:
+) -> tuple[
+    dict[str, Any],
+    dict[str, Any],
+    dict[str, Any],
+    dict[str, Any],
+    dict[str, Any],
+]:
     """Split training sources by seed and combine France/Japan as one holdout."""
 
     generation = _materialize(generation_partitions)
     verification = _materialize(verification_partitions)
-    if set(generation) != set(verification):
-        raise ValueError("Generation and verification sources do not match")
+    paraphrase = _materialize(paraphrase_partitions)
+    if set(generation) != set(verification) or set(generation) != set(paraphrase):
+        raise ValueError("Generation, verification, and paraphrase sources do not match")
 
     assignment = _assign_concept_splits(generation, parameters)
     generation_output = _partition_view(generation, assignment, parameters)
     verification_output = _partition_view(verification, assignment, parameters)
+    paraphrase_output = _partition_view(paraphrase, assignment, parameters)
     audit = _leakage_audit(generation_output, parameters)
     if parameters.get("fail_on_leakage", True) and not audit["passed"]:
         raise ValueError(f"Cross-split leakage audit failed: {audit}")
@@ -395,6 +404,9 @@ def prepare_experiment_partitions(
     split_counts = Counter(assignment.values())
     record_counts = Counter(
         dataset["split"] for dataset in generation_output.values() for _ in dataset["records"]
+    )
+    paraphrase_record_counts = Counter(
+        dataset["split"] for dataset in paraphrase_output.values() for _ in dataset["records"]
     )
     manifest = {
         "dataset_version": parameters["dataset_version"],
@@ -404,8 +416,9 @@ def prepare_experiment_partitions(
         "holdout_policy": "France and Japan are combined as cross_regional and never trained",
         "concept_group_counts": dict(split_counts),
         "generation_record_counts": dict(record_counts),
+        "paraphrase_record_counts": dict(paraphrase_record_counts),
         "concept_group_assignments": assignment,
         "concept_group_aliases": parameters.get("concept_group_aliases", {}),
         "sources": sorted(generation),
     }
-    return generation_output, verification_output, manifest, audit
+    return generation_output, verification_output, paraphrase_output, manifest, audit

@@ -8,13 +8,15 @@ the paper and existing data directories untouched.
 - `../instruction_dataset`: curated seed instruction datasets (read-only input).
 - `data/02_intermediate/augmented`: reusable OpenAI-generated augmentation components.
 - `data/03_primary/validated`: validated canonical augmented records.
-- `data/05_model_input/final`: canonical, generation, and verification instruction datasets.
+- `data/05_model_input/final`: canonical augmented urban-planning records.
+- `data/05_model_input/{generation,verification,paraphrase}`: the three supervised task views.
 - `data/07_model_output/huggingface_release`: a Hub-ready release bundle.
 - `data/08_reporting`: validation, duplicate, rejection, and count reports.
 
 Every augmented descendant retains deterministic `seed_id` and `concept_group_id` lineage.
 Downstream train/validation/test splits group on `concept_group_id`, keeping MCQ,
-short-answer, verification, and augmented variants of the same normalized source fact together.
+short-answer, verification, paraphrase, and augmented variants of the same normalized source fact
+together.
 
 ## Setup
 
@@ -64,22 +66,27 @@ recorded in `experiment_data.concept_group_aliases` and are resolved before spli
 candidates are deduplicated by concept pair so augmented variants do not require repeating the
 same adjudication.
 
-`train_model` trains on generation and verification train records, uses only validation records
-for checkpoint selection, saves the selected checkpoint locally, and publishes it to
-`UlyssesLynne/urban-planning-llm-model-zoo` when `training.publish_to_hf=true`.
+`train_model` trains one model on three complementary objectives: grounded answer/explanation
+generation, candidate-answer verification, and structure-preserving paraphrase. The paraphrase
+view teaches the model to rewrite a completed urban-planning instruction while retaining
+`Dataset context`, `Question`, optional `Options`, `ANSWER`, and `EXPLANATION`. Its targets are
+validated GPT-5.1 augmented descendants of the same seed rather than synthetic negative answers.
+The trainer uses only validation records for checkpoint selection, saves the selected checkpoint
+locally, and publishes it to `UlyssesLynne/urban-planning-llm-model-zoo-v3` when
+`training.publish_to_hf=true`.
 
 `evaluate_model` runs the same suite for base and fine-tuned checkpoints against either
 `in_domain` or `cross_regional`. It saves all raw predictions, parsed outputs, metrics, grouped
 metrics, and the human-review queue locally before uploading the run directory directly to
-`UlyssesLynne/urban-planning-llm-predictions`.
+`UlyssesLynne/urban-planning-llm-predictions-v3`.
 
 Typical Colab commands are:
 
 ```bash
 kedro run --pipeline=prepare_experiment_data
-kedro run --pipeline=evaluate_model --params=evaluation.model_key:llama31_8b,evaluation.checkpoint_stage:base,evaluation.dataset_scope:in_domain
-kedro run --pipeline=train_model --params=training.model_key:llama31_8b
-kedro run --pipeline=evaluate_model --params=evaluation.model_key:llama31_8b,evaluation.checkpoint_stage:fine_tuned,evaluation.checkpoint_uri:UlyssesLynne/urban-planning-llm-model-zoo,evaluation.checkpoint_subfolder:llama31_8b/RUN_ID/checkpoint,evaluation.dataset_scope:cross_regional
+kedro run --pipeline=evaluate_model --params="evaluation.model_key=llama31_8b,evaluation.checkpoint_stage=base,evaluation.dataset_scope=in_domain"
+kedro run --pipeline=train_model --params="training.model_key=llama31_8b"
+kedro run --pipeline=evaluate_model --params="evaluation.model_key=llama31_8b,evaluation.checkpoint_stage=fine_tuned,evaluation.checkpoint_uri=UlyssesLynne/urban-planning-llm-model-zoo-v3,evaluation.checkpoint_subfolder=llama31_8b/RUN_ID/checkpoint,evaluation.dataset_scope=cross_regional"
 ```
 
 Set `HF_TOKEN` through a Colab secret or environment variable. Override

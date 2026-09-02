@@ -33,6 +33,7 @@ def _manifest_hash(manifest: dict[str, Any]) -> str:
 def _training_rows(
     generation: Mapping[str, PartitionValue],
     verification: Mapping[str, PartitionValue],
+    paraphrase: Mapping[str, PartitionValue],
     split: str,
     tasks: list[str],
 ) -> list[dict[str, str]]:
@@ -46,6 +47,11 @@ def _training_rows(
         rows.extend(
             {"prompt": str(row["prompt"]), "target": str(row["target"])}
             for row in _materialize_records(verification, split)
+        )
+    if "paraphrase" in tasks:
+        rows.extend(
+            {"prompt": str(row["prompt"]), "target": str(row["target"])}
+            for row in _materialize_records(paraphrase, split)
         )
     if not rows:
         raise ValueError(f"No {split} rows found for tasks {tasks}")
@@ -91,6 +97,7 @@ def _publish_folder(local_dir: Path, path_in_repo: str, parameters: dict[str, An
 def train_and_publish_model(
     generation_partitions: Mapping[str, PartitionValue],
     verification_partitions: Mapping[str, PartitionValue],
+    paraphrase_partitions: Mapping[str, PartitionValue],
     split_manifest: dict[str, Any],
     model_registry: dict[str, Any],
     parameters: dict[str, Any],
@@ -120,10 +127,20 @@ def train_and_publish_model(
         raise KeyError(f"Unknown model_key {model_key!r}; choose from {sorted(model_registry)}")
     spec = model_registry[model_key]
     family = spec["family"]
-    tasks = list(parameters.get("tasks", ["generation", "verification"]))
-    train_rows = _training_rows(generation_partitions, verification_partitions, "train", tasks)
+    tasks = list(parameters.get("tasks", ["generation", "verification", "paraphrase"]))
+    train_rows = _training_rows(
+        generation_partitions,
+        verification_partitions,
+        paraphrase_partitions,
+        "train",
+        tasks,
+    )
     validation_rows = _training_rows(
-        generation_partitions, verification_partitions, "validation", tasks
+        generation_partitions,
+        verification_partitions,
+        paraphrase_partitions,
+        "validation",
+        tasks,
     )
     random_seed = int(parameters.get("random_seed", 42))
     train_rows = _limit_rows(train_rows, parameters.get("max_train_samples"), random_seed)

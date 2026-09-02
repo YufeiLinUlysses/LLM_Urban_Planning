@@ -35,10 +35,12 @@ def test_prepare_release_builds_named_configs_and_manifest() -> None:
         _partition(),
         _partition(),
         _partition(),
+        _partition(),
         {
             "canonical_record_count": 1,
             "generation_record_count": 1,
             "verification_record_count": 2,
+            "paraphrase_record_count": 1,
         },
         {"passed": True},
         {"exact_duplicate_count": 0},
@@ -46,15 +48,17 @@ def test_prepare_release_builds_named_configs_and_manifest() -> None:
         {"augmentation_configuration_hash": "abc123"},
         _parameters(),
     )
-    readme = outputs[4]
-    manifest = outputs[5]
+    readme = outputs[5]
+    manifest = outputs[6]
     assert isinstance(outputs[0]["sample"], list)
     assert isinstance(outputs[1]["sample"], list)
     assert isinstance(outputs[2]["sample"], list)
-    assert "revision_v2_generation" in readme
+    assert isinstance(outputs[3]["sample"], list)
+    assert "revision_v5_generation" in readme
     assert "split records by `concept_group_id`" in readme
     assert manifest["dataset_version"] == "2.0.0"
     assert manifest["record_counts"]["verification"] == 2
+    assert manifest["record_counts"]["paraphrase"] == 1
     assert manifest["augmentation_configuration_hash"] == "abc123"
 
 
@@ -64,10 +68,12 @@ def test_prepare_release_refuses_failed_quality_gate() -> None:
             _partition(),
             _partition(),
             _partition(),
+            _partition(),
             {
                 "canonical_record_count": 1,
                 "generation_record_count": 1,
                 "verification_record_count": 2,
+                "paraphrase_record_count": 1,
             },
             {"passed": False},
             {},

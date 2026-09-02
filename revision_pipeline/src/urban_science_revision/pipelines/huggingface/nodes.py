@@ -78,14 +78,18 @@ configs:
     data_files:
       - split: train
         path: data/revision_v2/canonical/*.json
-  - config_name: revision_v2_generation
+  - config_name: revision_v5_generation
     data_files:
       - split: train
         path: data/revision_v2/generation/*.json
-  - config_name: revision_v2_verification
+  - config_name: revision_v5_verification
     data_files:
       - split: train
         path: data/revision_v2/verification/*.json
+  - config_name: revision_v5_paraphrase
+    data_files:
+      - split: train
+        path: data/revision_v2/paraphrase/*.json
   - config_name: legacy_v1
     data_files:
       - split: train
@@ -97,12 +101,15 @@ configs:
 This repository contains dataset-grounded urban instruction data. Release `{version}` adds
 deterministic seed lineage, leakage-safe prompt/target separation, answer-generation and
 answer-verification task views, structural validation, and duplicate auditing.
+Release `{version}` also includes structure-preserving paraphrase supervision derived from
+validated GPT-5.1 augmentation variants.
 
 ## Configurations
 
 - `revision_v2_canonical`: complete records and augmentation provenance.
-- `revision_v2_generation`: flat correct-answer generation prompts and targets.
-- `revision_v2_verification`: flat positive and negative candidate-verification prompts.
+- `revision_v5_generation`: flat correct-answer generation prompts and targets.
+- `revision_v5_verification`: flat positive and negative candidate-verification prompts.
+- `revision_v5_paraphrase`: completed-instruction rewrites that preserve fields and answers.
 - `legacy_v1`: the previously published final JSON files, when present.
 
 The `train` name is only the Hub's container for this unsplit release. Before model training,
@@ -121,6 +128,7 @@ def prepare_release_bundle(
     canonical: Mapping[str, PartitionValue],
     generation: Mapping[str, PartitionValue],
     verification: Mapping[str, PartitionValue],
+    paraphrase: Mapping[str, PartitionValue],
     statistics: dict[str, Any],
     quality_report: dict[str, Any],
     duplicate_report: dict[str, Any],
@@ -128,6 +136,7 @@ def prepare_release_bundle(
     augmentation_manifest: dict[str, Any],
     parameters: dict[str, Any],
 ) -> tuple[
+    dict[str, Any],
     dict[str, Any],
     dict[str, Any],
     dict[str, Any],
@@ -151,6 +160,10 @@ def prepare_release_bundle(
         partition_id: dataset["records"]
         for partition_id, dataset in _materialize(verification).items()
     }
+    paraphrase_data = {
+        partition_id: dataset["records"]
+        for partition_id, dataset in _materialize(paraphrase).items()
+    }
     quality = {
         "augmentation_statistics": statistics,
         "quality_control_report": quality_report,
@@ -169,6 +182,7 @@ def prepare_release_bundle(
             "canonical": statistics["canonical_record_count"],
             "generation": statistics["generation_record_count"],
             "verification": statistics["verification_record_count"],
+            "paraphrase": statistics["paraphrase_record_count"],
         },
         "split_policy": "Group all downstream partitions by concept_group_id",
     }
@@ -176,6 +190,7 @@ def prepare_release_bundle(
         canonical_data,
         generation_data,
         verification_data,
+        paraphrase_data,
         quality,
         _dataset_card(parameters["dataset_version"]),
         manifest,

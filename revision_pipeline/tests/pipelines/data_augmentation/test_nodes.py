@@ -158,9 +158,11 @@ def test_task_views_keep_targets_out_of_prompts_and_wrong_answers_out_of_sft() -
     assert quality["passed"] is True
     assert not [item for item in rejected if "exact_duplicate" not in item["reasons"]]
 
-    final, generation, verification, statistics = materialize_task_views(validated)
+    final, generation, verification, paraphrase, statistics = materialize_task_views(validated)
     assert statistics["generation_record_count"] == len(final["sample"]["records"])
     assert statistics["verification_record_count"] == 2 * len(final["sample"]["records"])
+    assert statistics["paraphrase_record_count"] == len(paraphrase["sample"]["records"])
+    assert paraphrase["sample"]["records"]
 
     for record in generation["sample"]["records"]:
         assert "\nANSWER:" not in record["prompt"].upper()
@@ -179,6 +181,12 @@ def test_task_views_keep_targets_out_of_prompts_and_wrong_answers_out_of_sft() -
         for record in negative_views
     )
     assert all("EXPLANATION:" not in record["target"] for record in negative_views)
+
+    for record in paraphrase["sample"]["records"]:
+        assert record["prompt"].startswith("Paraphrase the completed instruction")
+        assert "DATASET CONTEXT:" in record["target"].upper()
+        assert "ANSWER:" in record["target"].upper()
+        assert "EXPLANATION:" in record["target"].upper()
 
 
 def test_seed_ids_are_stable() -> None:

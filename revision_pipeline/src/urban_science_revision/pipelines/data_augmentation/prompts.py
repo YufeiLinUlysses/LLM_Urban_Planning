@@ -113,6 +113,23 @@ def generation_target(record: dict[str, Any]) -> str:
     return f"ANSWER:\n{record['correct_answer']}\n\nEXPLANATION:\n{record['Explanation']}"
 
 
+def completed_instruction(record: dict[str, Any]) -> str:
+    """Render the complete structured instruction used for paraphrase supervision."""
+
+    return f"{generation_prompt(record)}\n\n{generation_target(record)}"
+
+
+def structure_preserving_paraphrase_prompt(completed: str) -> str:
+    """Request a faithful rewrite while retaining the machine-readable schema."""
+
+    return (
+        "Paraphrase the completed instruction below while preserving every fact, answer, "
+        "option-answer relationship, and explanation. Preserve all field labels and do not "
+        "add new claims.\n\n"
+        f"{completed}"
+    )
+
+
 def verification_prompt(record: dict[str, Any], candidate: str) -> str:
     parts = [
         f"Dataset context:\n{record['Fact']}",

@@ -14,11 +14,13 @@ def create_pipeline(**kwargs: object) -> Pipeline:
                 inputs=[
                     "generation_instruction_datasets",
                     "verification_instruction_datasets",
+                    "paraphrase_instruction_datasets",
                     "params:experiment_data",
                 ],
                 outputs=[
                     "experiment_generation_partitions",
                     "experiment_verification_partitions",
+                    "experiment_paraphrase_partitions",
                     "experiment_split_manifest",
                     "experiment_leakage_audit",
                 ],

@@ -14,6 +14,7 @@ def create_pipeline(**kwargs: object) -> Pipeline:
                 inputs=[
                     "experiment_generation_partitions",
                     "experiment_verification_partitions",
+                    "experiment_paraphrase_partitions",
                     "experiment_split_manifest",
                     "params:models",
                     "params:evaluation",

@@ -7,11 +7,36 @@ from urban_science_revision.pipelines.model_evaluation.nodes import (
     _attach_bertscore,
     _classification_metrics,
     _paired_verification_metrics,
+    _paraphrase_rows,
     _token_f1,
     _verification_rows,
     extract_reference,
     parse_mc_prediction,
 )
+
+
+def test_paraphrase_scoring_uses_held_out_rewrite_and_requires_structure() -> None:
+    record = {
+        "example_id": "rewrite-1",
+        "seed_id": "seed-1",
+        "source_name": "source",
+        "Level": 1,
+        "base_task_type": "multiple_choice",
+        "prompt": "Paraphrase the completed instruction below.\n\nDataset context:\nOriginal",
+        "target": (
+            "Dataset context:\nRewritten context\n\nQuestion:\nRewritten question\n\n"
+            "Options:\nA. Bus\nB. Rail\n\nANSWER:\nB\n\nEXPLANATION:\nRail is correct."
+        ),
+    }
+    complete = record["target"]
+    missing_options = complete.replace("Options:", "Choices:")
+
+    rows = _paraphrase_rows([record, record], [complete, missing_options], [0.1, 0.1])
+
+    assert rows[0]["reference_text"] == record["target"]
+    assert rows[0]["answer_preserved"] is True
+    assert rows[0]["field_preservation"] is True
+    assert rows[1]["field_preservation"] is False
 
 
 def test_bertscore_skips_empty_predictions(monkeypatch) -> None:

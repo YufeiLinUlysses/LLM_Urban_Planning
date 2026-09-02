@@ -61,6 +61,7 @@ def create_pipeline(**kwargs: object) -> Pipeline:
                     "final_instruction_datasets",
                     "generation_instruction_datasets",
                     "verification_instruction_datasets",
+                    "paraphrase_instruction_datasets",
                     "augmentation_statistics",
                 ],
                 name="materialize_leakage_safe_task_views",

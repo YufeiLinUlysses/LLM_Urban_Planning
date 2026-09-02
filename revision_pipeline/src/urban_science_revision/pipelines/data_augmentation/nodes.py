@@ -20,6 +20,7 @@ from sklearn.neighbors import NearestNeighbors
 
 from .llm import OpenAIAugmenter
 from .prompts import (
+    completed_instruction,
     fact_explanation_augmentation,
     generation_prompt,
     generation_target,
@@ -30,6 +31,7 @@ from .prompts import (
     negative_verification_target,
     positive_verification_target,
     short_question_augmentation,
+    structure_preserving_paraphrase_prompt,
     verification_prompt,
 )
 
@@ -642,18 +644,31 @@ def validate_and_audit_datasets(
 
 def materialize_task_views(
     partitions: Mapping[str, PartitionValue],
-) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any], dict[str, Any]]:
-    """Create canonical final files and flat generation/verification task views."""
+) -> tuple[
+    dict[str, Any],
+    dict[str, Any],
+    dict[str, Any],
+    dict[str, Any],
+    dict[str, Any],
+]:
+    """Create canonical, generation, verification, and paraphrase task views."""
 
     final: dict[str, Any] = {}
     generation: dict[str, Any] = {}
     verification: dict[str, Any] = {}
+    paraphrase: dict[str, Any] = {}
     counts: Counter[str] = Counter()
 
     for partition_id, dataset in _materialize(partitions).items():
         final_records: list[dict[str, Any]] = []
         generation_records: list[dict[str, Any]] = []
         verification_records: list[dict[str, Any]] = []
+        paraphrase_records: list[dict[str, Any]] = []
+        originals = {
+            str(record["seed_id"]): record
+            for record in dataset["records"]
+            if record.get("origin") == "original"
+        }
         for record in dataset["records"]:
             generation_view = {
                 "example_id": f"{record['variant_id']}__generation",
@@ -701,11 +716,38 @@ def materialize_task_views(
             final_records.append(enriched)
             generation_records.append(generation_view)
             verification_records.extend([positive_verification, negative_verification])
+            original = originals.get(str(record["seed_id"]))
+            preserves_answer = bool(
+                original
+                and str(record.get("correct_answer", ""))
+                == str(original.get("correct_answer", ""))
+            )
+            if record.get("origin") != "original" and preserves_answer:
+                paraphrase_records.append(
+                    {
+                        "example_id": f"{record['variant_id']}__paraphrase",
+                        "seed_id": record["seed_id"],
+                        "concept_group_id": record["concept_group_id"],
+                        "variant_id": record["variant_id"],
+                        "source_variant_id": original["variant_id"],
+                        "source_name": record["source_name"],
+                        "task_type": "structure_preserving_paraphrase",
+                        "base_task_type": record["task_type"],
+                        "Level": record["Level"],
+                        "prompt": structure_preserving_paraphrase_prompt(
+                            completed_instruction(original)
+                        ),
+                        "target": completed_instruction(record),
+                    }
+                )
             counts[f"{record['source_name']}:canonical"] += 1
             counts[f"{record['source_name']}:generation"] += 1
             counts[f"{record['source_name']}:verification_positive"] += 1
             counts[f"{record['source_name']}:verification_negative"] += 1
             counts[f"{record['task_type']}:L{record['Level']}"] += 1
+
+        for record in paraphrase_records:
+            counts[f"{record['source_name']}:paraphrase"] += 1
 
         metadata = {
             "schema_version": "2.1",
@@ -715,6 +757,7 @@ def materialize_task_views(
         final[partition_id] = {**metadata, "records": final_records}
         generation[partition_id] = {**metadata, "records": generation_records}
         verification[partition_id] = {**metadata, "records": verification_records}
+        paraphrase[partition_id] = {**metadata, "records": paraphrase_records}
 
     statistics = {
         "canonical_record_count": sum(len(dataset["records"]) for dataset in final.values()),
@@ -722,9 +765,12 @@ def materialize_task_views(
         "verification_record_count": sum(
             len(dataset["records"]) for dataset in verification.values()
         ),
+        "paraphrase_record_count": sum(
+            len(dataset["records"]) for dataset in paraphrase.values()
+        ),
         "counts": dict(sorted(counts.items())),
     }
-    return final, generation, verification, statistics
+    return final, generation, verification, paraphrase, statistics
 
 
 def build_augmentation_manifest(

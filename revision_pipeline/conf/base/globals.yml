@@ -6,10 +6,12 @@ validated_dataset_path: data/03_primary/validated
 final_dataset_path: data/05_model_input/final
 generation_dataset_path: data/05_model_input/generation
 verification_dataset_path: data/05_model_input/verification
+paraphrase_dataset_path: data/05_model_input/paraphrase
 reporting_path: data/08_reporting
 huggingface_release_path: data/07_model_output/huggingface_release
 experiment_generation_path: data/05_model_input/experiment/generation
 experiment_verification_path: data/05_model_input/experiment/verification
+experiment_paraphrase_path: data/05_model_input/experiment/paraphrase
 experiment_reporting_path: data/08_reporting/experiment
 model_reporting_path: data/08_reporting/models
 evaluation_reporting_path: data/08_reporting/evaluations

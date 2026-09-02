@@ -7,8 +7,10 @@ training:
   tasks:
     - generation
     - verification
+    - paraphrase
   max_source_length: 512
-  max_target_length: 256
+  # Full structured paraphrase targets are longer than answer-only targets.
+  max_target_length: 384
   per_device_train_batch_size: 1
   per_device_eval_batch_size: 1
   gradient_accumulation_steps: 8
