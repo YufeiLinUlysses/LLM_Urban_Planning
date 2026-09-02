@@ -68,6 +68,12 @@ class RunConfig:
     learning_rate: float = 2e-5
     warmup_ratio: float = 0.1
     weight_decay: float = 0.01
+    logging_steps: int = 10
+    eval_steps: int = 100
+    save_steps: int = 100
+    save_total_limit: int = 2
+    early_stopping_patience: int = 0
+    early_stopping_threshold: float = 0.0
     smoke_test: bool = False
     run_semantic_audit: bool = False  # Slow on CPU; deterministic leakage checks always run.
 
@@ -280,6 +286,7 @@ if not audit.get("passed"):
         "training.per_device_train_batch_size": CFG.train_batch_size,
         "training.per_device_eval_batch_size": CFG.train_batch_size,
         "training.gradient_accumulation_steps": CFG.gradient_accumulation_steps,
+        "training.logging_steps": 1,
         "training.eval_steps": 25,
         "training.save_steps": 25,
     }
@@ -304,10 +311,12 @@ else:
     "training.learning_rate": CFG.learning_rate,
     "training.warmup_ratio": CFG.warmup_ratio,
     "training.weight_decay": CFG.weight_decay,
-    "training.logging_steps": 10,
-    "training.eval_steps": 100,
-    "training.save_steps": 100,
-    "training.save_total_limit": 2,
+    "training.logging_steps": CFG.logging_steps,
+    "training.eval_steps": CFG.eval_steps,
+    "training.save_steps": CFG.save_steps,
+    "training.save_total_limit": CFG.save_total_limit,
+    "training.early_stopping_patience": CFG.early_stopping_patience,
+    "training.early_stopping_threshold": CFG.early_stopping_threshold,
 }
 run_project("kedro", "run", "--env=colab", "--pipelines=train_model",
             "--params=" + kedro_params(train_params))

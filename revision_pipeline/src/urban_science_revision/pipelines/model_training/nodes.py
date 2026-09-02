@@ -113,6 +113,7 @@ def train_and_publish_model(
             AutoTokenizer,
             BitsAndBytesConfig,
             DataCollatorForSeq2Seq,
+            EarlyStoppingCallback,
             Trainer,
             TrainingArguments,
             default_data_collator,
@@ -280,6 +281,17 @@ def train_and_publish_model(
         bf16=bool(parameters.get("bf16", True) and torch.cuda.is_available()),
         fp16=bool(parameters.get("fp16", False) and torch.cuda.is_available()),
     )
+    early_stopping_patience = int(parameters.get("early_stopping_patience", 0))
+    callbacks = []
+    if early_stopping_patience > 0:
+        callbacks.append(
+            EarlyStoppingCallback(
+                early_stopping_patience=early_stopping_patience,
+                early_stopping_threshold=float(
+                    parameters.get("early_stopping_threshold", 0.0)
+                ),
+            )
+        )
     trainer = Trainer(
         model=model,
         args=args,
@@ -287,6 +299,7 @@ def train_and_publish_model(
         eval_dataset=validation_dataset,
         data_collator=data_collator,
         processing_class=tokenizer,
+        callbacks=callbacks,
     )
     train_result = trainer.train(resume_from_checkpoint=parameters.get("resume_from_checkpoint"))
     validation_metrics = trainer.evaluate()

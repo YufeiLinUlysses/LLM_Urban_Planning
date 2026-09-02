@@ -29,6 +29,25 @@ def test_render_training_figures_uses_actual_steps(tmp_path):
     assert (checkpoint / "figures" / "learning_rate.png").is_file()
 
 
+def test_render_training_figures_accepts_short_smoke_summary(tmp_path):
+    checkpoint = tmp_path / "checkpoint"
+    checkpoint.mkdir()
+    history = [
+        {"eval_loss": 4.1, "step": 4},
+        {"train_loss": 7.2, "train_runtime": 8.0, "step": 4},
+    ]
+    (checkpoint / "training_history.json").write_text(json.dumps(history), encoding="utf-8")
+
+    result = render_training_figures_from_receipt(
+        {"local_checkpoint": str(checkpoint)},
+        {"training_history_path": None, "output_dir": None},
+    )
+
+    assert result["training_steps"] == [4]
+    assert result["validation_steps"] == [4]
+    assert (checkpoint / "figures" / "training_vs_validation_loss.png").is_file()
+
+
 def test_build_evaluation_figures_from_prediction_artifacts(tmp_path):
     for stage, adjustment in (("base", 0.0), ("fine_tuned", 0.1)):
         run = tmp_path / "evaluations" / "qwen25_7b" / stage / "in_domain" / "run-1"

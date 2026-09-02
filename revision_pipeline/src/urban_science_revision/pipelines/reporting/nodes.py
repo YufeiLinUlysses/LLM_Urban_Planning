@@ -30,7 +30,16 @@ def render_training_history(history: list[dict[str, Any]], output_dir: Path) -> 
     train = [row for row in history if "loss" in row and "eval_loss" not in row]
     validation = [row for row in history if "eval_loss" in row]
     if not train:
-        raise ValueError("Training history contains no logged training loss")
+        # Very short smoke runs can finish before logging_steps is reached. Transformers still
+        # records the aggregate train_loss in its final summary, which is sufficient for a
+        # one-point smoke-test diagnostic.
+        train = [
+            {**row, "loss": row["train_loss"]}
+            for row in history
+            if "train_loss" in row and "step" in row
+        ]
+    if not train:
+        raise ValueError("Training history contains no per-step or aggregate training loss")
 
     plt = _pyplot()
     fig, axis = plt.subplots(figsize=(7.2, 4.6))

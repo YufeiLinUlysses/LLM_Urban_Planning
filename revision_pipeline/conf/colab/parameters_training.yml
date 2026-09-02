@@ -21,6 +21,8 @@ training:
   eval_steps: 100
   save_steps: 100
   save_total_limit: 2
+  early_stopping_patience: 0
+  early_stopping_threshold: 0.0
   random_seed: 42
   bf16: true
   fp16: false
