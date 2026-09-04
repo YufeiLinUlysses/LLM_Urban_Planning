@@ -55,47 +55,72 @@ class RunConfig:
     dataset_folder: str = "data/revision_v2"  # Folder retained for repository compatibility.
     dataset_version: str = "revision_v5"
 
-    model_key: str = "t5_base"  # t5_base, qwen25_7b, qwen25_14b, llama31_8b, llama31_70b
-    run_id: str = "revision-v5-t5-three-task-v1"
+    model_key: str = "llama31_8b"  # t5_base, qwen25_7b, qwen25_14b, llama31_8b, llama31_70b
+    run_id: str = "revision-v5-llama31-8b-three-task-v1"
     model_repo: str = "UlyssesLynne/urban-planning-llm-model-zoo-v3"
     prediction_repo: str = "UlyssesLynne/urban-planning-llm-predictions-v3"
     artifact_root: str = "/content/urban_science_artifacts"
 
-    train_batch_size: int = 4
-    eval_batch_size: int = 8
+    train_batch_size: int = 8
+    eval_batch_size: int = 32
     gradient_accumulation_steps: int = 2
     epochs: int = 1
-    learning_rate: float = 2e-5
-    warmup_ratio: float = 0.1
-    weight_decay: float = 0.01
+    learning_rate: float = 1e-4
+    warmup_ratio: float = 0.03
+    weight_decay: float = 0.0
     logging_steps: int = 10
-    eval_steps: int = 100
-    save_steps: int = 100
+    eval_steps: int = 50
+    save_steps: int = 50
     save_total_limit: int = 2
-    early_stopping_patience: int = 0
-    early_stopping_threshold: float = 0.0
+    early_stopping_patience: int = 3
+    early_stopping_threshold: float = 0.001
     smoke_test: bool = False
     run_semantic_audit: bool = False  # Slow on CPU; deterministic leakage checks always run.
+    email_notifications: bool = True
+    auto_shutdown_after_verification: bool = True
 
 CFG = RunConfig()
 CFG
 """
     ),
-    markdown("## 2. Read the Hugging Face token from Colab Secrets"),
+    markdown(
+        "## 2. Read credentials from Colab Secrets\n\n"
+        "Add `HF_TOKEN`, `GMAIL_ADDRESS`, and `GMAIL_TOKEN` in the Colab Secrets panel. "
+        "`GMAIL_TOKEN` must be a Gmail app password. `NOTIFY_EMAIL` is optional and defaults "
+        "to `GMAIL_ADDRESS`."
+    ),
     code(
         """import os
 from getpass import getpass
 
-try:
-    from google.colab import userdata
-    token = userdata.get("HF_TOKEN")
-except Exception:
-    token = os.environ.get("HF_TOKEN")
 
+def read_secret(name: str) -> str | None:
+    try:
+        from google.colab import userdata
+
+        return userdata.get(name)
+    except Exception:
+        return os.environ.get(name)
+
+
+token = read_secret("HF_TOKEN")
 if not token:
     token = getpass("HF token (input is hidden): ")
 os.environ["HF_TOKEN"] = token
-print("HF_TOKEN is available; its value was not printed.")
+
+if CFG.email_notifications:
+    gmail_address = read_secret("GMAIL_ADDRESS")
+    gmail_token = read_secret("GMAIL_TOKEN")
+    notify_email = read_secret("NOTIFY_EMAIL") or gmail_address
+    if not gmail_address or not gmail_token or not notify_email:
+        raise RuntimeError(
+            "Email notifications require GMAIL_ADDRESS and GMAIL_TOKEN in Colab Secrets"
+        )
+    os.environ["GMAIL_ADDRESS"] = gmail_address
+    os.environ["GMAIL_TOKEN"] = gmail_token.replace(" ", "")
+    os.environ["NOTIFY_EMAIL"] = notify_email
+
+print("Required credentials are available; their values were not printed.")
 """
     ),
     markdown("## 3. Clone/update the project and install the locked environment"),
@@ -134,7 +159,10 @@ print("Environment ready:", CFG.project_dir)
     code(
         """import os
 import shutil
+import smtplib
 import subprocess
+from datetime import UTC, datetime
+from email.message import EmailMessage
 from pathlib import Path
 
 
@@ -151,6 +179,32 @@ def show_resources() -> None:
         ["nvidia-smi", "--query-gpu=name,memory.used,memory.free,utilization.gpu", "--format=csv"],
         check=False,
     )
+
+
+def send_email(subject: str, body: str, required: bool = False) -> bool:
+    if not CFG.email_notifications:
+        print("Email notifications are disabled.", flush=True)
+        if required:
+            raise RuntimeError("Required email notification is disabled; runtime retained")
+        return False
+    message = EmailMessage()
+    message["From"] = os.environ["GMAIL_ADDRESS"]
+    message["To"] = os.environ["NOTIFY_EMAIL"]
+    message["Subject"] = subject
+    message.set_content(
+        f"{body}\\n\\nUTC time: {datetime.now(UTC).isoformat(timespec='seconds')}"
+    )
+    try:
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=30) as smtp:
+            smtp.login(os.environ["GMAIL_ADDRESS"], os.environ["GMAIL_TOKEN"])
+            smtp.send_message(message)
+    except Exception as exc:
+        print(f"Email notification failed: {type(exc).__name__}: {exc}", flush=True)
+        if required:
+            raise RuntimeError("Required email notification failed; runtime retained") from exc
+        return False
+    print("Email notification sent.", flush=True)
+    return True
 
 def run_project(*args: str) -> None:
     env = os.environ.copy()
@@ -284,7 +338,7 @@ if not audit.get("passed"):
         "training.max_train_samples": 200,
         "training.max_validation_samples": 50,
         "training.per_device_train_batch_size": CFG.train_batch_size,
-        "training.per_device_eval_batch_size": CFG.train_batch_size,
+        "training.per_device_eval_batch_size": CFG.eval_batch_size,
         "training.gradient_accumulation_steps": CFG.gradient_accumulation_steps,
         "training.logging_steps": 1,
         "training.eval_steps": 25,
@@ -305,7 +359,7 @@ else:
     "training.model_repo_id": CFG.model_repo,
     "training.publish_to_hf": True,
     "training.per_device_train_batch_size": CFG.train_batch_size,
-    "training.per_device_eval_batch_size": CFG.train_batch_size,
+    "training.per_device_eval_batch_size": CFG.eval_batch_size,
     "training.gradient_accumulation_steps": CFG.gradient_accumulation_steps,
     "training.num_train_epochs": CFG.epochs,
     "training.learning_rate": CFG.learning_rate,
@@ -318,21 +372,68 @@ else:
     "training.early_stopping_patience": CFG.early_stopping_patience,
     "training.early_stopping_threshold": CFG.early_stopping_threshold,
 }
-run_project("kedro", "run", "--env=colab", "--pipelines=train_model",
-            "--params=" + kedro_params(train_params))
+try:
+    run_project("kedro", "run", "--env=colab", "--pipelines=train_model",
+                "--params=" + kedro_params(train_params))
+except BaseException as exc:
+    send_email(
+        f"FAILED: training {CFG.model_key} / {CFG.run_id}",
+        f"Training did not complete. Error: {type(exc).__name__}: {exc}",
+    )
+    raise
+else:
+    send_email(
+        f"COMPLETE: training {CFG.model_key} / {CFG.run_id}",
+        "Training completed and the selected checkpoint was published to Hugging Face.\\n"
+        f"Model repository: {CFG.model_repo}\\n"
+        f"Checkpoint: {CFG.model_key}/{CFG.run_id}/checkpoint",
+    )
 """
     ),
-    markdown("## 10. Display the saved loss graph"),
+    markdown("## 10. Verify and display the Hugging Face loss graph"),
     code(
-        """from pathlib import Path
+        """import json
+import os
+from pathlib import Path
 
+from huggingface_hub import hf_hub_download
 from IPython.display import Image, display
 
-loss_graph = (Path(CFG.artifact_root) / "models" / CFG.model_key / CFG.run_id /
-              "checkpoint/figures/training_vs_validation_loss.png")
-print(loss_graph)
-if not loss_graph.is_file():
-    raise FileNotFoundError("Loss graph missing; inspect the training receipt before evaluation")
+checkpoint_prefix = f"{CFG.model_key}/{CFG.run_id}/checkpoint"
+preview_root = Path("/content/hf_artifact_preview")
+
+manifest_path = Path(hf_hub_download(
+    repo_id=CFG.model_repo,
+    repo_type="model",
+    filename=f"{checkpoint_prefix}/training_manifest.json",
+    token=os.environ["HF_TOKEN"],
+    local_dir=preview_root,
+))
+loss_graph = Path(hf_hub_download(
+    repo_id=CFG.model_repo,
+    repo_type="model",
+    filename=f"{checkpoint_prefix}/figures/training_vs_validation_loss.png",
+    token=os.environ["HF_TOKEN"],
+    local_dir=preview_root,
+))
+
+manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+expected = {
+    "training_run_id": CFG.run_id,
+    "model_key": CFG.model_key,
+    "dataset_version": CFG.dataset_version,
+}
+actual = {key: manifest.get(key) for key in expected}
+if actual != expected or not manifest.get("published"):
+    raise RuntimeError(
+        f"Hugging Face training manifest mismatch: expected={expected}, actual={actual}"
+    )
+
+print("Verified Hugging Face checkpoint:", f"{CFG.model_repo}/{checkpoint_prefix}")
+print("Training records:", manifest.get("train_record_count"))
+print("Validation records:", manifest.get("validation_record_count"))
+print("Validation metrics:", manifest.get("validation_metrics"))
+print("Hub graph downloaded to:", loss_graph)
 display(Image(filename=str(loss_graph)))
 """
     ),
@@ -355,8 +456,23 @@ display(Image(filename=str(loss_graph)))
             "evaluation.checkpoint_uri": CFG.model_repo,
             "evaluation.checkpoint_subfolder": f"{CFG.model_key}/{CFG.run_id}/checkpoint",
         })
-    run_project("kedro", "run", "--env=colab", "--pipelines=evaluate_model",
-                "--params=" + kedro_params(params))
+    evaluation_id = params["evaluation.run_id"]
+    try:
+        run_project("kedro", "run", "--env=colab", "--pipelines=evaluate_model",
+                    "--params=" + kedro_params(params))
+    except BaseException as exc:
+        send_email(
+            f"FAILED: evaluation {CFG.model_key} / {stage} / {scope}",
+            f"Evaluation {evaluation_id} did not complete. "
+            f"Error: {type(exc).__name__}: {exc}",
+        )
+        raise
+    else:
+        send_email(
+            f"COMPLETE: evaluation {CFG.model_key} / {stage} / {scope}",
+            f"Evaluation {evaluation_id} completed and was published to Hugging Face.\\n"
+            f"Prediction repository: {CFG.prediction_repo}",
+        )
 """
     ),
     markdown("## 12A. Base model — in-domain"),
@@ -403,14 +519,37 @@ for stage, label in (("base", "base"), ("fine_tuned", "finetuned")):
 if missing_model or missing_evaluations:
     raise RuntimeError("Hugging Face verification failed; do not discard the runtime yet")
 print("Everything required is safely stored on Hugging Face.")
+
+completion_lines = [
+    f"Model: {CFG.model_key}",
+    f"Run: {CFG.run_id}",
+    f"Dataset: {CFG.dataset_version}",
+    f"Model repository: {CFG.model_repo}",
+    f"Prediction repository: {CFG.prediction_repo}",
+    "Verified evaluations: base/fine-tuned × in-domain/cross-regional",
+]
+send_email(
+    f"VERIFIED: all experiments complete for {CFG.model_key} / {CFG.run_id}",
+    "\\n".join(completion_lines),
+    required=CFG.auto_shutdown_after_verification,
+)
+
+if CFG.auto_shutdown_after_verification:
+    import time
+
+    from google.colab import runtime
+
+    print("Email sent and Hugging Face artifacts verified. Releasing runtime.", flush=True)
+    time.sleep(2)
+    runtime.unassign()
 """
     ),
     markdown(
-        """## 14. End the runtime
+        """## 14. Manual shutdown fallback
 
-After Section 13 succeeds, use **Runtime → Disconnect and delete runtime**. Colab-local artifacts
-can then be discarded because the selected checkpoint, loss history/figures, raw predictions, and
-metrics have been verified on Hugging Face.
+When `CFG.auto_shutdown_after_verification=True`, Section 13 sends the final required email and
+releases the runtime automatically. If automatic shutdown is disabled, use **Runtime → Disconnect
+and delete runtime** after Section 13 succeeds.
 """
     ),
 ]
