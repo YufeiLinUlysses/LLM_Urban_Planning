@@ -8,11 +8,39 @@ from urban_science_revision.pipelines.model_evaluation.nodes import (
     _classification_metrics,
     _paired_verification_metrics,
     _paraphrase_rows,
+    _reject_excessive_empty_predictions,
     _token_f1,
     _verification_rows,
     extract_reference,
     parse_mc_prediction,
 )
+from urban_science_revision.pipelines.prompting import render_causal_user_prompt
+
+
+class _FakeChatTokenizer:
+    chat_template = "available"
+
+    def apply_chat_template(self, messages, *, tokenize, add_generation_prompt):
+        assert messages == [{"role": "user", "content": "Question"}]
+        assert tokenize is False
+        assert add_generation_prompt is True
+        return "<user>Question</user><assistant>"
+
+
+def test_causal_prompt_uses_native_chat_template() -> None:
+    assert render_causal_user_prompt(_FakeChatTokenizer(), "Question") == (
+        "<user>Question</user><assistant>"
+    )
+
+
+def test_excessive_empty_predictions_are_rejected() -> None:
+    _reject_excessive_empty_predictions(["answer", "", "answer"], "answer", 0.34)
+    try:
+        _reject_excessive_empty_predictions(["", "", "answer"], "answer", 0.05)
+    except RuntimeError as exc:
+        assert "2/3 empty responses" in str(exc)
+    else:  # pragma: no cover - assertion guard
+        raise AssertionError("Expected empty-response validation to fail")
 
 
 def test_paraphrase_scoring_uses_held_out_rewrite_and_requires_structure() -> None:

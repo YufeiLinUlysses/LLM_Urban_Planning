@@ -208,6 +208,15 @@ def _generate(
     tokenizer.padding_side = "left"
     for start in range(0, len(prompts), batch_size):
         batch = prompts[start : start + batch_size]
+        if (
+            not getattr(model.config, "is_encoder_decoder", False)
+            and parameters.get("use_chat_template", True)
+        ):
+            from urban_science_revision.pipelines.prompting import (
+                render_causal_user_prompt,
+            )
+
+            batch = [render_causal_user_prompt(tokenizer, prompt) for prompt in batch]
         encoded = tokenizer(
             batch,
             return_tensors="pt",
@@ -233,6 +242,23 @@ def _generate(
         predictions.extend(tokenizer.batch_decode(decoded_ids, skip_special_tokens=True))
         latencies.extend([elapsed] * len(batch))
     return [item.strip() for item in predictions], latencies
+
+
+def _reject_excessive_empty_predictions(
+    predictions: list[str], task_group: str, maximum_rate: float
+) -> None:
+    """Fail before scoring/publication when generation is clearly unusable."""
+
+    if not predictions:
+        raise ValueError(f"No predictions were generated for {task_group}")
+    empty_count = sum(not str(item).strip() for item in predictions)
+    empty_rate = empty_count / len(predictions)
+    if empty_rate > maximum_rate:
+        raise RuntimeError(
+            f"{task_group} generation produced {empty_count}/{len(predictions)} "
+            f"empty responses ({empty_rate:.1%}), above the configured maximum "
+            f"of {maximum_rate:.1%}. The evaluation was stopped before publication."
+        )
 
 
 def _answer_rows(
@@ -607,10 +633,17 @@ def evaluate_and_publish_model(
     answer_predictions, answer_latency = _generate(
         model, tokenizer, [str(row["prompt"]) for row in generation], parameters
     )
+    maximum_empty_rate = float(parameters.get("maximum_empty_response_rate", 0.05))
+    _reject_excessive_empty_predictions(
+        answer_predictions, "answer", maximum_empty_rate
+    )
     rows = _answer_rows(generation, answer_predictions, answer_latency)
 
     verification_predictions, verification_latency = _generate(
         model, tokenizer, [str(row["prompt"]) for row in verification], parameters
+    )
+    _reject_excessive_empty_predictions(
+        verification_predictions, "verification", maximum_empty_rate
     )
     verification_rows = _verification_rows(
         verification, verification_predictions, verification_latency
@@ -629,6 +662,9 @@ def evaluate_and_publish_model(
             tokenizer,
             [_paraphrase_prompt(row) for row in paraphrase],
             paraphrase_parameters,
+        )
+        _reject_excessive_empty_predictions(
+            paraphrase_predictions, "paraphrase", maximum_empty_rate
         )
         rows.extend(_paraphrase_rows(paraphrase, paraphrase_predictions, paraphrase_latency))
 
@@ -667,6 +703,7 @@ def evaluate_and_publish_model(
             "do_sample": False,
             "max_input_tokens": parameters["max_input_tokens"],
             "max_new_tokens": parameters["max_new_tokens"],
+            "use_chat_template": bool(parameters.get("use_chat_template", True)),
         },
         "prediction_count": len(rows),
     }

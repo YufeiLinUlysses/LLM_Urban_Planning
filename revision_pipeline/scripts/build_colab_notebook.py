@@ -55,26 +55,28 @@ class RunConfig:
     dataset_folder: str = "data/revision_v2"  # Folder retained for repository compatibility.
     dataset_version: str = "revision_v5"
 
-    model_key: str = "llama31_8b"  # t5_base, qwen25_7b, qwen25_14b, llama31_8b, llama31_70b
-    run_id: str = "revision-v5-llama31-8b-three-task-v1"
+    model_key: str = "llama31_70b"  # t5_base, qwen25_7b, qwen25_14b, llama31_8b, llama31_70b
+    run_id: str = "revision-v5-llama31-70b-three-task-chat-v2"
     model_repo: str = "UlyssesLynne/urban-planning-llm-model-zoo-v3"
     prediction_repo: str = "UlyssesLynne/urban-planning-llm-predictions-v3"
     artifact_root: str = "/content/urban_science_artifacts"
 
-    train_batch_size: int = 8
-    eval_batch_size: int = 32
-    gradient_accumulation_steps: int = 2
+    train_batch_size: int = 1
+    eval_batch_size: int = 1
+    gradient_accumulation_steps: int = 16
     epochs: int = 1
-    learning_rate: float = 1e-4
+    learning_rate: float = 5e-5
     warmup_ratio: float = 0.03
     weight_decay: float = 0.0
     logging_steps: int = 10
-    eval_steps: int = 50
-    save_steps: int = 50
+    eval_steps: int = 25
+    save_steps: int = 25
     save_total_limit: int = 2
-    early_stopping_patience: int = 3
+    early_stopping_patience: int = 4
     early_stopping_threshold: float = 0.001
-    smoke_test: bool = False
+    use_chat_template: bool = True
+    maximum_empty_response_rate: float = 0.05
+    smoke_test: bool = True
     run_semantic_audit: bool = False  # Slow on CPU; deterministic leakage checks always run.
     email_notifications: bool = True
     auto_shutdown_after_verification: bool = True
@@ -340,6 +342,7 @@ if not audit.get("passed"):
         "training.per_device_train_batch_size": CFG.train_batch_size,
         "training.per_device_eval_batch_size": CFG.eval_batch_size,
         "training.gradient_accumulation_steps": CFG.gradient_accumulation_steps,
+        "training.use_chat_template": CFG.use_chat_template,
         "training.logging_steps": 1,
         "training.eval_steps": 25,
         "training.save_steps": 25,
@@ -371,6 +374,7 @@ else:
     "training.save_total_limit": CFG.save_total_limit,
     "training.early_stopping_patience": CFG.early_stopping_patience,
     "training.early_stopping_threshold": CFG.early_stopping_threshold,
+    "training.use_chat_template": CFG.use_chat_template,
 }
 try:
     run_project("kedro", "run", "--env=colab", "--pipelines=train_model",
@@ -450,6 +454,8 @@ display(Image(filename=str(loss_graph)))
         "evaluation.prediction_repo_id": CFG.prediction_repo,
         "evaluation.publish_to_hf": True,
         "evaluation.batch_size": CFG.eval_batch_size,
+        "evaluation.use_chat_template": CFG.use_chat_template,
+        "evaluation.maximum_empty_response_rate": CFG.maximum_empty_response_rate,
     }
     if stage == "fine_tuned":
         params.update({

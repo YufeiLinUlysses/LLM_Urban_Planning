@@ -8,6 +8,8 @@ training:
     - generation
     - verification
     - paraphrase
+  # Use each causal instruction model's native user/assistant framing.
+  use_chat_template: true
   max_source_length: 512
   # Full structured paraphrase targets are longer than answer-only targets.
   max_target_length: 384

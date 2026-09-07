@@ -9,6 +9,10 @@ evaluation:
   prediction_repo_id: UlyssesLynne/urban-planning-llm-predictions-v3
   publish_to_hf: true
   batch_size: 8
+  # Match the causal-model interface used during supervised training.
+  use_chat_template: true
+  # Abort rather than publish an evaluation dominated by EOS-only generations.
+  maximum_empty_response_rate: 0.05
   max_input_tokens: 2048
   max_new_tokens: 256
   paraphrase_max_new_tokens: 384

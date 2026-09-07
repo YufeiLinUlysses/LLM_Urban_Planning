@@ -167,6 +167,8 @@ def train_and_publish_model(
         )
 
     if family == "causal_lm":
+        from urban_science_revision.pipelines.prompting import render_causal_user_prompt
+
         if tokenizer.pad_token_id is None:
             tokenizer.pad_token = tokenizer.eos_token
         model = AutoModelForCausalLM.from_pretrained(
@@ -211,7 +213,14 @@ def train_and_publish_model(
             all_labels: list[list[int]] = []
             all_masks: list[list[int]] = []
             for prompt, target in zip(batch["prompt"], batch["target"], strict=True):
-                prompt_ids = tokenizer(prompt, add_special_tokens=True)["input_ids"][:max_source]
+                formatted_prompt = (
+                    render_causal_user_prompt(tokenizer, prompt)
+                    if parameters.get("use_chat_template", True)
+                    else prompt
+                )
+                prompt_ids = tokenizer(formatted_prompt, add_special_tokens=False)["input_ids"][
+                    :max_source
+                ]
                 target_ids = tokenizer(target, add_special_tokens=False)["input_ids"][:max_target]
                 if tokenizer.eos_token_id is not None:
                     target_ids.append(tokenizer.eos_token_id)
@@ -315,6 +324,9 @@ def train_and_publish_model(
         "dataset_version": split_manifest["dataset_version"],
         "split_manifest_hash": _manifest_hash(split_manifest),
         "tasks": tasks,
+        "use_chat_template": bool(
+            family == "causal_lm" and parameters.get("use_chat_template", True)
+        ),
         "train_record_count": len(train_rows),
         "validation_record_count": len(validation_rows),
         "local_checkpoint": str(checkpoint_dir.resolve()),
