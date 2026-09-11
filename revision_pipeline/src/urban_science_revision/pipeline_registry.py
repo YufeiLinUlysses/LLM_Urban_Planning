@@ -20,10 +20,16 @@ from urban_science_revision.pipelines.huggingface.pipeline import (
     create_publish_pipeline,
 )
 from urban_science_revision.pipelines.model_evaluation.pipeline import (
+    create_multi_regional_pipeline,
+)
+from urban_science_revision.pipelines.model_evaluation.pipeline import (
     create_pipeline as create_evaluation_pipeline,
 )
 from urban_science_revision.pipelines.model_training.pipeline import (
     create_pipeline as create_training_pipeline,
+)
+from urban_science_revision.pipelines.multi_regional_data.pipeline import (
+    create_pipeline as create_multi_regional_data_pipeline,
 )
 from urban_science_revision.pipelines.reporting.pipeline import (
     create_evaluation_figures_pipeline,
@@ -38,9 +44,11 @@ def register_pipelines() -> dict[str, Pipeline]:
     experiment_data = create_experiment_data_pipeline()
     training = create_training_pipeline()
     evaluation = create_evaluation_pipeline()
+    multi_regional_evaluation = create_multi_regional_pipeline()
     comparison = create_comparison_pipeline()
     training_figures = create_training_figures_pipeline()
     evaluation_figures = create_evaluation_figures_pipeline()
+    multi_regional_data = create_multi_regional_data_pipeline()
     return {
         "__default__": augmentation,
         "validate_inputs": create_validation_pipeline(),
@@ -52,8 +60,10 @@ def register_pipelines() -> dict[str, Pipeline]:
             create_initialize_experiment_repositories_pipeline()
         ),
         "prepare_experiment_data": experiment_data,
+        "prepare_multi_regional_data": multi_regional_data,
         "train_model": training,
         "evaluate_model": evaluation,
+        "evaluate_multi_regional_model": multi_regional_evaluation,
         "compare_evaluations": comparison,
         "render_training_figures": training_figures,
         "build_paper_figures": evaluation_figures,

@@ -1,0 +1,358 @@
+{
+  "dataset_name": "Vegagerðin Traffic Statistics",
+  "dataset_link": "https://www.vegagerdin.is/en/the-transportation-system/the-road-system/traffic-statistics",
+  "dataset_description": "Measured and estimated traffic statistics for Iceland's national road network.",
+  "instructions": [
+    {
+      "Instruction information": {
+        "Categories": "Multiple Selection"
+      },
+      "Task_Definition": "Select one supported option and provide its letter.",
+      "Positive Example": [
+        {
+          "Fact": "The Icelandic Road and Coastal Administration, Vegagerðin, measures and publishes Iceland's national-road traffic statistics.",
+          "Question": "Which agency publishes the statistics?",
+          "Selections": {
+            "A": "The City of Melbourne.",
+            "B": "Auckland Transport.",
+            "C": "TransMilenio S.A.",
+            "D": "The Icelandic Road and Coastal Administration (Vegagerðin)."
+          },
+          "Output": "D",
+          "Explanation": "The Icelandic Road and Coastal Administration (Vegagerðin) is responsible for publishing or maintaining the dataset.",
+          "Level": 1
+        },
+        {
+          "Fact": "Traffic averages cover most of Iceland's national road network and are organized by road sections, subsections, and seven counting regions; local roads are generally excluded.",
+          "Question": "What network does the publication cover?",
+          "Selections": {
+            "A": "Most national roads, organized into sections and regions, generally excluding local roads.",
+            "B": "Selected sensor locations in central Melbourne rather than complete citywide coverage.",
+            "C": "Twenty-seven sites: 13 city-centre and 14 regional sites.",
+            "D": "Bogotá's TransMilenio and SITP network."
+          },
+          "Output": "A",
+          "Explanation": "The data cover the following geographic area: Most national roads, organized into sections and regions, generally excluding local roads.",
+          "Level": 1
+        },
+        {
+          "Fact": "Structured measurements began in the mid-1960s; downloadable traffic-average files are available from 2000 and reviewed daily counter data from 2019.",
+          "Question": "What historical periods are documented for downloadable products?",
+          "Selections": {
+            "A": "It begins in 2009.",
+            "B": "Daily counts are compiled monthly.",
+            "C": "Traffic averages from 2000 and reviewed daily counter data from 2019.",
+            "D": "Monthly."
+          },
+          "Output": "C",
+          "Explanation": "The available records have this time coverage: Traffic averages from 2000 and reviewed daily counter data from 2019.",
+          "Level": 1
+        },
+        {
+          "Fact": "Published measures include AADT, summer daily traffic, winter daily traffic, vehicle-kilometres travelled, daily counts, and at some sites hourly, 15-minute, or 10-minute values.",
+          "Question": "What temporal resolutions and summary measures are available?",
+          "Selections": {
+            "A": "Annual and seasonal averages, daily counts, and finer subdaily counts at capable stations.",
+            "B": "Hourly counts by sensor.",
+            "C": "Daily cycle-trip totals.",
+            "D": "Routes, stops and stations, trips, and calendar services."
+          },
+          "Output": "A",
+          "Explanation": "The data use this reporting resolution: Annual and seasonal averages, daily counts, and finer subdaily counts at capable stations.",
+          "Level": 1
+        },
+        {
+          "Fact": "AADT is average vehicles per day over the year; SDT covers June–September; WDT covers January–March and December; VKT measures annual vehicle-kilometres.",
+          "Question": "How do AADT, SDT, WDT, and VKT differ?",
+          "Selections": {
+            "A": "Time, sensor identity and location, directional counts, and total pedestrian movements.",
+            "B": "The number of observed cycle trips at monitored sites by date.",
+            "C": "They represent annual daily traffic, summer daily traffic, winter daily traffic, and vehicle-kilometres travelled.",
+            "D": "Several route classes plus stops, stations, trips, and service calendars."
+          },
+          "Output": "C",
+          "Explanation": "Each record describes: They represent annual daily traffic, summer daily traffic, winter daily traffic, and vehicle-kilometres travelled.",
+          "Level": 1
+        },
+        {
+          "Fact": "The agency provides Excel traffic averages, reviewed counter data in PDF and text formats, an interactive map, definitions, and calculation methodology.",
+          "Question": "What publication formats accompany the traffic statistics?",
+          "Selections": {
+            "A": "Excel, PDF, text, an interactive map, and methodology documentation.",
+            "B": "By joining the count and sensor-location tables on the sensor identifier.",
+            "C": "CSV.",
+            "D": "As a zipped GTFS feed composed of standardized transit tables."
+          },
+          "Output": "A",
+          "Explanation": "The dataset uses this file organization: Excel, PDF, text, an interactive map, and methodology documentation.",
+          "Level": 1
+        },
+        {
+          "Fact": "About 300 annual sites use communicating or non-communicating counters, while approximately 200 short-term sites are counted each year and adjusted using comparable permanent stations.",
+          "Question": "How are permanent and short-term counts combined?",
+          "Selections": {
+            "A": "Fixed sensors count bidirectional movements through a footpath zone without collecting images.",
+            "B": "Permanent counters provide continuous references and short-term counts are adjusted using comparable permanent sites.",
+            "C": "With automated counters installed at fixed monitoring sites.",
+            "D": "Administrative publication of planned transit operations."
+          },
+          "Output": "B",
+          "Explanation": "The observations were gathered using this method: Permanent counters provide continuous references and short-term counts are adjusted using comparable permanent sites.",
+          "Level": 1
+        },
+        {
+          "Fact": "Traffic averages and reviewed counts are published online, although the interactive traffic map itself is available only in Icelandic.",
+          "Question": "What access condition affects the interactive product?",
+          "Selections": {
+            "A": "The data products are online, but the interactive map is Icelandic-only.",
+            "B": "Through downloads or the open-data API under a CC BY licence.",
+            "C": "They are openly available under CC BY 4.0.",
+            "D": "Public download under CC BY-SA 4.0."
+          },
+          "Output": "A",
+          "Explanation": "The stated access terms are: The data products are online, but the interactive map is Icelandic-only.",
+          "Level": 1
+        },
+        {
+          "Fact": "The statistics support road and bridge design, environmental and economic assessment, safety analysis, maintenance funding, and project prioritization.",
+          "Question": "Name the principal planning uses.",
+          "Selections": {
+            "A": "Comparing pedestrian activity across monitored places and times to support planning.",
+            "B": "Infrastructure design, safety and environmental analysis, funding, maintenance, and project prioritization.",
+            "C": "Monitoring cycling activity over time at the instrumented locations.",
+            "D": "Transit network, timetable, and journey-planning applications."
+          },
+          "Output": "B",
+          "Explanation": "The data support this use: Infrastructure design, safety and environmental analysis, funding, maintenance, and project prioritization.",
+          "Level": 1
+        },
+        {
+          "Fact": "Most road sections lack continuous counters; estimates rely on reference stations, short-term sites may be revisited only every four to seven years, equipment can fail, and low-volume summer roads have lower accuracy.",
+          "Question": "Why are published traffic averages not equally precise everywhere?",
+          "Selections": {
+            "A": "Sensor relocation, inactivity, removal, and missing readings can disrupt comparability.",
+            "B": "They cover selected fixed sites, not every route or cycling trip.",
+            "C": "Actual reliability, ridership, and experienced waiting time.",
+            "D": "Many sections are estimated from intermittent counts and reference stations, with equipment and low-volume accuracy limitations."
+          },
+          "Output": "D",
+          "Explanation": "The stated limitation is: Many sections are estimated from intermittent counts and reference stations, with equipment and low-volume accuracy limitations.",
+          "Level": 1
+        },
+        {
+          "Fact": "Traffic averages cover most of Iceland's national road network and are organized by road sections, subsections, and seven counting regions; local roads are generally excluded. Published measures include AADT, summer daily traffic, winter daily traffic, vehicle-kilometres travelled, daily counts, and at some sites hourly, 15-minute, or 10-minute values.",
+          "Question": "How should the documented spatial coverage and measurement resolution be considered together?",
+          "Selections": {
+            "A": "Most national roads, organized into sections and regions, generally excluding local roads. Annual and seasonal averages, daily counts, and finer subdaily counts at capable stations.",
+            "B": "Selected sensor locations in central Melbourne rather than complete citywide coverage. Hourly counts by sensor.",
+            "C": "Twenty-seven sites: 13 city-centre and 14 regional sites. Daily cycle-trip totals.",
+            "D": "Bogotá's TransMilenio and SITP network. Routes, stops and stations, trips, and calendar services."
+          },
+          "Output": "A",
+          "Explanation": "The conclusion combines two independently documented properties of Vegagerðin Traffic Statistics: Most national roads, organized into sections and regions, generally excluding local roads. Annual and seasonal averages, daily counts, and finer subdaily counts at capable stations.",
+          "Level": 2
+        },
+        {
+          "Fact": "Structured measurements began in the mid-1960s; downloadable traffic-average files are available from 2000 and reviewed daily counter data from 2019. About 300 annual sites use communicating or non-communicating counters, while approximately 200 short-term sites are counted each year and adjusted using comparable permanent stations.",
+          "Question": "How should the documented temporal coverage and collection methodology be considered together?",
+          "Selections": {
+            "A": "Traffic averages from 2000 and reviewed daily counter data from 2019. Permanent counters provide continuous references and short-term counts are adjusted using comparable permanent sites.",
+            "B": "It begins in 2009. Fixed sensors count bidirectional movements through a footpath zone without collecting images.",
+            "C": "Daily counts are compiled monthly. With automated counters installed at fixed monitoring sites.",
+            "D": "Monthly. Administrative publication of planned transit operations."
+          },
+          "Output": "A",
+          "Explanation": "The conclusion combines two independently documented properties of Vegagerðin Traffic Statistics: Traffic averages from 2000 and reviewed daily counter data from 2019. Permanent counters provide continuous references and short-term counts are adjusted using comparable permanent sites.",
+          "Level": 2
+        },
+        {
+          "Fact": "AADT is average vehicles per day over the year; SDT covers June–September; WDT covers January–March and December; VKT measures annual vehicle-kilometres. The agency provides Excel traffic averages, reviewed counter data in PDF and text formats, an interactive map, definitions, and calculation methodology.",
+          "Question": "How should the documented variable definitions and file structure and documentation be considered together?",
+          "Selections": {
+            "A": "Time, sensor identity and location, directional counts, and total pedestrian movements. By joining the count and sensor-location tables on the sensor identifier.",
+            "B": "The number of observed cycle trips at monitored sites by date. CSV.",
+            "C": "Several route classes plus stops, stations, trips, and service calendars. As a zipped GTFS feed composed of standardized transit tables.",
+            "D": "They represent annual daily traffic, summer daily traffic, winter daily traffic, and vehicle-kilometres travelled. Excel, PDF, text, an interactive map, and methodology documentation."
+          },
+          "Output": "D",
+          "Explanation": "The conclusion combines two independently documented properties of Vegagerðin Traffic Statistics: They represent annual daily traffic, summer daily traffic, winter daily traffic, and vehicle-kilometres travelled. Excel, PDF, text, an interactive map, and methodology documentation.",
+          "Level": 2
+        },
+        {
+          "Fact": "Traffic averages and reviewed counts are published online, although the interactive traffic map itself is available only in Icelandic. The statistics support road and bridge design, environmental and economic assessment, safety analysis, maintenance funding, and project prioritization.",
+          "Question": "How should the documented data accessibility and availability and usage context be considered together?",
+          "Selections": {
+            "A": "Through downloads or the open-data API under a CC BY licence. Comparing pedestrian activity across monitored places and times to support planning.",
+            "B": "They are openly available under CC BY 4.0. Monitoring cycling activity over time at the instrumented locations.",
+            "C": "Public download under CC BY-SA 4.0. Transit network, timetable, and journey-planning applications.",
+            "D": "The data products are online, but the interactive map is Icelandic-only. Infrastructure design, safety and environmental analysis, funding, maintenance, and project prioritization."
+          },
+          "Output": "D",
+          "Explanation": "The conclusion combines two independently documented properties of Vegagerðin Traffic Statistics: The data products are online, but the interactive map is Icelandic-only. Infrastructure design, safety and environmental analysis, funding, maintenance, and project prioritization.",
+          "Level": 2
+        },
+        {
+          "Fact": "Published measures include AADT, summer daily traffic, winter daily traffic, vehicle-kilometres travelled, daily counts, and at some sites hourly, 15-minute, or 10-minute values. Most road sections lack continuous counters; estimates rely on reference stations, short-term sites may be revisited only every four to seven years, equipment can fail, and low-volume summer roads have lower accuracy.",
+          "Question": "How should the documented measurement resolution and dataset limitations be considered together?",
+          "Selections": {
+            "A": "Hourly counts by sensor. Sensor relocation, inactivity, removal, and missing readings can disrupt comparability.",
+            "B": "Annual and seasonal averages, daily counts, and finer subdaily counts at capable stations. Many sections are estimated from intermittent counts and reference stations, with equipment and low-volume accuracy limitations.",
+            "C": "Daily cycle-trip totals. They cover selected fixed sites, not every route or cycling trip.",
+            "D": "Routes, stops and stations, trips, and calendar services. Actual reliability, ridership, and experienced waiting time."
+          },
+          "Output": "B",
+          "Explanation": "The conclusion combines two independently documented properties of Vegagerðin Traffic Statistics: Annual and seasonal averages, daily counts, and finer subdaily counts at capable stations. Many sections are estimated from intermittent counts and reference stations, with equipment and low-volume accuracy limitations.",
+          "Level": 2
+        }
+      ]
+    },
+    {
+      "Instruction information": {
+        "Categories": "Question answering"
+      },
+      "Task_Definition": "Answer using only the supplied dataset context.",
+      "Positive Example": [
+        {
+          "Fact": "The Icelandic Road and Coastal Administration, Vegagerðin, measures and publishes Iceland's national-road traffic statistics.",
+          "Question": "Which agency publishes the statistics?",
+          "Output": "The Icelandic Road and Coastal Administration (Vegagerðin).",
+          "Explanation": "The Icelandic Road and Coastal Administration (Vegagerðin) is responsible for publishing or maintaining the dataset.",
+          "Level": 1
+        },
+        {
+          "Fact": "Traffic averages cover most of Iceland's national road network and are organized by road sections, subsections, and seven counting regions; local roads are generally excluded.",
+          "Question": "What network does the publication cover?",
+          "Output": "Most national roads, organized into sections and regions, generally excluding local roads.",
+          "Explanation": "The data cover the following geographic area: Most national roads, organized into sections and regions, generally excluding local roads.",
+          "Level": 1
+        },
+        {
+          "Fact": "Structured measurements began in the mid-1960s; downloadable traffic-average files are available from 2000 and reviewed daily counter data from 2019.",
+          "Question": "What historical periods are documented for downloadable products?",
+          "Output": "Traffic averages from 2000 and reviewed daily counter data from 2019.",
+          "Explanation": "The available records have this time coverage: Traffic averages from 2000 and reviewed daily counter data from 2019.",
+          "Level": 1
+        },
+        {
+          "Fact": "Published measures include AADT, summer daily traffic, winter daily traffic, vehicle-kilometres travelled, daily counts, and at some sites hourly, 15-minute, or 10-minute values.",
+          "Question": "What temporal resolutions and summary measures are available?",
+          "Output": "Annual and seasonal averages, daily counts, and finer subdaily counts at capable stations.",
+          "Explanation": "The data use this reporting resolution: Annual and seasonal averages, daily counts, and finer subdaily counts at capable stations.",
+          "Level": 1
+        },
+        {
+          "Fact": "AADT is average vehicles per day over the year; SDT covers June–September; WDT covers January–March and December; VKT measures annual vehicle-kilometres.",
+          "Question": "How do AADT, SDT, WDT, and VKT differ?",
+          "Output": "They represent annual daily traffic, summer daily traffic, winter daily traffic, and vehicle-kilometres travelled.",
+          "Explanation": "Each record describes: They represent annual daily traffic, summer daily traffic, winter daily traffic, and vehicle-kilometres travelled.",
+          "Level": 1
+        },
+        {
+          "Fact": "The agency provides Excel traffic averages, reviewed counter data in PDF and text formats, an interactive map, definitions, and calculation methodology.",
+          "Question": "What publication formats accompany the traffic statistics?",
+          "Output": "Excel, PDF, text, an interactive map, and methodology documentation.",
+          "Explanation": "The dataset uses this file organization: Excel, PDF, text, an interactive map, and methodology documentation.",
+          "Level": 1
+        },
+        {
+          "Fact": "About 300 annual sites use communicating or non-communicating counters, while approximately 200 short-term sites are counted each year and adjusted using comparable permanent stations.",
+          "Question": "How are permanent and short-term counts combined?",
+          "Output": "Permanent counters provide continuous references and short-term counts are adjusted using comparable permanent sites.",
+          "Explanation": "The observations were gathered using this method: Permanent counters provide continuous references and short-term counts are adjusted using comparable permanent sites.",
+          "Level": 1
+        },
+        {
+          "Fact": "Traffic averages and reviewed counts are published online, although the interactive traffic map itself is available only in Icelandic.",
+          "Question": "What access condition affects the interactive product?",
+          "Output": "The data products are online, but the interactive map is Icelandic-only.",
+          "Explanation": "The stated access terms are: The data products are online, but the interactive map is Icelandic-only.",
+          "Level": 1
+        },
+        {
+          "Fact": "The statistics support road and bridge design, environmental and economic assessment, safety analysis, maintenance funding, and project prioritization.",
+          "Question": "Name the principal planning uses.",
+          "Output": "Infrastructure design, safety and environmental analysis, funding, maintenance, and project prioritization.",
+          "Explanation": "The data support this use: Infrastructure design, safety and environmental analysis, funding, maintenance, and project prioritization.",
+          "Level": 1
+        },
+        {
+          "Fact": "Most road sections lack continuous counters; estimates rely on reference stations, short-term sites may be revisited only every four to seven years, equipment can fail, and low-volume summer roads have lower accuracy.",
+          "Question": "Why are published traffic averages not equally precise everywhere?",
+          "Output": "Many sections are estimated from intermittent counts and reference stations, with equipment and low-volume accuracy limitations.",
+          "Explanation": "The stated limitation is: Many sections are estimated from intermittent counts and reference stations, with equipment and low-volume accuracy limitations.",
+          "Level": 1
+        },
+        {
+          "Fact": "Traffic averages cover most of Iceland's national road network and are organized by road sections, subsections, and seven counting regions; local roads are generally excluded. Published measures include AADT, summer daily traffic, winter daily traffic, vehicle-kilometres travelled, daily counts, and at some sites hourly, 15-minute, or 10-minute values.",
+          "Question": "How should the documented spatial coverage and measurement resolution be considered together?",
+          "Output": "Most national roads, organized into sections and regions, generally excluding local roads. Annual and seasonal averages, daily counts, and finer subdaily counts at capable stations.",
+          "Explanation": "The conclusion combines two independently documented properties of Vegagerðin Traffic Statistics: Most national roads, organized into sections and regions, generally excluding local roads. Annual and seasonal averages, daily counts, and finer subdaily counts at capable stations.",
+          "Level": 2
+        },
+        {
+          "Fact": "Structured measurements began in the mid-1960s; downloadable traffic-average files are available from 2000 and reviewed daily counter data from 2019. About 300 annual sites use communicating or non-communicating counters, while approximately 200 short-term sites are counted each year and adjusted using comparable permanent stations.",
+          "Question": "How should the documented temporal coverage and collection methodology be considered together?",
+          "Output": "Traffic averages from 2000 and reviewed daily counter data from 2019. Permanent counters provide continuous references and short-term counts are adjusted using comparable permanent sites.",
+          "Explanation": "The conclusion combines two independently documented properties of Vegagerðin Traffic Statistics: Traffic averages from 2000 and reviewed daily counter data from 2019. Permanent counters provide continuous references and short-term counts are adjusted using comparable permanent sites.",
+          "Level": 2
+        },
+        {
+          "Fact": "AADT is average vehicles per day over the year; SDT covers June–September; WDT covers January–March and December; VKT measures annual vehicle-kilometres. The agency provides Excel traffic averages, reviewed counter data in PDF and text formats, an interactive map, definitions, and calculation methodology.",
+          "Question": "How should the documented variable definitions and file structure and documentation be considered together?",
+          "Output": "They represent annual daily traffic, summer daily traffic, winter daily traffic, and vehicle-kilometres travelled. Excel, PDF, text, an interactive map, and methodology documentation.",
+          "Explanation": "The conclusion combines two independently documented properties of Vegagerðin Traffic Statistics: They represent annual daily traffic, summer daily traffic, winter daily traffic, and vehicle-kilometres travelled. Excel, PDF, text, an interactive map, and methodology documentation.",
+          "Level": 2
+        },
+        {
+          "Fact": "Traffic averages and reviewed counts are published online, although the interactive traffic map itself is available only in Icelandic. The statistics support road and bridge design, environmental and economic assessment, safety analysis, maintenance funding, and project prioritization.",
+          "Question": "How should the documented data accessibility and availability and usage context be considered together?",
+          "Output": "The data products are online, but the interactive map is Icelandic-only. Infrastructure design, safety and environmental analysis, funding, maintenance, and project prioritization.",
+          "Explanation": "The conclusion combines two independently documented properties of Vegagerðin Traffic Statistics: The data products are online, but the interactive map is Icelandic-only. Infrastructure design, safety and environmental analysis, funding, maintenance, and project prioritization.",
+          "Level": 2
+        },
+        {
+          "Fact": "Published measures include AADT, summer daily traffic, winter daily traffic, vehicle-kilometres travelled, daily counts, and at some sites hourly, 15-minute, or 10-minute values. Most road sections lack continuous counters; estimates rely on reference stations, short-term sites may be revisited only every four to seven years, equipment can fail, and low-volume summer roads have lower accuracy.",
+          "Question": "How should the documented measurement resolution and dataset limitations be considered together?",
+          "Output": "Annual and seasonal averages, daily counts, and finer subdaily counts at capable stations. Many sections are estimated from intermittent counts and reference stations, with equipment and low-volume accuracy limitations.",
+          "Explanation": "The conclusion combines two independently documented properties of Vegagerðin Traffic Statistics: Annual and seasonal averages, daily counts, and finer subdaily counts at capable stations. Many sections are estimated from intermittent counts and reference stations, with equipment and low-volume accuracy limitations.",
+          "Level": 2
+        },
+        {
+          "Fact": "The statistics support road and bridge design, environmental and economic assessment, safety analysis, maintenance funding, and project prioritization. Most road sections lack continuous counters; estimates rely on reference stations, short-term sites may be revisited only every four to seven years, equipment can fail, and low-volume summer roads have lower accuracy.",
+          "Question": "What planning use is supported, and what limitation must qualify that use?",
+          "Output": "Infrastructure design, safety and environmental analysis, funding, maintenance, and project prioritization. However, Many sections are estimated from intermittent counts and reference stations, with equipment and low-volume accuracy limitations.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        },
+        {
+          "Fact": "Traffic averages cover most of Iceland's national road network and are organized by road sections, subsections, and seven counting regions; local roads are generally excluded. Most road sections lack continuous counters; estimates rely on reference stations, short-term sites may be revisited only every four to seven years, equipment can fail, and low-volume summer roads have lower accuracy.",
+          "Question": "What limits the geographic or population representativeness of this dataset?",
+          "Output": "Most national roads, organized into sections and regions, generally excluding local roads. However, Many sections are estimated from intermittent counts and reference stations, with equipment and low-volume accuracy limitations.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        },
+        {
+          "Fact": "Structured measurements began in the mid-1960s; downloadable traffic-average files are available from 2000 and reviewed daily counter data from 2019. Published measures include AADT, summer daily traffic, winter daily traffic, vehicle-kilometres travelled, daily counts, and at some sites hourly, 15-minute, or 10-minute values.",
+          "Question": "What temporal inference is justified, and what temporal inference should be avoided?",
+          "Output": "Traffic averages from 2000 and reviewed daily counter data from 2019. However, Annual and seasonal averages, daily counts, and finer subdaily counts at capable stations.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        },
+        {
+          "Fact": "AADT is average vehicles per day over the year; SDT covers June–September; WDT covers January–March and December; VKT measures annual vehicle-kilometres. About 300 annual sites use communicating or non-communicating counters, while approximately 200 short-term sites are counted each year and adjusted using comparable permanent stations.",
+          "Question": "How does the collection method affect interpretation of the recorded variables?",
+          "Output": "They represent annual daily traffic, summer daily traffic, winter daily traffic, and vehicle-kilometres travelled. However, Permanent counters provide continuous references and short-term counts are adjusted using comparable permanent sites.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        },
+        {
+          "Fact": "The Icelandic Road and Coastal Administration, Vegagerðin, measures and publishes Iceland's national-road traffic statistics. Traffic averages and reviewed counts are published online, although the interactive traffic map itself is available only in Icelandic.",
+          "Question": "What supports reproducible reuse, and what access or governance condition remains?",
+          "Output": "The Icelandic Road and Coastal Administration (Vegagerðin). However, The data products are online, but the interactive map is Icelandic-only.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        }
+      ]
+    }
+  ]
+}

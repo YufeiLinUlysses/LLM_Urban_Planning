@@ -1,0 +1,223 @@
+{
+  "benchmark": "multi_regional_external_v1",
+  "evaluation_only": true,
+  "datasets": [
+    {
+      "dataset_id": "australia_melbourne_pedestrian",
+      "dataset_name": "Melbourne Pedestrian Counting System",
+      "country": "Australia",
+      "region": "Oceania",
+      "description": "Pedestrian counts and sensor metadata published by the City of Melbourne.",
+      "review_status": "draft_needs_human_source_review",
+      "source_urls": [
+        "https://data.melbourne.vic.gov.au/explore/dataset/pedestrian-counting-system-sensor-locations/",
+        "https://data.melbourne.vic.gov.au/explore/dataset/pedestrian-counting-system-monthly-counts-per-hour/"
+      ],
+      "perspectives": {
+        "provenance": {"fact": "The City of Melbourne publishes and maintains the Pedestrian Counting System data.", "question": "Who publishes the Melbourne Pedestrian Counting System data?", "answer": "The City of Melbourne."},
+        "spatial_coverage": {"fact": "Pedestrian sensors are installed at selected locations throughout central Melbourne, with coordinates recorded in the sensor metadata.", "question": "What spatial coverage does the system provide?", "answer": "Selected sensor locations in central Melbourne rather than complete citywide coverage."},
+        "temporal_coverage": {"fact": "The Pedestrian Counting System has operated since 2009 and its historical hourly dataset extends from 2009 onward.", "question": "When does the historical pedestrian-count series begin?", "answer": "It begins in 2009."},
+        "measurement_resolution": {"fact": "The historical dataset reports total pedestrian counts by sensor and hour.", "question": "What is the principal temporal resolution of the historical count dataset?", "answer": "Hourly counts by sensor."},
+        "variable_definitions": {"fact": "The records include sensor or location identifiers, sensing date and hour, directional counts, total pedestrian count, sensor name, and location.", "question": "What does the dataset record for an observation?", "answer": "Time, sensor identity and location, directional counts, and total pedestrian movements."},
+        "file_structure_and_documentation": {"fact": "Count records and sensor-location metadata are published as related tabular datasets and can be linked using the sensor identifier.", "question": "How are counts linked to sensor characteristics?", "answer": "By joining the count and sensor-location tables on the sensor identifier."},
+        "collection_methodology": {"fact": "Sensors installed under awnings or on street poles count bidirectional pedestrian movements through a footpath zone continuously without recording images.", "question": "How are pedestrian movements collected?", "answer": "Fixed sensors count bidirectional movements through a footpath zone without collecting images."},
+        "data_accessibility_and_availability": {"fact": "The datasets are downloadable and queryable through the municipal open-data API under a Creative Commons Attribution licence.", "question": "How can researchers access and reuse these data?", "answer": "Through downloads or the open-data API under a CC BY licence."},
+        "usage_context": {"fact": "The system is intended to show how pedestrian activity varies by place and time and to inform municipal decision-making and planning.", "question": "What planning use does the dataset support?", "answer": "Comparing pedestrian activity across monitored places and times to support planning."},
+        "dataset_limitations": {"fact": "Sensors may be relocated, removed, temporarily inactive, or missing readings, so sensor history must be considered in longitudinal comparisons.", "question": "What limitation must be checked before comparing historical counts?", "answer": "Sensor relocation, inactivity, removal, and missing readings can disrupt comparability."}
+      }
+    },
+    {
+      "dataset_id": "new_zealand_auckland_cycle",
+      "dataset_name": "Auckland Monthly Cycle Monitoring",
+      "country": "New Zealand",
+      "region": "Oceania",
+      "description": "Automated bicycle counts reported by Auckland Transport.",
+      "review_status": "draft_needs_human_source_review",
+      "source_urls": ["https://at.govt.nz/about-us/at-data-sources"],
+      "perspectives": {
+        "provenance": {"fact": "Auckland Transport collects and publishes the monthly cycle-monitoring data.", "question": "Which organization provides the Auckland cycle-monitoring data?", "answer": "Auckland Transport."},
+        "spatial_coverage": {"fact": "The monitoring program uses 13 city-centre sites and 14 regional sites in Auckland.", "question": "How many monitored locations are described?", "answer": "Twenty-seven sites: 13 city-centre and 14 regional sites."},
+        "temporal_coverage": {"fact": "Daily cycle-trip numbers are compiled and released in monthly reports.", "question": "How are observations organized over time?", "answer": "Daily counts are compiled monthly."},
+        "measurement_resolution": {"fact": "The published series reports daily cycle-trip numbers for monitored sites.", "question": "What temporal unit is reported before monthly compilation?", "answer": "Daily cycle-trip totals."},
+        "variable_definitions": {"fact": "The monitoring data identify monitored sites and the number of cycle trips observed by date.", "question": "What principal measure does the dataset provide?", "answer": "The number of observed cycle trips at monitored sites by date."},
+        "file_structure_and_documentation": {"fact": "Auckland Transport makes the monthly cycle-monitoring data available in CSV format.", "question": "In what file format are the cycle-monitoring data released?", "answer": "CSV."},
+        "collection_methodology": {"fact": "Cycle trips are measured using automated cycle-monitoring equipment at fixed sites.", "question": "How are the Auckland cycle counts collected?", "answer": "With automated counters installed at fixed monitoring sites."},
+        "data_accessibility_and_availability": {"fact": "Auckland Transport states that released open data are free to use under a Creative Commons Attribution 4.0 licence.", "question": "Under what access condition can the data be reused?", "answer": "They are openly available under CC BY 4.0."},
+        "usage_context": {"fact": "The dataset is used to monitor changes in cycling activity across Auckland's monitored locations.", "question": "What is the direct analytical use of these data?", "answer": "Monitoring cycling activity over time at the instrumented locations."},
+        "dataset_limitations": {"fact": "The fixed network contains 27 selected monitoring sites, so it does not directly observe every cycling trip or every location in Auckland.", "question": "Why should the counts not be interpreted as a complete census of Auckland cycling?", "answer": "They cover selected fixed sites, not every route or cycling trip.", "inference_type": "documented_scope_inference"}
+      }
+    },
+    {
+      "dataset_id": "colombia_bogota_transit",
+      "dataset_name": "Bogotá TransMilenio and SITP GTFS",
+      "country": "Colombia",
+      "region": "South America",
+      "description": "Planned public-transport service data for Bogotá in GTFS format.",
+      "review_status": "draft_needs_human_source_review",
+      "source_urls": ["https://datosabiertos.bogota.gov.co/en/dataset/especificacion-gtfs-general-transport-feed-specification-sitp"],
+      "perspectives": {
+        "provenance": {"fact": "TransMilenio S.A. publishes the Bogotá SITP GTFS dataset through Bogotá's open-data portal.", "question": "Which organization publishes this dataset?", "answer": "TransMilenio S.A."},
+        "spatial_coverage": {"fact": "The dataset describes public-transport services within Bogotá's integrated transport system.", "question": "What geographic transport system does the feed describe?", "answer": "Bogotá's TransMilenio and SITP network."},
+        "temporal_coverage": {"fact": "The portal identifies the dataset as operational planning information and gives it a monthly update frequency.", "question": "How frequently is the dataset scheduled to be updated?", "answer": "Monthly."},
+        "measurement_resolution": {"fact": "The feed represents service at the levels of routes, stops or stations, trips, and service calendars.", "question": "At what operational units is service represented?", "answer": "Routes, stops and stations, trips, and calendar services."},
+        "variable_definitions": {"fact": "The feed contains zonal, trunk, special, complementary and feeder routes, together with stops, stations, trips and calendars.", "question": "Which public-transport components are represented?", "answer": "Several route classes plus stops, stations, trips, and service calendars."},
+        "file_structure_and_documentation": {"fact": "The data are distributed as a ZIP archive following the General Transit Feed Specification.", "question": "How is the Bogotá service dataset structured?", "answer": "As a zipped GTFS feed composed of standardized transit tables."},
+        "collection_methodology": {"fact": "The records describe the planned operation of the existing TransMilenio and SITP fleet rather than a passenger travel survey.", "question": "What kind of information-generation process underlies the feed?", "answer": "Administrative publication of planned transit operations."},
+        "data_accessibility_and_availability": {"fact": "The feed is publicly downloadable under a Creative Commons Attribution-ShareAlike 4.0 licence.", "question": "What are the access and licensing conditions?", "answer": "Public download under CC BY-SA 4.0."},
+        "usage_context": {"fact": "The GTFS supports route, stop, trip and timetable applications for Bogotá's public-transport system.", "question": "What kind of application can directly use this feed?", "answer": "Transit network, timetable, and journey-planning applications."},
+        "dataset_limitations": {"fact": "The static GTFS describes planned service and does not by itself measure actual vehicle adherence, passenger demand, or experienced waiting time.", "question": "What operational outcomes cannot be established from the static feed alone?", "answer": "Actual reliability, ridership, and experienced waiting time.", "inference_type": "format_scope_inference"}
+      }
+    },
+    {
+      "dataset_id": "brazil_sao_paulo_od2017",
+      "dataset_name": "São Paulo Origin-Destination Survey 2017",
+      "country": "Brazil",
+      "region": "South America",
+      "description": "Household origin-destination survey for the São Paulo Metropolitan Region.",
+      "review_status": "draft_needs_human_source_review",
+      "source_urls": [
+        "https://transparencia.metrosp.com.br/dataset/pesquisa-origem-e-destino",
+        "https://transparencia.metrosp.com.br/dataset/resource/989b86c9-5d4b-4686-b584-1eceb10a62cd",
+        "https://www.metro.sp.gov.br/wp-content/uploads/2023/06/Caracterizacao_Socioeconomica_dos_Deslocamentos_2017.pdf"
+      ],
+      "perspectives": {
+        "provenance": {"fact": "The São Paulo Metropolitan Company publishes the 2017 Origin-Destination Survey through its transparency portal.", "question": "Which institution publishes the OD 2017 resources?", "answer": "The São Paulo Metropolitan Company (Metrô)."},
+        "spatial_coverage": {"fact": "The survey characterizes travel in the São Paulo Metropolitan Region.", "question": "What area does the OD 2017 survey cover?", "answer": "The São Paulo Metropolitan Region."},
+        "temporal_coverage": {"fact": "The survey reference year is 2017; fieldwork concluded in October 2018 and final results were presented in July 2019.", "question": "What is the survey's reference year?", "answer": "2017."},
+        "measurement_resolution": {"fact": "The survey records people, households, trips, trip stages, modes, purposes, and origin-destination zones rather than continuous sensor observations.", "question": "What is the principal observational structure?", "answer": "Sampled household, person, trip, and trip-stage records linked to zones."},
+        "variable_definitions": {"fact": "Documented variables include age, sex, education, household income, travel mode, trip purpose, and other trip characteristics.", "question": "Name the major types of variables available.", "answer": "Socioeconomic attributes and trip characteristics such as mode and purpose."},
+        "file_structure_and_documentation": {"fact": "The downloadable archive contains DBF and SAV microdata, an XLSX layout, a variable dictionary, manuals, maps, zone files, and summary tables.", "question": "What documentation accompanies the microdata?", "answer": "Layouts, variable definitions, manuals, maps, zone files, and summary tables."},
+        "collection_methodology": {"fact": "The household survey used a stratified sample based on five household-income strata and approximately 32,000 households.", "question": "What sampling approach was used?", "answer": "A stratified household sample using five income strata and about 32,000 households."},
+        "data_accessibility_and_availability": {"fact": "The database and documentation can be downloaded as a ZIP archive from the Metrô transparency portal; the catalogue does not specify a licence.", "question": "What access and licensing condition is documented?", "answer": "The archive is publicly downloadable, but the catalogue does not specify a licence."},
+        "usage_context": {"fact": "The OD survey supports transport planning, future-demand modelling, project evaluation, and analysis in other public-policy sectors.", "question": "What planning activities does the survey support?", "answer": "Transport planning, demand modelling, project assessment, and related policy analysis."},
+        "dataset_limitations": {"fact": "The estimates come from a sampled household survey for a reference period and therefore should not be treated as continuous observation of every trip in the region.", "question": "What representativeness qualification applies?", "answer": "It is a weighted sample survey, not a continuous census of every trip.", "inference_type": "survey_design_inference"}
+      }
+    },
+    {
+      "dataset_id": "ghana_accra_transit",
+      "dataset_name": "Accra General Transit Feed Specification",
+      "country": "Ghana",
+      "region": "Africa",
+      "description": "Metropolitan public-transport data collected for Accra and distributed by the World Bank.",
+      "review_status": "draft_needs_human_source_review",
+      "source_urls": ["https://datacatalog.worldbank.org/search/dataset/0038230/Accra--Ghana---General-Transit-Feed-Specification--GTFS-"],
+      "perspectives": {
+        "provenance": {"fact": "The World Bank data catalogue distributes the Accra GTFS as part of its transport-data collection.", "question": "Which catalogue distributes this Accra dataset?", "answer": "The World Bank Data Catalog."},
+        "spatial_coverage": {"fact": "The dataset's geographic coverage is Accra, Ghana, at city or metropolitan granularity.", "question": "What area is represented?", "answer": "The Accra metropolitan area in Ghana."},
+        "temporal_coverage": {"fact": "The underlying transport information was collected during May and June 2015.", "question": "When was the Accra transport information collected?", "answer": "May and June 2015."},
+        "measurement_resolution": {"fact": "The feed represents the transit system through route, trip, stop, and schedule-level records.", "question": "What operational units does a GTFS feed represent?", "answer": "Transit routes, trips, stops, and service schedules."},
+        "variable_definitions": {"fact": "The GTFS describes public-transport routes, stops, trips, and related schedule information for Accra.", "question": "What core information is contained in the feed?", "answer": "Routes, stops, trips, and schedule information."},
+        "file_structure_and_documentation": {"fact": "The catalogue provides a GTFS ZIP of about 3 MB and a separate metadata document.", "question": "What resources are distributed?", "answer": "A GTFS ZIP archive and a metadata document."},
+        "collection_methodology": {"fact": "The feed was produced from a dedicated data-collection campaign concerning Accra's transport services.", "question": "How was the information assembled?", "answer": "Through a dedicated metropolitan transport data-collection campaign."},
+        "data_accessibility_and_availability": {"fact": "The World Bank classifies the dataset as public and licenses it under Creative Commons Attribution 4.0.", "question": "What are its access and licence conditions?", "answer": "Public access under CC BY 4.0."},
+        "usage_context": {"fact": "GTFS makes transit information usable by routing, accessibility, mapping, and service-planning applications.", "question": "What applications can use this standardized feed?", "answer": "Transit mapping, routing, accessibility, and service-planning applications."},
+        "dataset_limitations": {"fact": "The feed reflects a collection campaign from 2015 and cannot establish that the represented routes or service patterns remain current.", "question": "What temporal limitation affects present-day use?", "answer": "It is a 2015 snapshot and may not represent the current network.", "inference_type": "documented_date_inference"}
+      }
+    },
+    {
+      "dataset_id": "kenya_nairobi_matatu",
+      "dataset_name": "Nairobi Digital Matatus",
+      "country": "Kenya",
+      "region": "Africa",
+      "description": "Field-mapped informal minibus routes and stops for Nairobi.",
+      "review_status": "draft_needs_human_source_review",
+      "source_urls": ["https://www.digitalmatatus.com/", "https://www.digitalmatatus.com/post20.html"],
+      "perspectives": {
+        "provenance": {"fact": "Digital Matatus was developed through collaboration among the University of Nairobi, Columbia University, MIT, and Nairobi technology partners.", "question": "Who developed the Digital Matatus dataset?", "answer": "A university and technology-sector collaboration led by teams in Nairobi, Columbia, and MIT."},
+        "spatial_coverage": {"fact": "The project maps Nairobi's matatu network; its 2019 update documented more than 140 routes and approximately 4,000 stops.", "question": "What network does the project cover?", "answer": "Nairobi's matatu network, including more than 140 routes and about 4,000 stops in the 2019 update."},
+        "temporal_coverage": {"fact": "Major GTFS releases or updates were produced in 2014, 2017, and 2019.", "question": "Which major collection years are documented?", "answer": "2014, 2017, and 2019."},
+        "measurement_resolution": {"fact": "The project represents individual routes, paths, and stops using field-collected geographic observations.", "question": "At what network units is the informal system represented?", "answer": "Individual matatu routes, route paths, and stops."},
+        "variable_definitions": {"fact": "The modified GTFS contains routes and stops, while fixed calendars, service frequencies, and stable fares may be unavailable for informal services.", "question": "Which conventional transit attributes may be absent or unstable?", "answer": "Fixed calendars, service frequencies, schedules, and fares."},
+        "file_structure_and_documentation": {"fact": "The project distributes GIS and GTFS-compatible data together with maps and methodological documentation.", "question": "What forms of project output are available?", "answer": "GIS data, a modified GTFS feed, transit maps, and methodology documentation."},
+        "collection_methodology": {"fact": "University of Nairobi students rode matatu routes, recorded observations with mobile devices, consulted users and operators, and reviewed results in stakeholder workshops.", "question": "How was the Nairobi network mapped?", "answer": "Through mobile field mapping on vehicles, local consultation, cleaning, and stakeholder review."},
+        "data_accessibility_and_availability": {"fact": "The project states that its data, maps, and applications are freely available to the public.", "question": "How are the project outputs made available?", "answer": "They are released freely for public use."},
+        "usage_context": {"fact": "The data support passenger-routing applications, public transit maps, and planning work including Nairobi's developing BRT system.", "question": "What practical uses are documented?", "answer": "Passenger information, mapping, application development, and transport planning."},
+        "dataset_limitations": {"fact": "Informal matatu routes, stops, fares, and operations can change with traffic, enforcement, demand, weather, and operator practice.", "question": "Why can a conventional static transit representation become outdated?", "answer": "The informal network and its operating practices can change dynamically."}
+      }
+    },
+    {
+      "dataset_id": "spain_madrid_accidents",
+      "dataset_name": "Madrid Traffic Accidents",
+      "country": "Spain",
+      "region": "Southern Europe",
+      "description": "Detailed traffic-accident records published by Madrid's municipal police.",
+      "review_status": "draft_needs_human_source_review",
+      "source_urls": ["https://datos.madrid.es/dataset/300228-0-accidentes-trafico-detalle/information"],
+      "perspectives": {
+        "provenance": {"fact": "Madrid's Municipal Police Directorate is responsible for the traffic-accident dataset.", "question": "Which organization is responsible for the records?", "answer": "Madrid's Municipal Police Directorate."},
+        "spatial_coverage": {"fact": "The dataset covers traffic accidents recorded within the city of Madrid, but neighborhood-level data are not currently provided.", "question": "What spatial area and restriction are documented?", "answer": "Madrid city, without neighborhood-level detail."},
+        "temporal_coverage": {"fact": "The detailed series begins on 1 January 2010 and is updated with recent municipal accident records.", "question": "When does the detailed time series begin?", "answer": "1 January 2010."},
+        "measurement_resolution": {"fact": "The post-2019 data include one record for each person involved in an accident rather than one row per accident event.", "question": "What does one row represent in the current structure?", "answer": "One person involved in an accident."},
+        "variable_definitions": {"fact": "The files describe accident circumstances and involved persons through fields defined in associated structure documentation.", "question": "Where should field meanings be checked?", "answer": "In the associated file-structure documentation for the relevant period."},
+        "file_structure_and_documentation": {"fact": "Annual CSV and XLSX resources are accompanied by separate structure documents for 2010–2018 and 2019 onward.", "question": "Why are two documentation periods needed?", "answer": "The record structure changed beginning in 2019."},
+        "collection_methodology": {"fact": "The records come from traffic accidents registered by Madrid's Municipal Police.", "question": "How do events enter the dataset?", "answer": "Through accident records registered by the Municipal Police."},
+        "data_accessibility_and_availability": {"fact": "The annual files are publicly downloadable under Creative Commons Attribution 4.0.", "question": "What licence governs reuse?", "answer": "CC BY 4.0."},
+        "usage_context": {"fact": "The dataset supports road-safety monitoring and analysis of accident patterns, involved road users, places, and times.", "question": "What planning domain can use these records?", "answer": "Urban road-safety monitoring and analysis."},
+        "dataset_limitations": {"fact": "Post-2019 rows represent people rather than unique crashes, recent records remain provisional for six months, witnesses are excluded, and the pre-2019 inclusion rules differ.", "question": "What must be considered before comparing counts across years?", "answer": "The unit of record, provisional status, exclusions, and the 2019 schema change."}
+      }
+    },
+    {
+      "dataset_id": "greece_athens_transit",
+      "dataset_name": "Athens Bus and Trolley Routes",
+      "country": "Greece",
+      "region": "Southern Europe",
+      "description": "Athens bus and trolley routes and stops published in GTFS format.",
+      "review_status": "draft_needs_human_source_review",
+      "source_urls": ["https://catalog.growthfund.gr/dataset/956ed989-1e5c-4766-8289-a27373071f0f", "https://www.oasa.gr/en/"],
+      "perspectives": {
+        "provenance": {"fact": "Athens Urban Transport Organisation and Athens Transport publish the bus and trolley route dataset.", "question": "Which transport organization provides the dataset?", "answer": "Athens Urban Transport Organisation (OASA/Athens Transport)."},
+        "spatial_coverage": {"fact": "The dataset covers urban bus and trolley services in Athens and the Attica public-transport service area.", "question": "What transport area is represented?", "answer": "Athens and its Attica urban transport service area."},
+        "temporal_coverage": {"fact": "The catalogue provides a current static service feed; it does not establish a continuous archive of observed vehicle operations.", "question": "What kind of temporal coverage is supplied?", "answer": "A current static service description, not a continuous operational history."},
+        "measurement_resolution": {"fact": "The feed represents scheduled service through individual routes, stops, trips, and stop times.", "question": "At what units is scheduled service represented?", "answer": "Routes, stops, trips, and scheduled stop times."},
+        "variable_definitions": {"fact": "The documented dataset contains bus and trolley routes and their stops in Athens.", "question": "Which modes and network elements are explicitly covered?", "answer": "Bus and trolley routes and stops."},
+        "file_structure_and_documentation": {"fact": "The service information is supplied using standardized General Transit Feed Specification tables in a ZIP feed.", "question": "What data structure is used?", "answer": "A zipped static GTFS feed."},
+        "collection_methodology": {"fact": "The feed is an administrative representation of planned public-transport service, not a sampled household or passenger survey.", "question": "What type of source process produces the data?", "answer": "Administrative publication of planned service information.", "inference_type": "dataset_type_inference"},
+        "data_accessibility_and_availability": {"fact": "The dataset catalogue makes the feed downloadable under Creative Commons Attribution 4.0.", "question": "Under what licence is the feed available?", "answer": "CC BY 4.0."},
+        "usage_context": {"fact": "The feed can support maps, timetable displays, route search, and scheduled-transit analysis.", "question": "What applications are supported by the static feed?", "answer": "Transit mapping, timetable, routing, and scheduled-service analysis."},
+        "dataset_limitations": {"fact": "Static routes and schedules do not by themselves measure vehicle positions, actual arrival times, crowding, ridership, or service reliability.", "question": "What cannot be evaluated from the static feed alone?", "answer": "Observed operations, reliability, crowding, and ridership.", "inference_type": "format_scope_inference"}
+      }
+    },
+    {
+      "dataset_id": "iceland_road_traffic",
+      "dataset_name": "Vegagerðin Traffic Statistics",
+      "country": "Iceland",
+      "region": "Northern Europe",
+      "description": "Measured and estimated traffic statistics for Iceland's national road network.",
+      "review_status": "draft_needs_human_source_review",
+      "source_urls": ["https://www.vegagerdin.is/en/the-transportation-system/the-road-system/traffic-statistics"],
+      "perspectives": {
+        "provenance": {"fact": "The Icelandic Road and Coastal Administration, Vegagerðin, measures and publishes Iceland's national-road traffic statistics.", "question": "Which agency publishes the statistics?", "answer": "The Icelandic Road and Coastal Administration (Vegagerðin)."},
+        "spatial_coverage": {"fact": "Traffic averages cover most of Iceland's national road network and are organized by road sections, subsections, and seven counting regions; local roads are generally excluded.", "question": "What network does the publication cover?", "answer": "Most national roads, organized into sections and regions, generally excluding local roads."},
+        "temporal_coverage": {"fact": "Structured measurements began in the mid-1960s; downloadable traffic-average files are available from 2000 and reviewed daily counter data from 2019.", "question": "What historical periods are documented for downloadable products?", "answer": "Traffic averages from 2000 and reviewed daily counter data from 2019."},
+        "measurement_resolution": {"fact": "Published measures include AADT, summer daily traffic, winter daily traffic, vehicle-kilometres travelled, daily counts, and at some sites hourly, 15-minute, or 10-minute values.", "question": "What temporal resolutions and summary measures are available?", "answer": "Annual and seasonal averages, daily counts, and finer subdaily counts at capable stations."},
+        "variable_definitions": {"fact": "AADT is average vehicles per day over the year; SDT covers June–September; WDT covers January–March and December; VKT measures annual vehicle-kilometres.", "question": "How do AADT, SDT, WDT, and VKT differ?", "answer": "They represent annual daily traffic, summer daily traffic, winter daily traffic, and vehicle-kilometres travelled."},
+        "file_structure_and_documentation": {"fact": "The agency provides Excel traffic averages, reviewed counter data in PDF and text formats, an interactive map, definitions, and calculation methodology.", "question": "What publication formats accompany the traffic statistics?", "answer": "Excel, PDF, text, an interactive map, and methodology documentation."},
+        "collection_methodology": {"fact": "About 300 annual sites use communicating or non-communicating counters, while approximately 200 short-term sites are counted each year and adjusted using comparable permanent stations.", "question": "How are permanent and short-term counts combined?", "answer": "Permanent counters provide continuous references and short-term counts are adjusted using comparable permanent sites."},
+        "data_accessibility_and_availability": {"fact": "Traffic averages and reviewed counts are published online, although the interactive traffic map itself is available only in Icelandic.", "question": "What access condition affects the interactive product?", "answer": "The data products are online, but the interactive map is Icelandic-only."},
+        "usage_context": {"fact": "The statistics support road and bridge design, environmental and economic assessment, safety analysis, maintenance funding, and project prioritization.", "question": "Name the principal planning uses.", "answer": "Infrastructure design, safety and environmental analysis, funding, maintenance, and project prioritization."},
+        "dataset_limitations": {"fact": "Most road sections lack continuous counters; estimates rely on reference stations, short-term sites may be revisited only every four to seven years, equipment can fail, and low-volume summer roads have lower accuracy.", "question": "Why are published traffic averages not equally precise everywhere?", "answer": "Many sections are estimated from intermittent counts and reference stations, with equipment and low-volume accuracy limitations."}
+      }
+    },
+    {
+      "dataset_id": "sweden_stockholm_traffic_flow",
+      "dataset_name": "Stockholm Traffic Flow Open Data",
+      "country": "Sweden",
+      "region": "Northern Europe",
+      "description": "Municipal geospatial layers for pedestrian, bicycle, motor-vehicle, and annual traffic flow.",
+      "review_status": "draft_needs_human_source_review",
+      "source_urls": ["https://openstreetws.stockholm.se/home/Data"],
+      "perspectives": {
+        "provenance": {"fact": "Stockholm's Traffic Office exposes the traffic-flow datasets through the city's open-data services.", "question": "Which municipal office provides the data?", "answer": "Stockholm's Traffic Office."},
+        "spatial_coverage": {"fact": "The data describe traffic-related objects and measurements within Stockholm municipality and its local road database.", "question": "What geographic system is represented?", "answer": "Stockholm's municipal street and traffic system."},
+        "temporal_coverage": {"fact": "The catalogue includes annual traffic as well as traffic-flow layers, but the catalogue page does not state a common historical period for every layer.", "question": "Is one shared historical period documented for all traffic-flow layers?", "answer": "No; temporal coverage must be checked in each layer's metadata."},
+        "measurement_resolution": {"fact": "Pedestrian, bicycle, and motor-vehicle flows are exposed as separate datasets associated with mapped traffic objects or observation locations.", "question": "How are modes separated in the catalogue?", "answer": "Pedestrian, bicycle, and motor-vehicle flows are separate layers."},
+        "variable_definitions": {"fact": "The catalogue distinguishes bicycle flow, pedestrian flow, motor-vehicle flow, annual traffic, and related counter and network objects.", "question": "Which traffic-flow categories are explicitly listed?", "answer": "Bicycle, pedestrian, motor-vehicle, and annual traffic."},
+        "file_structure_and_documentation": {"fact": "Road-network-related layers are exposed through OGC API Features and WMS/WFS services, with separate map and metadata links.", "question": "Through which technical services are the layers exposed?", "answer": "OGC API Features and WMS/WFS, supported by map and metadata links."},
+        "collection_methodology": {"fact": "The catalogue includes physical bicycle-counter objects and separate modal flow layers; detailed collection methods must be verified in each layer's metadata.", "question": "Where must the collection method for a particular flow layer be verified?", "answer": "In that layer's associated metadata, not from the catalogue list alone."},
+        "data_accessibility_and_availability": {"fact": "The municipal portal provides open-data services and an API-key request mechanism; availability differs by service and layer.", "question": "What access arrangement does the portal use?", "answer": "Open geospatial services with an API-key mechanism and layer-specific availability."},
+        "usage_context": {"fact": "The layers can support modal-flow mapping, street and cycling planning, traffic management, and comparison with related infrastructure objects.", "question": "What municipal analyses can these layers support?", "answer": "Mapped modal-flow analysis and street, cycling, and traffic planning."},
+        "dataset_limitations": {"fact": "The catalogue warns that the future availability of some national-road-database layers is unsettled during an infrastructure change, and metadata differ across individual flow layers.", "question": "What availability limitation is documented?", "answer": "Some underlying layers face infrastructure-transition uncertainty and require layer-specific metadata checks."}
+      }
+    }
+  ]
+}

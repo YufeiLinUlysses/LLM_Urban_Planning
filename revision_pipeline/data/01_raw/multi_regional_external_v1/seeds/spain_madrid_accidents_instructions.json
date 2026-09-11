@@ -1,0 +1,358 @@
+{
+  "dataset_name": "Madrid Traffic Accidents",
+  "dataset_link": "https://datos.madrid.es/dataset/300228-0-accidentes-trafico-detalle/information",
+  "dataset_description": "Detailed traffic-accident records published by Madrid's municipal police.",
+  "instructions": [
+    {
+      "Instruction information": {
+        "Categories": "Multiple Selection"
+      },
+      "Task_Definition": "Select one supported option and provide its letter.",
+      "Positive Example": [
+        {
+          "Fact": "Madrid's Municipal Police Directorate is responsible for the traffic-accident dataset.",
+          "Question": "Which organization is responsible for the records?",
+          "Selections": {
+            "A": "The City of Melbourne.",
+            "B": "Auckland Transport.",
+            "C": "Madrid's Municipal Police Directorate.",
+            "D": "TransMilenio S.A."
+          },
+          "Output": "C",
+          "Explanation": "Madrid's Municipal Police Directorate is responsible for publishing or maintaining the dataset.",
+          "Level": 1
+        },
+        {
+          "Fact": "The dataset covers traffic accidents recorded within the city of Madrid, but neighborhood-level data are not currently provided.",
+          "Question": "What spatial area and restriction are documented?",
+          "Selections": {
+            "A": "Selected sensor locations in central Melbourne rather than complete citywide coverage.",
+            "B": "Madrid city, without neighborhood-level detail.",
+            "C": "Twenty-seven sites: 13 city-centre and 14 regional sites.",
+            "D": "Bogotá's TransMilenio and SITP network."
+          },
+          "Output": "B",
+          "Explanation": "The data cover the following geographic area: Madrid city, without neighborhood-level detail.",
+          "Level": 1
+        },
+        {
+          "Fact": "The detailed series begins on 1 January 2010 and is updated with recent municipal accident records.",
+          "Question": "When does the detailed time series begin?",
+          "Selections": {
+            "A": "It begins in 2009.",
+            "B": "Daily counts are compiled monthly.",
+            "C": "1 January 2010.",
+            "D": "Monthly."
+          },
+          "Output": "C",
+          "Explanation": "The available records have this time coverage: 1 January 2010.",
+          "Level": 1
+        },
+        {
+          "Fact": "The post-2019 data include one record for each person involved in an accident rather than one row per accident event.",
+          "Question": "What does one row represent in the current structure?",
+          "Selections": {
+            "A": "Hourly counts by sensor.",
+            "B": "Daily cycle-trip totals.",
+            "C": "One person involved in an accident.",
+            "D": "Routes, stops and stations, trips, and calendar services."
+          },
+          "Output": "C",
+          "Explanation": "The data use this reporting resolution: One person involved in an accident.",
+          "Level": 1
+        },
+        {
+          "Fact": "The files describe accident circumstances and involved persons through fields defined in associated structure documentation.",
+          "Question": "Where should field meanings be checked?",
+          "Selections": {
+            "A": "Time, sensor identity and location, directional counts, and total pedestrian movements.",
+            "B": "In the associated file-structure documentation for the relevant period.",
+            "C": "The number of observed cycle trips at monitored sites by date.",
+            "D": "Several route classes plus stops, stations, trips, and service calendars."
+          },
+          "Output": "B",
+          "Explanation": "Each record describes: In the associated file-structure documentation for the relevant period.",
+          "Level": 1
+        },
+        {
+          "Fact": "Annual CSV and XLSX resources are accompanied by separate structure documents for 2010–2018 and 2019 onward.",
+          "Question": "Why are two documentation periods needed?",
+          "Selections": {
+            "A": "By joining the count and sensor-location tables on the sensor identifier.",
+            "B": "CSV.",
+            "C": "The record structure changed beginning in 2019.",
+            "D": "As a zipped GTFS feed composed of standardized transit tables."
+          },
+          "Output": "C",
+          "Explanation": "The dataset uses this file organization: The record structure changed beginning in 2019.",
+          "Level": 1
+        },
+        {
+          "Fact": "The records come from traffic accidents registered by Madrid's Municipal Police.",
+          "Question": "How do events enter the dataset?",
+          "Selections": {
+            "A": "Through accident records registered by the Municipal Police.",
+            "B": "Fixed sensors count bidirectional movements through a footpath zone without collecting images.",
+            "C": "With automated counters installed at fixed monitoring sites.",
+            "D": "Administrative publication of planned transit operations."
+          },
+          "Output": "A",
+          "Explanation": "The observations were gathered using this method: Through accident records registered by the Municipal Police.",
+          "Level": 1
+        },
+        {
+          "Fact": "The annual files are publicly downloadable under Creative Commons Attribution 4.0.",
+          "Question": "What licence governs reuse?",
+          "Selections": {
+            "A": "CC BY 4.0.",
+            "B": "Through downloads or the open-data API under a CC BY licence.",
+            "C": "They are openly available under CC BY 4.0.",
+            "D": "Public download under CC BY-SA 4.0."
+          },
+          "Output": "A",
+          "Explanation": "The stated access terms are: CC BY 4.0.",
+          "Level": 1
+        },
+        {
+          "Fact": "The dataset supports road-safety monitoring and analysis of accident patterns, involved road users, places, and times.",
+          "Question": "What planning domain can use these records?",
+          "Selections": {
+            "A": "Urban road-safety monitoring and analysis.",
+            "B": "Comparing pedestrian activity across monitored places and times to support planning.",
+            "C": "Monitoring cycling activity over time at the instrumented locations.",
+            "D": "Transit network, timetable, and journey-planning applications."
+          },
+          "Output": "A",
+          "Explanation": "The data support this use: Urban road-safety monitoring and analysis.",
+          "Level": 1
+        },
+        {
+          "Fact": "Post-2019 rows represent people rather than unique crashes, recent records remain provisional for six months, witnesses are excluded, and the pre-2019 inclusion rules differ.",
+          "Question": "What must be considered before comparing counts across years?",
+          "Selections": {
+            "A": "Sensor relocation, inactivity, removal, and missing readings can disrupt comparability.",
+            "B": "They cover selected fixed sites, not every route or cycling trip.",
+            "C": "The unit of record, provisional status, exclusions, and the 2019 schema change.",
+            "D": "Actual reliability, ridership, and experienced waiting time."
+          },
+          "Output": "C",
+          "Explanation": "The stated limitation is: The unit of record, provisional status, exclusions, and the 2019 schema change.",
+          "Level": 1
+        },
+        {
+          "Fact": "The dataset covers traffic accidents recorded within the city of Madrid, but neighborhood-level data are not currently provided. The post-2019 data include one record for each person involved in an accident rather than one row per accident event.",
+          "Question": "How should the documented spatial coverage and measurement resolution be considered together?",
+          "Selections": {
+            "A": "Selected sensor locations in central Melbourne rather than complete citywide coverage. Hourly counts by sensor.",
+            "B": "Twenty-seven sites: 13 city-centre and 14 regional sites. Daily cycle-trip totals.",
+            "C": "Madrid city, without neighborhood-level detail. One person involved in an accident.",
+            "D": "Bogotá's TransMilenio and SITP network. Routes, stops and stations, trips, and calendar services."
+          },
+          "Output": "C",
+          "Explanation": "The conclusion combines two independently documented properties of Madrid Traffic Accidents: Madrid city, without neighborhood-level detail. One person involved in an accident.",
+          "Level": 2
+        },
+        {
+          "Fact": "The detailed series begins on 1 January 2010 and is updated with recent municipal accident records. The records come from traffic accidents registered by Madrid's Municipal Police.",
+          "Question": "How should the documented temporal coverage and collection methodology be considered together?",
+          "Selections": {
+            "A": "It begins in 2009. Fixed sensors count bidirectional movements through a footpath zone without collecting images.",
+            "B": "Daily counts are compiled monthly. With automated counters installed at fixed monitoring sites.",
+            "C": "1 January 2010. Through accident records registered by the Municipal Police.",
+            "D": "Monthly. Administrative publication of planned transit operations."
+          },
+          "Output": "C",
+          "Explanation": "The conclusion combines two independently documented properties of Madrid Traffic Accidents: 1 January 2010. Through accident records registered by the Municipal Police.",
+          "Level": 2
+        },
+        {
+          "Fact": "The files describe accident circumstances and involved persons through fields defined in associated structure documentation. Annual CSV and XLSX resources are accompanied by separate structure documents for 2010–2018 and 2019 onward.",
+          "Question": "How should the documented variable definitions and file structure and documentation be considered together?",
+          "Selections": {
+            "A": "Time, sensor identity and location, directional counts, and total pedestrian movements. By joining the count and sensor-location tables on the sensor identifier.",
+            "B": "The number of observed cycle trips at monitored sites by date. CSV.",
+            "C": "In the associated file-structure documentation for the relevant period. The record structure changed beginning in 2019.",
+            "D": "Several route classes plus stops, stations, trips, and service calendars. As a zipped GTFS feed composed of standardized transit tables."
+          },
+          "Output": "C",
+          "Explanation": "The conclusion combines two independently documented properties of Madrid Traffic Accidents: In the associated file-structure documentation for the relevant period. The record structure changed beginning in 2019.",
+          "Level": 2
+        },
+        {
+          "Fact": "The annual files are publicly downloadable under Creative Commons Attribution 4.0. The dataset supports road-safety monitoring and analysis of accident patterns, involved road users, places, and times.",
+          "Question": "How should the documented data accessibility and availability and usage context be considered together?",
+          "Selections": {
+            "A": "Through downloads or the open-data API under a CC BY licence. Comparing pedestrian activity across monitored places and times to support planning.",
+            "B": "They are openly available under CC BY 4.0. Monitoring cycling activity over time at the instrumented locations.",
+            "C": "CC BY 4.0. Urban road-safety monitoring and analysis.",
+            "D": "Public download under CC BY-SA 4.0. Transit network, timetable, and journey-planning applications."
+          },
+          "Output": "C",
+          "Explanation": "The conclusion combines two independently documented properties of Madrid Traffic Accidents: CC BY 4.0. Urban road-safety monitoring and analysis.",
+          "Level": 2
+        },
+        {
+          "Fact": "The post-2019 data include one record for each person involved in an accident rather than one row per accident event. Post-2019 rows represent people rather than unique crashes, recent records remain provisional for six months, witnesses are excluded, and the pre-2019 inclusion rules differ.",
+          "Question": "How should the documented measurement resolution and dataset limitations be considered together?",
+          "Selections": {
+            "A": "Hourly counts by sensor. Sensor relocation, inactivity, removal, and missing readings can disrupt comparability.",
+            "B": "One person involved in an accident. The unit of record, provisional status, exclusions, and the 2019 schema change.",
+            "C": "Daily cycle-trip totals. They cover selected fixed sites, not every route or cycling trip.",
+            "D": "Routes, stops and stations, trips, and calendar services. Actual reliability, ridership, and experienced waiting time."
+          },
+          "Output": "B",
+          "Explanation": "The conclusion combines two independently documented properties of Madrid Traffic Accidents: One person involved in an accident. The unit of record, provisional status, exclusions, and the 2019 schema change.",
+          "Level": 2
+        }
+      ]
+    },
+    {
+      "Instruction information": {
+        "Categories": "Question answering"
+      },
+      "Task_Definition": "Answer using only the supplied dataset context.",
+      "Positive Example": [
+        {
+          "Fact": "Madrid's Municipal Police Directorate is responsible for the traffic-accident dataset.",
+          "Question": "Which organization is responsible for the records?",
+          "Output": "Madrid's Municipal Police Directorate.",
+          "Explanation": "Madrid's Municipal Police Directorate is responsible for publishing or maintaining the dataset.",
+          "Level": 1
+        },
+        {
+          "Fact": "The dataset covers traffic accidents recorded within the city of Madrid, but neighborhood-level data are not currently provided.",
+          "Question": "What spatial area and restriction are documented?",
+          "Output": "Madrid city, without neighborhood-level detail.",
+          "Explanation": "The data cover the following geographic area: Madrid city, without neighborhood-level detail.",
+          "Level": 1
+        },
+        {
+          "Fact": "The detailed series begins on 1 January 2010 and is updated with recent municipal accident records.",
+          "Question": "When does the detailed time series begin?",
+          "Output": "1 January 2010.",
+          "Explanation": "The available records have this time coverage: 1 January 2010.",
+          "Level": 1
+        },
+        {
+          "Fact": "The post-2019 data include one record for each person involved in an accident rather than one row per accident event.",
+          "Question": "What does one row represent in the current structure?",
+          "Output": "One person involved in an accident.",
+          "Explanation": "The data use this reporting resolution: One person involved in an accident.",
+          "Level": 1
+        },
+        {
+          "Fact": "The files describe accident circumstances and involved persons through fields defined in associated structure documentation.",
+          "Question": "Where should field meanings be checked?",
+          "Output": "In the associated file-structure documentation for the relevant period.",
+          "Explanation": "Each record describes: In the associated file-structure documentation for the relevant period.",
+          "Level": 1
+        },
+        {
+          "Fact": "Annual CSV and XLSX resources are accompanied by separate structure documents for 2010–2018 and 2019 onward.",
+          "Question": "Why are two documentation periods needed?",
+          "Output": "The record structure changed beginning in 2019.",
+          "Explanation": "The dataset uses this file organization: The record structure changed beginning in 2019.",
+          "Level": 1
+        },
+        {
+          "Fact": "The records come from traffic accidents registered by Madrid's Municipal Police.",
+          "Question": "How do events enter the dataset?",
+          "Output": "Through accident records registered by the Municipal Police.",
+          "Explanation": "The observations were gathered using this method: Through accident records registered by the Municipal Police.",
+          "Level": 1
+        },
+        {
+          "Fact": "The annual files are publicly downloadable under Creative Commons Attribution 4.0.",
+          "Question": "What licence governs reuse?",
+          "Output": "CC BY 4.0.",
+          "Explanation": "The stated access terms are: CC BY 4.0.",
+          "Level": 1
+        },
+        {
+          "Fact": "The dataset supports road-safety monitoring and analysis of accident patterns, involved road users, places, and times.",
+          "Question": "What planning domain can use these records?",
+          "Output": "Urban road-safety monitoring and analysis.",
+          "Explanation": "The data support this use: Urban road-safety monitoring and analysis.",
+          "Level": 1
+        },
+        {
+          "Fact": "Post-2019 rows represent people rather than unique crashes, recent records remain provisional for six months, witnesses are excluded, and the pre-2019 inclusion rules differ.",
+          "Question": "What must be considered before comparing counts across years?",
+          "Output": "The unit of record, provisional status, exclusions, and the 2019 schema change.",
+          "Explanation": "The stated limitation is: The unit of record, provisional status, exclusions, and the 2019 schema change.",
+          "Level": 1
+        },
+        {
+          "Fact": "The dataset covers traffic accidents recorded within the city of Madrid, but neighborhood-level data are not currently provided. The post-2019 data include one record for each person involved in an accident rather than one row per accident event.",
+          "Question": "How should the documented spatial coverage and measurement resolution be considered together?",
+          "Output": "Madrid city, without neighborhood-level detail. One person involved in an accident.",
+          "Explanation": "The conclusion combines two independently documented properties of Madrid Traffic Accidents: Madrid city, without neighborhood-level detail. One person involved in an accident.",
+          "Level": 2
+        },
+        {
+          "Fact": "The detailed series begins on 1 January 2010 and is updated with recent municipal accident records. The records come from traffic accidents registered by Madrid's Municipal Police.",
+          "Question": "How should the documented temporal coverage and collection methodology be considered together?",
+          "Output": "1 January 2010. Through accident records registered by the Municipal Police.",
+          "Explanation": "The conclusion combines two independently documented properties of Madrid Traffic Accidents: 1 January 2010. Through accident records registered by the Municipal Police.",
+          "Level": 2
+        },
+        {
+          "Fact": "The files describe accident circumstances and involved persons through fields defined in associated structure documentation. Annual CSV and XLSX resources are accompanied by separate structure documents for 2010–2018 and 2019 onward.",
+          "Question": "How should the documented variable definitions and file structure and documentation be considered together?",
+          "Output": "In the associated file-structure documentation for the relevant period. The record structure changed beginning in 2019.",
+          "Explanation": "The conclusion combines two independently documented properties of Madrid Traffic Accidents: In the associated file-structure documentation for the relevant period. The record structure changed beginning in 2019.",
+          "Level": 2
+        },
+        {
+          "Fact": "The annual files are publicly downloadable under Creative Commons Attribution 4.0. The dataset supports road-safety monitoring and analysis of accident patterns, involved road users, places, and times.",
+          "Question": "How should the documented data accessibility and availability and usage context be considered together?",
+          "Output": "CC BY 4.0. Urban road-safety monitoring and analysis.",
+          "Explanation": "The conclusion combines two independently documented properties of Madrid Traffic Accidents: CC BY 4.0. Urban road-safety monitoring and analysis.",
+          "Level": 2
+        },
+        {
+          "Fact": "The post-2019 data include one record for each person involved in an accident rather than one row per accident event. Post-2019 rows represent people rather than unique crashes, recent records remain provisional for six months, witnesses are excluded, and the pre-2019 inclusion rules differ.",
+          "Question": "How should the documented measurement resolution and dataset limitations be considered together?",
+          "Output": "One person involved in an accident. The unit of record, provisional status, exclusions, and the 2019 schema change.",
+          "Explanation": "The conclusion combines two independently documented properties of Madrid Traffic Accidents: One person involved in an accident. The unit of record, provisional status, exclusions, and the 2019 schema change.",
+          "Level": 2
+        },
+        {
+          "Fact": "The dataset supports road-safety monitoring and analysis of accident patterns, involved road users, places, and times. Post-2019 rows represent people rather than unique crashes, recent records remain provisional for six months, witnesses are excluded, and the pre-2019 inclusion rules differ.",
+          "Question": "What planning use is supported, and what limitation must qualify that use?",
+          "Output": "Urban road-safety monitoring and analysis. However, The unit of record, provisional status, exclusions, and the 2019 schema change.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        },
+        {
+          "Fact": "The dataset covers traffic accidents recorded within the city of Madrid, but neighborhood-level data are not currently provided. Post-2019 rows represent people rather than unique crashes, recent records remain provisional for six months, witnesses are excluded, and the pre-2019 inclusion rules differ.",
+          "Question": "What limits the geographic or population representativeness of this dataset?",
+          "Output": "Madrid city, without neighborhood-level detail. However, The unit of record, provisional status, exclusions, and the 2019 schema change.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        },
+        {
+          "Fact": "The detailed series begins on 1 January 2010 and is updated with recent municipal accident records. The post-2019 data include one record for each person involved in an accident rather than one row per accident event.",
+          "Question": "What temporal inference is justified, and what temporal inference should be avoided?",
+          "Output": "1 January 2010. However, One person involved in an accident.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        },
+        {
+          "Fact": "The files describe accident circumstances and involved persons through fields defined in associated structure documentation. The records come from traffic accidents registered by Madrid's Municipal Police.",
+          "Question": "How does the collection method affect interpretation of the recorded variables?",
+          "Output": "In the associated file-structure documentation for the relevant period. However, Through accident records registered by the Municipal Police.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        },
+        {
+          "Fact": "Madrid's Municipal Police Directorate is responsible for the traffic-accident dataset. The annual files are publicly downloadable under Creative Commons Attribution 4.0.",
+          "Question": "What supports reproducible reuse, and what access or governance condition remains?",
+          "Output": "Madrid's Municipal Police Directorate. However, CC BY 4.0.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        }
+      ]
+    }
+  ]
+}

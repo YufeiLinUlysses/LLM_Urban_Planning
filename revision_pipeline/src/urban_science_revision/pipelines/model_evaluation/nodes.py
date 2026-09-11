@@ -22,15 +22,17 @@ PartitionValue = dict[str, Any] | Callable[[], dict[str, Any]]
 
 
 def _materialize_records(
-    partitions: Mapping[str, PartitionValue], scope: str
+    partitions: Mapping[str, PartitionValue], scope: str, *, allow_empty: bool = False
 ) -> list[dict[str, Any]]:
-    wanted_split = "test" if scope == "in_domain" else "cross_regional"
+    if scope not in {"in_domain", "cross_regional", "multi_regional"}:
+        raise ValueError(f"Unsupported evaluation scope {scope!r}")
+    wanted_split = "test" if scope == "in_domain" else scope
     rows: list[dict[str, Any]] = []
     for value in partitions.values():
         dataset = value() if callable(value) else value
-        if dataset.get("split") == wanted_split:
+        if scope == "multi_regional" or dataset.get("split") == wanted_split:
             rows.extend(dict(row) for row in dataset.get("records", []))
-    if not rows:
+    if not rows and not allow_empty:
         raise ValueError(f"No evaluation rows found for scope {scope!r}")
     return rows
 
@@ -627,7 +629,7 @@ def evaluate_and_publish_model(
     scope = parameters["dataset_scope"]
     generation = _materialize_records(generation_partitions, scope)
     verification = _materialize_records(verification_partitions, scope)
-    paraphrase = _materialize_records(paraphrase_partitions, scope)
+    paraphrase = _materialize_records(paraphrase_partitions, scope, allow_empty=True)
     model, tokenizer = _load_model(model_registry[model_key], parameters)
 
     answer_predictions, answer_latency = _generate(
@@ -650,7 +652,7 @@ def evaluate_and_publish_model(
     )
     rows.extend(verification_rows)
 
-    if parameters.get("evaluate_paraphrase", True):
+    if parameters.get("evaluate_paraphrase", True) and paraphrase:
         paraphrase_parameters = {
             **parameters,
             "max_new_tokens": parameters.get(

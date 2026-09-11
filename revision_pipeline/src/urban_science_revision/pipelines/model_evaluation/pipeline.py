@@ -24,3 +24,26 @@ def create_pipeline(**kwargs: object) -> Pipeline:
             )
         ]
     )
+
+
+def create_multi_regional_pipeline(**kwargs: object) -> Pipeline:
+    """Evaluate only the isolated ten-dataset multi-regional benchmark."""
+
+    del kwargs
+    return pipeline(
+        [
+            node(
+                evaluate_and_publish_model,
+                inputs=[
+                    "multi_regional_generation_datasets",
+                    "multi_regional_verification_datasets",
+                    "multi_regional_paraphrase_datasets",
+                    "multi_regional_evaluation_manifest",
+                    "params:models",
+                    "params:evaluation",
+                ],
+                outputs="model_evaluation_receipt",
+                name="evaluate_multi_regional_model",
+            )
+        ]
+    )

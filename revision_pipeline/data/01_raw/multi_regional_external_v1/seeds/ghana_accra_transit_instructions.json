@@ -1,0 +1,358 @@
+{
+  "dataset_name": "Accra General Transit Feed Specification",
+  "dataset_link": "https://datacatalog.worldbank.org/search/dataset/0038230/Accra--Ghana---General-Transit-Feed-Specification--GTFS-",
+  "dataset_description": "Metropolitan public-transport data collected for Accra and distributed by the World Bank.",
+  "instructions": [
+    {
+      "Instruction information": {
+        "Categories": "Multiple Selection"
+      },
+      "Task_Definition": "Select one supported option and provide its letter.",
+      "Positive Example": [
+        {
+          "Fact": "The World Bank data catalogue distributes the Accra GTFS as part of its transport-data collection.",
+          "Question": "Which catalogue distributes this Accra dataset?",
+          "Selections": {
+            "A": "The City of Melbourne.",
+            "B": "Auckland Transport.",
+            "C": "TransMilenio S.A.",
+            "D": "The World Bank Data Catalog."
+          },
+          "Output": "D",
+          "Explanation": "The World Bank Data Catalog is responsible for publishing or maintaining the dataset.",
+          "Level": 1
+        },
+        {
+          "Fact": "The dataset's geographic coverage is Accra, Ghana, at city or metropolitan granularity.",
+          "Question": "What area is represented?",
+          "Selections": {
+            "A": "Selected sensor locations in central Melbourne rather than complete citywide coverage.",
+            "B": "Twenty-seven sites: 13 city-centre and 14 regional sites.",
+            "C": "The Accra metropolitan area in Ghana.",
+            "D": "Bogotá's TransMilenio and SITP network."
+          },
+          "Output": "C",
+          "Explanation": "The data cover the following geographic area: The Accra metropolitan area in Ghana.",
+          "Level": 1
+        },
+        {
+          "Fact": "The underlying transport information was collected during May and June 2015.",
+          "Question": "When was the Accra transport information collected?",
+          "Selections": {
+            "A": "May and June 2015.",
+            "B": "It begins in 2009.",
+            "C": "Daily counts are compiled monthly.",
+            "D": "Monthly."
+          },
+          "Output": "A",
+          "Explanation": "The available records have this time coverage: May and June 2015.",
+          "Level": 1
+        },
+        {
+          "Fact": "The feed represents the transit system through route, trip, stop, and schedule-level records.",
+          "Question": "What operational units does a GTFS feed represent?",
+          "Selections": {
+            "A": "Transit routes, trips, stops, and service schedules.",
+            "B": "Hourly counts by sensor.",
+            "C": "Daily cycle-trip totals.",
+            "D": "Routes, stops and stations, trips, and calendar services."
+          },
+          "Output": "A",
+          "Explanation": "The data use this reporting resolution: Transit routes, trips, stops, and service schedules.",
+          "Level": 1
+        },
+        {
+          "Fact": "The GTFS describes public-transport routes, stops, trips, and related schedule information for Accra.",
+          "Question": "What core information is contained in the feed?",
+          "Selections": {
+            "A": "Time, sensor identity and location, directional counts, and total pedestrian movements.",
+            "B": "The number of observed cycle trips at monitored sites by date.",
+            "C": "Several route classes plus stops, stations, trips, and service calendars.",
+            "D": "Routes, stops, trips, and schedule information."
+          },
+          "Output": "D",
+          "Explanation": "Each record describes: Routes, stops, trips, and schedule information.",
+          "Level": 1
+        },
+        {
+          "Fact": "The catalogue provides a GTFS ZIP of about 3 MB and a separate metadata document.",
+          "Question": "What resources are distributed?",
+          "Selections": {
+            "A": "By joining the count and sensor-location tables on the sensor identifier.",
+            "B": "CSV.",
+            "C": "A GTFS ZIP archive and a metadata document.",
+            "D": "As a zipped GTFS feed composed of standardized transit tables."
+          },
+          "Output": "C",
+          "Explanation": "The dataset uses this file organization: A GTFS ZIP archive and a metadata document.",
+          "Level": 1
+        },
+        {
+          "Fact": "The feed was produced from a dedicated data-collection campaign concerning Accra's transport services.",
+          "Question": "How was the information assembled?",
+          "Selections": {
+            "A": "Fixed sensors count bidirectional movements through a footpath zone without collecting images.",
+            "B": "Through a dedicated metropolitan transport data-collection campaign.",
+            "C": "With automated counters installed at fixed monitoring sites.",
+            "D": "Administrative publication of planned transit operations."
+          },
+          "Output": "B",
+          "Explanation": "The observations were gathered using this method: Through a dedicated metropolitan transport data-collection campaign.",
+          "Level": 1
+        },
+        {
+          "Fact": "The World Bank classifies the dataset as public and licenses it under Creative Commons Attribution 4.0.",
+          "Question": "What are its access and licence conditions?",
+          "Selections": {
+            "A": "Through downloads or the open-data API under a CC BY licence.",
+            "B": "They are openly available under CC BY 4.0.",
+            "C": "Public download under CC BY-SA 4.0.",
+            "D": "Public access under CC BY 4.0."
+          },
+          "Output": "D",
+          "Explanation": "The stated access terms are: Public access under CC BY 4.0.",
+          "Level": 1
+        },
+        {
+          "Fact": "GTFS makes transit information usable by routing, accessibility, mapping, and service-planning applications.",
+          "Question": "What applications can use this standardized feed?",
+          "Selections": {
+            "A": "Comparing pedestrian activity across monitored places and times to support planning.",
+            "B": "Transit mapping, routing, accessibility, and service-planning applications.",
+            "C": "Monitoring cycling activity over time at the instrumented locations.",
+            "D": "Transit network, timetable, and journey-planning applications."
+          },
+          "Output": "B",
+          "Explanation": "The data support this use: Transit mapping, routing, accessibility, and service-planning applications.",
+          "Level": 1
+        },
+        {
+          "Fact": "The feed reflects a collection campaign from 2015 and cannot establish that the represented routes or service patterns remain current.",
+          "Question": "What temporal limitation affects present-day use?",
+          "Selections": {
+            "A": "It is a 2015 snapshot and may not represent the current network.",
+            "B": "Sensor relocation, inactivity, removal, and missing readings can disrupt comparability.",
+            "C": "They cover selected fixed sites, not every route or cycling trip.",
+            "D": "Actual reliability, ridership, and experienced waiting time."
+          },
+          "Output": "A",
+          "Explanation": "The stated limitation is: It is a 2015 snapshot and may not represent the current network.",
+          "Level": 1
+        },
+        {
+          "Fact": "The dataset's geographic coverage is Accra, Ghana, at city or metropolitan granularity. The feed represents the transit system through route, trip, stop, and schedule-level records.",
+          "Question": "How should the documented spatial coverage and measurement resolution be considered together?",
+          "Selections": {
+            "A": "Selected sensor locations in central Melbourne rather than complete citywide coverage. Hourly counts by sensor.",
+            "B": "The Accra metropolitan area in Ghana. Transit routes, trips, stops, and service schedules.",
+            "C": "Twenty-seven sites: 13 city-centre and 14 regional sites. Daily cycle-trip totals.",
+            "D": "Bogotá's TransMilenio and SITP network. Routes, stops and stations, trips, and calendar services."
+          },
+          "Output": "B",
+          "Explanation": "The conclusion combines two independently documented properties of Accra General Transit Feed Specification: The Accra metropolitan area in Ghana. Transit routes, trips, stops, and service schedules.",
+          "Level": 2
+        },
+        {
+          "Fact": "The underlying transport information was collected during May and June 2015. The feed was produced from a dedicated data-collection campaign concerning Accra's transport services.",
+          "Question": "How should the documented temporal coverage and collection methodology be considered together?",
+          "Selections": {
+            "A": "It begins in 2009. Fixed sensors count bidirectional movements through a footpath zone without collecting images.",
+            "B": "Daily counts are compiled monthly. With automated counters installed at fixed monitoring sites.",
+            "C": "May and June 2015. Through a dedicated metropolitan transport data-collection campaign.",
+            "D": "Monthly. Administrative publication of planned transit operations."
+          },
+          "Output": "C",
+          "Explanation": "The conclusion combines two independently documented properties of Accra General Transit Feed Specification: May and June 2015. Through a dedicated metropolitan transport data-collection campaign.",
+          "Level": 2
+        },
+        {
+          "Fact": "The GTFS describes public-transport routes, stops, trips, and related schedule information for Accra. The catalogue provides a GTFS ZIP of about 3 MB and a separate metadata document.",
+          "Question": "How should the documented variable definitions and file structure and documentation be considered together?",
+          "Selections": {
+            "A": "Routes, stops, trips, and schedule information. A GTFS ZIP archive and a metadata document.",
+            "B": "Time, sensor identity and location, directional counts, and total pedestrian movements. By joining the count and sensor-location tables on the sensor identifier.",
+            "C": "The number of observed cycle trips at monitored sites by date. CSV.",
+            "D": "Several route classes plus stops, stations, trips, and service calendars. As a zipped GTFS feed composed of standardized transit tables."
+          },
+          "Output": "A",
+          "Explanation": "The conclusion combines two independently documented properties of Accra General Transit Feed Specification: Routes, stops, trips, and schedule information. A GTFS ZIP archive and a metadata document.",
+          "Level": 2
+        },
+        {
+          "Fact": "The World Bank classifies the dataset as public and licenses it under Creative Commons Attribution 4.0. GTFS makes transit information usable by routing, accessibility, mapping, and service-planning applications.",
+          "Question": "How should the documented data accessibility and availability and usage context be considered together?",
+          "Selections": {
+            "A": "Through downloads or the open-data API under a CC BY licence. Comparing pedestrian activity across monitored places and times to support planning.",
+            "B": "They are openly available under CC BY 4.0. Monitoring cycling activity over time at the instrumented locations.",
+            "C": "Public access under CC BY 4.0. Transit mapping, routing, accessibility, and service-planning applications.",
+            "D": "Public download under CC BY-SA 4.0. Transit network, timetable, and journey-planning applications."
+          },
+          "Output": "C",
+          "Explanation": "The conclusion combines two independently documented properties of Accra General Transit Feed Specification: Public access under CC BY 4.0. Transit mapping, routing, accessibility, and service-planning applications.",
+          "Level": 2
+        },
+        {
+          "Fact": "The feed represents the transit system through route, trip, stop, and schedule-level records. The feed reflects a collection campaign from 2015 and cannot establish that the represented routes or service patterns remain current.",
+          "Question": "How should the documented measurement resolution and dataset limitations be considered together?",
+          "Selections": {
+            "A": "Hourly counts by sensor. Sensor relocation, inactivity, removal, and missing readings can disrupt comparability.",
+            "B": "Daily cycle-trip totals. They cover selected fixed sites, not every route or cycling trip.",
+            "C": "Routes, stops and stations, trips, and calendar services. Actual reliability, ridership, and experienced waiting time.",
+            "D": "Transit routes, trips, stops, and service schedules. It is a 2015 snapshot and may not represent the current network."
+          },
+          "Output": "D",
+          "Explanation": "The conclusion combines two independently documented properties of Accra General Transit Feed Specification: Transit routes, trips, stops, and service schedules. It is a 2015 snapshot and may not represent the current network.",
+          "Level": 2
+        }
+      ]
+    },
+    {
+      "Instruction information": {
+        "Categories": "Question answering"
+      },
+      "Task_Definition": "Answer using only the supplied dataset context.",
+      "Positive Example": [
+        {
+          "Fact": "The World Bank data catalogue distributes the Accra GTFS as part of its transport-data collection.",
+          "Question": "Which catalogue distributes this Accra dataset?",
+          "Output": "The World Bank Data Catalog.",
+          "Explanation": "The World Bank Data Catalog is responsible for publishing or maintaining the dataset.",
+          "Level": 1
+        },
+        {
+          "Fact": "The dataset's geographic coverage is Accra, Ghana, at city or metropolitan granularity.",
+          "Question": "What area is represented?",
+          "Output": "The Accra metropolitan area in Ghana.",
+          "Explanation": "The data cover the following geographic area: The Accra metropolitan area in Ghana.",
+          "Level": 1
+        },
+        {
+          "Fact": "The underlying transport information was collected during May and June 2015.",
+          "Question": "When was the Accra transport information collected?",
+          "Output": "May and June 2015.",
+          "Explanation": "The available records have this time coverage: May and June 2015.",
+          "Level": 1
+        },
+        {
+          "Fact": "The feed represents the transit system through route, trip, stop, and schedule-level records.",
+          "Question": "What operational units does a GTFS feed represent?",
+          "Output": "Transit routes, trips, stops, and service schedules.",
+          "Explanation": "The data use this reporting resolution: Transit routes, trips, stops, and service schedules.",
+          "Level": 1
+        },
+        {
+          "Fact": "The GTFS describes public-transport routes, stops, trips, and related schedule information for Accra.",
+          "Question": "What core information is contained in the feed?",
+          "Output": "Routes, stops, trips, and schedule information.",
+          "Explanation": "Each record describes: Routes, stops, trips, and schedule information.",
+          "Level": 1
+        },
+        {
+          "Fact": "The catalogue provides a GTFS ZIP of about 3 MB and a separate metadata document.",
+          "Question": "What resources are distributed?",
+          "Output": "A GTFS ZIP archive and a metadata document.",
+          "Explanation": "The dataset uses this file organization: A GTFS ZIP archive and a metadata document.",
+          "Level": 1
+        },
+        {
+          "Fact": "The feed was produced from a dedicated data-collection campaign concerning Accra's transport services.",
+          "Question": "How was the information assembled?",
+          "Output": "Through a dedicated metropolitan transport data-collection campaign.",
+          "Explanation": "The observations were gathered using this method: Through a dedicated metropolitan transport data-collection campaign.",
+          "Level": 1
+        },
+        {
+          "Fact": "The World Bank classifies the dataset as public and licenses it under Creative Commons Attribution 4.0.",
+          "Question": "What are its access and licence conditions?",
+          "Output": "Public access under CC BY 4.0.",
+          "Explanation": "The stated access terms are: Public access under CC BY 4.0.",
+          "Level": 1
+        },
+        {
+          "Fact": "GTFS makes transit information usable by routing, accessibility, mapping, and service-planning applications.",
+          "Question": "What applications can use this standardized feed?",
+          "Output": "Transit mapping, routing, accessibility, and service-planning applications.",
+          "Explanation": "The data support this use: Transit mapping, routing, accessibility, and service-planning applications.",
+          "Level": 1
+        },
+        {
+          "Fact": "The feed reflects a collection campaign from 2015 and cannot establish that the represented routes or service patterns remain current.",
+          "Question": "What temporal limitation affects present-day use?",
+          "Output": "It is a 2015 snapshot and may not represent the current network.",
+          "Explanation": "The stated limitation is: It is a 2015 snapshot and may not represent the current network.",
+          "Level": 1
+        },
+        {
+          "Fact": "The dataset's geographic coverage is Accra, Ghana, at city or metropolitan granularity. The feed represents the transit system through route, trip, stop, and schedule-level records.",
+          "Question": "How should the documented spatial coverage and measurement resolution be considered together?",
+          "Output": "The Accra metropolitan area in Ghana. Transit routes, trips, stops, and service schedules.",
+          "Explanation": "The conclusion combines two independently documented properties of Accra General Transit Feed Specification: The Accra metropolitan area in Ghana. Transit routes, trips, stops, and service schedules.",
+          "Level": 2
+        },
+        {
+          "Fact": "The underlying transport information was collected during May and June 2015. The feed was produced from a dedicated data-collection campaign concerning Accra's transport services.",
+          "Question": "How should the documented temporal coverage and collection methodology be considered together?",
+          "Output": "May and June 2015. Through a dedicated metropolitan transport data-collection campaign.",
+          "Explanation": "The conclusion combines two independently documented properties of Accra General Transit Feed Specification: May and June 2015. Through a dedicated metropolitan transport data-collection campaign.",
+          "Level": 2
+        },
+        {
+          "Fact": "The GTFS describes public-transport routes, stops, trips, and related schedule information for Accra. The catalogue provides a GTFS ZIP of about 3 MB and a separate metadata document.",
+          "Question": "How should the documented variable definitions and file structure and documentation be considered together?",
+          "Output": "Routes, stops, trips, and schedule information. A GTFS ZIP archive and a metadata document.",
+          "Explanation": "The conclusion combines two independently documented properties of Accra General Transit Feed Specification: Routes, stops, trips, and schedule information. A GTFS ZIP archive and a metadata document.",
+          "Level": 2
+        },
+        {
+          "Fact": "The World Bank classifies the dataset as public and licenses it under Creative Commons Attribution 4.0. GTFS makes transit information usable by routing, accessibility, mapping, and service-planning applications.",
+          "Question": "How should the documented data accessibility and availability and usage context be considered together?",
+          "Output": "Public access under CC BY 4.0. Transit mapping, routing, accessibility, and service-planning applications.",
+          "Explanation": "The conclusion combines two independently documented properties of Accra General Transit Feed Specification: Public access under CC BY 4.0. Transit mapping, routing, accessibility, and service-planning applications.",
+          "Level": 2
+        },
+        {
+          "Fact": "The feed represents the transit system through route, trip, stop, and schedule-level records. The feed reflects a collection campaign from 2015 and cannot establish that the represented routes or service patterns remain current.",
+          "Question": "How should the documented measurement resolution and dataset limitations be considered together?",
+          "Output": "Transit routes, trips, stops, and service schedules. It is a 2015 snapshot and may not represent the current network.",
+          "Explanation": "The conclusion combines two independently documented properties of Accra General Transit Feed Specification: Transit routes, trips, stops, and service schedules. It is a 2015 snapshot and may not represent the current network.",
+          "Level": 2
+        },
+        {
+          "Fact": "GTFS makes transit information usable by routing, accessibility, mapping, and service-planning applications. The feed reflects a collection campaign from 2015 and cannot establish that the represented routes or service patterns remain current.",
+          "Question": "What planning use is supported, and what limitation must qualify that use?",
+          "Output": "Transit mapping, routing, accessibility, and service-planning applications. However, It is a 2015 snapshot and may not represent the current network.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        },
+        {
+          "Fact": "The dataset's geographic coverage is Accra, Ghana, at city or metropolitan granularity. The feed reflects a collection campaign from 2015 and cannot establish that the represented routes or service patterns remain current.",
+          "Question": "What limits the geographic or population representativeness of this dataset?",
+          "Output": "The Accra metropolitan area in Ghana. However, It is a 2015 snapshot and may not represent the current network.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        },
+        {
+          "Fact": "The underlying transport information was collected during May and June 2015. The feed represents the transit system through route, trip, stop, and schedule-level records.",
+          "Question": "What temporal inference is justified, and what temporal inference should be avoided?",
+          "Output": "May and June 2015. However, Transit routes, trips, stops, and service schedules.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        },
+        {
+          "Fact": "The GTFS describes public-transport routes, stops, trips, and related schedule information for Accra. The feed was produced from a dedicated data-collection campaign concerning Accra's transport services.",
+          "Question": "How does the collection method affect interpretation of the recorded variables?",
+          "Output": "Routes, stops, trips, and schedule information. However, Through a dedicated metropolitan transport data-collection campaign.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        },
+        {
+          "Fact": "The World Bank data catalogue distributes the Accra GTFS as part of its transport-data collection. The World Bank classifies the dataset as public and licenses it under Creative Commons Attribution 4.0.",
+          "Question": "What supports reproducible reuse, and what access or governance condition remains?",
+          "Output": "The World Bank Data Catalog. However, Public access under CC BY 4.0.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        }
+      ]
+    }
+  ]
+}

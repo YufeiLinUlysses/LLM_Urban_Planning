@@ -1,0 +1,78 @@
+{
+  "benchmark": "multi_regional_external_v1",
+  "dataset_version": "multi_regional_external_v1",
+  "datasets": {
+    "australia_melbourne_pedestrian": {
+      "concepts": 20,
+      "mc_views": 15,
+      "short_answer_views": 20,
+      "task_views": 35,
+      "review_status": "draft_needs_human_source_review"
+    },
+    "new_zealand_auckland_cycle": {
+      "concepts": 20,
+      "mc_views": 15,
+      "short_answer_views": 20,
+      "task_views": 35,
+      "review_status": "draft_needs_human_source_review"
+    },
+    "colombia_bogota_transit": {
+      "concepts": 20,
+      "mc_views": 15,
+      "short_answer_views": 20,
+      "task_views": 35,
+      "review_status": "draft_needs_human_source_review"
+    },
+    "brazil_sao_paulo_od2017": {
+      "concepts": 20,
+      "mc_views": 15,
+      "short_answer_views": 20,
+      "task_views": 35,
+      "review_status": "draft_needs_human_source_review"
+    },
+    "ghana_accra_transit": {
+      "concepts": 20,
+      "mc_views": 15,
+      "short_answer_views": 20,
+      "task_views": 35,
+      "review_status": "draft_needs_human_source_review"
+    },
+    "kenya_nairobi_matatu": {
+      "concepts": 20,
+      "mc_views": 15,
+      "short_answer_views": 20,
+      "task_views": 35,
+      "review_status": "draft_needs_human_source_review"
+    },
+    "spain_madrid_accidents": {
+      "concepts": 20,
+      "mc_views": 15,
+      "short_answer_views": 20,
+      "task_views": 35,
+      "review_status": "draft_needs_human_source_review"
+    },
+    "greece_athens_transit": {
+      "concepts": 20,
+      "mc_views": 15,
+      "short_answer_views": 20,
+      "task_views": 35,
+      "review_status": "draft_needs_human_source_review"
+    },
+    "iceland_road_traffic": {
+      "concepts": 20,
+      "mc_views": 15,
+      "short_answer_views": 20,
+      "task_views": 35,
+      "review_status": "draft_needs_human_source_review"
+    },
+    "sweden_stockholm_traffic_flow": {
+      "concepts": 20,
+      "mc_views": 15,
+      "short_answer_views": 20,
+      "task_views": 35,
+      "review_status": "draft_needs_human_source_review"
+    }
+  },
+  "independent_concepts": 200,
+  "task_views": 350
+}

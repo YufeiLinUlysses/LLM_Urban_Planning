@@ -169,6 +169,96 @@ experiment_leakage_audit:
   type: json.JSONDataset
   filepath: "${globals:experiment_reporting_path}/leakage_audit.json"
 
+# Evaluation-only international benchmark. These paths are deliberately
+# isolated from seed_instruction_datasets and can never enter model training.
+multi_regional_seed_datasets:
+  type: partitions.PartitionedDataset
+  path: data/01_raw/multi_regional_external_v1/seeds
+  dataset:
+    type: json.JSONDataset
+  filename_suffix: .json
+
+multi_regional_source_profiles:
+  type: json.JSONDataset
+  filepath: data/01_raw/multi_regional_external_v1/source_profiles.json
+
+multi_regional_normalized_datasets:
+  type: partitions.PartitionedDataset
+  path: data/02_intermediate/multi_regional_external_v1/normalized
+  dataset:
+    type: json.JSONDataset
+  filename_suffix: .json
+
+multi_regional_source_validation_report:
+  type: json.JSONDataset
+  filepath: data/08_reporting/multi_regional_external_v1/source_validation.json
+
+multi_regional_canonical_datasets:
+  type: partitions.PartitionedDataset
+  path: data/02_intermediate/multi_regional_external_v1/canonical
+  dataset:
+    type: json.JSONDataset
+  filename_suffix: .json
+
+multi_regional_assembly_report:
+  type: json.JSONDataset
+  filepath: data/08_reporting/multi_regional_external_v1/assembly.json
+
+multi_regional_validated_datasets:
+  type: partitions.PartitionedDataset
+  path: data/03_primary/multi_regional_external_v1/validated
+  dataset:
+    type: json.JSONDataset
+  filename_suffix: .json
+
+multi_regional_quality_report:
+  type: json.JSONDataset
+  filepath: data/08_reporting/multi_regional_external_v1/quality.json
+
+multi_regional_duplicate_audit:
+  type: json.JSONDataset
+  filepath: data/08_reporting/multi_regional_external_v1/duplicates.json
+
+multi_regional_rejected_samples:
+  type: json.JSONDataset
+  filepath: data/08_reporting/multi_regional_external_v1/rejected.json
+
+multi_regional_final_datasets:
+  type: partitions.PartitionedDataset
+  path: data/05_model_input/multi_regional_external_v1/final
+  dataset:
+    type: json.JSONDataset
+  filename_suffix: .json
+
+multi_regional_generation_datasets:
+  type: partitions.PartitionedDataset
+  path: data/05_model_input/multi_regional_external_v1/generation
+  dataset:
+    type: json.JSONDataset
+  filename_suffix: .json
+
+multi_regional_verification_datasets:
+  type: partitions.PartitionedDataset
+  path: data/05_model_input/multi_regional_external_v1/verification
+  dataset:
+    type: json.JSONDataset
+  filename_suffix: .json
+
+multi_regional_paraphrase_datasets:
+  type: partitions.PartitionedDataset
+  path: data/05_model_input/multi_regional_external_v1/paraphrase
+  dataset:
+    type: json.JSONDataset
+  filename_suffix: .json
+
+multi_regional_statistics:
+  type: json.JSONDataset
+  filepath: data/08_reporting/multi_regional_external_v1/statistics.json
+
+multi_regional_evaluation_manifest:
+  type: json.JSONDataset
+  filepath: data/01_raw/multi_regional_external_v1/seed_manifest.json
+
 model_training_receipt:
   type: json.JSONDataset
   filepath: "${globals:model_reporting_path}/latest_training_receipt.json"

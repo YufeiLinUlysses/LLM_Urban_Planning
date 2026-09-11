@@ -55,15 +55,15 @@ class RunConfig:
     dataset_folder: str = "data/revision_v2"  # Folder retained for repository compatibility.
     dataset_version: str = "revision_v5"
 
-    model_key: str = "llama31_70b"  # t5_base, qwen25_7b, qwen25_14b, llama31_8b, llama31_70b
-    run_id: str = "revision-v5-llama31-70b-three-task-chat-v2"
+    model_key: str = "qwen25_14b"  # t5_base, qwen25_7b, qwen25_14b, llama31_8b, llama31_70b
+    run_id: str = "revision-v5-qwen25-14b-three-task-chat-v2"
     model_repo: str = "UlyssesLynne/urban-planning-llm-model-zoo-v3"
     prediction_repo: str = "UlyssesLynne/urban-planning-llm-predictions-v3"
     artifact_root: str = "/content/urban_science_artifacts"
 
-    train_batch_size: int = 1
-    eval_batch_size: int = 1
-    gradient_accumulation_steps: int = 16
+    train_batch_size: int = 8
+    eval_batch_size: int = 32
+    gradient_accumulation_steps: int = 2
     epochs: int = 1
     learning_rate: float = 5e-5
     warmup_ratio: float = 0.03

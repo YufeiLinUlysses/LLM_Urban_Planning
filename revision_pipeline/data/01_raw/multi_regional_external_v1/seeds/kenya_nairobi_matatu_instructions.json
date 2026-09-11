@@ -1,0 +1,358 @@
+{
+  "dataset_name": "Nairobi Digital Matatus",
+  "dataset_link": "https://www.digitalmatatus.com/",
+  "dataset_description": "Field-mapped informal minibus routes and stops for Nairobi.",
+  "instructions": [
+    {
+      "Instruction information": {
+        "Categories": "Multiple Selection"
+      },
+      "Task_Definition": "Select one supported option and provide its letter.",
+      "Positive Example": [
+        {
+          "Fact": "Digital Matatus was developed through collaboration among the University of Nairobi, Columbia University, MIT, and Nairobi technology partners.",
+          "Question": "Who developed the Digital Matatus dataset?",
+          "Selections": {
+            "A": "A university and technology-sector collaboration led by teams in Nairobi, Columbia, and MIT.",
+            "B": "The City of Melbourne.",
+            "C": "Auckland Transport.",
+            "D": "TransMilenio S.A."
+          },
+          "Output": "A",
+          "Explanation": "A university and technology-sector collaboration led by teams in Nairobi, Columbia, and MIT is responsible for publishing or maintaining the dataset.",
+          "Level": 1
+        },
+        {
+          "Fact": "The project maps Nairobi's matatu network; its 2019 update documented more than 140 routes and approximately 4,000 stops.",
+          "Question": "What network does the project cover?",
+          "Selections": {
+            "A": "Selected sensor locations in central Melbourne rather than complete citywide coverage.",
+            "B": "Twenty-seven sites: 13 city-centre and 14 regional sites.",
+            "C": "Bogotá's TransMilenio and SITP network.",
+            "D": "Nairobi's matatu network, including more than 140 routes and about 4,000 stops in the 2019 update."
+          },
+          "Output": "D",
+          "Explanation": "The data cover the following geographic area: Nairobi's matatu network, including more than 140 routes and about 4,000 stops in the 2019 update.",
+          "Level": 1
+        },
+        {
+          "Fact": "Major GTFS releases or updates were produced in 2014, 2017, and 2019.",
+          "Question": "Which major collection years are documented?",
+          "Selections": {
+            "A": "It begins in 2009.",
+            "B": "Daily counts are compiled monthly.",
+            "C": "2014, 2017, and 2019.",
+            "D": "Monthly."
+          },
+          "Output": "C",
+          "Explanation": "The available records have this time coverage: 2014, 2017, and 2019.",
+          "Level": 1
+        },
+        {
+          "Fact": "The project represents individual routes, paths, and stops using field-collected geographic observations.",
+          "Question": "At what network units is the informal system represented?",
+          "Selections": {
+            "A": "Hourly counts by sensor.",
+            "B": "Daily cycle-trip totals.",
+            "C": "Routes, stops and stations, trips, and calendar services.",
+            "D": "Individual matatu routes, route paths, and stops."
+          },
+          "Output": "D",
+          "Explanation": "The data use this reporting resolution: Individual matatu routes, route paths, and stops.",
+          "Level": 1
+        },
+        {
+          "Fact": "The modified GTFS contains routes and stops, while fixed calendars, service frequencies, and stable fares may be unavailable for informal services.",
+          "Question": "Which conventional transit attributes may be absent or unstable?",
+          "Selections": {
+            "A": "Fixed calendars, service frequencies, schedules, and fares.",
+            "B": "Time, sensor identity and location, directional counts, and total pedestrian movements.",
+            "C": "The number of observed cycle trips at monitored sites by date.",
+            "D": "Several route classes plus stops, stations, trips, and service calendars."
+          },
+          "Output": "A",
+          "Explanation": "Each record describes: Fixed calendars, service frequencies, schedules, and fares.",
+          "Level": 1
+        },
+        {
+          "Fact": "The project distributes GIS and GTFS-compatible data together with maps and methodological documentation.",
+          "Question": "What forms of project output are available?",
+          "Selections": {
+            "A": "By joining the count and sensor-location tables on the sensor identifier.",
+            "B": "CSV.",
+            "C": "As a zipped GTFS feed composed of standardized transit tables.",
+            "D": "GIS data, a modified GTFS feed, transit maps, and methodology documentation."
+          },
+          "Output": "D",
+          "Explanation": "The dataset uses this file organization: GIS data, a modified GTFS feed, transit maps, and methodology documentation.",
+          "Level": 1
+        },
+        {
+          "Fact": "University of Nairobi students rode matatu routes, recorded observations with mobile devices, consulted users and operators, and reviewed results in stakeholder workshops.",
+          "Question": "How was the Nairobi network mapped?",
+          "Selections": {
+            "A": "Fixed sensors count bidirectional movements through a footpath zone without collecting images.",
+            "B": "Through mobile field mapping on vehicles, local consultation, cleaning, and stakeholder review.",
+            "C": "With automated counters installed at fixed monitoring sites.",
+            "D": "Administrative publication of planned transit operations."
+          },
+          "Output": "B",
+          "Explanation": "The observations were gathered using this method: Through mobile field mapping on vehicles, local consultation, cleaning, and stakeholder review.",
+          "Level": 1
+        },
+        {
+          "Fact": "The project states that its data, maps, and applications are freely available to the public.",
+          "Question": "How are the project outputs made available?",
+          "Selections": {
+            "A": "Through downloads or the open-data API under a CC BY licence.",
+            "B": "They are openly available under CC BY 4.0.",
+            "C": "Public download under CC BY-SA 4.0.",
+            "D": "They are released freely for public use."
+          },
+          "Output": "D",
+          "Explanation": "The stated access terms are: They are released freely for public use.",
+          "Level": 1
+        },
+        {
+          "Fact": "The data support passenger-routing applications, public transit maps, and planning work including Nairobi's developing BRT system.",
+          "Question": "What practical uses are documented?",
+          "Selections": {
+            "A": "Comparing pedestrian activity across monitored places and times to support planning.",
+            "B": "Monitoring cycling activity over time at the instrumented locations.",
+            "C": "Passenger information, mapping, application development, and transport planning.",
+            "D": "Transit network, timetable, and journey-planning applications."
+          },
+          "Output": "C",
+          "Explanation": "The data support this use: Passenger information, mapping, application development, and transport planning.",
+          "Level": 1
+        },
+        {
+          "Fact": "Informal matatu routes, stops, fares, and operations can change with traffic, enforcement, demand, weather, and operator practice.",
+          "Question": "Why can a conventional static transit representation become outdated?",
+          "Selections": {
+            "A": "Sensor relocation, inactivity, removal, and missing readings can disrupt comparability.",
+            "B": "They cover selected fixed sites, not every route or cycling trip.",
+            "C": "Actual reliability, ridership, and experienced waiting time.",
+            "D": "The informal network and its operating practices can change dynamically."
+          },
+          "Output": "D",
+          "Explanation": "The stated limitation is: The informal network and its operating practices can change dynamically.",
+          "Level": 1
+        },
+        {
+          "Fact": "The project maps Nairobi's matatu network; its 2019 update documented more than 140 routes and approximately 4,000 stops. The project represents individual routes, paths, and stops using field-collected geographic observations.",
+          "Question": "How should the documented spatial coverage and measurement resolution be considered together?",
+          "Selections": {
+            "A": "Selected sensor locations in central Melbourne rather than complete citywide coverage. Hourly counts by sensor.",
+            "B": "Nairobi's matatu network, including more than 140 routes and about 4,000 stops in the 2019 update. Individual matatu routes, route paths, and stops.",
+            "C": "Twenty-seven sites: 13 city-centre and 14 regional sites. Daily cycle-trip totals.",
+            "D": "Bogotá's TransMilenio and SITP network. Routes, stops and stations, trips, and calendar services."
+          },
+          "Output": "B",
+          "Explanation": "The conclusion combines two independently documented properties of Nairobi Digital Matatus: Nairobi's matatu network, including more than 140 routes and about 4,000 stops in the 2019 update. Individual matatu routes, route paths, and stops.",
+          "Level": 2
+        },
+        {
+          "Fact": "Major GTFS releases or updates were produced in 2014, 2017, and 2019. University of Nairobi students rode matatu routes, recorded observations with mobile devices, consulted users and operators, and reviewed results in stakeholder workshops.",
+          "Question": "How should the documented temporal coverage and collection methodology be considered together?",
+          "Selections": {
+            "A": "It begins in 2009. Fixed sensors count bidirectional movements through a footpath zone without collecting images.",
+            "B": "2014, 2017, and 2019. Through mobile field mapping on vehicles, local consultation, cleaning, and stakeholder review.",
+            "C": "Daily counts are compiled monthly. With automated counters installed at fixed monitoring sites.",
+            "D": "Monthly. Administrative publication of planned transit operations."
+          },
+          "Output": "B",
+          "Explanation": "The conclusion combines two independently documented properties of Nairobi Digital Matatus: 2014, 2017, and 2019. Through mobile field mapping on vehicles, local consultation, cleaning, and stakeholder review.",
+          "Level": 2
+        },
+        {
+          "Fact": "The modified GTFS contains routes and stops, while fixed calendars, service frequencies, and stable fares may be unavailable for informal services. The project distributes GIS and GTFS-compatible data together with maps and methodological documentation.",
+          "Question": "How should the documented variable definitions and file structure and documentation be considered together?",
+          "Selections": {
+            "A": "Time, sensor identity and location, directional counts, and total pedestrian movements. By joining the count and sensor-location tables on the sensor identifier.",
+            "B": "Fixed calendars, service frequencies, schedules, and fares. GIS data, a modified GTFS feed, transit maps, and methodology documentation.",
+            "C": "The number of observed cycle trips at monitored sites by date. CSV.",
+            "D": "Several route classes plus stops, stations, trips, and service calendars. As a zipped GTFS feed composed of standardized transit tables."
+          },
+          "Output": "B",
+          "Explanation": "The conclusion combines two independently documented properties of Nairobi Digital Matatus: Fixed calendars, service frequencies, schedules, and fares. GIS data, a modified GTFS feed, transit maps, and methodology documentation.",
+          "Level": 2
+        },
+        {
+          "Fact": "The project states that its data, maps, and applications are freely available to the public. The data support passenger-routing applications, public transit maps, and planning work including Nairobi's developing BRT system.",
+          "Question": "How should the documented data accessibility and availability and usage context be considered together?",
+          "Selections": {
+            "A": "Through downloads or the open-data API under a CC BY licence. Comparing pedestrian activity across monitored places and times to support planning.",
+            "B": "They are released freely for public use. Passenger information, mapping, application development, and transport planning.",
+            "C": "They are openly available under CC BY 4.0. Monitoring cycling activity over time at the instrumented locations.",
+            "D": "Public download under CC BY-SA 4.0. Transit network, timetable, and journey-planning applications."
+          },
+          "Output": "B",
+          "Explanation": "The conclusion combines two independently documented properties of Nairobi Digital Matatus: They are released freely for public use. Passenger information, mapping, application development, and transport planning.",
+          "Level": 2
+        },
+        {
+          "Fact": "The project represents individual routes, paths, and stops using field-collected geographic observations. Informal matatu routes, stops, fares, and operations can change with traffic, enforcement, demand, weather, and operator practice.",
+          "Question": "How should the documented measurement resolution and dataset limitations be considered together?",
+          "Selections": {
+            "A": "Individual matatu routes, route paths, and stops. The informal network and its operating practices can change dynamically.",
+            "B": "Hourly counts by sensor. Sensor relocation, inactivity, removal, and missing readings can disrupt comparability.",
+            "C": "Daily cycle-trip totals. They cover selected fixed sites, not every route or cycling trip.",
+            "D": "Routes, stops and stations, trips, and calendar services. Actual reliability, ridership, and experienced waiting time."
+          },
+          "Output": "A",
+          "Explanation": "The conclusion combines two independently documented properties of Nairobi Digital Matatus: Individual matatu routes, route paths, and stops. The informal network and its operating practices can change dynamically.",
+          "Level": 2
+        }
+      ]
+    },
+    {
+      "Instruction information": {
+        "Categories": "Question answering"
+      },
+      "Task_Definition": "Answer using only the supplied dataset context.",
+      "Positive Example": [
+        {
+          "Fact": "Digital Matatus was developed through collaboration among the University of Nairobi, Columbia University, MIT, and Nairobi technology partners.",
+          "Question": "Who developed the Digital Matatus dataset?",
+          "Output": "A university and technology-sector collaboration led by teams in Nairobi, Columbia, and MIT.",
+          "Explanation": "A university and technology-sector collaboration led by teams in Nairobi, Columbia, and MIT is responsible for publishing or maintaining the dataset.",
+          "Level": 1
+        },
+        {
+          "Fact": "The project maps Nairobi's matatu network; its 2019 update documented more than 140 routes and approximately 4,000 stops.",
+          "Question": "What network does the project cover?",
+          "Output": "Nairobi's matatu network, including more than 140 routes and about 4,000 stops in the 2019 update.",
+          "Explanation": "The data cover the following geographic area: Nairobi's matatu network, including more than 140 routes and about 4,000 stops in the 2019 update.",
+          "Level": 1
+        },
+        {
+          "Fact": "Major GTFS releases or updates were produced in 2014, 2017, and 2019.",
+          "Question": "Which major collection years are documented?",
+          "Output": "2014, 2017, and 2019.",
+          "Explanation": "The available records have this time coverage: 2014, 2017, and 2019.",
+          "Level": 1
+        },
+        {
+          "Fact": "The project represents individual routes, paths, and stops using field-collected geographic observations.",
+          "Question": "At what network units is the informal system represented?",
+          "Output": "Individual matatu routes, route paths, and stops.",
+          "Explanation": "The data use this reporting resolution: Individual matatu routes, route paths, and stops.",
+          "Level": 1
+        },
+        {
+          "Fact": "The modified GTFS contains routes and stops, while fixed calendars, service frequencies, and stable fares may be unavailable for informal services.",
+          "Question": "Which conventional transit attributes may be absent or unstable?",
+          "Output": "Fixed calendars, service frequencies, schedules, and fares.",
+          "Explanation": "Each record describes: Fixed calendars, service frequencies, schedules, and fares.",
+          "Level": 1
+        },
+        {
+          "Fact": "The project distributes GIS and GTFS-compatible data together with maps and methodological documentation.",
+          "Question": "What forms of project output are available?",
+          "Output": "GIS data, a modified GTFS feed, transit maps, and methodology documentation.",
+          "Explanation": "The dataset uses this file organization: GIS data, a modified GTFS feed, transit maps, and methodology documentation.",
+          "Level": 1
+        },
+        {
+          "Fact": "University of Nairobi students rode matatu routes, recorded observations with mobile devices, consulted users and operators, and reviewed results in stakeholder workshops.",
+          "Question": "How was the Nairobi network mapped?",
+          "Output": "Through mobile field mapping on vehicles, local consultation, cleaning, and stakeholder review.",
+          "Explanation": "The observations were gathered using this method: Through mobile field mapping on vehicles, local consultation, cleaning, and stakeholder review.",
+          "Level": 1
+        },
+        {
+          "Fact": "The project states that its data, maps, and applications are freely available to the public.",
+          "Question": "How are the project outputs made available?",
+          "Output": "They are released freely for public use.",
+          "Explanation": "The stated access terms are: They are released freely for public use.",
+          "Level": 1
+        },
+        {
+          "Fact": "The data support passenger-routing applications, public transit maps, and planning work including Nairobi's developing BRT system.",
+          "Question": "What practical uses are documented?",
+          "Output": "Passenger information, mapping, application development, and transport planning.",
+          "Explanation": "The data support this use: Passenger information, mapping, application development, and transport planning.",
+          "Level": 1
+        },
+        {
+          "Fact": "Informal matatu routes, stops, fares, and operations can change with traffic, enforcement, demand, weather, and operator practice.",
+          "Question": "Why can a conventional static transit representation become outdated?",
+          "Output": "The informal network and its operating practices can change dynamically.",
+          "Explanation": "The stated limitation is: The informal network and its operating practices can change dynamically.",
+          "Level": 1
+        },
+        {
+          "Fact": "The project maps Nairobi's matatu network; its 2019 update documented more than 140 routes and approximately 4,000 stops. The project represents individual routes, paths, and stops using field-collected geographic observations.",
+          "Question": "How should the documented spatial coverage and measurement resolution be considered together?",
+          "Output": "Nairobi's matatu network, including more than 140 routes and about 4,000 stops in the 2019 update. Individual matatu routes, route paths, and stops.",
+          "Explanation": "The conclusion combines two independently documented properties of Nairobi Digital Matatus: Nairobi's matatu network, including more than 140 routes and about 4,000 stops in the 2019 update. Individual matatu routes, route paths, and stops.",
+          "Level": 2
+        },
+        {
+          "Fact": "Major GTFS releases or updates were produced in 2014, 2017, and 2019. University of Nairobi students rode matatu routes, recorded observations with mobile devices, consulted users and operators, and reviewed results in stakeholder workshops.",
+          "Question": "How should the documented temporal coverage and collection methodology be considered together?",
+          "Output": "2014, 2017, and 2019. Through mobile field mapping on vehicles, local consultation, cleaning, and stakeholder review.",
+          "Explanation": "The conclusion combines two independently documented properties of Nairobi Digital Matatus: 2014, 2017, and 2019. Through mobile field mapping on vehicles, local consultation, cleaning, and stakeholder review.",
+          "Level": 2
+        },
+        {
+          "Fact": "The modified GTFS contains routes and stops, while fixed calendars, service frequencies, and stable fares may be unavailable for informal services. The project distributes GIS and GTFS-compatible data together with maps and methodological documentation.",
+          "Question": "How should the documented variable definitions and file structure and documentation be considered together?",
+          "Output": "Fixed calendars, service frequencies, schedules, and fares. GIS data, a modified GTFS feed, transit maps, and methodology documentation.",
+          "Explanation": "The conclusion combines two independently documented properties of Nairobi Digital Matatus: Fixed calendars, service frequencies, schedules, and fares. GIS data, a modified GTFS feed, transit maps, and methodology documentation.",
+          "Level": 2
+        },
+        {
+          "Fact": "The project states that its data, maps, and applications are freely available to the public. The data support passenger-routing applications, public transit maps, and planning work including Nairobi's developing BRT system.",
+          "Question": "How should the documented data accessibility and availability and usage context be considered together?",
+          "Output": "They are released freely for public use. Passenger information, mapping, application development, and transport planning.",
+          "Explanation": "The conclusion combines two independently documented properties of Nairobi Digital Matatus: They are released freely for public use. Passenger information, mapping, application development, and transport planning.",
+          "Level": 2
+        },
+        {
+          "Fact": "The project represents individual routes, paths, and stops using field-collected geographic observations. Informal matatu routes, stops, fares, and operations can change with traffic, enforcement, demand, weather, and operator practice.",
+          "Question": "How should the documented measurement resolution and dataset limitations be considered together?",
+          "Output": "Individual matatu routes, route paths, and stops. The informal network and its operating practices can change dynamically.",
+          "Explanation": "The conclusion combines two independently documented properties of Nairobi Digital Matatus: Individual matatu routes, route paths, and stops. The informal network and its operating practices can change dynamically.",
+          "Level": 2
+        },
+        {
+          "Fact": "The data support passenger-routing applications, public transit maps, and planning work including Nairobi's developing BRT system. Informal matatu routes, stops, fares, and operations can change with traffic, enforcement, demand, weather, and operator practice.",
+          "Question": "What planning use is supported, and what limitation must qualify that use?",
+          "Output": "Passenger information, mapping, application development, and transport planning. However, The informal network and its operating practices can change dynamically.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        },
+        {
+          "Fact": "The project maps Nairobi's matatu network; its 2019 update documented more than 140 routes and approximately 4,000 stops. Informal matatu routes, stops, fares, and operations can change with traffic, enforcement, demand, weather, and operator practice.",
+          "Question": "What limits the geographic or population representativeness of this dataset?",
+          "Output": "Nairobi's matatu network, including more than 140 routes and about 4,000 stops in the 2019 update. However, The informal network and its operating practices can change dynamically.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        },
+        {
+          "Fact": "Major GTFS releases or updates were produced in 2014, 2017, and 2019. The project represents individual routes, paths, and stops using field-collected geographic observations.",
+          "Question": "What temporal inference is justified, and what temporal inference should be avoided?",
+          "Output": "2014, 2017, and 2019. However, Individual matatu routes, route paths, and stops.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        },
+        {
+          "Fact": "The modified GTFS contains routes and stops, while fixed calendars, service frequencies, and stable fares may be unavailable for informal services. University of Nairobi students rode matatu routes, recorded observations with mobile devices, consulted users and operators, and reviewed results in stakeholder workshops.",
+          "Question": "How does the collection method affect interpretation of the recorded variables?",
+          "Output": "Fixed calendars, service frequencies, schedules, and fares. However, Through mobile field mapping on vehicles, local consultation, cleaning, and stakeholder review.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        },
+        {
+          "Fact": "Digital Matatus was developed through collaboration among the University of Nairobi, Columbia University, MIT, and Nairobi technology partners. The project states that its data, maps, and applications are freely available to the public.",
+          "Question": "What supports reproducible reuse, and what access or governance condition remains?",
+          "Output": "A university and technology-sector collaboration led by teams in Nairobi, Columbia, and MIT. However, They are released freely for public use.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        }
+      ]
+    }
+  ]
+}

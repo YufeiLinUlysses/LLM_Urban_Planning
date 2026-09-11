@@ -1,0 +1,358 @@
+{
+  "dataset_name": "Melbourne Pedestrian Counting System",
+  "dataset_link": "https://data.melbourne.vic.gov.au/explore/dataset/pedestrian-counting-system-sensor-locations/",
+  "dataset_description": "Pedestrian counts and sensor metadata published by the City of Melbourne.",
+  "instructions": [
+    {
+      "Instruction information": {
+        "Categories": "Multiple Selection"
+      },
+      "Task_Definition": "Select one supported option and provide its letter.",
+      "Positive Example": [
+        {
+          "Fact": "The City of Melbourne publishes and maintains the Pedestrian Counting System data.",
+          "Question": "Who publishes the Melbourne Pedestrian Counting System data?",
+          "Selections": {
+            "A": "Auckland Transport.",
+            "B": "TransMilenio S.A.",
+            "C": "The São Paulo Metropolitan Company (Metrô).",
+            "D": "The City of Melbourne."
+          },
+          "Output": "D",
+          "Explanation": "The City of Melbourne is responsible for publishing or maintaining the dataset.",
+          "Level": 1
+        },
+        {
+          "Fact": "Pedestrian sensors are installed at selected locations throughout central Melbourne, with coordinates recorded in the sensor metadata.",
+          "Question": "What spatial coverage does the system provide?",
+          "Selections": {
+            "A": "Selected sensor locations in central Melbourne rather than complete citywide coverage.",
+            "B": "Twenty-seven sites: 13 city-centre and 14 regional sites.",
+            "C": "Bogotá's TransMilenio and SITP network.",
+            "D": "The São Paulo Metropolitan Region."
+          },
+          "Output": "A",
+          "Explanation": "The data cover the following geographic area: Selected sensor locations in central Melbourne rather than complete citywide coverage.",
+          "Level": 1
+        },
+        {
+          "Fact": "The Pedestrian Counting System has operated since 2009 and its historical hourly dataset extends from 2009 onward.",
+          "Question": "When does the historical pedestrian-count series begin?",
+          "Selections": {
+            "A": "Daily counts are compiled monthly.",
+            "B": "Monthly.",
+            "C": "It begins in 2009.",
+            "D": "2017."
+          },
+          "Output": "C",
+          "Explanation": "The available records have this time coverage: It begins in 2009.",
+          "Level": 1
+        },
+        {
+          "Fact": "The historical dataset reports total pedestrian counts by sensor and hour.",
+          "Question": "What is the principal temporal resolution of the historical count dataset?",
+          "Selections": {
+            "A": "Daily cycle-trip totals.",
+            "B": "Hourly counts by sensor.",
+            "C": "Routes, stops and stations, trips, and calendar services.",
+            "D": "Sampled household, person, trip, and trip-stage records linked to zones."
+          },
+          "Output": "B",
+          "Explanation": "The data use this reporting resolution: Hourly counts by sensor.",
+          "Level": 1
+        },
+        {
+          "Fact": "The records include sensor or location identifiers, sensing date and hour, directional counts, total pedestrian count, sensor name, and location.",
+          "Question": "What does the dataset record for an observation?",
+          "Selections": {
+            "A": "The number of observed cycle trips at monitored sites by date.",
+            "B": "Several route classes plus stops, stations, trips, and service calendars.",
+            "C": "Time, sensor identity and location, directional counts, and total pedestrian movements.",
+            "D": "Socioeconomic attributes and trip characteristics such as mode and purpose."
+          },
+          "Output": "C",
+          "Explanation": "Each record describes: Time, sensor identity and location, directional counts, and total pedestrian movements.",
+          "Level": 1
+        },
+        {
+          "Fact": "Count records and sensor-location metadata are published as related tabular datasets and can be linked using the sensor identifier.",
+          "Question": "How are counts linked to sensor characteristics?",
+          "Selections": {
+            "A": "CSV.",
+            "B": "By joining the count and sensor-location tables on the sensor identifier.",
+            "C": "As a zipped GTFS feed composed of standardized transit tables.",
+            "D": "Layouts, variable definitions, manuals, maps, zone files, and summary tables."
+          },
+          "Output": "B",
+          "Explanation": "The dataset uses this file organization: By joining the count and sensor-location tables on the sensor identifier.",
+          "Level": 1
+        },
+        {
+          "Fact": "Sensors installed under awnings or on street poles count bidirectional pedestrian movements through a footpath zone continuously without recording images.",
+          "Question": "How are pedestrian movements collected?",
+          "Selections": {
+            "A": "With automated counters installed at fixed monitoring sites.",
+            "B": "Administrative publication of planned transit operations.",
+            "C": "A stratified household sample using five income strata and about 32,000 households.",
+            "D": "Fixed sensors count bidirectional movements through a footpath zone without collecting images."
+          },
+          "Output": "D",
+          "Explanation": "The observations were gathered using this method: Fixed sensors count bidirectional movements through a footpath zone without collecting images.",
+          "Level": 1
+        },
+        {
+          "Fact": "The datasets are downloadable and queryable through the municipal open-data API under a Creative Commons Attribution licence.",
+          "Question": "How can researchers access and reuse these data?",
+          "Selections": {
+            "A": "Through downloads or the open-data API under a CC BY licence.",
+            "B": "They are openly available under CC BY 4.0.",
+            "C": "Public download under CC BY-SA 4.0.",
+            "D": "The archive is publicly downloadable, but the catalogue does not specify a licence."
+          },
+          "Output": "A",
+          "Explanation": "The stated access terms are: Through downloads or the open-data API under a CC BY licence.",
+          "Level": 1
+        },
+        {
+          "Fact": "The system is intended to show how pedestrian activity varies by place and time and to inform municipal decision-making and planning.",
+          "Question": "What planning use does the dataset support?",
+          "Selections": {
+            "A": "Monitoring cycling activity over time at the instrumented locations.",
+            "B": "Transit network, timetable, and journey-planning applications.",
+            "C": "Comparing pedestrian activity across monitored places and times to support planning.",
+            "D": "Transport planning, demand modelling, project assessment, and related policy analysis."
+          },
+          "Output": "C",
+          "Explanation": "The data support this use: Comparing pedestrian activity across monitored places and times to support planning.",
+          "Level": 1
+        },
+        {
+          "Fact": "Sensors may be relocated, removed, temporarily inactive, or missing readings, so sensor history must be considered in longitudinal comparisons.",
+          "Question": "What limitation must be checked before comparing historical counts?",
+          "Selections": {
+            "A": "Sensor relocation, inactivity, removal, and missing readings can disrupt comparability.",
+            "B": "They cover selected fixed sites, not every route or cycling trip.",
+            "C": "Actual reliability, ridership, and experienced waiting time.",
+            "D": "It is a weighted sample survey, not a continuous census of every trip."
+          },
+          "Output": "A",
+          "Explanation": "The stated limitation is: Sensor relocation, inactivity, removal, and missing readings can disrupt comparability.",
+          "Level": 1
+        },
+        {
+          "Fact": "Pedestrian sensors are installed at selected locations throughout central Melbourne, with coordinates recorded in the sensor metadata. The historical dataset reports total pedestrian counts by sensor and hour.",
+          "Question": "How should the documented spatial coverage and measurement resolution be considered together?",
+          "Selections": {
+            "A": "Selected sensor locations in central Melbourne rather than complete citywide coverage. Hourly counts by sensor.",
+            "B": "Twenty-seven sites: 13 city-centre and 14 regional sites. Daily cycle-trip totals.",
+            "C": "Bogotá's TransMilenio and SITP network. Routes, stops and stations, trips, and calendar services.",
+            "D": "The São Paulo Metropolitan Region. Sampled household, person, trip, and trip-stage records linked to zones."
+          },
+          "Output": "A",
+          "Explanation": "The conclusion combines two independently documented properties of Melbourne Pedestrian Counting System: Selected sensor locations in central Melbourne rather than complete citywide coverage. Hourly counts by sensor.",
+          "Level": 2
+        },
+        {
+          "Fact": "The Pedestrian Counting System has operated since 2009 and its historical hourly dataset extends from 2009 onward. Sensors installed under awnings or on street poles count bidirectional pedestrian movements through a footpath zone continuously without recording images.",
+          "Question": "How should the documented temporal coverage and collection methodology be considered together?",
+          "Selections": {
+            "A": "Daily counts are compiled monthly. With automated counters installed at fixed monitoring sites.",
+            "B": "Monthly. Administrative publication of planned transit operations.",
+            "C": "It begins in 2009. Fixed sensors count bidirectional movements through a footpath zone without collecting images.",
+            "D": "2017. A stratified household sample using five income strata and about 32,000 households."
+          },
+          "Output": "C",
+          "Explanation": "The conclusion combines two independently documented properties of Melbourne Pedestrian Counting System: It begins in 2009. Fixed sensors count bidirectional movements through a footpath zone without collecting images.",
+          "Level": 2
+        },
+        {
+          "Fact": "The records include sensor or location identifiers, sensing date and hour, directional counts, total pedestrian count, sensor name, and location. Count records and sensor-location metadata are published as related tabular datasets and can be linked using the sensor identifier.",
+          "Question": "How should the documented variable definitions and file structure and documentation be considered together?",
+          "Selections": {
+            "A": "Time, sensor identity and location, directional counts, and total pedestrian movements. By joining the count and sensor-location tables on the sensor identifier.",
+            "B": "The number of observed cycle trips at monitored sites by date. CSV.",
+            "C": "Several route classes plus stops, stations, trips, and service calendars. As a zipped GTFS feed composed of standardized transit tables.",
+            "D": "Socioeconomic attributes and trip characteristics such as mode and purpose. Layouts, variable definitions, manuals, maps, zone files, and summary tables."
+          },
+          "Output": "A",
+          "Explanation": "The conclusion combines two independently documented properties of Melbourne Pedestrian Counting System: Time, sensor identity and location, directional counts, and total pedestrian movements. By joining the count and sensor-location tables on the sensor identifier.",
+          "Level": 2
+        },
+        {
+          "Fact": "The datasets are downloadable and queryable through the municipal open-data API under a Creative Commons Attribution licence. The system is intended to show how pedestrian activity varies by place and time and to inform municipal decision-making and planning.",
+          "Question": "How should the documented data accessibility and availability and usage context be considered together?",
+          "Selections": {
+            "A": "They are openly available under CC BY 4.0. Monitoring cycling activity over time at the instrumented locations.",
+            "B": "Through downloads or the open-data API under a CC BY licence. Comparing pedestrian activity across monitored places and times to support planning.",
+            "C": "Public download under CC BY-SA 4.0. Transit network, timetable, and journey-planning applications.",
+            "D": "The archive is publicly downloadable, but the catalogue does not specify a licence. Transport planning, demand modelling, project assessment, and related policy analysis."
+          },
+          "Output": "B",
+          "Explanation": "The conclusion combines two independently documented properties of Melbourne Pedestrian Counting System: Through downloads or the open-data API under a CC BY licence. Comparing pedestrian activity across monitored places and times to support planning.",
+          "Level": 2
+        },
+        {
+          "Fact": "The historical dataset reports total pedestrian counts by sensor and hour. Sensors may be relocated, removed, temporarily inactive, or missing readings, so sensor history must be considered in longitudinal comparisons.",
+          "Question": "How should the documented measurement resolution and dataset limitations be considered together?",
+          "Selections": {
+            "A": "Daily cycle-trip totals. They cover selected fixed sites, not every route or cycling trip.",
+            "B": "Hourly counts by sensor. Sensor relocation, inactivity, removal, and missing readings can disrupt comparability.",
+            "C": "Routes, stops and stations, trips, and calendar services. Actual reliability, ridership, and experienced waiting time.",
+            "D": "Sampled household, person, trip, and trip-stage records linked to zones. It is a weighted sample survey, not a continuous census of every trip."
+          },
+          "Output": "B",
+          "Explanation": "The conclusion combines two independently documented properties of Melbourne Pedestrian Counting System: Hourly counts by sensor. Sensor relocation, inactivity, removal, and missing readings can disrupt comparability.",
+          "Level": 2
+        }
+      ]
+    },
+    {
+      "Instruction information": {
+        "Categories": "Question answering"
+      },
+      "Task_Definition": "Answer using only the supplied dataset context.",
+      "Positive Example": [
+        {
+          "Fact": "The City of Melbourne publishes and maintains the Pedestrian Counting System data.",
+          "Question": "Who publishes the Melbourne Pedestrian Counting System data?",
+          "Output": "The City of Melbourne.",
+          "Explanation": "The City of Melbourne is responsible for publishing or maintaining the dataset.",
+          "Level": 1
+        },
+        {
+          "Fact": "Pedestrian sensors are installed at selected locations throughout central Melbourne, with coordinates recorded in the sensor metadata.",
+          "Question": "What spatial coverage does the system provide?",
+          "Output": "Selected sensor locations in central Melbourne rather than complete citywide coverage.",
+          "Explanation": "The data cover the following geographic area: Selected sensor locations in central Melbourne rather than complete citywide coverage.",
+          "Level": 1
+        },
+        {
+          "Fact": "The Pedestrian Counting System has operated since 2009 and its historical hourly dataset extends from 2009 onward.",
+          "Question": "When does the historical pedestrian-count series begin?",
+          "Output": "It begins in 2009.",
+          "Explanation": "The available records have this time coverage: It begins in 2009.",
+          "Level": 1
+        },
+        {
+          "Fact": "The historical dataset reports total pedestrian counts by sensor and hour.",
+          "Question": "What is the principal temporal resolution of the historical count dataset?",
+          "Output": "Hourly counts by sensor.",
+          "Explanation": "The data use this reporting resolution: Hourly counts by sensor.",
+          "Level": 1
+        },
+        {
+          "Fact": "The records include sensor or location identifiers, sensing date and hour, directional counts, total pedestrian count, sensor name, and location.",
+          "Question": "What does the dataset record for an observation?",
+          "Output": "Time, sensor identity and location, directional counts, and total pedestrian movements.",
+          "Explanation": "Each record describes: Time, sensor identity and location, directional counts, and total pedestrian movements.",
+          "Level": 1
+        },
+        {
+          "Fact": "Count records and sensor-location metadata are published as related tabular datasets and can be linked using the sensor identifier.",
+          "Question": "How are counts linked to sensor characteristics?",
+          "Output": "By joining the count and sensor-location tables on the sensor identifier.",
+          "Explanation": "The dataset uses this file organization: By joining the count and sensor-location tables on the sensor identifier.",
+          "Level": 1
+        },
+        {
+          "Fact": "Sensors installed under awnings or on street poles count bidirectional pedestrian movements through a footpath zone continuously without recording images.",
+          "Question": "How are pedestrian movements collected?",
+          "Output": "Fixed sensors count bidirectional movements through a footpath zone without collecting images.",
+          "Explanation": "The observations were gathered using this method: Fixed sensors count bidirectional movements through a footpath zone without collecting images.",
+          "Level": 1
+        },
+        {
+          "Fact": "The datasets are downloadable and queryable through the municipal open-data API under a Creative Commons Attribution licence.",
+          "Question": "How can researchers access and reuse these data?",
+          "Output": "Through downloads or the open-data API under a CC BY licence.",
+          "Explanation": "The stated access terms are: Through downloads or the open-data API under a CC BY licence.",
+          "Level": 1
+        },
+        {
+          "Fact": "The system is intended to show how pedestrian activity varies by place and time and to inform municipal decision-making and planning.",
+          "Question": "What planning use does the dataset support?",
+          "Output": "Comparing pedestrian activity across monitored places and times to support planning.",
+          "Explanation": "The data support this use: Comparing pedestrian activity across monitored places and times to support planning.",
+          "Level": 1
+        },
+        {
+          "Fact": "Sensors may be relocated, removed, temporarily inactive, or missing readings, so sensor history must be considered in longitudinal comparisons.",
+          "Question": "What limitation must be checked before comparing historical counts?",
+          "Output": "Sensor relocation, inactivity, removal, and missing readings can disrupt comparability.",
+          "Explanation": "The stated limitation is: Sensor relocation, inactivity, removal, and missing readings can disrupt comparability.",
+          "Level": 1
+        },
+        {
+          "Fact": "Pedestrian sensors are installed at selected locations throughout central Melbourne, with coordinates recorded in the sensor metadata. The historical dataset reports total pedestrian counts by sensor and hour.",
+          "Question": "How should the documented spatial coverage and measurement resolution be considered together?",
+          "Output": "Selected sensor locations in central Melbourne rather than complete citywide coverage. Hourly counts by sensor.",
+          "Explanation": "The conclusion combines two independently documented properties of Melbourne Pedestrian Counting System: Selected sensor locations in central Melbourne rather than complete citywide coverage. Hourly counts by sensor.",
+          "Level": 2
+        },
+        {
+          "Fact": "The Pedestrian Counting System has operated since 2009 and its historical hourly dataset extends from 2009 onward. Sensors installed under awnings or on street poles count bidirectional pedestrian movements through a footpath zone continuously without recording images.",
+          "Question": "How should the documented temporal coverage and collection methodology be considered together?",
+          "Output": "It begins in 2009. Fixed sensors count bidirectional movements through a footpath zone without collecting images.",
+          "Explanation": "The conclusion combines two independently documented properties of Melbourne Pedestrian Counting System: It begins in 2009. Fixed sensors count bidirectional movements through a footpath zone without collecting images.",
+          "Level": 2
+        },
+        {
+          "Fact": "The records include sensor or location identifiers, sensing date and hour, directional counts, total pedestrian count, sensor name, and location. Count records and sensor-location metadata are published as related tabular datasets and can be linked using the sensor identifier.",
+          "Question": "How should the documented variable definitions and file structure and documentation be considered together?",
+          "Output": "Time, sensor identity and location, directional counts, and total pedestrian movements. By joining the count and sensor-location tables on the sensor identifier.",
+          "Explanation": "The conclusion combines two independently documented properties of Melbourne Pedestrian Counting System: Time, sensor identity and location, directional counts, and total pedestrian movements. By joining the count and sensor-location tables on the sensor identifier.",
+          "Level": 2
+        },
+        {
+          "Fact": "The datasets are downloadable and queryable through the municipal open-data API under a Creative Commons Attribution licence. The system is intended to show how pedestrian activity varies by place and time and to inform municipal decision-making and planning.",
+          "Question": "How should the documented data accessibility and availability and usage context be considered together?",
+          "Output": "Through downloads or the open-data API under a CC BY licence. Comparing pedestrian activity across monitored places and times to support planning.",
+          "Explanation": "The conclusion combines two independently documented properties of Melbourne Pedestrian Counting System: Through downloads or the open-data API under a CC BY licence. Comparing pedestrian activity across monitored places and times to support planning.",
+          "Level": 2
+        },
+        {
+          "Fact": "The historical dataset reports total pedestrian counts by sensor and hour. Sensors may be relocated, removed, temporarily inactive, or missing readings, so sensor history must be considered in longitudinal comparisons.",
+          "Question": "How should the documented measurement resolution and dataset limitations be considered together?",
+          "Output": "Hourly counts by sensor. Sensor relocation, inactivity, removal, and missing readings can disrupt comparability.",
+          "Explanation": "The conclusion combines two independently documented properties of Melbourne Pedestrian Counting System: Hourly counts by sensor. Sensor relocation, inactivity, removal, and missing readings can disrupt comparability.",
+          "Level": 2
+        },
+        {
+          "Fact": "The system is intended to show how pedestrian activity varies by place and time and to inform municipal decision-making and planning. Sensors may be relocated, removed, temporarily inactive, or missing readings, so sensor history must be considered in longitudinal comparisons.",
+          "Question": "What planning use is supported, and what limitation must qualify that use?",
+          "Output": "Comparing pedestrian activity across monitored places and times to support planning. However, Sensor relocation, inactivity, removal, and missing readings can disrupt comparability.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        },
+        {
+          "Fact": "Pedestrian sensors are installed at selected locations throughout central Melbourne, with coordinates recorded in the sensor metadata. Sensors may be relocated, removed, temporarily inactive, or missing readings, so sensor history must be considered in longitudinal comparisons.",
+          "Question": "What limits the geographic or population representativeness of this dataset?",
+          "Output": "Selected sensor locations in central Melbourne rather than complete citywide coverage. However, Sensor relocation, inactivity, removal, and missing readings can disrupt comparability.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        },
+        {
+          "Fact": "The Pedestrian Counting System has operated since 2009 and its historical hourly dataset extends from 2009 onward. The historical dataset reports total pedestrian counts by sensor and hour.",
+          "Question": "What temporal inference is justified, and what temporal inference should be avoided?",
+          "Output": "It begins in 2009. However, Hourly counts by sensor.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        },
+        {
+          "Fact": "The records include sensor or location identifiers, sensing date and hour, directional counts, total pedestrian count, sensor name, and location. Sensors installed under awnings or on street poles count bidirectional pedestrian movements through a footpath zone continuously without recording images.",
+          "Question": "How does the collection method affect interpretation of the recorded variables?",
+          "Output": "Time, sensor identity and location, directional counts, and total pedestrian movements. However, Fixed sensors count bidirectional movements through a footpath zone without collecting images.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        },
+        {
+          "Fact": "The City of Melbourne publishes and maintains the Pedestrian Counting System data. The datasets are downloadable and queryable through the municipal open-data API under a Creative Commons Attribution licence.",
+          "Question": "What supports reproducible reuse, and what access or governance condition remains?",
+          "Output": "The City of Melbourne. However, Through downloads or the open-data API under a CC BY licence.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        }
+      ]
+    }
+  ]
+}

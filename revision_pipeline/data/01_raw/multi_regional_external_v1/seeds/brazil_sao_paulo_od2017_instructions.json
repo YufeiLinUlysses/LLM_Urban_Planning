@@ -1,0 +1,358 @@
+{
+  "dataset_name": "São Paulo Origin-Destination Survey 2017",
+  "dataset_link": "https://transparencia.metrosp.com.br/dataset/pesquisa-origem-e-destino",
+  "dataset_description": "Household origin-destination survey for the São Paulo Metropolitan Region.",
+  "instructions": [
+    {
+      "Instruction information": {
+        "Categories": "Multiple Selection"
+      },
+      "Task_Definition": "Select one supported option and provide its letter.",
+      "Positive Example": [
+        {
+          "Fact": "The São Paulo Metropolitan Company publishes the 2017 Origin-Destination Survey through its transparency portal.",
+          "Question": "Which institution publishes the OD 2017 resources?",
+          "Selections": {
+            "A": "The City of Melbourne.",
+            "B": "Auckland Transport.",
+            "C": "The São Paulo Metropolitan Company (Metrô).",
+            "D": "TransMilenio S.A."
+          },
+          "Output": "C",
+          "Explanation": "The São Paulo Metropolitan Company (Metrô) is responsible for publishing or maintaining the dataset.",
+          "Level": 1
+        },
+        {
+          "Fact": "The survey characterizes travel in the São Paulo Metropolitan Region.",
+          "Question": "What area does the OD 2017 survey cover?",
+          "Selections": {
+            "A": "Selected sensor locations in central Melbourne rather than complete citywide coverage.",
+            "B": "The São Paulo Metropolitan Region.",
+            "C": "Twenty-seven sites: 13 city-centre and 14 regional sites.",
+            "D": "Bogotá's TransMilenio and SITP network."
+          },
+          "Output": "B",
+          "Explanation": "The data cover the following geographic area: The São Paulo Metropolitan Region.",
+          "Level": 1
+        },
+        {
+          "Fact": "The survey reference year is 2017; fieldwork concluded in October 2018 and final results were presented in July 2019.",
+          "Question": "What is the survey's reference year?",
+          "Selections": {
+            "A": "2017.",
+            "B": "It begins in 2009.",
+            "C": "Daily counts are compiled monthly.",
+            "D": "Monthly."
+          },
+          "Output": "A",
+          "Explanation": "The available records have this time coverage: 2017.",
+          "Level": 1
+        },
+        {
+          "Fact": "The survey records people, households, trips, trip stages, modes, purposes, and origin-destination zones rather than continuous sensor observations.",
+          "Question": "What is the principal observational structure?",
+          "Selections": {
+            "A": "Hourly counts by sensor.",
+            "B": "Daily cycle-trip totals.",
+            "C": "Routes, stops and stations, trips, and calendar services.",
+            "D": "Sampled household, person, trip, and trip-stage records linked to zones."
+          },
+          "Output": "D",
+          "Explanation": "The data use this reporting resolution: Sampled household, person, trip, and trip-stage records linked to zones.",
+          "Level": 1
+        },
+        {
+          "Fact": "Documented variables include age, sex, education, household income, travel mode, trip purpose, and other trip characteristics.",
+          "Question": "Name the major types of variables available.",
+          "Selections": {
+            "A": "Time, sensor identity and location, directional counts, and total pedestrian movements.",
+            "B": "The number of observed cycle trips at monitored sites by date.",
+            "C": "Several route classes plus stops, stations, trips, and service calendars.",
+            "D": "Socioeconomic attributes and trip characteristics such as mode and purpose."
+          },
+          "Output": "D",
+          "Explanation": "Each record describes: Socioeconomic attributes and trip characteristics such as mode and purpose.",
+          "Level": 1
+        },
+        {
+          "Fact": "The downloadable archive contains DBF and SAV microdata, an XLSX layout, a variable dictionary, manuals, maps, zone files, and summary tables.",
+          "Question": "What documentation accompanies the microdata?",
+          "Selections": {
+            "A": "By joining the count and sensor-location tables on the sensor identifier.",
+            "B": "CSV.",
+            "C": "Layouts, variable definitions, manuals, maps, zone files, and summary tables.",
+            "D": "As a zipped GTFS feed composed of standardized transit tables."
+          },
+          "Output": "C",
+          "Explanation": "The dataset uses this file organization: Layouts, variable definitions, manuals, maps, zone files, and summary tables.",
+          "Level": 1
+        },
+        {
+          "Fact": "The household survey used a stratified sample based on five household-income strata and approximately 32,000 households.",
+          "Question": "What sampling approach was used?",
+          "Selections": {
+            "A": "Fixed sensors count bidirectional movements through a footpath zone without collecting images.",
+            "B": "With automated counters installed at fixed monitoring sites.",
+            "C": "A stratified household sample using five income strata and about 32,000 households.",
+            "D": "Administrative publication of planned transit operations."
+          },
+          "Output": "C",
+          "Explanation": "The observations were gathered using this method: A stratified household sample using five income strata and about 32,000 households.",
+          "Level": 1
+        },
+        {
+          "Fact": "The database and documentation can be downloaded as a ZIP archive from the Metrô transparency portal; the catalogue does not specify a licence.",
+          "Question": "What access and licensing condition is documented?",
+          "Selections": {
+            "A": "Through downloads or the open-data API under a CC BY licence.",
+            "B": "They are openly available under CC BY 4.0.",
+            "C": "Public download under CC BY-SA 4.0.",
+            "D": "The archive is publicly downloadable, but the catalogue does not specify a licence."
+          },
+          "Output": "D",
+          "Explanation": "The stated access terms are: The archive is publicly downloadable, but the catalogue does not specify a licence.",
+          "Level": 1
+        },
+        {
+          "Fact": "The OD survey supports transport planning, future-demand modelling, project evaluation, and analysis in other public-policy sectors.",
+          "Question": "What planning activities does the survey support?",
+          "Selections": {
+            "A": "Comparing pedestrian activity across monitored places and times to support planning.",
+            "B": "Monitoring cycling activity over time at the instrumented locations.",
+            "C": "Transit network, timetable, and journey-planning applications.",
+            "D": "Transport planning, demand modelling, project assessment, and related policy analysis."
+          },
+          "Output": "D",
+          "Explanation": "The data support this use: Transport planning, demand modelling, project assessment, and related policy analysis.",
+          "Level": 1
+        },
+        {
+          "Fact": "The estimates come from a sampled household survey for a reference period and therefore should not be treated as continuous observation of every trip in the region.",
+          "Question": "What representativeness qualification applies?",
+          "Selections": {
+            "A": "It is a weighted sample survey, not a continuous census of every trip.",
+            "B": "Sensor relocation, inactivity, removal, and missing readings can disrupt comparability.",
+            "C": "They cover selected fixed sites, not every route or cycling trip.",
+            "D": "Actual reliability, ridership, and experienced waiting time."
+          },
+          "Output": "A",
+          "Explanation": "The stated limitation is: It is a weighted sample survey, not a continuous census of every trip.",
+          "Level": 1
+        },
+        {
+          "Fact": "The survey characterizes travel in the São Paulo Metropolitan Region. The survey records people, households, trips, trip stages, modes, purposes, and origin-destination zones rather than continuous sensor observations.",
+          "Question": "How should the documented spatial coverage and measurement resolution be considered together?",
+          "Selections": {
+            "A": "The São Paulo Metropolitan Region. Sampled household, person, trip, and trip-stage records linked to zones.",
+            "B": "Selected sensor locations in central Melbourne rather than complete citywide coverage. Hourly counts by sensor.",
+            "C": "Twenty-seven sites: 13 city-centre and 14 regional sites. Daily cycle-trip totals.",
+            "D": "Bogotá's TransMilenio and SITP network. Routes, stops and stations, trips, and calendar services."
+          },
+          "Output": "A",
+          "Explanation": "The conclusion combines two independently documented properties of São Paulo Origin-Destination Survey 2017: The São Paulo Metropolitan Region. Sampled household, person, trip, and trip-stage records linked to zones.",
+          "Level": 2
+        },
+        {
+          "Fact": "The survey reference year is 2017; fieldwork concluded in October 2018 and final results were presented in July 2019. The household survey used a stratified sample based on five household-income strata and approximately 32,000 households.",
+          "Question": "How should the documented temporal coverage and collection methodology be considered together?",
+          "Selections": {
+            "A": "2017. A stratified household sample using five income strata and about 32,000 households.",
+            "B": "It begins in 2009. Fixed sensors count bidirectional movements through a footpath zone without collecting images.",
+            "C": "Daily counts are compiled monthly. With automated counters installed at fixed monitoring sites.",
+            "D": "Monthly. Administrative publication of planned transit operations."
+          },
+          "Output": "A",
+          "Explanation": "The conclusion combines two independently documented properties of São Paulo Origin-Destination Survey 2017: 2017. A stratified household sample using five income strata and about 32,000 households.",
+          "Level": 2
+        },
+        {
+          "Fact": "Documented variables include age, sex, education, household income, travel mode, trip purpose, and other trip characteristics. The downloadable archive contains DBF and SAV microdata, an XLSX layout, a variable dictionary, manuals, maps, zone files, and summary tables.",
+          "Question": "How should the documented variable definitions and file structure and documentation be considered together?",
+          "Selections": {
+            "A": "Time, sensor identity and location, directional counts, and total pedestrian movements. By joining the count and sensor-location tables on the sensor identifier.",
+            "B": "Socioeconomic attributes and trip characteristics such as mode and purpose. Layouts, variable definitions, manuals, maps, zone files, and summary tables.",
+            "C": "The number of observed cycle trips at monitored sites by date. CSV.",
+            "D": "Several route classes plus stops, stations, trips, and service calendars. As a zipped GTFS feed composed of standardized transit tables."
+          },
+          "Output": "B",
+          "Explanation": "The conclusion combines two independently documented properties of São Paulo Origin-Destination Survey 2017: Socioeconomic attributes and trip characteristics such as mode and purpose. Layouts, variable definitions, manuals, maps, zone files, and summary tables.",
+          "Level": 2
+        },
+        {
+          "Fact": "The database and documentation can be downloaded as a ZIP archive from the Metrô transparency portal; the catalogue does not specify a licence. The OD survey supports transport planning, future-demand modelling, project evaluation, and analysis in other public-policy sectors.",
+          "Question": "How should the documented data accessibility and availability and usage context be considered together?",
+          "Selections": {
+            "A": "The archive is publicly downloadable, but the catalogue does not specify a licence. Transport planning, demand modelling, project assessment, and related policy analysis.",
+            "B": "Through downloads or the open-data API under a CC BY licence. Comparing pedestrian activity across monitored places and times to support planning.",
+            "C": "They are openly available under CC BY 4.0. Monitoring cycling activity over time at the instrumented locations.",
+            "D": "Public download under CC BY-SA 4.0. Transit network, timetable, and journey-planning applications."
+          },
+          "Output": "A",
+          "Explanation": "The conclusion combines two independently documented properties of São Paulo Origin-Destination Survey 2017: The archive is publicly downloadable, but the catalogue does not specify a licence. Transport planning, demand modelling, project assessment, and related policy analysis.",
+          "Level": 2
+        },
+        {
+          "Fact": "The survey records people, households, trips, trip stages, modes, purposes, and origin-destination zones rather than continuous sensor observations. The estimates come from a sampled household survey for a reference period and therefore should not be treated as continuous observation of every trip in the region.",
+          "Question": "How should the documented measurement resolution and dataset limitations be considered together?",
+          "Selections": {
+            "A": "Sampled household, person, trip, and trip-stage records linked to zones. It is a weighted sample survey, not a continuous census of every trip.",
+            "B": "Hourly counts by sensor. Sensor relocation, inactivity, removal, and missing readings can disrupt comparability.",
+            "C": "Daily cycle-trip totals. They cover selected fixed sites, not every route or cycling trip.",
+            "D": "Routes, stops and stations, trips, and calendar services. Actual reliability, ridership, and experienced waiting time."
+          },
+          "Output": "A",
+          "Explanation": "The conclusion combines two independently documented properties of São Paulo Origin-Destination Survey 2017: Sampled household, person, trip, and trip-stage records linked to zones. It is a weighted sample survey, not a continuous census of every trip.",
+          "Level": 2
+        }
+      ]
+    },
+    {
+      "Instruction information": {
+        "Categories": "Question answering"
+      },
+      "Task_Definition": "Answer using only the supplied dataset context.",
+      "Positive Example": [
+        {
+          "Fact": "The São Paulo Metropolitan Company publishes the 2017 Origin-Destination Survey through its transparency portal.",
+          "Question": "Which institution publishes the OD 2017 resources?",
+          "Output": "The São Paulo Metropolitan Company (Metrô).",
+          "Explanation": "The São Paulo Metropolitan Company (Metrô) is responsible for publishing or maintaining the dataset.",
+          "Level": 1
+        },
+        {
+          "Fact": "The survey characterizes travel in the São Paulo Metropolitan Region.",
+          "Question": "What area does the OD 2017 survey cover?",
+          "Output": "The São Paulo Metropolitan Region.",
+          "Explanation": "The data cover the following geographic area: The São Paulo Metropolitan Region.",
+          "Level": 1
+        },
+        {
+          "Fact": "The survey reference year is 2017; fieldwork concluded in October 2018 and final results were presented in July 2019.",
+          "Question": "What is the survey's reference year?",
+          "Output": "2017.",
+          "Explanation": "The available records have this time coverage: 2017.",
+          "Level": 1
+        },
+        {
+          "Fact": "The survey records people, households, trips, trip stages, modes, purposes, and origin-destination zones rather than continuous sensor observations.",
+          "Question": "What is the principal observational structure?",
+          "Output": "Sampled household, person, trip, and trip-stage records linked to zones.",
+          "Explanation": "The data use this reporting resolution: Sampled household, person, trip, and trip-stage records linked to zones.",
+          "Level": 1
+        },
+        {
+          "Fact": "Documented variables include age, sex, education, household income, travel mode, trip purpose, and other trip characteristics.",
+          "Question": "Name the major types of variables available.",
+          "Output": "Socioeconomic attributes and trip characteristics such as mode and purpose.",
+          "Explanation": "Each record describes: Socioeconomic attributes and trip characteristics such as mode and purpose.",
+          "Level": 1
+        },
+        {
+          "Fact": "The downloadable archive contains DBF and SAV microdata, an XLSX layout, a variable dictionary, manuals, maps, zone files, and summary tables.",
+          "Question": "What documentation accompanies the microdata?",
+          "Output": "Layouts, variable definitions, manuals, maps, zone files, and summary tables.",
+          "Explanation": "The dataset uses this file organization: Layouts, variable definitions, manuals, maps, zone files, and summary tables.",
+          "Level": 1
+        },
+        {
+          "Fact": "The household survey used a stratified sample based on five household-income strata and approximately 32,000 households.",
+          "Question": "What sampling approach was used?",
+          "Output": "A stratified household sample using five income strata and about 32,000 households.",
+          "Explanation": "The observations were gathered using this method: A stratified household sample using five income strata and about 32,000 households.",
+          "Level": 1
+        },
+        {
+          "Fact": "The database and documentation can be downloaded as a ZIP archive from the Metrô transparency portal; the catalogue does not specify a licence.",
+          "Question": "What access and licensing condition is documented?",
+          "Output": "The archive is publicly downloadable, but the catalogue does not specify a licence.",
+          "Explanation": "The stated access terms are: The archive is publicly downloadable, but the catalogue does not specify a licence.",
+          "Level": 1
+        },
+        {
+          "Fact": "The OD survey supports transport planning, future-demand modelling, project evaluation, and analysis in other public-policy sectors.",
+          "Question": "What planning activities does the survey support?",
+          "Output": "Transport planning, demand modelling, project assessment, and related policy analysis.",
+          "Explanation": "The data support this use: Transport planning, demand modelling, project assessment, and related policy analysis.",
+          "Level": 1
+        },
+        {
+          "Fact": "The estimates come from a sampled household survey for a reference period and therefore should not be treated as continuous observation of every trip in the region.",
+          "Question": "What representativeness qualification applies?",
+          "Output": "It is a weighted sample survey, not a continuous census of every trip.",
+          "Explanation": "The stated limitation is: It is a weighted sample survey, not a continuous census of every trip.",
+          "Level": 1
+        },
+        {
+          "Fact": "The survey characterizes travel in the São Paulo Metropolitan Region. The survey records people, households, trips, trip stages, modes, purposes, and origin-destination zones rather than continuous sensor observations.",
+          "Question": "How should the documented spatial coverage and measurement resolution be considered together?",
+          "Output": "The São Paulo Metropolitan Region. Sampled household, person, trip, and trip-stage records linked to zones.",
+          "Explanation": "The conclusion combines two independently documented properties of São Paulo Origin-Destination Survey 2017: The São Paulo Metropolitan Region. Sampled household, person, trip, and trip-stage records linked to zones.",
+          "Level": 2
+        },
+        {
+          "Fact": "The survey reference year is 2017; fieldwork concluded in October 2018 and final results were presented in July 2019. The household survey used a stratified sample based on five household-income strata and approximately 32,000 households.",
+          "Question": "How should the documented temporal coverage and collection methodology be considered together?",
+          "Output": "2017. A stratified household sample using five income strata and about 32,000 households.",
+          "Explanation": "The conclusion combines two independently documented properties of São Paulo Origin-Destination Survey 2017: 2017. A stratified household sample using five income strata and about 32,000 households.",
+          "Level": 2
+        },
+        {
+          "Fact": "Documented variables include age, sex, education, household income, travel mode, trip purpose, and other trip characteristics. The downloadable archive contains DBF and SAV microdata, an XLSX layout, a variable dictionary, manuals, maps, zone files, and summary tables.",
+          "Question": "How should the documented variable definitions and file structure and documentation be considered together?",
+          "Output": "Socioeconomic attributes and trip characteristics such as mode and purpose. Layouts, variable definitions, manuals, maps, zone files, and summary tables.",
+          "Explanation": "The conclusion combines two independently documented properties of São Paulo Origin-Destination Survey 2017: Socioeconomic attributes and trip characteristics such as mode and purpose. Layouts, variable definitions, manuals, maps, zone files, and summary tables.",
+          "Level": 2
+        },
+        {
+          "Fact": "The database and documentation can be downloaded as a ZIP archive from the Metrô transparency portal; the catalogue does not specify a licence. The OD survey supports transport planning, future-demand modelling, project evaluation, and analysis in other public-policy sectors.",
+          "Question": "How should the documented data accessibility and availability and usage context be considered together?",
+          "Output": "The archive is publicly downloadable, but the catalogue does not specify a licence. Transport planning, demand modelling, project assessment, and related policy analysis.",
+          "Explanation": "The conclusion combines two independently documented properties of São Paulo Origin-Destination Survey 2017: The archive is publicly downloadable, but the catalogue does not specify a licence. Transport planning, demand modelling, project assessment, and related policy analysis.",
+          "Level": 2
+        },
+        {
+          "Fact": "The survey records people, households, trips, trip stages, modes, purposes, and origin-destination zones rather than continuous sensor observations. The estimates come from a sampled household survey for a reference period and therefore should not be treated as continuous observation of every trip in the region.",
+          "Question": "How should the documented measurement resolution and dataset limitations be considered together?",
+          "Output": "Sampled household, person, trip, and trip-stage records linked to zones. It is a weighted sample survey, not a continuous census of every trip.",
+          "Explanation": "The conclusion combines two independently documented properties of São Paulo Origin-Destination Survey 2017: Sampled household, person, trip, and trip-stage records linked to zones. It is a weighted sample survey, not a continuous census of every trip.",
+          "Level": 2
+        },
+        {
+          "Fact": "The OD survey supports transport planning, future-demand modelling, project evaluation, and analysis in other public-policy sectors. The estimates come from a sampled household survey for a reference period and therefore should not be treated as continuous observation of every trip in the region.",
+          "Question": "What planning use is supported, and what limitation must qualify that use?",
+          "Output": "Transport planning, demand modelling, project assessment, and related policy analysis. However, It is a weighted sample survey, not a continuous census of every trip.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        },
+        {
+          "Fact": "The survey characterizes travel in the São Paulo Metropolitan Region. The estimates come from a sampled household survey for a reference period and therefore should not be treated as continuous observation of every trip in the region.",
+          "Question": "What limits the geographic or population representativeness of this dataset?",
+          "Output": "The São Paulo Metropolitan Region. However, It is a weighted sample survey, not a continuous census of every trip.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        },
+        {
+          "Fact": "The survey reference year is 2017; fieldwork concluded in October 2018 and final results were presented in July 2019. The survey records people, households, trips, trip stages, modes, purposes, and origin-destination zones rather than continuous sensor observations.",
+          "Question": "What temporal inference is justified, and what temporal inference should be avoided?",
+          "Output": "2017. However, Sampled household, person, trip, and trip-stage records linked to zones.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        },
+        {
+          "Fact": "Documented variables include age, sex, education, household income, travel mode, trip purpose, and other trip characteristics. The household survey used a stratified sample based on five household-income strata and approximately 32,000 households.",
+          "Question": "How does the collection method affect interpretation of the recorded variables?",
+          "Output": "Socioeconomic attributes and trip characteristics such as mode and purpose. However, A stratified household sample using five income strata and about 32,000 households.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        },
+        {
+          "Fact": "The São Paulo Metropolitan Company publishes the 2017 Origin-Destination Survey through its transparency portal. The database and documentation can be downloaded as a ZIP archive from the Metrô transparency portal; the catalogue does not specify a licence.",
+          "Question": "What supports reproducible reuse, and what access or governance condition remains?",
+          "Output": "The São Paulo Metropolitan Company (Metrô). However, The archive is publicly downloadable, but the catalogue does not specify a licence.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        }
+      ]
+    }
+  ]
+}

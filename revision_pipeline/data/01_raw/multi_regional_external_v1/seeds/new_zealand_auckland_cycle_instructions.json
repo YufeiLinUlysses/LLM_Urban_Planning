@@ -1,0 +1,358 @@
+{
+  "dataset_name": "Auckland Monthly Cycle Monitoring",
+  "dataset_link": "https://at.govt.nz/about-us/at-data-sources",
+  "dataset_description": "Automated bicycle counts reported by Auckland Transport.",
+  "instructions": [
+    {
+      "Instruction information": {
+        "Categories": "Multiple Selection"
+      },
+      "Task_Definition": "Select one supported option and provide its letter.",
+      "Positive Example": [
+        {
+          "Fact": "Auckland Transport collects and publishes the monthly cycle-monitoring data.",
+          "Question": "Which organization provides the Auckland cycle-monitoring data?",
+          "Selections": {
+            "A": "The City of Melbourne.",
+            "B": "TransMilenio S.A.",
+            "C": "Auckland Transport.",
+            "D": "The São Paulo Metropolitan Company (Metrô)."
+          },
+          "Output": "C",
+          "Explanation": "Auckland Transport is responsible for publishing or maintaining the dataset.",
+          "Level": 1
+        },
+        {
+          "Fact": "The monitoring program uses 13 city-centre sites and 14 regional sites in Auckland.",
+          "Question": "How many monitored locations are described?",
+          "Selections": {
+            "A": "Selected sensor locations in central Melbourne rather than complete citywide coverage.",
+            "B": "Bogotá's TransMilenio and SITP network.",
+            "C": "The São Paulo Metropolitan Region.",
+            "D": "Twenty-seven sites: 13 city-centre and 14 regional sites."
+          },
+          "Output": "D",
+          "Explanation": "The data cover the following geographic area: Twenty-seven sites: 13 city-centre and 14 regional sites.",
+          "Level": 1
+        },
+        {
+          "Fact": "Daily cycle-trip numbers are compiled and released in monthly reports.",
+          "Question": "How are observations organized over time?",
+          "Selections": {
+            "A": "Daily counts are compiled monthly.",
+            "B": "It begins in 2009.",
+            "C": "Monthly.",
+            "D": "2017."
+          },
+          "Output": "A",
+          "Explanation": "The available records have this time coverage: Daily counts are compiled monthly.",
+          "Level": 1
+        },
+        {
+          "Fact": "The published series reports daily cycle-trip numbers for monitored sites.",
+          "Question": "What temporal unit is reported before monthly compilation?",
+          "Selections": {
+            "A": "Hourly counts by sensor.",
+            "B": "Routes, stops and stations, trips, and calendar services.",
+            "C": "Daily cycle-trip totals.",
+            "D": "Sampled household, person, trip, and trip-stage records linked to zones."
+          },
+          "Output": "C",
+          "Explanation": "The data use this reporting resolution: Daily cycle-trip totals.",
+          "Level": 1
+        },
+        {
+          "Fact": "The monitoring data identify monitored sites and the number of cycle trips observed by date.",
+          "Question": "What principal measure does the dataset provide?",
+          "Selections": {
+            "A": "The number of observed cycle trips at monitored sites by date.",
+            "B": "Time, sensor identity and location, directional counts, and total pedestrian movements.",
+            "C": "Several route classes plus stops, stations, trips, and service calendars.",
+            "D": "Socioeconomic attributes and trip characteristics such as mode and purpose."
+          },
+          "Output": "A",
+          "Explanation": "Each record describes: The number of observed cycle trips at monitored sites by date.",
+          "Level": 1
+        },
+        {
+          "Fact": "Auckland Transport makes the monthly cycle-monitoring data available in CSV format.",
+          "Question": "In what file format are the cycle-monitoring data released?",
+          "Selections": {
+            "A": "By joining the count and sensor-location tables on the sensor identifier.",
+            "B": "As a zipped GTFS feed composed of standardized transit tables.",
+            "C": "Layouts, variable definitions, manuals, maps, zone files, and summary tables.",
+            "D": "CSV."
+          },
+          "Output": "D",
+          "Explanation": "The dataset uses this file organization: CSV.",
+          "Level": 1
+        },
+        {
+          "Fact": "Cycle trips are measured using automated cycle-monitoring equipment at fixed sites.",
+          "Question": "How are the Auckland cycle counts collected?",
+          "Selections": {
+            "A": "Fixed sensors count bidirectional movements through a footpath zone without collecting images.",
+            "B": "Administrative publication of planned transit operations.",
+            "C": "With automated counters installed at fixed monitoring sites.",
+            "D": "A stratified household sample using five income strata and about 32,000 households."
+          },
+          "Output": "C",
+          "Explanation": "The observations were gathered using this method: With automated counters installed at fixed monitoring sites.",
+          "Level": 1
+        },
+        {
+          "Fact": "Auckland Transport states that released open data are free to use under a Creative Commons Attribution 4.0 licence.",
+          "Question": "Under what access condition can the data be reused?",
+          "Selections": {
+            "A": "They are openly available under CC BY 4.0.",
+            "B": "Through downloads or the open-data API under a CC BY licence.",
+            "C": "Public download under CC BY-SA 4.0.",
+            "D": "The archive is publicly downloadable, but the catalogue does not specify a licence."
+          },
+          "Output": "A",
+          "Explanation": "The stated access terms are: They are openly available under CC BY 4.0.",
+          "Level": 1
+        },
+        {
+          "Fact": "The dataset is used to monitor changes in cycling activity across Auckland's monitored locations.",
+          "Question": "What is the direct analytical use of these data?",
+          "Selections": {
+            "A": "Comparing pedestrian activity across monitored places and times to support planning.",
+            "B": "Transit network, timetable, and journey-planning applications.",
+            "C": "Transport planning, demand modelling, project assessment, and related policy analysis.",
+            "D": "Monitoring cycling activity over time at the instrumented locations."
+          },
+          "Output": "D",
+          "Explanation": "The data support this use: Monitoring cycling activity over time at the instrumented locations.",
+          "Level": 1
+        },
+        {
+          "Fact": "The fixed network contains 27 selected monitoring sites, so it does not directly observe every cycling trip or every location in Auckland.",
+          "Question": "Why should the counts not be interpreted as a complete census of Auckland cycling?",
+          "Selections": {
+            "A": "Sensor relocation, inactivity, removal, and missing readings can disrupt comparability.",
+            "B": "Actual reliability, ridership, and experienced waiting time.",
+            "C": "It is a weighted sample survey, not a continuous census of every trip.",
+            "D": "They cover selected fixed sites, not every route or cycling trip."
+          },
+          "Output": "D",
+          "Explanation": "The stated limitation is: They cover selected fixed sites, not every route or cycling trip.",
+          "Level": 1
+        },
+        {
+          "Fact": "The monitoring program uses 13 city-centre sites and 14 regional sites in Auckland. The published series reports daily cycle-trip numbers for monitored sites.",
+          "Question": "How should the documented spatial coverage and measurement resolution be considered together?",
+          "Selections": {
+            "A": "Selected sensor locations in central Melbourne rather than complete citywide coverage. Hourly counts by sensor.",
+            "B": "Twenty-seven sites: 13 city-centre and 14 regional sites. Daily cycle-trip totals.",
+            "C": "Bogotá's TransMilenio and SITP network. Routes, stops and stations, trips, and calendar services.",
+            "D": "The São Paulo Metropolitan Region. Sampled household, person, trip, and trip-stage records linked to zones."
+          },
+          "Output": "B",
+          "Explanation": "The conclusion combines two independently documented properties of Auckland Monthly Cycle Monitoring: Twenty-seven sites: 13 city-centre and 14 regional sites. Daily cycle-trip totals.",
+          "Level": 2
+        },
+        {
+          "Fact": "Daily cycle-trip numbers are compiled and released in monthly reports. Cycle trips are measured using automated cycle-monitoring equipment at fixed sites.",
+          "Question": "How should the documented temporal coverage and collection methodology be considered together?",
+          "Selections": {
+            "A": "Daily counts are compiled monthly. With automated counters installed at fixed monitoring sites.",
+            "B": "It begins in 2009. Fixed sensors count bidirectional movements through a footpath zone without collecting images.",
+            "C": "Monthly. Administrative publication of planned transit operations.",
+            "D": "2017. A stratified household sample using five income strata and about 32,000 households."
+          },
+          "Output": "A",
+          "Explanation": "The conclusion combines two independently documented properties of Auckland Monthly Cycle Monitoring: Daily counts are compiled monthly. With automated counters installed at fixed monitoring sites.",
+          "Level": 2
+        },
+        {
+          "Fact": "The monitoring data identify monitored sites and the number of cycle trips observed by date. Auckland Transport makes the monthly cycle-monitoring data available in CSV format.",
+          "Question": "How should the documented variable definitions and file structure and documentation be considered together?",
+          "Selections": {
+            "A": "Time, sensor identity and location, directional counts, and total pedestrian movements. By joining the count and sensor-location tables on the sensor identifier.",
+            "B": "Several route classes plus stops, stations, trips, and service calendars. As a zipped GTFS feed composed of standardized transit tables.",
+            "C": "Socioeconomic attributes and trip characteristics such as mode and purpose. Layouts, variable definitions, manuals, maps, zone files, and summary tables.",
+            "D": "The number of observed cycle trips at monitored sites by date. CSV."
+          },
+          "Output": "D",
+          "Explanation": "The conclusion combines two independently documented properties of Auckland Monthly Cycle Monitoring: The number of observed cycle trips at monitored sites by date. CSV.",
+          "Level": 2
+        },
+        {
+          "Fact": "Auckland Transport states that released open data are free to use under a Creative Commons Attribution 4.0 licence. The dataset is used to monitor changes in cycling activity across Auckland's monitored locations.",
+          "Question": "How should the documented data accessibility and availability and usage context be considered together?",
+          "Selections": {
+            "A": "They are openly available under CC BY 4.0. Monitoring cycling activity over time at the instrumented locations.",
+            "B": "Through downloads or the open-data API under a CC BY licence. Comparing pedestrian activity across monitored places and times to support planning.",
+            "C": "Public download under CC BY-SA 4.0. Transit network, timetable, and journey-planning applications.",
+            "D": "The archive is publicly downloadable, but the catalogue does not specify a licence. Transport planning, demand modelling, project assessment, and related policy analysis."
+          },
+          "Output": "A",
+          "Explanation": "The conclusion combines two independently documented properties of Auckland Monthly Cycle Monitoring: They are openly available under CC BY 4.0. Monitoring cycling activity over time at the instrumented locations.",
+          "Level": 2
+        },
+        {
+          "Fact": "The published series reports daily cycle-trip numbers for monitored sites. The fixed network contains 27 selected monitoring sites, so it does not directly observe every cycling trip or every location in Auckland.",
+          "Question": "How should the documented measurement resolution and dataset limitations be considered together?",
+          "Selections": {
+            "A": "Daily cycle-trip totals. They cover selected fixed sites, not every route or cycling trip.",
+            "B": "Hourly counts by sensor. Sensor relocation, inactivity, removal, and missing readings can disrupt comparability.",
+            "C": "Routes, stops and stations, trips, and calendar services. Actual reliability, ridership, and experienced waiting time.",
+            "D": "Sampled household, person, trip, and trip-stage records linked to zones. It is a weighted sample survey, not a continuous census of every trip."
+          },
+          "Output": "A",
+          "Explanation": "The conclusion combines two independently documented properties of Auckland Monthly Cycle Monitoring: Daily cycle-trip totals. They cover selected fixed sites, not every route or cycling trip.",
+          "Level": 2
+        }
+      ]
+    },
+    {
+      "Instruction information": {
+        "Categories": "Question answering"
+      },
+      "Task_Definition": "Answer using only the supplied dataset context.",
+      "Positive Example": [
+        {
+          "Fact": "Auckland Transport collects and publishes the monthly cycle-monitoring data.",
+          "Question": "Which organization provides the Auckland cycle-monitoring data?",
+          "Output": "Auckland Transport.",
+          "Explanation": "Auckland Transport is responsible for publishing or maintaining the dataset.",
+          "Level": 1
+        },
+        {
+          "Fact": "The monitoring program uses 13 city-centre sites and 14 regional sites in Auckland.",
+          "Question": "How many monitored locations are described?",
+          "Output": "Twenty-seven sites: 13 city-centre and 14 regional sites.",
+          "Explanation": "The data cover the following geographic area: Twenty-seven sites: 13 city-centre and 14 regional sites.",
+          "Level": 1
+        },
+        {
+          "Fact": "Daily cycle-trip numbers are compiled and released in monthly reports.",
+          "Question": "How are observations organized over time?",
+          "Output": "Daily counts are compiled monthly.",
+          "Explanation": "The available records have this time coverage: Daily counts are compiled monthly.",
+          "Level": 1
+        },
+        {
+          "Fact": "The published series reports daily cycle-trip numbers for monitored sites.",
+          "Question": "What temporal unit is reported before monthly compilation?",
+          "Output": "Daily cycle-trip totals.",
+          "Explanation": "The data use this reporting resolution: Daily cycle-trip totals.",
+          "Level": 1
+        },
+        {
+          "Fact": "The monitoring data identify monitored sites and the number of cycle trips observed by date.",
+          "Question": "What principal measure does the dataset provide?",
+          "Output": "The number of observed cycle trips at monitored sites by date.",
+          "Explanation": "Each record describes: The number of observed cycle trips at monitored sites by date.",
+          "Level": 1
+        },
+        {
+          "Fact": "Auckland Transport makes the monthly cycle-monitoring data available in CSV format.",
+          "Question": "In what file format are the cycle-monitoring data released?",
+          "Output": "CSV.",
+          "Explanation": "The dataset uses this file organization: CSV.",
+          "Level": 1
+        },
+        {
+          "Fact": "Cycle trips are measured using automated cycle-monitoring equipment at fixed sites.",
+          "Question": "How are the Auckland cycle counts collected?",
+          "Output": "With automated counters installed at fixed monitoring sites.",
+          "Explanation": "The observations were gathered using this method: With automated counters installed at fixed monitoring sites.",
+          "Level": 1
+        },
+        {
+          "Fact": "Auckland Transport states that released open data are free to use under a Creative Commons Attribution 4.0 licence.",
+          "Question": "Under what access condition can the data be reused?",
+          "Output": "They are openly available under CC BY 4.0.",
+          "Explanation": "The stated access terms are: They are openly available under CC BY 4.0.",
+          "Level": 1
+        },
+        {
+          "Fact": "The dataset is used to monitor changes in cycling activity across Auckland's monitored locations.",
+          "Question": "What is the direct analytical use of these data?",
+          "Output": "Monitoring cycling activity over time at the instrumented locations.",
+          "Explanation": "The data support this use: Monitoring cycling activity over time at the instrumented locations.",
+          "Level": 1
+        },
+        {
+          "Fact": "The fixed network contains 27 selected monitoring sites, so it does not directly observe every cycling trip or every location in Auckland.",
+          "Question": "Why should the counts not be interpreted as a complete census of Auckland cycling?",
+          "Output": "They cover selected fixed sites, not every route or cycling trip.",
+          "Explanation": "The stated limitation is: They cover selected fixed sites, not every route or cycling trip.",
+          "Level": 1
+        },
+        {
+          "Fact": "The monitoring program uses 13 city-centre sites and 14 regional sites in Auckland. The published series reports daily cycle-trip numbers for monitored sites.",
+          "Question": "How should the documented spatial coverage and measurement resolution be considered together?",
+          "Output": "Twenty-seven sites: 13 city-centre and 14 regional sites. Daily cycle-trip totals.",
+          "Explanation": "The conclusion combines two independently documented properties of Auckland Monthly Cycle Monitoring: Twenty-seven sites: 13 city-centre and 14 regional sites. Daily cycle-trip totals.",
+          "Level": 2
+        },
+        {
+          "Fact": "Daily cycle-trip numbers are compiled and released in monthly reports. Cycle trips are measured using automated cycle-monitoring equipment at fixed sites.",
+          "Question": "How should the documented temporal coverage and collection methodology be considered together?",
+          "Output": "Daily counts are compiled monthly. With automated counters installed at fixed monitoring sites.",
+          "Explanation": "The conclusion combines two independently documented properties of Auckland Monthly Cycle Monitoring: Daily counts are compiled monthly. With automated counters installed at fixed monitoring sites.",
+          "Level": 2
+        },
+        {
+          "Fact": "The monitoring data identify monitored sites and the number of cycle trips observed by date. Auckland Transport makes the monthly cycle-monitoring data available in CSV format.",
+          "Question": "How should the documented variable definitions and file structure and documentation be considered together?",
+          "Output": "The number of observed cycle trips at monitored sites by date. CSV.",
+          "Explanation": "The conclusion combines two independently documented properties of Auckland Monthly Cycle Monitoring: The number of observed cycle trips at monitored sites by date. CSV.",
+          "Level": 2
+        },
+        {
+          "Fact": "Auckland Transport states that released open data are free to use under a Creative Commons Attribution 4.0 licence. The dataset is used to monitor changes in cycling activity across Auckland's monitored locations.",
+          "Question": "How should the documented data accessibility and availability and usage context be considered together?",
+          "Output": "They are openly available under CC BY 4.0. Monitoring cycling activity over time at the instrumented locations.",
+          "Explanation": "The conclusion combines two independently documented properties of Auckland Monthly Cycle Monitoring: They are openly available under CC BY 4.0. Monitoring cycling activity over time at the instrumented locations.",
+          "Level": 2
+        },
+        {
+          "Fact": "The published series reports daily cycle-trip numbers for monitored sites. The fixed network contains 27 selected monitoring sites, so it does not directly observe every cycling trip or every location in Auckland.",
+          "Question": "How should the documented measurement resolution and dataset limitations be considered together?",
+          "Output": "Daily cycle-trip totals. They cover selected fixed sites, not every route or cycling trip.",
+          "Explanation": "The conclusion combines two independently documented properties of Auckland Monthly Cycle Monitoring: Daily cycle-trip totals. They cover selected fixed sites, not every route or cycling trip.",
+          "Level": 2
+        },
+        {
+          "Fact": "The dataset is used to monitor changes in cycling activity across Auckland's monitored locations. The fixed network contains 27 selected monitoring sites, so it does not directly observe every cycling trip or every location in Auckland.",
+          "Question": "What planning use is supported, and what limitation must qualify that use?",
+          "Output": "Monitoring cycling activity over time at the instrumented locations. However, They cover selected fixed sites, not every route or cycling trip.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        },
+        {
+          "Fact": "The monitoring program uses 13 city-centre sites and 14 regional sites in Auckland. The fixed network contains 27 selected monitoring sites, so it does not directly observe every cycling trip or every location in Auckland.",
+          "Question": "What limits the geographic or population representativeness of this dataset?",
+          "Output": "Twenty-seven sites: 13 city-centre and 14 regional sites. However, They cover selected fixed sites, not every route or cycling trip.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        },
+        {
+          "Fact": "Daily cycle-trip numbers are compiled and released in monthly reports. The published series reports daily cycle-trip numbers for monitored sites.",
+          "Question": "What temporal inference is justified, and what temporal inference should be avoided?",
+          "Output": "Daily counts are compiled monthly. However, Daily cycle-trip totals.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        },
+        {
+          "Fact": "The monitoring data identify monitored sites and the number of cycle trips observed by date. Cycle trips are measured using automated cycle-monitoring equipment at fixed sites.",
+          "Question": "How does the collection method affect interpretation of the recorded variables?",
+          "Output": "The number of observed cycle trips at monitored sites by date. However, With automated counters installed at fixed monitoring sites.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        },
+        {
+          "Fact": "Auckland Transport collects and publishes the monthly cycle-monitoring data. Auckland Transport states that released open data are free to use under a Creative Commons Attribution 4.0 licence.",
+          "Question": "What supports reproducible reuse, and what access or governance condition remains?",
+          "Output": "Auckland Transport. However, They are openly available under CC BY 4.0.",
+          "Explanation": "This interpretation is limited to the supplied documentation and does not infer unreported coverage, causality, or performance.",
+          "Level": 3
+        }
+      ]
+    }
+  ]
+}

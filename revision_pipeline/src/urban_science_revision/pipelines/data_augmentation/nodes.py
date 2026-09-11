@@ -670,6 +670,20 @@ def materialize_task_views(
             if record.get("origin") == "original"
         }
         for record in dataset["records"]:
+            evaluation_metadata = {
+                key: copy.deepcopy(record[key])
+                for key in (
+                    "benchmark",
+                    "evaluation_scope",
+                    "evaluation_only",
+                    "country",
+                    "region",
+                    "perspectives",
+                    "evidence_urls",
+                    "source_review_status",
+                )
+                if key in record
+            }
             generation_view = {
                 "example_id": f"{record['variant_id']}__generation",
                 "seed_id": record["seed_id"],
@@ -680,6 +694,7 @@ def materialize_task_views(
                 "Level": record["Level"],
                 "prompt": generation_prompt(record),
                 "target": generation_target(record),
+                **evaluation_metadata,
             }
             positive_verification = {
                 "example_id": f"{record['variant_id']}__verify_correct",
@@ -693,6 +708,7 @@ def materialize_task_views(
                 "candidate_polarity": "positive",
                 "prompt": verification_prompt(record, record["correct_answer_text"]),
                 "target": positive_verification_target(record),
+                **evaluation_metadata,
             }
             negative_verification = {
                 "example_id": f"{record['variant_id']}__verify_incorrect",
@@ -706,6 +722,7 @@ def materialize_task_views(
                 "candidate_polarity": "negative",
                 "prompt": verification_prompt(record, record["incorrect_candidate"]),
                 "target": negative_verification_target(record),
+                **evaluation_metadata,
             }
             enriched = copy.deepcopy(record)
             enriched["tasks"] = {
@@ -738,6 +755,7 @@ def materialize_task_views(
                             completed_instruction(original)
                         ),
                         "target": completed_instruction(record),
+                        **evaluation_metadata,
                     }
                 )
             counts[f"{record['source_name']}:canonical"] += 1
